@@ -1,0 +1,48 @@
+<scroll-view scroll-y='true' style="height: {{scrollHeight}}px" scroll-with-animation="true" bindscrolltolower='loadMore' bindscroll='goToScroll' scroll-top='{{scrollTop}}'>
+    <view id="container">
+        <view class="content">
+            <view class="dou-head">
+                <image src="../../images/meidou@2x.png"></image>
+                当前
+                <view class="dou-head-con">{{meidouNum}}</view>
+                个
+            </view>
+
+            <block wx:if='{{noDetails}}'>
+                <view class="nodou">
+                    <image class="nodou-img" src="../../images/nomeidou.png"></image>
+                </view>
+                <view class="nodou-content">
+                    暂时还没有美豆哦~
+                </view>
+            </block>
+
+            <block wx:if="{{!noDetails}}">
+                <view class="dou-body">
+                    <view class="dou-title">美豆明细</view>
+
+                    <view class="dou-details" wx:for='{{detailList}}' wx:key='index'>
+                        <view class='detail-left'>
+                            <view class="detail-shop">{{item.remark}}</view>
+                            <view class="detail-time">{{item.createTimeFmt}}</view>
+                        </view>
+
+                        <view class="detail-num {{item.count==1?'num-green':'num-red'}}">{{item.changeGomedo}}</view>
+                    </view>
+                </view>
+                <view class="con-end" wx:if='{{endFlag}}'>已经是最后一页了哦</view>
+                <view class="con-end" wx:if='{{!endFlag}}'>玩命加载中...</view>
+
+            </block>
+
+
+
+        </view>
+    </view>
+
+    <view class='gotop' hidden="{{!showGoTop}}" bindtap='backToTop'>
+        <image class="gotop-img" src="../../images/gotop.png">
+
+        </image>
+    </view>
+</scroll-view>

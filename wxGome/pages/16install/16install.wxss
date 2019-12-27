@@ -1,0 +1,265 @@
+/* pages/orderTracking/orderTracking.wxss */
+
+.blue {
+  color: #1b84f5;
+}
+
+.ml80 {
+  margin-left: 80rpx;
+}
+
+.page_top_line {
+  width: 100%;
+  border-top: #ddd solid 1rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.tracking_msg_box {
+  background: #fff;
+  padding: 15rpx 30rpx;
+  font: 24rpx/40rpx 'Microsoft Yahei';
+  padding-left: 20rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  display: flex;
+  display: -webkit-flex; /* Safari */
+}
+
+.product_msg {
+  width: 160rpx;
+  height: 160rpx;
+  border: #e6e6e8;
+  position: relative;
+  float: left;
+  margin-top: 10rpx;
+}
+
+.product_msg image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.product_msg text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35rpx;
+  line-height: 35rpx;
+  background: #727073;
+  color: #fff;
+  text-align: center;
+}
+
+.tracking_msg {
+  color: #a5a5a5;
+  line-height: 45rpx;
+  margin-left: 13rpx;
+  float: left;
+  font-size: 24rpx;
+  flex: 1;
+}
+
+.copy {
+  color: #333;
+  font: 23rpx/38rpx 'Microsoft Yahei';
+  width: 80rpx;
+  height: 38rpx;
+  border: 1rpx solid #cdcdcd;
+  border-radius: 20rpx;
+  float: right;
+  margin-top: 1rpx;
+  text-align: center;
+}
+
+.tracking_msg .grey {
+  color: #999;
+}
+
+.tracking_msg .black {
+  color: #333;
+}
+
+.tracking_msg .blue {
+  color: #1b84f5;
+}
+
+.font20 {
+  font-size: 20rpx;
+}
+
+.personnel_info {
+  padding: 24rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.msg_info {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+
+.msg_info image {
+  width: 68rpx;
+  height: 68rpx;
+  overflow: hidden;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  float: left;
+}
+
+.name_view {
+  width: 220rpx;
+  height: 28rpx;
+  float: left;
+}
+
+.msg_info text {
+  font: 26rpx/26rpx 'Microsoft YaHei';
+  color: #333;
+  margin-right: 10rpx;
+}
+
+.msg_info .icon {
+  display: block;
+  height: 24rpx;
+  font: 22rpx/24rpx 'Microsoft YaHei';
+  color: #f20c59;
+  border: 1rpx solid #f20c59;
+  border-radius: 4rpx;
+  padding: 2rpx;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 36rpx;
+  margin-top: 12rpx;
+}
+
+.contact .blue {
+  padding-right: 40rpx;
+}
+
+.tracking_box {
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+
+.icon_list {
+  float: left;
+}
+
+.tracking_list {
+  float: left;
+  width: 720rpx;
+}
+
+.tracking_item {
+  padding: 20rpx 0;
+  position: relative;
+  border-top: #e6e6e6 solid 1rpx;
+  margin-top: -1rpx;
+  color: #919599;
+}
+
+.time {
+  color: #b3b8bd;
+}
+
+.tracking_list .tracking_item, .address, .time {
+  display: block;
+}
+
+.address {
+  font-size: 26rpx;
+  padding-right: 30rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  padding-right: 30rpx;
+}
+
+.tracking_item {
+  margin-left: 50rpx;
+}
+
+.tracking_item_green {
+  color: #15a100;
+}
+
+.tracking_item_green .time {
+  color: #63d437;
+}
+
+.line {
+  width: 1rpx;
+  background: #ddd;
+  position: absolute;
+  top: 35rpx;
+  left: 42rpx;
+  bottom: 85rpx;
+}
+
+.icon_track {
+  width: 14rpx;
+  height: 14rpx;
+  background: #ccc;
+  border: #fff solid 10rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 28rpx;
+  left: -53rpx;
+}
+
+.tracking_item_green .icon_track {
+  width: 14rpx;
+  height: 14rpx;
+  background: #15a100;
+  border: 7rpx solid #63d437;
+  box-shadow: 0px 10rpx #fff;
+  top: 32rpx;
+  left: -49rpx;
+}
+
+.icon_track image {
+  width: 26rpx;
+  height: 26rpx;
+  float: left;
+}
+
+.white_line {
+  width: 14rpx;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 62rpx;
+  left: -40rpx;
+}
+
+.arrow {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.sapn-line {
+  width: 2rpx;
+  height: 26rpx;
+  background-color: #cdcdcd;
+}
+
+.evaluate_text {
+  padding-left: 37rpx;
+  color: #1b84f5;
+}

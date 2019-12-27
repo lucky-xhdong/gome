@@ -1,0 +1,84 @@
+<!--cart.wxml-->
+<view class='container-box' style="height:{{height}}" wx:if="{{hasStatus}}">
+  <import src="tpl/cartsEmpty.wxml" />
+  <import src="tpl/cartsSection.wxml" />
+  <import src="tpl/product.wxml" />
+
+  <view class="container">
+    <!-- 购物车为空-->
+    <view wx:if="{{status =='empty'}}">
+      <template is="cartsEmpty" />
+    </view>
+    <!-- 购物车不为空-->
+    <view wx:else class="carts-box">
+      <!--滚动-->
+      <scroll-view scroll-y="true" class="carts-box-contents">
+        <!--遍历店铺-->
+        <article wx:for="{{carts}}" wx:key="*this" wx:for-item="cart" class="cart-box">
+          <!-- 店铺头-->
+          <header class="header-box">
+            <template is="cart-header" class="cart-box-header" data="{{...cart}}" />
+          </header>
+          <!--店铺contents-->
+          <section class="cart-box-contents">
+            <!--遍历店铺组-->
+            <article class="group-box" wx:for="{{cart.commerceItemsGroups}}" wx:key="*this" wx:for-item="group" wx:for-index="groupId">
+              <!--店铺组头-->
+              <header wx:if="{{group.promotionHeads.length>0}}" class="group-box-header">
+                <template is="cart-group-header" data="{{...group,cart,groupId}}" />
+              </header>
+              <!--店铺组contents-->
+              <div class="group-box-contents {{group.commerceItemsGroup[0]._state.cssClass}}">
+                <div wx:if="{{group.commerceItemsGroup[0]._isSuit}}" class="product-guider">套装商品中间的连线</div>
+                <!-- 遍历product-->
+                <section class="group-box-content " wx:for="{{group.commerceItemsGroup}}" wx:key="*this" wx:for-item="product" wx:for-index="productId">
+                  <template is="product" data="{{...product, meiDians, singleProductObj}}" />
+                </section>
+              </div>
+              <!-- 套装特殊处理-->
+              <div wx:if="{{group.promotionHeads[0][0].type=='TZ'}}" class="group-price-box {{group.commerceItemsGroup[0]._state.cssClass}}">
+                <div class="group-price-box-top">
+                  <view class="t-price" data-before="套装价：">
+                    <em>¥</em>
+                    <span>{{group.pomotionSummary._price}}</span>
+                  </view>
+                </div>
+                <div class="group-price-count">
+                  <!--套装和搭配购商品  如果是下架状态只显示商品件数  不显示数量框-->
+                  <div class="picker-count" wx:if="{{(group.promotionHeads[0][0].type=='TZ' && group.commerceItemsGroup[0]._stateGroup.type=='OFF_SHELVES') || (group.promotionHeads[0][0].type=='DPG' && group.commerceItemsGroup[0]._state.type=='OFF')}}">
+                    <em class="disabled">{{group.commerceItemsGroup[0].quantity}}</em>
+                  </div>
+                  <div class="picker-count" wx:elif="{{group.commerceItemsGroup[0].reserveStatus == 'QG' || group.commerceItemsGroup[0].showDisabled}}">
+                    <span class="select">
+                      <em class="disabled">{{group.commerceItemsGroup[0].quantity}}</em>
+                      <image src="/images/select.png" />
+                    </span>
+                  </div>
+                  <picker wx:else class="picker-count" bindchange="modifyProductNum" data-id="{{group.commerceItemsGroup[0].itemId}}" value="{{group.commerceItemsGroup[0].quantity-1}}" range="{{[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]}}">
+                    <span class="select">
+                      <em>{{group.commerceItemsGroup[0].quantity}}</em>
+                      <image src="/images/select.png" />
+                    </span>
+                  </picker>
+                  <span class="dele-tao" bindtap="deleteProduct" data-id="{{group.commerceItemsGroup[0].itemId}}">删除</span>
+                </div>
+              </div>
+            </article>
+          </section>
+        </article>
+      </scroll-view>
+      <!--购物车底部-->
+      <block wx:if="{{hasStatus == true}}">
+        <footer class="carts-box-footer">
+          <template is="carts-footer" data="{{...profile}}" />
+        </footer>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='container-box' style="height:{{height}}" wx:else>
+  <view class='cont'>
+    <image class='logo' src='../../images/cart-no-login.png'></image>
+    <button class='login-btn' lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo">开启授权</button>
+  </view>
+</view>

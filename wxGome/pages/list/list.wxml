@@ -1,0 +1,123 @@
+<view class="search">
+  <!-- ==== 顶部的搜索区域以及搜索提示区域 ==== -->
+	<view class="search-container">
+    	<view class="search-box">
+			<view class="input-wrapper">
+	      		<input class="search-input" bindinput="bindInputEvt" bindblur="bindBlurEvt" focus="{{focus}}" bindfocus="bindFocusEvt" placeholder="输入您想要的商品" value="{{inputValue}}" bindconfirm="inputSearchEvt" />
+	      		<icon class="search_icon" type="search" size="16" color="#999" />
+				<view class="search_cancel {{delBtnIfShow == true ? ' ' : 'hide'}}" bindtap="clearInputEvt">
+					<icon type="cancel" size="16" color="#999" />
+				</view>
+			</view>
+
+			<button wx:if="{{searchBtnIfShow}}" hover-class="none" size="mini" bindtap="inputSearchEvt" class="{{searchBtnColor}}">搜索</button>
+    	</view>
+	</view>
+	<!-- ==== 搜索提示区域 ==== -->
+	<view class="search-tips {{searchTips.length>0 && flagQestion ==2 ? '' : 'hide'}}">
+		<view class="search-tips-event" bindtap="shortcutSearchEvt" wx:for="{{searchTips}}" wx:key="searchId" data-key="{{item}}">{{item}}</view>
+	</view>
+
+  <!-- ==== 搜索历史和搜索热词区域 ==== -->
+	<view class="search-cont" wx-if="{{flagQestion == 0}}">
+		<!-- == 搜索历史，数据从缓存中获取 == -->
+		<view class="search-history"  wx:if="{{searchHistory.length > 0}}">
+			<view class="search-tit">搜索历史</view>
+			<view class="history-box">
+			    <view class="search-history-event" bindtap="shortcutSearchEvt" data-key="{{item}}" class="historyItem" wx:for="{{searchHistory}}" wx:key="historyId">
+			      {{item}}
+			    </view>
+		    </view>
+			<view class="history-no" hover-class="clear" bindtap="clearHistoryEvt">清除</view>
+		</view>
+
+		<!-- == 热词搜索 从接口中获取数据 == -->
+		<view class="hot-search">
+			<view class="search-tit">热词搜索</view>
+			<view class="hot-box">
+				<view class="search-hot-event" wx:for="{{hotSearch.rList}}" class="hotItem" wx:key="hotId" bindtap="shortcutSearchEvt" data-key="{{item.key}}">{{item.key}}</view>
+			</view>
+		</view>
+	</view>
+
+	<block wx:if="{{flagQestion == 1}}">
+		<!-- ==== 搜索结果筛选区域 ==== -->
+		<view class="search-tab-box">
+			
+			<view class="search-tab  {{sort== 0 ? 'active' : ''}}" data-sort="0" bindtap="bindSortEvt">
+				<text>综合</text>
+			</view>
+			<view class="search-tab {{sort==10 ? 'active' : ''}}" data-sort="10" bindtap="bindSortEvt">
+				<text>销量</text>
+			</view>
+			<view class="search-tab {{sort==20 || sort ==21 ? 'active' : ''}}" data-sort="{{sortFlag}}" bindtap="bindSortEvt">
+				<text>价格</text>
+				<image class="pri_updown" src="../../images/pri_up.png"  wx:if="{{sort==20}}"></image>
+				<image class="pri_updown" src="../../images/pri_down.png"  wx:elif="{{sort==21}}"></image>
+				<image class="pri_updown" src="../../images/pri_updown.png" wx:else></image>
+			</view>
+			<view class="search-tab filterType {{isFilter ? 'active' : ''}}" bindtap="bindFilterEvt" wx:if="{{filterItem}}">
+				<text>筛选</text>
+				<image wx:if="{{isFilter}}" src="../../images/filter-cur.png"></image>
+	      <image wx:else src="../../images/filter.png"></image>
+			</view>
+		</view>
+		
+		<!-- 蓝券反查提示 -->
+	    <view wx:if="{{copid}}" class="coupbg" >{{copname}}</view>
+
+	</block>	
+</view>
+
+<view class="search-lists-results {{ copid ? 'changep' : ''}}" wx:if="{{flagQestion == 1}}">
+	<!-- ==== 搜索无结果提示 ==== -->
+	<view wx:if="{{listNoData && searchLists.length==0}}" style="text-align:center; font-size:28rpx; padding-top:300rpx; background:#fff;">抱歉，没有找到相关结果</view>
+
+	<!-- ==== 搜索结果列表区域 ==== -->
+	<view class="search-lists-con" hidden="{{searchLists.length==0}}">
+		<scroll-view class="search-list" style="height:{{scrollHeight}}px" scroll-y="true" bindscrolltolower="bindscrolltolowerEvt" scroll-top="{{scrollTop}}">
+			<block wx:for="{{searchLists}}" wx:key="listId">
+				<navigator url="{{item.wxaUrl}}" >
+					<template is="seachList" data="{{item}}"/>
+				</navigator>
+			</block>
+			<view class="loadMore" wx:if="{{loadMore}}">没有更多商品啦~</view>
+		</scroll-view>
+	</view>
+</view>
+
+<loading hidden="{{loading}}">加载中...</loading>
+
+<template name="seachList">
+  <view class="listItem" hover-class="listItem-hover">
+    <view class="list-img">
+      <image src="https:{{item.sImg}}_160.jpg" />
+    </view>
+    <view class="list-txt">
+      <view class="txt-tit">
+      <view class="txt-name"><text class="txt-tag" wx:if="{{item.productTag == 1}}">自营</text>{{item.alt}}</view>
+      </view>
+		<view class="return-money" wx-if="{{ item.rebate == 1 }}">
+			<text class="txt">返利</text>
+		</view>
+      <view class="priceType-wrapper">
+
+        <view class="txt-pri">￥{{item.price}}</view>
+        <view class="priceType" wx:if="{{item.priceType == 'RUSHBUYPRICE'}}">
+          <view class="image-box">
+            <image src="../../images/b-title-rush.png" mode="aspectFit"></image>
+          </view>
+          <text class="txt">抢购商品</text>
+        </view>
+        <view class="priceType" wx:if="{{item.priceType == 'TUANPRICE'}}">
+          <view class="image-box">
+            <image src="../../images/b-title-rush.png" mode="aspectFit"></image>
+          </view>
+          <text class="txt">团购商品</text>
+        </view>
+      </view>
+      <view class="txt-pri"></view>
+      <view class="txt-evaluateCount">{{item.evaluateCount}}人评价</view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,65 @@
+<!-- cartsSection.wxml -->
+<template name="cart-header">
+    <div class="cart-header-content">
+        <block style="display: inline-block;vertical-align: middle;width: 100rpx; height: 100rpx; background: red"></block>
+        <!--如果是自营并且没有可选商品，将选中状态置灰不可点-->
+        <block wx:if="{{shopId=='GOME' && _showDisabled}}">
+            <div wx:if="{{shopId != 'VNPOP'}}" class="inline-block check-box-col {{_showDisabledClass}}" data-id="{{shopId}}" data-not="{{_showDisabled}}" data-checked="{{shopInfoProfileVO.allItemsSelected}}">
+                <image class="check-box--default" src="/images/cart-uncheck.png"></image>
+            </div>
+        </block>
+        <block wx:else>
+            <div wx:if="{{shopId != 'VNPOP'}}" class="inline-block check-box-col {{_showDisabledClass}}" bindtap="checkCart" data-id="{{shopId}}" data-not="{{_showDisabled}}" data-checked="{{shopInfoProfileVO.allItemsSelected}}">
+                <image wx:if="{{shopInfoProfileVO.allItemsSelected == true}}" class="check-box--checked" src="/images/cart-checked.png"></image>
+                <image wx:else class="check-box--default" src="/images/cart-check.png"></image>
+            </div>
+        </block>
+        <span class="header-title inline-block" wx:if="{{shopId=='GOME'}}">国美自营</span>
+        <span class="header-title inline-block" wx:else> {{_shopName}} </span>
+    </div>
+</template>
+
+<template name="cart-group-header">
+<block wx:for="{{promotionHeads}}" wx:key="*this" wx:for-item="promotions">
+    <div wx:if="{{promotions[0].type!='DPG'}}" class="group-header {{promotions[0]._state.cssClass}}">
+        <!--非搭配购处理-->
+        <div class="block {{promotions[0]._showDisabled && promotions[0]._reserveStatus != 'QGQ' && promotions[0]._reserveStatus != 'QG'  ? 'disabled' : ''}}" wx:if="{{promotions[0].type != 'DPG'}}">
+            <div wx:if="{{promotions[0]._showDisabled}}" class="inline-block check-box-col {{promotions[0]._state.cssClass}}" data-attr="{{promotions[0]._state}}" data-id="{{commerceItemsGroup[0].itemId}}" data-checked="{{promotions[0].selected}}">
+                <image class="check-box--default product-check " src="/images/cart-uncheck.png"></image>
+            </div>
+            <div wx:elif="{{promotions[0].type=='TZ'}}" class="inline-block check-box-col {{promotions[0]._state.cssClass}}" bindtap="checkProduct" data-attr="{{promotions[0]._state}}" data-id="{{commerceItemsGroup[0].itemId}}" data-checked="{{promotions[0].selected}}">
+                <image wx:if="{{promotions[0].selected == true}}" class="check-box--checked" src="/images/cart-checked.png"></image>
+                <image wx:else class="check-box--default" src="/images/cart-check.png"></image>
+            </div>
+            <em wx:if="{{promotions[0].type=='TZ'}}" class="group-header-state">{{promotions[0]._state.label}}</em>
+            <span wx:if="{{promotions[0].type=='TZ'}}" class="group-tz-title title">套装</span>
+            <!--<span class="group-header-label inline-block"  >{{promotions[0]._label}}</span>-->
+            <span class="group-promotion-title title" wx:else>{{promotions[0]._title}}<line>|</line></span>
+            <!--优惠信息可选-->
+            <div class="group-picker-wrap" wx:if="{{promotions.length >1}}">
+                <picker class="inline-block picker-base" data-shop-id="{{cart.shopId}}" data-values="{{promotions}}" value="0" bindchange="pickerOnGroupHead" range="{{promotions}}" range-key="_label">
+                    <view class="picker group-header-label">{{promotions[0]._label}}</view>
+                </picker>
+            </div>
+            <!--优惠信息不可选-->
+            <div class="inline-block group-header-label-wrap {{promotions[0]._showDisabled && promotions[0]._reserveStatus != 'QGQ' && promotions[0]._reserveStatus != 'QG' ? 'disabled' : ''}}" wx:else>
+                <span class="group-header-label" wx:if="{{promotions[0]._label}}">{{promotions[0]._label}}</span>
+            </div>
+        </div>
+    </div>
+</block>
+</template>
+
+<template name="carts-footer">
+    <div class="carts-footer-checked {{_showDisabledClass}}" bindtap="checkAllCarts" data-checked="{{allItemsSelected}}" data-not="{{showDisabled}}">
+        <image wx:if="{{allItemsSelected == true}}" class="check-box--checked" src="/images/cart-checked.png"></image>
+        <image wx:else class="check-box--default" src="/images/cart-check.png"></image>
+        <div class="sele-all">全选</div>
+    </div>
+    <div class="carts-footer-amount">
+        总计:<span>¥{{_totalPrice}}</span>
+        <div class="footer-amount-favorable" wx:if="{{_discPrice>0}}">已优惠:¥{{_discPrice}}</div>
+    </div>
+    <div class="carts-footer-account {{_notClass}}" bindtap="submitCarts" data-count="{{itemCount}}">
+        去结算<span>({{itemCount||0}})</span></div>
+</template>

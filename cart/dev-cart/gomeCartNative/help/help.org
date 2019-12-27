@@ -1,0 +1,110 @@
+#+TITLE: front-server
+* 描述
+基于 node 的前端服务器
+** 功能
+- 支持 window osx linux
+- java 渲染 jsp
+- java 渲染 freemark
+- 多种形式 url=>json 映射
+- 支持 js css url 合并
+- 接口映射到服务器-todo
+- 内嵌模版可打包到前端 js 不需要引入模版引擎源码
+- sprite 支持
+* 初始化
+** 推荐用法
+- win上
+#+BEGIN_SRC sh
+git clone https://git.oschina.net/diqye/g-cart-server.git C:\gm\g-cart-server
+cd your-project
+配置文件 可从c:\gm\g-cart-server里复制g-cart-server.json到本目录改写
+node c:\gm\g-cart-server\server.js
+#+END_SRC
+- osx or linux上
+#+BEGIN_SRC sh
+git clone https://git.oschina.net/diqye/g-cart-server.git ~\gm\g-cart-server
+chmod 777 ~/gm/g-cart-server/lib/xxxxxx/start.sh
+cd your-project
+配置文件 可从~\gm\g-cart-server里复制g-cart-server.json到本目录改写
+node ~\gm\g-cart-server\server.js
+#+END_SRC
+* 配置文件
+** g-cart-server.json
+#+BEGIN_SRC javascript
+{
+    "jettry": {
+        "root": "E:/workspaces/front-cart",
+        "port": 7776
+    },
+    "node": {
+        "port": 8080
+    },
+    "statics": [
+        "E:/workspaces/dev/Storefront/storedocroot.war"
+    ],
+    "project": {
+        "request": [
+            "/request.json"
+        ],
+        "routes": [
+        	"./routes/cart-routes.json",
+        	"./routes/order-success.json",
+        	"./routes/shopping-routes.json",
+            [
+                "/help",
+                "{cwd}/help/help.html"
+            ],[
+                "/",
+                "{config.jettry.root}/README.html"
+            ],[
+                "/:site/:page",
+                "/{params.site}/{params.page}.ftl",
+                "/data/{params.site}/{params.page}.json"
+            ],[
+                "/icon",
+                "{config.statics.0}/xxx/1.0.0/html/icons/index.html"
+            ],[
+                "/api/:type/:method",
+                "/data/{params.type}/{params.method}.json"
+            ]
+        ],
+        "tplTofn":{
+            "src":"{config.statics.0}/xxx/1.0.0/template",
+            "dist":"{config.statics.0}/xxx/1.0.0/templatefn",
+            "/cart.js":[
+                "/common.tpl",
+                "/cart"
+            ]
+        },
+        "sprite":{
+            "src":"{config.statics.0}/xxx/1.0.0/css/i/sprite",
+            "dist":"{config.statics.0}/xxx/1.0.0/css/i/sprite.png",
+            "selector":".c-i",
+             "html":"{config.statics.0}/xxx/1.0.0/html/icons/index.html",
+            "css":"{config.statics.0}/xxx/1.0.0/css/i/sprite.css"
+        }
+    }
+}
+#+END_SRC
+** config 说明
+| path            | desc                         |
+|-----------------+------------------------------|
+| jettry.root     | jsp root path                |
+| project.statics | js css image path            |
+| project.request | jsp or freemark request data |
+| project.routes  | route mapping                |
+| project.sprite  | auto sprite                  |
+| project.tplTofn | auto tpl                     |
+|-----------------+------------------------------|
+配置文件默认是在当前目录 可以分离出来 但需要自己写脚本 node xxxxx/server.js 放到分离的目录
+** project.routes 说明
+1. routes 中可以引入另外文件的 routes 路径以~.~开头（当前 config.json 的路径)
+2. 配置的路由规则相同 先进入前面的路由 如果文件未找到会接着往下走 直到 404
+3. peoject.routes 中可以引用的变量
+   | name     | 描述                     |
+   |----------+--------------------------|
+   | =cwd=    | server 运行的目录        |
+   | =config= | config.json 文件数据结构 |
+   | =params= | url 中的匹配项           |
+   | =query=  | querystirng              |
+ 
+ 

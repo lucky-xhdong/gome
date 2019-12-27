@@ -1,0 +1,20 @@
+{
+  "name": "gome-gront-cart",
+  "version": "1.0.0",
+  "description": "国美在线前端购物车",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.ds.gome.com.cn:front-cart/front-cart.git"
+  },
+  "author": "qinzhenlong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "gfe-node-build": "^1.0.10",
+    "swig": "^1.4.2"
+  }
+}

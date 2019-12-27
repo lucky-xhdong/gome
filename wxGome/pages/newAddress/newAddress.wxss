@@ -1,0 +1,95 @@
+/* ==== 公共样式 ==== */
+text {font-size: 26rpx;font-family: 'Microsoft Yahei';}
+.col-b1 {color: #2e2e2e;} /* 姓名类颜色 */
+.col-gray1 {color: #6d6d6d;} /* 地址类颜色 */
+.col-red1{color: #e33336;}/* 红色 */
+
+.chooseBtn {
+    background: none;
+    color:#46c;
+}
+.txt {
+    text-align: center;
+}
+
+/* ==== 地址选择 ==== */
+.newAddrItem{
+	border-top: 1px solid #e3e3e3;
+}
+.newAddrItem .item{
+	background: #fff;
+	display: -webkit-box;
+	height: 3em;
+	line-height: 3em;
+	width: 96%;
+	padding: 0 2%;
+	margin: 0 auto;
+	border-bottom: 1px solid #e3e3e3;
+}
+.newAddrItem .item .picker{
+	height: 3em;
+	line-height: 3em;
+	font-size: 26rpx;
+	color: #006699;
+}
+.newAddrItem .last-item{
+	border-bottom:none;
+}
+.newAddrItem .item .name{
+	width:180rpx;
+	height: 3em;
+	line-height: 3em;
+}
+.newAddrItem .item .nameInput{
+	-webkit-box-flex: 1;
+	height: 3em;
+	line-height: 3em;
+	width: 90%;
+	padding-right: 5%;
+}
+.newAddrItem .tips{
+	width: 97%;
+	margin: 10rpx auto 20rpx;
+	color: #969696;
+	font-size: 24rpx;
+}
+.confirm button{
+	background-color: #1aad19;
+	color: #fff;
+	width: 96%;
+	margin: 0 auto;
+}
+.confirm .button-hover{
+	opacity: .8;
+}
+.newAddrItem .checkRadio{
+	display:-webkit-box;
+	margin-bottom: 15rpx;
+	border-top: 1px solid #e6e6e6;
+}
+.newAddrItem .checkRadio .checkAddr{
+	-webkit-box-flex:1;
+}
+.newAddrItem .checkRadio .radio {
+	width: 70rpx;
+	height: 50rpx;
+	position: relative;
+}
+.newAddrItem .checkRadio .radio image{
+	position: absolute;
+	left: 15rpx;
+	top: 15rpx;
+	width: 50rpx;
+	height: 50rpx;
+}
+.view_show{
+	display: inline-block;
+}
+.view_hide{
+	display: none;
+}
+/* 引入选择城市样式 */
+/* @import "../selectarea/selectarea.wxss"; */
+
+
+

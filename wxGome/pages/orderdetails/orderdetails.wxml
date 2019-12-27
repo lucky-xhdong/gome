@@ -1,0 +1,376 @@
+<!--pages/orderdetails/orderdetails.wxml-->
+<view class="page_top_line"></view>
+<view style="width: 100%; overflow-x:hidden;">
+    <!-- 不是待付款的订单，显示订单跟踪信息 -->
+    <block wx:if="{{payOrderNow==false&& shipPackageShowModelFlag=='0'}}">
+        <navigator class="picking" url="../orderTracking/orderTracking?orderId={{orderId}}&shippingGroupId={{shippingGroupId}}&imgUrl={{productDetailInfo[0].imgUrl}}&number={{goodNumber}}&sgId={{orderInfo.sgId}}">
+            <view class="picking_relative_box">
+                <image class="icon_cart" src="../../images/cart.png" mode="scaleToFill"></image>
+                <text class="picking_msg">{{orderHistories[orderHistories.length-1].orderHistoryInfo}}</text>
+                <text class="data_msg">{{orderHistories[orderHistories.length-1].orderHistoryTime}}</text>
+                <image class="icon_arrowdown" src="../../images/arrowright.png" mode="aspectFit"></image>
+            </view>
+        </navigator>
+    </block>
+    <!-- 多包裹配送情况 -->
+    <block wx:if="{{shipPackageShowModelFlag=='1'}}">
+        <navigator class="picking" url="../packageInfo/packageInfo?orderId={{orderId}}&shippingGroupId={{shippingGroupId}}">
+            <view class="picking_relative_box">
+                <image class="icon_cart" src="../../images/cart.png" mode="scaleToFill"></image>
+                <text class="picking_msg" wx:if="{{gomeState=='PEX'}}">该配送单中的部分商品已发货，点击查看包裹信息</text>
+                <text class="picking_msg" wx:if="{{gomeState=='EX'}}">该配送单拆分成{{shipPackageNumber}}个包裹，点击查看包裹信息</text>
+                <text class="data_msg">{{orderHistories[orderHistories.length-1].orderHistoryTime}}</text>
+                <image class="icon_arrowdown" src="../../images/arrowright.png" mode="aspectFit"></image>
+            </view>
+        </navigator>
+    </block>
+    <view class="picking consignee">
+        <view class="top_line"></view>
+        <view class="picking_relative_box">
+            <image class="icon_address" src="../../images/address.png" mode="scaleToFill"></image>
+            <view class="consignee_msg">
+                <block wx:if="{{orderInfo.isShowgomeECardAddress=='N'}}">
+                    <view class="consignee_text">{{addressInfo.consignee}}</view>
+                    <view>{{addressInfo.mobile}}</view>
+                    <!-- {{addressInfo.phone}} {{addressInfo.email}} -->
+                </block>
+                <block wx:else>
+                    <block wx:if="{{orderInfo.orderType=='gomeVirtualCardSite'}}">
+                        <view>{{orderInfo.gomeECardValidateMobileNumber}}</view>
+                    </block>
+                </block>
+            </view>
+            <view class="consignee_address">
+                <block wx:if="{{orderInfo.isShowStoreAddress=='Y'}}">
+                    {{orderInfo.storeAddress.length
+                    <14?orderInfo.storeAddress:orderInfo.storeAddress.substring(0,10)+ "..." }} </block>
+                        <block wx:else>
+                            {{addressInfo.address}}
+                        </block>
+            </view>
+        </view>
+    </view>
+
+    <view class="picking_status">
+        <view class="list">
+            <text class="grey">状态：</text>
+            <text class="black">{{orderHeadInfo.state}}</text>
+        </view>
+        <block wx:if="{{orderHeadInfo.orderType=='10'}}">
+            <view class="list" wx:if="{{orderInfo.isShowdepositsAmount}}">
+                <text class="grey wid140">定金金额：</text>
+                <text class="red">¥ {{orderInfo.depositsAmount}} <text class="grey">(可抵：orderInfo.depositExpandAmount)</text></text>
+            </view>
+            <view class="list" wx:if="{{orderInfo.isShowbalanceAmount=='Y'}}">
+                <text class="grey wid140">尾款金额：</text>
+                <text class="red" wx:if="{{orderInfo.balanceAmount>0}}">¥ {{orderInfo.balanceAmount}}
+                    <text class="grey" wx:if="{{orderInfo.shippingAmount>0}}">(含运费)</text>
+                <text class="grey" wx:if="{{orderInfo.balanceExpandAmount}}">(已优惠：{{orderInfo.balanceExpandAmount>0}})</text>
+                </text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="list">
+                <text class="grey wid140">订单金额：</text>
+                <text class="red">¥ {{orderInfo.needPayAmount}}</text>
+            </view>
+        </block>
+        <view wx:if="{{orderInfo.isShowSG=='Y'}}">
+            <text class="grey">
+                <block wx:if="{{orderInfo.orderType=='renovationSite'}}">子订单号：</block>
+                <block wx:else>配送单号：</block>
+            </text>
+            <text class="black">{{orderInfo.sgId}}</text>
+        </view>
+        <view>
+            <text class="grey">下单时间：</text>
+            <text class="black">{{nodes[0].date}}</text>
+        </view>
+        <button class="to_pay" wx:if="{{payOrderNow}}" type="default" bindtap="toPlay" hover-class="other-button-hover">去支付</button>
+        <button class="cancel_order" wx:if="{{cancelOrder}}" type="default" bindtap="cancelOrder" hover-class="other-button-hover">取消订单
+        </button>
+    </view>
+
+    <!-- 商品列表 -->
+    <view class="order_goods_box_list">
+        <block wx:for="{{productDetailInfo}}" wx:for-item="productDetail" wx:key="index">
+            <view class="goods_list">
+                <image wx:if="{{productDetail.imgUrl!=null}}" src="http:{{productDetail.imgUrl}}"></image>
+                <image wx:else src=".././../images/default1.jpg"></image>
+                <view class="goods_box">
+                    <text class="goods_name">{{productDetail.name}}</text>
+                    <view class="goods_price_box">
+                        <text class="goods_price">¥ {{productDetail.price}}</text>
+                        <text class="goods_num"> × {{productDetail.quantity}} 件</text>
+                    </view>
+                </view>
+                <view class="bottom_line"></view>
+            </view>
+        </block>
+        <block wx:for="{{freeGiftForOrder}}" wx:for-item="freeGiftDetail" wx:key="index">
+            <view class="goods_list">
+                <image wx:if="{{freeGiftDetail.couponImgUrl!=null}}" src="http:{{freeGiftDetail.couponImgUrl}}"></image>
+                <image wx:else src=".././../images/default1.jpg"></image>
+                <view class="goods_box">
+                    <view class="goods_name_box">
+                        <text class="freeGift" wx:if="{{freeGiftDetail.type=='freeGift'}}">赠品</text>
+                        <text class="goods_name">{{freeGiftDetail.couponName}}</text>
+                    </view>
+                    <view class="goods_price_box">
+                        <text class="goods_price">¥ {{freeGiftDetail.couponAmount}}</text>
+                        <text class="goods_num"> × {{freeGiftDetail.couponQuantity}} 件</text>
+                    </view>
+                </view>
+                <view class="bottom_line"></view>
+            </view>
+        </block>
+        <view class="order_goods_box_line"></view>
+    </view>
+
+    <!-- 配送信息 -->
+    <view class="order_box">
+        <view class="list">
+            <text class="grey wid140">支付方式：</text>
+            <text class="black">{{orderInfo.paymentMethod}} </text>
+        </view>
+        <view class="list">
+            <text class="grey wid140">配送方式：</text>
+            <text class="black">{{deliveryInfo.method}}</text>
+        </view>
+
+        <block wx:if="{{deliveryInfo.type=='1'||deliveryInfo.type=='2'}}">
+            <view class="list">
+                <text class="grey wid140">配送时间：</text>
+                <text class="black address">{{deliveryInfo.userDeliveryType||""}}</text>
+                <!-- <block wx:if="{{/#/img.test(deliveryInfo.userDeliveryType}}">
+            <text class="black address">{{deliveryInfo.userDeliveryType.split("#")[0]||""}}</text>
+            <text class="black address">{{deliveryInfo.userDeliveryType.split("#")[1]||""}}</text>
+          </block>
+          <block wx:else>
+            <text class="black address">{{deliveryInfo.userDeliveryType||""}}</text>
+          </block> -->
+            </view>
+            <view class="list" wx:if="{{deliveryInfo.isShowShippingDate=='Y'}}">
+                <text class="grey">预计送达时间：</text>
+                <text class="black">{{deliveryInfo.shippingDate}}</text>
+            </view>
+            <view class="list">
+                <text class="grey">是否送前电话确认：</text>
+                <text class="black">{{deliveryInfo.confirm}}</text>
+            </view>
+        </block>
+        <block wx:elif="{{deliveryInfo.storeType =='3'||deliveryInfo.storeType =='4'}}">
+            <view class="list">
+                <text class="grey">自提信息：</text>
+                <text class="black address">{{deliveryInfo.gomestoretime}}</text>
+            </view>
+            <view class="list">
+                <text class="grey">门店信息：</text>
+                <text class="black address">{{deliveryInfo.gomestoreaddress}}</text>
+            </view>
+        </block>
+        <view class="list" wx:if="{{deliveryInfo.mark!=''&&deliveryInfo.mark!=null&&deliveryInfo.mark!='null'}}}">
+            <text class="grey">备注：</text>
+            <text class="black">{{deliveryInfo.mark}}</text>
+        </view>
+    </view>
+    <!-- 发票信息 -->
+    <view class="order_box">
+        <block wx:if="{{orderInfo.orderType==='renovationSite'}}">
+            <view class="list">
+                <text class="black">如需发票，请和商家线下沟通。</text>
+            </view>
+        </block>
+        <block wx:else>
+            <block wx:if="{{invoiceInfo.isShowInvoice=='Y'}}">
+                <view class="list">
+                    <text class="grey wid140">发票类型：</text>
+                    <text class="black">
+                        <block wx:if="{{invoiceInfo.invoiceTypeStr}}">{{invoiceInfo.invoiceTypeStr}}</block>
+                        <block wx:else>
+                            <block wx:if="{{invoiceInfo.type=='0'}}">普通发票</block>
+                            <block wx:elif="{{invoiceInfo.type=='1'}}">增值发票</block>
+                        </block>
+                    </text>
+                </view>
+                <block wx:if="{{invoiceInfo.type==0 || invoiceInfo.invoiceTypeStr == '普通发票' || invoiceInfo.type =='电子发票'}}">
+                    <view class="list">
+                        <text class="grey">发票抬头类型：</text>
+                        <text class="black">{{invoiceInfo.headType}} ({{invoiceInfo.head}})</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="list">
+                        <text class="grey">增值发票内容：</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">单位名称：</text>
+                        <text class="black">{{invoiceInfo.companyName}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">纳税识别号：</text>
+                        <text class="black">{{invoiceInfo.taxpayerNo}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">注册地址：</text>
+                        <text class="black">{{invoiceInfo.registeredAddr}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">注册电话：</text>
+                        <text class="black">{{invoiceInfo.registeredPhone}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">开户银行：</text>
+                        <text class="black">{{invoiceInfo.taxpayerBank}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">银行账号：</text>
+                        <text class="black">{{invoiceInfo.account}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">发票邮寄地址：</text>
+                        <text class="black">{{invoiceInfo.shippingAddress}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">收件人：</text>
+                        <text class="black">{{invoiceInfo.shippingName}}</text>
+                    </view>
+                    <view class="list">
+                        <text class="grey">电话号码：</text>
+                        <text class="black">{{invoiceInfo.shippingPhone}}</text>
+                    </view>
+                </block>
+            </block>
+            <view class="list">
+                <text class="grey wid140">发票信息：</text>
+                <text class="black">{{invoiceInfo.content}}</text>
+            </view>
+        </block>
+    </view>
+
+    <view class="total_commodity">
+        <view class="price_box">
+            <view>
+                <text class="name fl">订单总额</text>
+                <text class="price red fr">¥ {{orderInfo.amount}}</text>
+            </view>
+            <block wx:if="{{orderInfo.isShowgomeECardAddress=='N'}}">
+                <view class="" wx:if="{{orderInfo.isShowCMBPayDis=='Y'}}">
+                    <text class="name fl">招行优惠</text>
+                    <text class="price red fr">- ¥ {{orderInfo.cmbPayDisAmount}}</text>
+                </view>
+            </block>
+            <block wx:if="{{orderInfo.isNewTaxHwgOrder=='Y'}}">
+                <view class="list" wx:if="{{orderInfo.isShowHwgOrderComprehensiveTaxAmount=='Y'}}">
+                    <text class="grey wid140">其中税费金额</text>
+                    <text class="black">¥ {{orderInfo.hwgOrderComprehensiveTaxAmount}}</text>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="list" wx:if="{{orderInfo.isShowHwgTaxAmount=='Y'}}">
+                    <text class="grey wid140">其中税费</text>
+                    <text class="black" wx:if="{{orderInfo.hwgTaxAmount<=50}}">¥ {{orderInfo.hwgTaxAmount}}</text>
+                    <text class="black line-through" wx:else>¥ {{orderInfo.hwgTaxAmount}}</text>
+                </view>
+            </block>
+            <view wx:if="{{orderInfo.isShowdepositsAmount=='Y'}}">
+                <text class="name fl">定金金额
+                    <block wx:if="{{orderInfo.depositExpandAmount}}">(可抵：{{orderInfo.depositExpandAmount}})</block>
+                </text>
+                <text class="price red fr">¥ {{orderInfo.depositsAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowbalanceAmount =='Y'}}">
+                <text class="name fl">尾款金额
+                    <block wx:if="{{orderInfo.balanceAmount}}">(含运费)</block>
+                    <block wx:if="{{orderInfo.balanceExpandAmount}}">(已优惠：{{orderInfo.balanceExpandAmount}})</block>
+                </text>
+                <text class="price red fr">¥ {{orderInfo.depositsAmount}}</text>
+            </view>
+            <view class="list" wx:if="{{orderInfo.isShowOrderPromotionAmount=='Y'}}">
+                <text class="name fl">订单优惠</text>
+                <text class="price red fr">- ¥ {{orderInfo.orderPromotionAmount}}</text>
+            </view>
+            <view class="list" wx:if="{{orderInfo.isShowVcPayAmount=='Y'}}">
+                <text class="grey wid140">国美币支付</text>
+                <text class="black">- ¥ {{orderInfo.vcPayAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowMfbPayAmount=='Y'}}">
+                <text class="name fl">美盈宝金额</text>
+                <text class="price red fr">- ¥ {{orderInfo.mfbPayAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowMtcPayAmount=='Y'}}">
+                <text class="name fl">美通卡支付金额</text>
+                <text class="price red fr">- ¥ {{orderInfo.mtcPayAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowCbPromotionsAmount=='Y'}}">
+                <text class="name fl">品牌券</text>
+                <text class="price red fr">- ¥ {{orderInfo.cbPromotionsAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowBlueCouponsAmount=='Y'}}">
+                <text class="name fl">
+                    <block wx:if="{{orderInfo.isShenMa=='Y'}}">神 码</block>
+                    <block wx:else>蓝 券</block>
+                </text>
+                <text class="price red fr">- ¥ {{orderInfo.blueCouponsAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowGiftCertPayAmount=='Y'}}">
+                <text class="name fl">红 券</text>
+                <text class="price red fr">- ¥ {{orderInfo.giftCertPayAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowShopCoupon=='Y'}}">
+                <text class="name fl">店铺券</text>
+                <text class="price red fr">- ¥ {{orderInfo.shopCoupon}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowEGiftCertPayAmount=='Y'}}">
+                <text class="name fl">电子券</text>
+                <text class="price red fr">- ¥ {{orderInfo.egiftCertpayAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowDisCouponPayAmount=='Y'}}">
+                <text class="name fl">国酷券</text>
+                <text class="price red fr">- ¥ {{orderInfo.disCouponPayAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowItemAllowanceAmount=='Y'}}">
+                <text class="name fl">节能补贴</text>
+                <text class="price red fr">- ¥ {{orderInfo.itemAllowanceAmount}}</text>
+            </view>
+            <view wx:if="{{orderInfo.isShowOfflineStoreCoupon=='Y'}}">
+                <text class="name fl">美 券</text>
+                <text class="price red fr">- ¥ {{orderInfo.offlineStoreCouponAmount}}</text>
+            </view>
+            <block wx:if="{{orderInfo.isShowgomeECardAddress=='N'}}">
+                <view wx:if="{{orderInfo.isShowgomeECardPayAmount=='Y'}}">
+                    <text class="name fl">美通卡</text>
+                    <text class="price red fr">- ¥ {{orderInfo.gomeECardPayAmount}}</text>
+                </view>
+                <view wx:if="{{orderInfo.isShowgomebean=='Y'}}">
+                    <text class="name fl">美 豆</text>
+                    <text class="price red fr">- ¥ {{orderInfo.gomebean}}</text>
+                </view>
+                <view>
+                    <text class="name fl">远程费用</text>
+                    <text class="price red fr">+ ¥ {{orderInfo.remoteAmount}}</text>
+                </view>
+                <view wx:if="{{orderInfo.commandReductionAmount}}">
+                    <text class="name fl">美口令</text>
+                    <text class="price red fr">- ¥ {{orderInfo.commandReductionAmount}}</text>
+                </view>
+                <view wx:if="{{orderInfo.payReductionAmount}}">
+                    <text class="name fl">支付立减</text>
+                    <text class="price red fr">- ¥ {{orderInfo.payReductionAmount}}</text>
+                </view>
+            </block>
+            <view wx:if="{{orderInfo.orderType !='renovationSite'}}">
+                <text class="name fl">运 费</text>
+                <text class="price red fr">+ ¥ {{orderInfo.shippingAmount}}</text>
+            </view>
+            <view wx:if="{{isShowShipCouponAmount}}">
+                <text class="name fl">运 费 券</text>
+                <text class="price red fr">- ¥ {{shipCouponAmount}}</text>
+            </view>
+        </view>
+        <view class="actual_payment fr">
+            <text class="black">实付金额：</text>
+            <text class="red price">¥ {{orderInfo.needPayAmount}}</text>
+        </view>
+    </view>
+</view>

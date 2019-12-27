@@ -1,0 +1,56 @@
+<view class="coupon_tab">
+  <view class="{{datatype==1?'cur':''}}" data-type="1" bindtap="couponTapEven">待使用 {{toUseCouponNumber}}</view>
+  <view class="{{datatype==2?'cur':''}}" data-type="2" bindtap="couponTapEven">已使用 {{alreadyUseCouponNumber}}</view>
+  <view class="{{datatype==3?'cur':''}}" data-type="3" bindtap="couponTapEven">已过期 {{expiredCouponNumber}}</view>
+</view>
+<scroll-view class='coupon_list_group' scroll-y="true" bindscrolltolower="lower" style='height:{{height}}'>
+  <block wx:if="{{currentList.length==0}}">
+    <view class="errTips" wx:if="{{datatype==1}}">您暂时还没有待使用优惠券</view>
+    <view class="errTips" wx:elif="{{datatype==2}}">您暂时还没有已使用优惠券</view>
+    <view class="errTips" wx:else>您暂时还没有已过期优惠券</view>
+  </block>
+  <block wx:else>
+    <view class="coupon_list">
+      <block wx:for="{{currentList}}" wx:for-index="idx" wx:for-item="currentList" wx:key="idx">
+        <view class='coupon_box  {{currentList.type}}  {{coupon_box_grey}}' bindtap="hrefLink" data-coupon="{{currentList.type}}" data-refPromotionId="{{currentList.refPromotionId}}" data-couponName="{{currentList.desc}}">
+          <view class='coupon_type'>
+            <view class="price">
+              <view class="price-box">
+                <view class="icon">¥</view>
+                <view class="price_over_small" wx:if="{{currentList.amount>999}}">{{currentList.amount}}</view>
+                <view class="price_over" wx:else>{{currentList.amount}}</view>
+              </view>
+              <view class='blue-limit' wx:if="{{currentList.limitAmount!=null && currentList.limitAmount!='' }}">满{{currentList.limitAmount}}可用</view>
+            </view>
+
+
+            <view class='s_top'></view>
+            <view class='s_bottom'></view>
+
+            <view class="coupon_descript">
+              <view class="coupon_desc">
+                <block wx:if="{{currentList.type == 'shop'||currentList.type == 'platform'}}">仅限{{currentList.shopName}}使用 {{currentList.desc}}</block>
+                <block wx:else>{{currentList.desc}}</block>
+              </view>
+              <view class="coupon_name">
+                <text>{{couponType[currentList.type]}}</text>
+              </view>
+              <view class="time_box">
+                {{currentList.startDateNew}} - {{currentList.endDateNew}}
+              </view>
+
+            </view>
+            <view class='goget-txt {{currentList.type}}' wx:if="{{datatype==1 && currentList.type == 'blue'}}">{{text_tips}}</view>
+          </view>
+          <view wx:if="{{currentList.tip!=null&&datatype=='1' }}" class="time_tips">[{{currentList.tip}}]</view>
+          <image wx:if="{{currentList.tip=='即将到期'}}" class='past-ico' src='../../images/past-ico.png'></image>
+        </view>
+      </block>
+      <block wx:if="{{currentList.length>0}}">
+        <view class="ismore" wx:if="{{isMore}}">玩命加载中...</view>
+        <view wx:else class="nomore">{{moreText}}</view>
+      </block>
+    </view>
+  </block>
+</scroll-view>
+<navigator class="getOther" url="../getcoupon/getcoupon" open-type="redirect">去领取其他优惠券</navigator>

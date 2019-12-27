@@ -1,0 +1,75 @@
+<!-- orderList.wxml -->
+<template name="orderList">
+    <view class="order_list" wx:for="{{currentList}}" wx:key="*this" wx:for-item="curName">
+      <block wx:for="{{curName.shipViewResults}}" wx:for-item="shipViewResults">
+        <view class="martop20 bordertop"></view>
+        <navigator class="goods_list_box" wx:for="{{shipViewResults.itemList}}" wx:key="*this" wx:for-item="goodName" url="/pages/orderdetails/orderdetails?orderId={{shipViewResults.orderId}}&shippingGroupId={{shipViewResults.shippingGroupId}}&shipPackageShowModelFlag={{shipViewResults.shipPackageShowModelFlag}}">
+                <view class="goods_list">
+                <block wx:if="{{goodName.imageurl!=null}}">
+                    <image src="https:{{goodName.imageurl}}"></image>
+                </block>
+                <block wx:else>
+                    <image src="../../images/default1.jpg"></image>
+                </block>
+                <view class="goods_box">
+                    <view class="goods_name_box">
+                        <text class="gift" wx:if="{{goodName.itemType=='2'}}">赠品</text>
+                        <text class="goods_name">{{goodName.itemName}}</text>
+                    </view>
+                    <text class="goods_num">¥ {{goodName.salePrice}} × {{goodName.quantity}}件</text>
+                </view>
+                </view>
+        </navigator>
+        <block wx:if="{{curName.isSplit=='Y'}}">
+          <view class="order_status">
+             <navigator class="order_status_text" url="/pages/orderdetails/orderdetails?orderId={{shipViewResults.orderId}}&shippingGroupId={{shipViewResults.shippingGroupId}}&shipPackageShowModelFlag={{shipViewResults.shipPackageShowModelFlag}}">
+                 <view class="item">
+                      <text class="grey">状态：</text>
+                      <block wx:if="{{shipViewResults.shipStatus!='商品出库中'&&shipViewResults.shipStatus!='部分商品已出库'&&shipViewResults.shipStatus!='商品已出库'&&shipViewResults.shipStatus!='待确认收货'&&shipViewResults.shipStatus!='已完成'&&shipViewResults.shipStatus!='已取消'&&shipViewResults.shipStatus!='已确认'}}">
+                         <text class="red">{{shipViewResults.shipStatus}}</text>
+                      </block>
+                      <block wx:else>
+                         <text class="black">{{shipViewResults.shipStatus}}</text>
+                      </block>
+                 </view>
+                 <view class="item">
+                      <text class="grey">总价：</text>
+                      <block wx:if="{{shipViewResults.shipStatus!='商品出库中'&&shipViewResults.shipStatus!='部分商品已出库'&&shipViewResults.shipStatus!='商品已出库'&&shipViewResults.shipStatus!='待确认收货'&&shipViewResults.shipStatus!='已完成'&&shipViewResults.shipStatus!='已取消'&&shipViewResults.shipStatus!='已确认'}}">
+                         <text class="red">¥ {{shipViewResults.shipPayAmount}}</text>
+                      </block>
+                      <block wx:else>
+                         <text class="black">¥ {{shipViewResults.shipPayAmount}}</text>
+                      </block>
+                 </view>
+             </navigator>
+             <text wx:if="{{shipViewResults.shipPayAmount=='等待付款'}}" data-orderId="{{shipViewResults.orderId}}" data-shippingGroupId="{{shipViewResults.shippingGroupId}}" bindtap="toPlay" class="go_play_btn">去支付</text>
+          </view>
+        </block>
+        <block wx:elif="{{curName.isSplit=='N'}}">
+            <view class="order_status">
+             <navigator class="order_status_text" url="/pages/orderdetails/orderdetails?orderId={{shipViewResults.orderId}}&shippingGroupId={{shipViewResults.shippingGroupId}}&shipPackageShowModelFlag={{shipViewResults.shipPackageShowModelFlag}}">
+                 <view class="item">
+                      <text class="grey">状态：</text>
+                      <block wx:if="{{curName.orderStatus!='商品出库中'&&curName.orderStatus!='商品已出库'&&curName.orderStatus!='待确认收货'&&curName.orderStatus!='已完成'&&curName.orderStatus!='已取消'&&curName.orderStatus!='已确认'}}">
+                         <text class="red">{{curName.orderStatus}}</text>
+                      </block>
+                      <block wx:else>
+                         <text class="black">{{curName.orderStatus}}</text>
+                      </block>
+                 </view>
+                 <view class="item">
+                      <text class="grey">总价：</text>
+                      <block wx:if="{{curName.orderStatus!='商品出库中'&&curName.orderStatus!='商品已出库'&&curName.orderStatus!='待确认收货'&&curName.orderStatus!='已完成'&&curName.orderStatus!='已取消'&&curName.orderStatus!='已确认'}}">
+                         <text class="red">¥ {{curName.payAmount}}</text>
+                      </block>
+                      <block wx:else>
+                         <text class="black">¥ {{curName.payAmount}}</text>
+                      </block>
+                 </view>
+             </navigator>
+             <text wx:if="{{curName.isShowPayButton=='Y'}}" data-orderId="{{shipViewResults.orderId}}" data-shippingGroupId="{{shipViewResults.shippingGroupId}}" bindtap="toPlay" class="go_play_btn">去支付</text>
+          </view>
+        </block>
+      </block>
+  </view>
+</template>

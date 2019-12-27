@@ -1,0 +1,8 @@
+<view class='star-box'>
+  <block  wx:for="{{stars}}" wx:key="*this" wx:for-index="starIdx">
+    <image class='star-img' wx:if="{{type==1}}" src='{{(score > item) ? selectedSrc :normalSrc}}' data-score="{{item + 1}}" data-idx="{{starIdx}}" bindtap='selectStar'></image>
+    <image class='star-img' wx:if="{{type==2}}" src='{{(score > item) ?selectedSrc :normalGreySrc}}' data-score="{{item + 1}}" data-idx="{{starIdx}}" bindtap='selectStar'></image>
+    <image class='star-img' wx:if="{{type==3}}" src='{{(score > item) ?selectedSrc :normalSrc}}' data-score="{{score}}" data-idx="{{starIdx}}" ></image>
+    <image class='star-img' wx:if="{{type==4}}" src='{{(score > item) ?selectedSrc :normalGreySrc}}' data-score="{{score}}" data-idx="{{starIdx}}" ></image>
+  </block>
+</view>

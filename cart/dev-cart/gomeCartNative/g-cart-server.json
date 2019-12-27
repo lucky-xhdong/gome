@@ -1,0 +1,54 @@
+{
+    "jettry": {
+        "root": "E:/workspaces/front-cart",
+        "port": 7776
+    },
+    "node": {
+        "port": 8080
+    },
+    "statics": [
+        "E:/workspaces/dev/Storefront/storedocroot.war"
+    ],
+    "project": {
+        "request": [
+            "/request.json"
+        ],
+        "routes": [
+        	"./routes/cart-routes.json",
+        	"./routes/order-success.json",
+        	"./routes/shopping-routes.json",
+            [
+                "/help",
+                "{cwd}/help/help.html"
+            ],[
+                "/",
+                "{config.jettry.root}/README.html"
+            ],[
+                "/:site/:page",
+                "/{params.site}/{params.page}.ftl",
+                "/data/{params.site}/{params.page}.json"
+            ],[
+                "/icon",
+                "{config.statics.0}/gmpro/1.0.0/cart/1.0.0/html/icons/index.html"
+            ],[
+                "/api/:type/:method",
+                "/data/{params.type}/{params.method}.json"
+            ]
+        ],
+        "tplTofn":{
+            "src":"{config.statics.0}/gmpro/1.0.0/cart/1.0.0/template",
+            "dist":"{config.statics.0}/gmpro/1.0.0/cart/1.0.0/templatefn",
+            "/cart.js":[
+                "/common.tpl",
+                "/cart"
+            ]
+        },
+        "sprite":{
+            "src":"{config.statics.0}/gmpro/1.0.0/cart/1.0.0/css/i/sprite",
+            "dist":"{config.statics.0}/gmpro/1.0.0/cart/1.0.0/css/i/sprite.png",
+            "selector":".c-i",
+             "html":"{config.statics.0}/gmpro/1.0.0/cart/1.0.0/html/icons/index.html",
+            "css":"{config.statics.0}/gmpro/1.0.0/cart/1.0.0/css/i/sprite.css"
+        }
+    }
+}

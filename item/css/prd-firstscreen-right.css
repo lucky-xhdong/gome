@@ -1,0 +1,106 @@
+.prd-firstscreen-right {
+    width: 160px;
+    height:583px;
+}
+.prd-firstscreen-right .bigdata-reskim {
+    font-family: Arial, "Microsoft YaHei";
+}
+.prd-firstscreen-right .bigdata-reskim h2 {
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    margin: 16px 0 12px 0;
+}
+.prd-firstscreen-right .bigdata-reskim h2:before,
+.prd-firstscreen-right .bigdata-reskim h2:after {
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 1px;
+    background-color: #ccc;
+    top: 6px;
+}
+.prd-firstscreen-right .bigdata-reskim h2:before {
+    left:0;
+}
+.prd-firstscreen-right .bigdata-reskim h2:after {
+    right:0;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel {
+    position: relative;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul {
+    position: absolute;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul li {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul li img {
+    width: 160px;
+    height: 160px;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul li p {
+    position: absolute;
+    line-height: 20px;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:0 10px;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul li p:after {
+    content: '';
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    background-color: #fff;
+    opacity: .8;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul li p span {
+    font: 12px arial, 'Microsoft YaHei';
+    color: #5e5e5e;
+    position: relative;
+    z-index:1;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ul li:hover p span {
+    color: #e3101e;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel .pager {
+    margin:10px 0;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ol {
+    text-align: center;
++height:13px;
+    _height:13px;
++padding-left: 40px;
+    _padding-left: 40px;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ol li {
+    display: inline-block;
+    vertical-align: middle;
++float:left;
+    _float:left;
+    margin:0 7px;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ol li a {
+    display: block;
+    width: 12px;
+    height: 11px;
+    border: 1px solid #ccc;
+    font-size: 0;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ol li:hover a,
+.prd-firstscreen-right .bigdata-reskim .reskim-carousel ol li.active a {
+    width: 12px;
+    height: 11px;
+    border: 1px solid #c00;
+    background-color: #fff;
+}

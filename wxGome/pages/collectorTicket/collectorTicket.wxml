@@ -1,0 +1,77 @@
+<view wx:if="{{ticketList.length==0}}" class='ticket_wrap'>
+  <view class='ticket_title_box'></view>
+  <view class='ticket_image_box'>
+    <view>您还未获得内购会门票</view>
+    <image src='../../images/bj_vip.png'/>
+  </view>
+  <icon class='semicircle semicircle_left'/>
+  <icon class='semicircle semicircle_right'/>
+</view>
+
+<block wx:if="{{ticketList.length>0}}" wx:for="{{ticketList}}" wx:key="*this" wx:for-item="curTicket" >
+  <view class='ticket_wrap' bindtap='showDetail' data-title="{{curTicket.storeName}}" data-ticketCode="{{curTicket.ticketCode}}" data-image='{{curTicket.ticketImg}}' data-status="{{curTicket.status}}">
+    <view class='ticket_title_box'>
+      <view class='ticket_title'>{{curTicket.storeName}}</view>
+    </view>
+    <view class='line'></view>
+    <view wx:if="{{!curTicket.ticketImg}}" class='ticket_image_box'>
+      <view>您还未获得内购会门票</view>
+      <image src='../../images/bj_vip.png'/>
+    </view>
+    <image wx:else class='ticket_image_box' src='{{curTicket.ticketImg}}'/>
+    <icon class='semicircle semicircle_left'/>
+    <icon class='semicircle semicircle_right'/>
+    <view class='icon'>
+      <image wx:if="{{curTicket.status==1}}"src='../../images/icon_label_weishiyong.png'></image>
+      <image wx:if="{{curTicket.status==4}}" src='../../images/icon_label_yishiyong.png'></image>
+    </view>
+  </view>
+</block>
+
+<view wx:if="{{ticketList.length==0}}" class='ticket_hd'>领取内购会门票</view>
+<block wx:if="{{ticketList.length==0&&nearTicketList.length>0}}" wx:for="{{nearTicketList}}" wx:key="*this" wx:for-item="nearTicket" >
+  <navigator class='ticket_wrap' url="/pages/getTicket/getTicket?storeCode={{nearTicket.storeCode}}&activityId={{nearTicket.activityId}}">
+    <view class='ticket_title_box'>
+      <view class='ticket_title'>{{nearTicket.storeName}}</view>
+      <view class='get_button'>立即领取</view>
+    </view>
+    <view class='line'></view>
+    <view wx:if="{{!nearTicket.ticketImg}}" class='ticket_image_box'>
+      <image src='../../images/bj_vip.png'/>
+    </view>
+    <image wx:else class='ticket_image_box' src='{{nearTicket.ticketImg}}'/>
+    <icon class='semicircle semicircle_left'/>
+    <icon class='semicircle semicircle_right'/>
+  </navigator>
+</block>
+
+<view wx:if="{{ajaxNoNearTicket}}" class='no_more_box'>
+  <text>暂无内购活动
+快去看看其他特价商品吧~</text>
+   <view class="go_index" bindtap='goIndex'>去首页</view>
+</view>
+
+<view wx:if="{{ ticketList.length>0 || nearTicketList.length>0 }}" class='nomore'>没有更多了</view>
+
+<view wx:if="{{showFixed}}" class='fixed_box'>
+  <view class='flex_box'>
+    <view class='fixed_ticket_box'>
+      <image class='ticket_image' src='{{fixedImage}}'/>
+      <view class='line'></view>
+      <icon class='semicircle semicircle_left'/>
+      <icon class='semicircle semicircle_right'/>
+      <view class='icon'>
+        <image wx:if="{{fixedStatus==1}}" src='../../images/icon_label_weishiyong.png'></image>
+        <image wx:if="{{fixedStatus==4}}" src='../../images/icon_label_yishiyong.png'></image>
+      </view>
+      <view class='store_title'>{{fixedTitle}}</view>
+      <view class='ticket_id'>券编号：{{fixedTicketId}}</view>
+      <image class='qr_code' src="{{fixedQrImg}}"></image>
+      <view class='code_tip'>到店请出示门票二维码,凭二维码扫码入场</view>
+      <view class='tips'><image class="tips_icon" src='../../images/icon_tips.png'></image>可截图保存到手机哦</view>
+    </view>
+    <view class='close' bindtap='closeFixed'><image src='../../images/btn_close.png'></image></view>
+  </view>  
+  <view class='fixed_bg' bindtap='closeFixed'></view>
+</view>
+

@@ -1,0 +1,28 @@
+<import src="selfAppraiseTpl.wxml"/>
+
+<view class="appraise-container">
+
+  <view class="weui-tab">
+
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="{{index}}">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="bindNavbar">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px;"></view>
+    </view>
+
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content"  hidden="{{activeIndex != index}}"  wx:for="{{listData}}" wx:key="{{index}}">
+        <scroll-view style="height:{{scrollHeight}}px" scroll-y="true" bindscrolltolower="bindscrollEvt" scroll-top="{{scrollTop}}">
+          <template is="appraseContentTem" data="{{curAppraiseData: item, protocol: protocol}}"/>
+        </scroll-view>
+    </view>
+      
+    </view>
+
+  </view>
+</view>
+
+

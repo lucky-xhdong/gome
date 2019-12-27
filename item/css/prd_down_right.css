@@ -1,0 +1,829 @@
+/*下面右侧内容大盒子*/
+    .w990 .dt-main{
+        width: 772px;
+    }
+    .dt-main {
+        width: 980px;
+        float: right;
+        display: inline;
+        position: relative;
+    }
+/*下面左侧内容大盒子*/
+    .dt-side {
+        width: 210px;
+        float: left;
+        display: inline;
+    }
+    .dt-main .slider-nav{
+        position: absolute;
+        top: 0px;
+        width: 120px;
+        background: #f6f6f6;
+        padding: 30px 0px 30px 20px;
+    }
+    /*silider-nav*/
+    .slider-nav a{
+        display: block;
+        line-height: 16px;
+        color: #5e5e5e;
+    }
+    .slider-nav a.cur{
+        color: #e3101e;
+        padding-left: 26px;
+        position: relative;
+        line-height: 16px;
+    }
+    .slider-nav i{
+        padding: 1px 13px;
+        background: url(i/silider-nav.png?__sprite) no-repeat;
+        top: 0px;
+        left: -5px;
+    }
+    .slider-nav a.cur i{
+    padding: 8px 11px;
+    position: absolute;
+    background: url(i/silider-cur.png?__sprite) no-repeat;
+    }
+    .slider-nav p{
+        width: 1px;
+        height: 30px;
+        background: #eee;
+        margin-left: 7px;
+    }
+/*店铺信息 start*/
+.stores-infos {
+    font-family: Arial, 'Microsoft YaHei';
+    width: 208px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.stores-infos .ly-stores h2 {
+    padding:8px 9px;
+    background-color: #f6f6f6;
+    overflow: hidden;
+}
+.stores-infos .ly-stores h2.fixedtop {
+    width: 189px;
+    border: 1px solid #eee;
+}
+.stores-infos .ly-stores h2 .name {
+    line-height: 20px;
+    font-size: 14px;
+    color: #5e5e5e;
+    word-break: break-all;
+    margin-right: 10px;
+}
+.stores-infos .ly-stores h2 .name:hover {
+    color: #e3010e;
+    text-decoration: none;
+}
+.stores-infos .ly-stores h2 .name,
+.stores-infos .ly-stores h2 .icon-service {
+    float: left;
+}
+.stores-infos .ly-stores h2 .icon-service {
+    font-size: 0;
+}
+.stores-infos .ly-stores h2 .icon-service i {
+    display: block;
+    font-size: 0;
+    width: 21px;
+    height: 20px;
+    background: url("i/online-service.png?__sprite") no-repeat;
+}
+.stores-infos .ly-stores h2 .icon-service.customerService_show {
+    display: block;
+}
+.stores-infos .ly-stores .services-wrapper {
+    padding: 14px 14px 10px 13px;
+}
+.stores-infos .ly-stores .services-wrapper .services-stars {
+    color: #5e5e5e;
+    margin-bottom: 9px;
+}
+.stores-infos .ly-stores .services-wrapper .services-stars .star {
+    display: inline-block;
+    vertical-align: middle;
+    width: 73px;
+    height: 11px;
+    font-size: 0;
+    margin-right: 12px;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    background: url("i/star-gray.png?__sprite") no-repeat;
+}
+.stores-infos .ly-stores .services-wrapper .services-stars .star i {
+    display: block;
+    height: 11px;
+    background: url("i/star-red.png?__sprite") no-repeat;
+}
+.stores-infos .ly-stores .services-wrapper .services-stars .score {
+    color: #e3101e;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail {
+    overflow: hidden;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail p {
+    overflow: hidden;
+    color: #5e5e5e;
+    margin-bottom: 4px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail p .detail {
+    float: left;
+    margin-bottom: 3px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail p .contrast {
+    float: right;
+    margin-bottom: 3px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe p,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics p,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services p {
+    color: #a5a5a5;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe p span,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics p span,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services p span {
+    color: #5e5e5e;
+    margin-right: 32px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe p small,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics p small,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services p small {
+    display: inline-block;
+    width: 50px;
+    font-size: 12px;
+    text-align: right;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe p i,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics p i,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services p i {
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+    width: 7px;
+    height: 9px;
+    margin: 4px 0 4px 5px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe i.gaoyu,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics i.gaoyu,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services i.gaoyu {
+    background: url("i/gaoyu.png?__sprite") no-repeat;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe small.gaoyu_text,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics small.gaoyu_text,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services small.gaoyu_text {
+    color: #e3101e;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe i.diyu,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics i.diyu,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services i.diyu {
+    background: url("i/diyu.png?__sprite") no-repeat;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe small.diyu_text,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics small.diyu_text,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services small.diyu_text {
+    color: #68b64c;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe small.xiangdeng,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics small.xiangdeng,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services small.xiangdeng {
+    color: #5e5e5e;
+}
+.stores-infos .zy-stores .btn-group,
+.stores-infos .ly-stores .btn-group {
+    overflow: hidden;
+    text-align: center;
+}
+.stores-infos .zy-stores .btn-group {
+    padding:0 9px 14px 9px;
+}
+.stores-infos .ly-stores .btn-group {
+    padding:3px 9px 14px 9px;
+}
+.stores-infos .zy-stores .btn-group .btn-enter,
+.stores-infos .zy-stores .btn-group .btn-collect,
+.stores-infos .ly-stores .btn-group .btn-enter,
+.stores-infos .ly-stores .btn-group .btn-collect {
+    display: inline-block;
+    color: #5e5e5e;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 90px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+.stores-infos .zy-stores .btn-group .btn-enter,
+.stores-infos .ly-stores .btn-group .btn-enter {
+    margin: 0 1px;
+ }
+.stores-infos .zy-stores .btn-group .btn-enter:hover,
+.stores-infos .zy-stores .btn-group .btn-collect:hover,
+.stores-infos .ly-stores .btn-group .btn-enter:hover,
+.stores-infos .ly-stores .btn-group .btn-collect:hover {
+    border: 1px solid #ccc;
+}
+.stores-infos .zy-stores .btn-group .btn-collect.disabled,
+.stores-infos .ly-stores .btn-group .btn-collect.disabled {
+    cursor: not-allowed;
+}
+.stores-infos .zy-stores h2 {
+    padding:8px 9px;
+    background-color: #f6f6f6;
+    overflow: hidden;
+}
+.stores-infos .zy-stores h2.fixedtop {
+    width: 189px;
+    border: 1px solid #eee;
+}
+.stores-infos .zy-stores h2 .name {
+    line-height: 20px;
+    font-size: 14px;
+    color: #5e5e5e;
+    margin-right: 10px;
+    width: 154px;
+    word-break: break-all;
+}
+.stores-infos .zy-stores h2 .name:hover {
+    color: #e3010e;
+    text-decoration: none;
+}
+.stores-infos .zy-stores h2 .name,
+.stores-infos .zy-stores h2 .icon-service {
+    float: left;
+}
+.stores-infos .zy-stores h2 .icon-service {
+    font-size: 0;
+}
+.stores-infos .zy-stores h2 .icon-service.customerService_show {
+    display: block;
+}
+.stores-infos .zy-stores h2 .icon-service i {
+    display: block;
+    font-size: 0;
+    width: 21px;
+    height: 20px;
+    background: url("i/online-service.png?__sprite") no-repeat;
+}
+.stores-infos .ly-stores .store-logo ,
+.stores-infos .zy-stores .store-logo {
+    width: 120px;
+    height: 60px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+.stores-infos .ly-stores .store-logo img ,
+.stores-infos .zy-stores .store-logo img {
+    max-width: 100%;
+}
+.stores-infos .ly-stores h2,
+.stores-infos .zy-stores h2 {
+    +height: 20px;
+    _height: 20px;
+}
+.stores-infos .ly-stores .services-wrapper .services-stars .star {
+    +margin-right:5px;
+    _margin-right:5px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail p {
++height: 18px;
+    _height: 18px;
+}
+.stores-infos .ly-stores .services-wrapper .services-score-detail .describe p span,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .logistics p span,
+.stores-infos .ly-stores .services-wrapper .services-score-detail .services p span{
++margin-right: 20px;
+    _margin-right: 20px;
+}
+/*店铺信息 end*/
+/*相关分类*/
+
+.colprice {
+    color: #e3101e;
+    font-family: 'arial';
+}
+.dt-sortbox {
+    width: 208px;
+    border: 1px solid #eeeeee;
+    margin-bottom: 10px;
+}
+
+.dt-sortbox.rcview {
+    width: 208px;
+    float: left;
+    display: inline;
+}
+
+.dt-tit, .dt-titblank {
+    height: 36px;
+    padding-left: 10px;
+    color: #666666;
+    font: 600 12px/36px 'microsoft yahei';
+    background: #f6f6f6;
+}
+
+
+
+.dt-sbbox {
+    padding: 8px 15px 0;
+}
+
+.dt-rcbox {
+    padding: 15px 0 5px 10px;
+}
+
+.dt-sbbox a {
+    display: inline-block;
+    width: 85px;
+    margin-bottom: 10px;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+}
+
+.dt-rcbox a {
+    height: 24px;
+    line-height: 24px;
+    width: 85px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+    color: #666666;
+    /*float: left;*/
+    margin-bottom: 7px;
+}
+
+.dt-rcbox a:hover {
+    color: #e3101e;
+}
+
+.dt-rcbox a.cur {
+    color: #e3101e;
+    text-decoration: underline;
+}
+.dt-rcbox a.active {
+    background-color: #eef1ff;
+    margin: 0 10px 5px 0;
+    padding: 0 4px;
+    width: auto;
+}
+
+.dt-sbbox a {
+    width: 59px;
+}
+
+.dt-rcbox dl .hwgplus,
+.dt-rcbox dl .hwgplus.minus {
+    float: left;
+    width: 11px;
+    height: 11px;
+    margin: 6px 5px 6px 0;
+}
+.dt-rcbox dl .hwgplus {
+    background: url("i/plus.png?__sprite") no-repeat;
+}
+.dt-rcbox dl .hwgplus.minus {
+    background: url("i/minus.png?__sprite") no-repeat;
+}
+
+/*其他类似商品*/
+
+.similar-wrapper {
+    height: 265px;
+}
+.pushbox {
+    border: 1px solid #eeeeee;
+    width: 1198px;
+    height: 253px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    float: left;
+    display: inline;
+}
+
+.pushbox h3, .pushbox-list h3 {
+    height: 36px;
+    padding-left: 10px;
+    position: relative;
+    color: #666666;
+    font: 600 12px/36px 'microsoft yahei';
+    background: #f6f6f6;
+
+}
+
+
+
+.pushul {
+    width: 2000%;
+    padding-top: 10px;
+}
+
+.pushul li {
+    float: left;
+    display: inline;
+    width: 186px;
+    text-align: center;
+}
+
+.pushul li h2, .pushul-list li h2 {
+    color: #666666;
+    font-family: arial, 'Microsoft YaHei';
+    text-align: left;
+    word-break: break-all;
+    height: 36px;
+    overflow: hidden;
+    margin: 5px auto;
+}
+
+.pushul li a:hover, .pushul-list li a:hover ,.pushul li h2:hover, .pushul-list li h2:hover,.pushul-list a div:hover{
+    text-decoration: underline;
+    color: #e3101e;
+
+}
+
+.pushul li p, .pushul-list li p {
+    font-weight:400;
+    font-size: 18px;
+    text-align: left;
+    font-family: arial, 'Microsoft YaHei';
+    margin-top: 7px;
+}
+
+.pushbox-list {
+    border: 1px solid #eeeeee;
+    width: 208px;
+    margin-bottom: 10px;
+}
+.pushbox-list .gm-ad-mark {
+    float: right;
+    padding-right: 10px;
+    color: #a5a5a5;
+    font-weight: lighter;
+}
+.pushul-list {
+    padding: 0 10px;
+}
+
+.pushul-list li {
+    padding: 15px 0;
+    vertical-align: bottom;
+    text-align: center;
+    margin-top: -1px;
+}
+
+.pushul-list a div {
+    color: #666666;
+    font-family: arial, 'Microsoft YaHei';
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    text-align: left;
+
+}
+
+.pushul li h2 {
+    width: 155px;
+}
+
+.pushul li p {
+    width: 155px;
+    margin: 0 auto;
+}
+
+.w990 .pushbox {
+    width: 988px;
+}
+
+
+.dt-tit:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.dt-tit {
+    *zoom: 1;
+}
+
+.w990 #choose {
+    padding: 10px 10px 35px;
+}
+
+.w990 .fq_box {
+    left: 0;
+    top: 48px;
+}
+
+.w990 .fq_con {
+    margin: 0;
+    position: absolute;
+    top: 24px;
+    left: -11px;
+}
+
+.andBuyOut {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.w990 .andBuy-cont{
+    width: 950px;
+    margin-left: 44px;
+}
+.andBuy-cont {
+    width: 1110px;
+    height: 210px;
+    overflow: hidden;
+    margin-left: 45px;
+    position: relative;
+}
+.andBuy-cont.collect-andBuy-cont {
+    width: 370px;
+    height: 210px;
+    overflow: hidden;
+    margin-left: 20px;
+    position: relative;
+}
+
+.andBuy-btnout {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    z-index: 3;
+}
+
+.andBuy-btnout b, .andBuy-btnout s {
+    width: 13px;
+    height: 18px;
+    overflow: hidden;
+    position: absolute;
+    top: 90px;
+    display: block;
+}
+
+.andBuy-btnout b {
+    background: url("i/qtls-arrow-l.png?__sprite") no-repeat;
+    left: 20px;
+}
+
+.andBuy-btnout s {
+    background: url("i/qtls-arrow-r.png?__sprite") no-repeat;
+    right: 20px;
+}
+
+.andBuy-btnout a:hover b {
+    background: url("i/qtls-arrow-l-hover.png?__sprite") no-repeat;
+}
+.andBuy-btnout a:hover s {
+    background: url("i/qtls-arrow-r-hover.png?__sprite") no-repeat;
+}
+
+.andBuy-btnout a.disable:hover b {
+    background: url("i/qtls-arrow-l.png?__sprite") no-repeat;
+    cursor:default;
+}
+.andBuy-btnout a.disable:hover s {
+    background: url("i/qtls-arrow-r.png?__sprite") no-repeat;
+    cursor:default;
+}
+
+
+/*同类其他品牌   同品牌同价位同类别*/
+
+.tonglei_wrap {
+    width: 208px;
+    border: 1px solid #eeeeee;
+    margin-bottom: 10px;
+}
+
+.tonglei_wrap_title {
+    line-height: 36px;
+    padding-left: 10px;
+    color: #666666;
+    font:600 12px/36px 'Microsoft YaHei';
+    background:#f6f6f6;
+    width: 198px;
+    overflow: hidden;
+}
+
+.brand_list {
+    margin: 9px 0 9px 10px;
+    max-height: 240px;
+    overflow: hidden;
+}
+
+.brand_list a {
+    height: 24px;
+    line-height: 24px;
+    width: 85px;
+    overflow: hidden;
+    margin-right: 10px;
+    color: #666666;
+    float: left;
+    display: block;
+}
+
+.brand_list a:hover {
+    color: #e3101e;
+}
+
+
+
+.fenlei_title {
+    margin-top: 10px;
+    width: 182px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    background: #f3f3f3;
+}
+
+.fenlei_title a {
+    width: 60px;
+    display: inline-block;
+    text-align: center;
+    font-family: "microsoft yahei";
+    color: #666666;
+}
+/*同品牌同价位同类别*/
+
+.liners{
+    position: absolute;
+    color: #ccc;
+}
+.fenlei_title a.cur{
+    font-family: "microsoft yahei";
+    color: #e3101e;
+    text-decoration: none;
+    font-weight: 600;
+    border:1px solid #ccc;
+    background: #fff;
+}
+
+.tonglei_ul {
+    display: none;
+}
+
+.tonglei_ul li {
+    position: relative;
+    /*margin:10px 0 ;*/
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    height: 50px;
+}
+
+.tonglei_link {
+    margin-left: 82px;
+    line-height: 18px;
+}
+
+.tonglei_link_name {
+    height: 36px;
+    overflow: hidden;
+}
+.tonglei_link_name a{
+    font-family: "microsoft yahei";
+}
+.tonglei_sz {
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    background: #fff;
+    text-align: center;
+    font-size: 10px;
+    color: #E20F20;
+    position: absolute;
+    border:1px solid #DDDDDD;
+    top: 10px;
+    left: 0;
+}
+
+
+.tonglei_img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 22px;
+}
+
+.tonglei_jg_val {
+    font-family: arial, 'Microsoft YaHei';
+    color: #e3101e;
+    font-weight: bold;
+}
+
+
+
+.tonglei_product_wrap {
+    margin-top: -2px;
+    overflow: hidden;
+    position: relative;
+	min-height: 426px;
+}
+
+
+.flag_active {
+    top: 29px;
+    position: absolute;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    width: 62px;
+    left: 0;
+}
+
+.temp_1 {
+    height: 6px;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+}
+
+.margin010 {
+    margin: 0 10px;
+}
+
+
+.gxh-module {
+    padding: 5px 10px 20px;
+    border: 1px solid #E6E6E6;
+}
+
+.gxh-hd {
+    color: #333;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.gxh-item {
+    float: left;
+    width: 22%;
+    padding-right: 2%;
+}
+
+.gxh-pic {
+    float: left;
+    width: 130px;
+    height: 130px;
+    margin-right: 10px;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.gxh-name {
+    line-height: 18px;
+    height: 54px;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.gxh-name a {
+    color: #5e5e5e;
+}
+
+.gxh-name a:hover {
+    color: #e3101e;
+}
+
+.gxh-yuan {
+    font: 700 14px/32px "microsoft yahei";
+    color: #e3101e;
+}
+
+.gxh-buy {
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 9px;
+    margin-top: 2px;
+    color: #fff;
+    font-family: "microsoft yahei";
+    background-color: #e3101e;
+}
+
+.gxh-buy:hover {
+    color: #FFF;
+    text-decoration: none;
+    background-color: #D00;
+}

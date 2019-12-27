@@ -1,0 +1,63 @@
+<view class="container" style='height:{{height}}'>
+  <view class='cont'>
+    <view class='tit-log'>
+      <image src='../../images/logo.png'></image>
+    </view>
+    <view class='cont-box'>
+      <view class='tips'>{{title}}</view>
+      <view class='input-phone'>
+        <image class='icon' src="../../images/ico-phone.png"></image>
+        <input class='phone' type="number" placeholder="请输入手机号码" placeholder-class="input-tips" maxlength="11" bindinput="bindPhoneInput" bindfocus="bindPhoneFocus" bindblur="bindPhoneBlur" value="{{phone}}" focus="{{phoneFocus}}"></input>
+        <image class="clear {{phoneClear ? 'show' : ''}}" src="../../images/close-icon.png" bindtap="bindClearPhone"></image>
+      </view>
+      <view class='verify-box'>
+        <view class='input-verify'>
+          <image class='icon' src='../../images/ico-code.png'></image>
+          <input class='verify' type="number" placeholder="请输入验证码" placeholder-class="input-tips" maxlength="6" bindinput="bindCodeInput" bindfocus="bindCodeFocus" bindblur="bindCodeBlur" value="{{code}}"></input>
+          <image class="clear {{codeClear ? 'show' : ''}}" src="../../images/close-icon.png" bindtap="bindClearCode"></image>
+        </view>
+        <view class='verify-send' bindtap='getCodeEvent' wx:if="{{countdownHide}}">{{codeTxt}}</view>
+        <view class='verify-send  count' wx:else>{{countdown}}s</view>
+      </view>
+
+
+    </view>
+    <view class='done' bindtap='doneEvent'>完成</view>
+    <view class='skip' wx:if='{{identifyLevel}}'>
+      <view class='skip-btn' bindtap='skipEvnet'>跳过</view>
+    </view>
+  </view>
+    <view class='layer' style='height:{{height}}' wx:if='{{showLayer && isShowWarning}}'>
+    <view class='layer-cont'>
+      <view class='layer-h1'>
+        <view class='h1'>将微信绑定到手机号对应的国美账号？</view>
+        <image bindtap='closeLayer' src='../../images/close.png'></image>
+      </view>
+      <view class='layer-h2'>此微信已存在临时账号，继续绑定后下次用微信登录会默认登录手机号对应国美账号。</view>
+      <view class='layer-tit' wx:if="{{!showInfo}}">
+        <view class='h3'>注：绑定后将无法查看临时账号的订单、资产等信息。</view>
+        <view class='layer-close' bindtap='closeInfoEvent'>
+          <view class='close-tips'>查看原因</view>
+          <image class='icon-up' src='../../images/ico-up.png'></image>
+        </view>
+      </view>
+      <view class='layer-tit' wx:else>
+        <view class='layer-open' bindtap='closeInfoEvent'>
+          <view class='close-tips'>收起原因</view>
+          <image class='icon-down' src='../../images/ico-down.png'></image>
+        </view>
+      </view>
+      <scroll-view class='close-cont' scroll-y wx:if='{{showInfo}}'>
+        <view class='info-tit'>1、临时账号是怎么形成的？</view>
+        <view class='info-cont'>为了让您享受快捷便利的购物体验，在2017年2月23日以前，通过微信、QQ、支付宝、微博等进入国美购物时会给您分配临时账号。</view>
+        <view class='info-tit'>2、绑定到手机号对应国美账号有什么影响？</view>
+        <view class='info-cont'>用三方账号登录时，会默认登录到手机号对应的国美账号下，增强了三方账号登录的安全性。国美账号和临时账号是两个独立账号，绑定后无法查看临时账号的订单、资产等信息。</view>
+        <view class='info-tit'>3、如何登录之前的临时账号？</view>
+        <view class='info-cont'>请拨打
+          <view class="call-phone" bindtap='callPhone' data-phone="400-811-3333">400-811-3333</view>联系客服解决。</view>
+      </scroll-view>
+    </view>
+    <view class='bind-phone' bindtap='getBindPhone'>继续绑定</view>
+
+  </view>
+</view>

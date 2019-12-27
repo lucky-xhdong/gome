@@ -1,0 +1,328 @@
+<view class="loadingInt" wx:if="{{ loadingInit }}">
+  <image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>
+<view class="topBottom"></view>
+
+<!-- 地址信息 -->
+<view class='order-content'>
+  <image class="streak" src="../../images/streak.png"></image>
+  <view class="tishi" wx:if="{{productList.isY}}">订单中含不支持七天无理由退货商品，请确认后提交</view>
+  <navigator url="../address/address" wx:if="{{addressInfo.num>0}}">
+    <view class="addressWrap">
+      <view class="addressCon">
+        <view class="address-mark mark">配送地址</view>
+        <view class="infor col-b1">
+          <text class="name">{{ addressInfo.name }}</text>
+          <text class="phone">{{ addressInfo.mobileNumber }}</text>
+        </view>
+
+        <view class="detailAddress">
+          <text class="default" wx:if="{{ addressInfo.address.default }}">默认</text>
+          <text class="address">{{ addressInfo.address.provinceName + addressInfo.address.cityName + addressInfo.address.countyName + addressInfo.address.townName + addressInfo.address.detailedAddress}}</text>
+          <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+        </view>
+         
+      </view>
+
+     
+      
+    </view>
+  </navigator>
+  <navigator url="../newAddress/newAddress" wx:else>
+    <view class="addressWrap">
+      <view class="addressCon">
+        <view wx:if="{{addressInfo.num == 0}}">
+          <text class="col-gray1">请先填写收货地址</text>
+        </view>
+      </view>
+
+      <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+    </view>
+  </navigator>
+
+  <!-- 产品信息 -->
+  <view class="purchaseInfor productInfo">
+    <navigator url="../productList/productList">
+      <view class="inforItem purchase" wx:if="{{productList.len==1}}">
+        <view class="imgInfo">
+          <image mode="aspectFit" src="{{protocol}}{{productList.detail.itemImageURL}}"></image>
+        </view>
+
+        <view class="productDetail">
+          <text>{{ productList.detail.itemName }}</text>
+        </view>
+        <view class="other">
+          <text class="col-red1">¥{{ productList.detail.salePrice }}</text>
+          <text class="num">×{{ productList.detail.quantity }}</text>
+          <text wx:if="{{ reduce }}" class="col-red1">{{ reduce }}</text>
+        </view>
+        
+        <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+      </view>
+
+      <view class="inforItem purchase" wx:else>
+        <view class="moreImgs">
+          <block wx:for="{{ productList.proImg }}" wx:for-item="item" wx:key="*this">
+            <image mode="aspectFit" src="{{protocol}}{{item}}" wx:if="{{ index < 3}}"></image>
+          </block>
+          <image src="../../images/shennue.png" wx:if="{{ productList.len >3 }}"></image>
+        </view>
+        <view class="total">共
+          <text>{{ information.data.cProfile.total}}</text>件</view>
+        <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+      </view>
+    </navigator>
+
+    <!--<view class="attach" wx:if="{{ goodList[0].items[0].zps && goodList[0].items[0].zps.length>0 }}">
+      <view class="title"><text>[赠品]></text></view>
+      <view class="attachCon">
+        <view class="list" wx:for="{{ goodList[0].items[0].zps }}">
+          <text>{{ item.name }}</text>
+          <text>×{{ item.quantity }}</text>
+        </view>
+      </view>
+    </view>-->
+
+    <!-- 返券 -->
+    <!--<view class="attach" wx:if="{{ returnedCouponVOs && returnedCouponVOs.length > 0 }}">
+      <view class="title"><text>[返券]</text></view>
+      <view class="attachCon">
+        <view class="list" wx:for="{{ returnedCouponVOs }}">
+          <text class="margin-r-20">{{ item.label }}</text>
+          <text>¥{{ item.faceValue }}×{{ item.quantity }}</text>
+        </view>
+      </view>
+    </view>-->
+  </view>
+
+  <!-- 配送方式 -->
+  <view class="purchaseInfor margin-b-20">
+    <navigator wx:if="{{productList.len==1}}" url="../delivery/delivery">
+      <view class="inforItem">
+        <view class="title">
+          <text>配送方式</text>
+        </view>
+        <view class="detail">
+          <text>{{ deliveryMethod.expressStr }}</text>
+          <text>送货：{{ deliveryMethod.time }}</text>
+        </view>
+        <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+      </view>
+    </navigator>
+    <view class="inforItem no-skip" wx:else>
+      <view class="title">
+        <text>配送方式</text>
+      </view>
+      <view class="detail">
+        <text>{{ deliveryMethod.expressStr }}</text>
+        <text>送货：{{ deliveryMethod.time }}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发票 -->
+  <view class="purchaseInfor ticketInfor margin-b-20">
+    <navigator url="../invoice/invoice" wx:if="{{ ivh.allowUpdate }}">
+      <view class="inforItem">
+        <template is="invoice" data="{{ ivh }}" />
+        <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+      </view>
+    </navigator>
+    <view class="inforItem no-skip"  wx:else>
+      <template is="invoice" data="{{ ivh }}" />
+    </view>
+  </view>
+
+  <!-- 优惠券 -->
+  <view class="purchaseInfor counpon-desc margin-b-20" wx-if="{{ hasCouponList }}">
+    <navigator url="../chooseCoupon/chooseCoupon">
+      <view class="inforItem">
+        <view class="title">
+          <text>优惠券</text>
+          <text class="reduce-num mark" wx:if="{{!vrbsos.usedRGBSNum && vrbsos.availableRGBSNum}}">{{vrbsos.availableRGBSNum}}张可用</text>
+        </view>
+        <view class="detail">
+          <text wx:if="{{vrbsos.RGBSTip}}">{{vrbsos.RGBSTip}}</text>
+          <text class="{{!vrbsos.usedFeeNum && vrbsos.availableFeeNum  ? 'fee-mark': ''}}" wx:if="{{vrbsos.FeeTip}}">{{vrbsos.FeeTip}}</text>
+          
+        </view>
+        <image class="arrow" src="../../images/jiaotou-right.png" mode="aspectFit"></image>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 商品总计信息 -->
+  <view class="calculateCmountWrap">
+    <view class="calculateCmount">
+      <view class="item">
+        <view class="title">
+          <text>商品总计</text>
+        </view>
+        <view class="detail">
+          <text style="padding-right: 10rpx;">{{checkoutSummary.total}}件</text>
+          <text>¥{{ checkoutSummary.amount }}</text>
+        </view>
+      </view>
+
+      <view class="item">
+        <view class="title" bindtap='showFreight'>
+          <text>运费</text>
+          <image class='titleImg' src='../../images/question-tip.png'></image>
+        </view>
+        <view class="detail">
+          <text>+¥{{ checkoutSummary.haulage}}</text>
+        </view>
+      </view>
+
+      <view class="item" wx-if="{{ hasCouponList }}">
+        <view class="title">
+          <text>优惠券</text>
+        </view>
+        <view class="detail">
+          <text>-¥{{ checkoutSummary.coupon}}</text>
+        </view>
+      </view>
+
+      <view class="item" wx:if="{{checkoutSummary.reduceHaulage && checkoutSummary.reduceHaulage != 0.00}}">
+        <view class="title">
+          <text>运费券</text>
+        </view>
+        <view class="detail">
+          <text>-¥{{ checkoutSummary.reduceHaulage}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="amountPaid">
+      <text class="col-b1">实付金额：</text>
+      <text class="col-red1">¥{{ checkoutSummary.applyAmount }}</text>
+    </view>
+  </view>
+
+  <!-- 支付 -->
+  <view class="payment">
+    <block wx:for="{{ payInfor.paymentMethods }}" wx:for-item="item" wx:key="*this">
+      <view wx:if="{{item.available}}">
+        <view class="payBtn {{item.label == '货到付款' ? 'cashOnDelivery' : ''}} {{loading ? 'disablePay' : ''}}" data-pay="{{ item.c }}" bindtap="bindPayMents">{{ item.label }}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='freight-box' bindtap='closeFreight' wx:if="{{freightState}}">
+</view>
+<view class='freight' wx:if="{{freightState}}">
+  <view class='freight-tit'>
+    <view class='tit-h'>运费详情</view>
+    <view class='tit-info'>运费总计：¥{{freight.freight}}</view>
+  </view>
+  <view class='freight-content' wx:for='{{freight.freightForShopVOs}}' wx:for-item="item" wx:key="freightId">
+    <view class='cont-tit' wx:if='{{item.shopName!="GOME" && item.shopName.length>0}}'>{{item.shopName}}</view>
+    <view class='cont-tit' wx:else>国美自营</view>
+    <view class='freight-list' wx:for='{{item.freightForGroupVOs}}' wx:for-item="shopVos" wx:key="ShopVOsId">
+      <view class='freight-item'>
+        <view class='freight-item-info' wx:if="{{shopVos.freightType=='FF'}}">
+          <view>百货类</view>
+          <view>免运费</view>
+          <view wx:if="{{shopVos.suttle==null}}"></view>
+          <view wx:else>重量：{{shopVos.suttle}}kg</view>
+        </view>
+        <view class='freight-item-info' wx:elif="{{shopVos.freightType=='BF'}}">
+          <view>百货类</view>
+          <view wx:if="{{shopVos.suttle==null}}"></view>
+          <view wx:else>重量：{{shopVos.suttle}}kg</view>
+        </view>
+        <view class='freight-item-info' wx:elif="{{shopVos.freightType=='NBF'}}">
+          <view>非百货类</view>
+          <view>运费：¥{{shopVos.freight}}</view>
+          <view wx:if="{{shopVos.suttle==null}}"></view>
+          <view wx:else>重量：{{shopVos.suttle}}kg</view>
+        </view>
+        <view class='freight-item-info' wx:else>
+          <view>运费：¥{{shopVos.freight}}</view>
+          <view wx:if="{{shopVos.suttle==null}}"></view>
+          <view wx:else>重量：{{shopVos.suttle}}kg</view>
+        </view>
+        <view class='freight-item-prod'>
+          <view wx:for="{{shopVos.freightForItemVOs}}" wx:for-item="itemVos" wx:key="this">
+            <image class='item-iamge' src='{{protocol}}{{itemVos.itemImageURL}}'></image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+<loading hidden="{{ !load.loading }}">{{ load.loadCon }}</loading>
+
+<!-- 发票模板 -->
+<template name="invoice">
+  <view class="title">
+    <text>发票信息</text>
+  </view>
+  <view class="detail">
+
+    <block wx:if="{{ ivh.invoiceNeedType == 'N' }}">
+      <text>不开发票</text>
+    </block>
+    <block wx:else>
+      <block wx:if="{{ !ivh.open }}">
+        <text class='invoice-type' wx:if="{{ ivh.invoiceType }}">{{ ivh.invoiceType }}</text>
+        <text wx:if="ivh.headType || ivh.invoiceContentType">（{{ ivh.invoiceContentType ? ivh.invoiceContentType : '' }}{{ivh.headType && ivh.invoiceContentType ? '－' : ''}}{{ ivh.headType  ? ivh.headType : ''}}）</text>
+      </block>
+    </block>
+  </view>
+</template>
+<view class='freight-box' wx:if="{{!noProdStatus && noList.length>0}}">
+  <view class='no-tit'>选购商品此区域下暂不支持购买，是否移除继续提交</view>
+  <scroll-view class='no-box' scroll-y='true'>
+    <view class='no-list' wx:for="{{noList}}" wx:key="noListId">
+      <!-- TZ-套装商品组 -->
+      <view class='no-prod-box'>
+        <view class='tao-tit' wx:if="{{item.group=='TZ'}}">
+          <view class='tao-tit-tags'>套装</view>
+          <view class='tao-tit-info'>{{item.name}}</view>
+        </view>
+        <view class='tao-tips' wx:if="{{item.group=='TZ' && item.status=='OFF_SHELVES'}}">此套装已下架</view>
+        <view class='no-prod' wx:if="{{item.items.length>0}}" wx:for="{{item.items}}" wx:for-item="itemNo" wx:key="*this">
+          <view class='no-prod-img'>
+            <image src='https:{{itemNo.img}}'></image>
+          </view>
+          <view class='no-prod-cont'>
+            <view class='no-prod-name'>
+              <text class='no-prod-name-tags' wx:if='{{item.group=="JJHG"}}'>加价购</text>
+              <text class='no-prod-name-tags' wx:elif='{{item.group=="HG"}}'>换购</text>
+              <text class='no-prod-name-tags' wx:elif='{{item.group=="DPG"}}'>搭配购</text>
+              <text wx:else></text>
+              {{itemNo.name}}
+            </view>
+            <view class='no-prod-info'>
+              <view class='no-prod-num'>×{{itemNo.quantity}}</view>
+              <view class='no-prod-status' wx:if="{{itemNo.status=='OFF'}}">已下架</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='YY'}}">预约中</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='QGQ'}}">预约待开抢</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='QGWYY'}}">抢购中未预约
+              </view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='QGWDL'}}">抢购中未登录</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='QGCF'}}">抢购中重复下单</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='QGXG'}}">抢购中商品数量不能大于1
+              </view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='QGOFFLINE'}}">线下商品预约</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='NO_GOODS'}}">无货</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='YS'}}">预售中</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='RISK'}}">限购</view>
+              <view class='no-prod-status' wx:elif="{{itemNo.status=='NOR'}}"></view>
+              <view class='no-prod-status' wx:else>已下架</view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+      <view class='no-prod-span'></view>
+    </view>
+  </scroll-view>
+  <view class='no-prod-btn'>
+    <view class='return-btn' bindtap='returnCart'>返回修改</view>
+    <view class='del-no-btn' bindtap='delNoProd'>移除商品</view>
+  </view>
+</view>

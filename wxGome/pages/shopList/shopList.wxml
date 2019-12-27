@@ -1,0 +1,56 @@
+<loading hidden="{{!loading}}">加载中...</loading>
+<view class="content">
+  <scroll-view class="shop-list" wx:if="{{isShop}}">
+    <view class="list-tit">
+
+      <view class="tit-left" wx:if="{{isShow}}">
+        <text wx:if="{{showTip==1}}">您周边的门店</text>
+        <text wx:else>{{area}}</text>
+      </view>
+      <view class="tit-left" wx:else>
+        <view class="tit-left-no" wx:if="{{showTip==3}}">未获取到您的地理位置，
+          <button class="empower" plain="true" hover-class="none"  bindtap="getEmpower">允许授权展示附近门店</button> 
+        </view>
+        <text wx:elif="{{showTip==2}}">{{area}}</text>
+        <text wx:else></text>
+      </view>
+
+      <navigator class="tit-right" url="../shopAddress/shopAddress" hover-class='none'>
+        <view>查看更多门店</view>
+        <image src="/images/arrowright.png"></image>
+      </navigator>
+    </view>
+    <view class="list-content">
+      <view class="cont-box" wx:for="{{shopList}}" wx:key="shop">
+        <view class="cont-left">
+          <view class="cont-name">{{item.name}}</view>
+          <view class="cont-adress">{{item.address}}</view>
+          <view class="cont-time">营业时间：{{item.businessHours}}</view>
+          <view class="cont-phone">
+            <text class="phone-tit">电话：</text>
+            <text class="phone-cont" bindtap="callPhone" data-num="{{item.storePhone}}">{{item.storePhone}}</text>
+          </view>
+        </view>
+        <view class="cont-right" >
+          <view class="cont-map"  wx:if="{{isShow}}" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-name="{{item.name}}" data-address="{{item.address}}" bindtap="shopMap" hover-class="none" >
+            <image src="../../images/map_logo.png"></image>
+            <view class="distance">{{item.distance}}</view>
+          </view>
+          <view class="cont-map" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-name="{{item.name}}" data-address="{{item.address}}" bindtap="shopMap" hover-class="none"   wx:else>
+            <image src="../../images/map_logo.png"></image>
+          </view>
+           <navigator class="shop-prod"  url="../shopProd/shopProd?storeCode={{item.storeCode}}&name={{item.name}}&address={{item.address}}&storePhone={{item.storePhone}}&countyCode={{item.countyCode}}">门店商品</navigator> 
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="shop-list" style="height:{{height}}" wx:else>
+    <view class="more-icon">
+      <image src="/images/more-shop.png"></image>
+    </view>
+    <view class="more-tip">抱歉，没有发现门店。</view>
+    <view class="more-shop">
+      <navigator url="../shopAddress/shopAddress">查看更多门店</navigator>
+    </view>
+  </scroll-view>
+</view>

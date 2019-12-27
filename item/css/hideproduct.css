@@ -1,0 +1,203 @@
+@charset "utf-8";
+a {
+    color: #404040;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0
+}
+
+a:hover {
+    color: #c00
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.f12 {
+    font-size: 12px
+}
+
+.f14 {
+    font-size: 14px
+}
+
+.hidden {
+    overflow: hidden
+}
+
+.hide {
+    display: none
+}
+
+.ml4 {
+    margin-left: 4px
+}
+
+.clear {
+    clear: both
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+.clearfix {
+    *zoom: 1;
+}
+.local {
+    height: 25px;
+    line-height: 25px;
+    font-family: simsun;
+    color: #a5a5a5;
+    margin-left: 13px;
+}
+.local ul, .local li {
+    display: block;
+    float: left;
+}
+.local li a {
+    float: left;
+}
+
+.local li .icon-crumbs-right {
+    margin:0 8px;
+    background: url(i/sprite-product.png) -24px -175px no-repeat;
+    _background: url(i/sprite-product.gif) -24px -175px no-repeat;
+}
+.local li .details-breadcrumbs-dropdown {
+    display: none;
+}
+
+.local a {
+    color: #5e5e5e;
+}
+
+.local a:hover {
+    color: #c00;
+}
+
+.local a.linkBold {
+    font-family: "Microsoft YaHei", "Arial";
+    font-weight: bold;
+}
+
+.local a.linkGray {
+    color: #CCCCCC;
+    cursor: default;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    *vertical-align: baseline;
+    display: inline-block;
+    overflow: hidden;
+    width: 252px;
+}
+
+
+#prd-main-wrap {
+    margin-bottom: 20px;
+}
+
+.prd-main {
+    float: right;
+    width: 830px;
+}
+
+.prdtit h1 {
+    font: 600 18px/20px 'Microsoft YaHei';
+    color: #666;
+    margin-bottom: 8px
+}
+
+body.w990 .wbox .prd-main {
+    width: 620px;
+}
+
+.gm-ad-box {
+    background: none!important;
+    border: 1px solid #eee;
+    width: 830px;
+    height: 310px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    float: right;
+    display: inline;
+}
+
+.gm-ad-box .info {
+    font-weight: bold;
+    padding: 0 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    height: 38px;
+    line-height: 38px;
+    background: #f5f5f5;
+    font-size: 14px;
+}
+
+.gm-ad-box .title {
+    font: 12px/38px Arial,Verdana,"\5b8b\4f53";
+    color: #666;
+    background: none;
+}
+
+.gm-ad-box .andBuy-cont {
+    width: 735px;
+}
+
+.gm-ad-box .andBuy-cont li {
+    width: 185px;
+}
+
+.gm-ad-box .andBuy-cont li  p {
+    text-align: center;
+}
+
+.andBuy-btnout .disable:hover b {
+    background-position: -1px -46px;
+    left: 20px;
+    cursor: default;
+}
+
+.andBuy-btnout .disable:hover s {
+    background-position: -15px -46px;
+    right: 20px;
+    cursor: default;
+}
+
+.w990 .gm-ad-box {
+    width: 620px;
+}
+
+.w990 .gm-ad-box {
+    width: 620px;
+}
+
+.w990 .gm-ad-box .andBuy-cont {
+    width: 532px;
+}
+
+.w990 .gm-ad-box .andBuy-cont li {
+    width: 178px;
+}
+
+.prd-images .sharebox {
+    display: none;
+}
+
+.magnifier .pic-list {
+    position: relative;
+    height: 70px;
+}
+
+#gm-other-info {
+    margin-top: 0;
+}

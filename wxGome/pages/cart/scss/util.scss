@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+//现代浏览器清除浮动
+.cf:before,
+.cf:after {
+  content:"";
+  display:table;
+}
+.cf:after {
+  clear:both;
+}
+
+//html5 语义化标签兼容
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+.title{
+  border:solid $normalred 1rpx;
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 56rpx;
+  height:26rpx;
+  text-align: center;
+  border-radius:4rpx;
+  font: 24rpx/26rpx $font;
+  color:#fff;
+}
+
+.red{
+  color: $red;
+}
+.inline-block{
+  display: inline-block;
+}
+.block{
+  display: block;
+}
+._block{
+  display: block;
+}
+.hide {
+  display: none;
+}
+.test{
+  color: red;
+}

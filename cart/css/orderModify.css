@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* 公共部分 */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: 400;
+}
+.loading {
+	height: 200px;
+	background: url(//app.gomein.net.cn/gmlib/ui/loading/3.0.0/loading.gif) no-repeat center;
+}
+/*图片*/
+.titleBox a,.tri,.errIco,.warnIco,.vatIco{background:url("/images/ui/buy-steps.png") no-repeat;}
+/*通用*/
+.orange{color:#ea5504;}
+.red{color:#c00;}
+.lowlight{color:#a5a5a5;}
+.ipt,.iptDis{border:1px solid #e6e6e6;height:24px;overflow:hidden;display:inline-block;margin-right:5px;padding-left:2px;line-height:24px;}
+.ipt.empt,.iptDis.empt{border:1px solid #c00;}
+input[type="radio"]{margin-right:8px;position:relative;top:2px;_top:0;}
+.fl{float:left;display:inline;}
+.mr15{margin-right: 15px;}
+.prel{position:relative; }
+.pabs{position: absolute;}
+.w175{width: 175px;}
+.box-sd1{
+    box-shadow: 0 0 23px 1px #ccc;
+}
+.ie678 .box-sd1{
+  border: 1px solid #ccc
+}
+.white-arrow{
+    font-size: 30px;
+    overflow: hidden;
+    position: absolute;
+    height: 20px;
+    color: #fff;
+}
+.ie678 .white-arrow{display: none;}
+.phone-call-pos{margin-bottom:0;position:absolute;top:107px;left:545px;}
+/*结构*/
+.popupMain{width:820px;background:#000;}
+
+.titleBox{height:40px;background:#ae111d;line-height:40px;}
+.titleBox h2{float:left;display:inline;color:#fff;font-size:14px;margin-left:20px;}
+.titleBox a{float:right;display:inline;background-position:0 -208px;width:17px;height:17px;overflow:hidden;margin:12px 10px 0 0;}
+
+.contMain{width:780px;padding:30px 20px;background:#fff;}
+.contBox{padding:10px 20px 20px;border:1px solid #e6e6e6;margin-bottom:20px;}
+.contTit{font-size:14px;margin-bottom:10px;}
+.contTit h3{font-weight:700;float:left;display:inline;}
+.contTit a{color:#006699;float:right;display:inline;}
+
+.btnBox{margin-top:18px;text-align:center;font:700 14px/30px "Microsoft YaHei";}
+#saveModif{width:92px;height:30px;background:#c00;display:inline-block;color:#fff;cursor: pointer;}
+.cancel{width:90px;height:28px;background:#f8f8f8;display:inline-block;color:#000;border:1px solid #dedede;margin:1px 0 0 15px;cursor: pointer;}
+#saveModif:hover, .cancel:hover{text-decoration:none;}
+/*收起时内容样式*/
+.infoBox{padding-left:20px;color:#5e5e5e;}
+.nam{font-weight:700;margin-right:15px;}
+.timType{margin-right:10px;}
+.invoiceInfo{}
+.invoiceInfo li{margin-bottom:5px;}
+.sideTit{width:65px;display:inline-block;float:left;display:inline;}
+.fpList{float:left;display:inline;}
+.fpList p{padding-bottom:5px;}
+/*展开时内容样式*/
+.errIco,.warnIco,.vatIco{background-position:-55px -50px;width:17px;height:17px;overflow:hidden;display:inline-block;position:relative;top:4px;margin-right:5px;}
+.warnIco,.vatIco{background-position:-34px -50px;}
+.editBox{color:#5e5e5e;}
+.editBox li{margin-bottom:10px;}
+.editBox li.last{margin-bottom:0;}
+.addSide{width:85px;text-align:right;float:left;display:inline;line-height:26px;}
+.addSide em,.fpSide em,.vatSide em{color:#cc0000;margin-right:5px;}
+.iptDis{color:#cccccc;padding:0 22px 0 5px;line-height:24px;background:#f8f8f8;position:relative;float:left;display:inline;}
+.iptDis em{position:absolute;width:0;height:0;border:4px dashed transparent;border-color:#ccc transparent transparent;border-bottom:0;border-top-style:solid;top:10px;right:5px;overflow:hidden}
+.remd{color:#a5a5a5;}
+.timLable{margin:0 0 10px 30px;display:block;}
+#j-invoice label{width:105px;display:inline-block;margin-top:5px;position:relative;height:18px;}
+.fpSide{width:119px;text-align:right;float:left;display:inline;line-height:26px;}
+#fpHelp{color:#006699;font-weight:700;cursor:pointer;position:relative;z-index:1;}
+.detailKinds{margin-left:20px;margin-bottom: 10px;}
+.detailKinds label{width:85px;display:inline-block;}
+.shopMark{line-height:26px;color:#a5a5a5;}
+
+.prel-company{position: relative;display: inline-block; *display: inline;*zoom: 1;top:-17px;left: -5px}
+.invoices_tips_icon{position: absolute;top:6px;right: 3px;margin-left: 3px;}
+.invoice-tip{display: none;border-radius:2px;border:1px solid #e1e1e1;position: absolute;top:-9px;width: 250px;padding:5px 10px;background-color: #fff;color: #5e5e5e;z-index: 10}
+.company-pabs{left: 10px;}
+.invoice-tip .white-arrow{top: 7px;left: -10px;font-size:18px;}
+.invoices_tips1_icon{position: absolute;top:6px;left: 278px;}
+.dwfh-pabs{left: 310px}
+/*展开时内容样式——增票*/
+.vat-tips{color:#EA5504;padding-left:117px;}
+.vat-tips .vatIco{margin-left:-22px;}
+.vatSide{width:119px;text-align:right;float:left;display:inline;}
+.vatInfo p{line-height:20px;}
+.vat-address{float:left;display:inline;width:610px;overflow:hidden;}
+.vatFpCont{float:left;display:inline;line-height:26px;}
+/*发票帮助*/
+.invoiceHelp{width:260px;padding:10px 20px;text-align:left;background:#FFF;box-shadow:0 0 10px rgba(0,0,0,.19);border:1px solid #E6E6E6;position:absolute;top:25px;display:none;}
+.invoiceHelp a{color:#006699;display:block;}
+.invoiceHelp b{position:absolute;border:10px solid transparent;border-bottom:8px solid #fff;width:0;height:0;overflow:hidden;top:-18px;left:86px;}
+
+/* 通用错误提示 */
+.errorBoxlh{position:fixed; padding:15px; z-index:16; left:40%; top:30%; text-align:center; width:200px; background:#fff;}
+.errorCont{text-align: center;}
+.errorMessage{font:500 12px/12px simsun; color:#5e5e5e; padding-bottom:15px;line-height:20px;}
+.errorBtn{display:inline-block; background:#D00;color:#fff;padding:0 10px; height:28px; font:700 12px/28px simsun;cursor: pointer;}
+.mask_lh{position:absolute; top:0; z-index:15; width:100%; background:#000; opacity:0.15;}
+.errhide{display: none;}
+
+
+
+
+
+

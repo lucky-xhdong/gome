@@ -1,0 +1,342 @@
+/*左 start*/
+.w990 .prd-firstscreen-left .toolbar span {
+    _width: 135px;
+}
+.w990 .prd-firstscreen-left .toolbar a {
+    _margin-left:15px;
+}
+.w990 .imgs-magnifier .pic-thumb-wrapper {
+    _text-align: center;
+}
+.w990 .imgs-magnifier .pic-thumb-wrapper .pic-thumb-lists ul li {
+    _height: 55px;
+}
+/*左 end*/
+/*中 start*/
+.w990 .prd-firstscreen-center .hgroup h4 a i {
+    _display: inline;
+    _zoom: 1;
+    play: inline;
+    *zoom: 1;
+}
+.w990 .prd-firstscreen-center .bijia .img-smart-buy img {
+    +width: 100%;
+    _width: 100%;
+}
+.w990 .prd-promotions {
+    +z-index: 12;
+    _z-index: 12;
+}
+.w990 .prd-promotions .more {
++width: 84px;
++height: 18px;
+}
+.w990 .prd-promotions .more span i {
++position: relative;
++top: -18px;
+}
+.w990 .prd-promotions .prd-promotions-re {
+    _margin: 5px 0;
+}
+.w990 .prd-promotions .prd-promotions-red,
+.w990 .prd-promotions .prd-promotions-orange {
+    _line-height: 18px;
+    +position: relative;
+    +z-index: 11;
+}
+.w990 .prd-promotions .prd-promotions-red,
+.w990 .prd-promotions .prd-promotions-orange,
+.w990 .prd-promotions .huiyuanjia {
+    _width: 380px;
+}
+.w990 .prd-promotions .prd-promotions-red .ellipsis,
+.w990 .prd-promotions .prd-promotions-orange .ellipsis {
+    +width: 235px;
+    _width: 235px;
+}
+.promotions-collapse.open {
+    _height: auto !important;
+    _overflow: auto;
+    _position: static;
+}
+.w990 .prd-promotions .huiyuanjia {
+    _height: 18px;
+    _line-height: 18px;
+    _position: relative;
+}
+.w990 .prd-properties .prd-properties-other {
+    +line-height:24px;
+    _line-height:24px;
+}
+.w990 .prd-properties .songzhi .prd-properties-right .prd-properties-city {
+    _height: 24px;
++z-index: 111;
+    _z-index: 111;
+}
+.w990 .prd-properties .songzhi .prd-properties-right .prd-properties-city,
+.w990 .prd-properties .songzhi .prd-properties-right p {
+    +width: 340px;
+    _width: 340px;
+}
+.w990 .prd-properties .songzhi .prd-properties-right .prd-properties-city .pop-freightnote p {
+    +width:415px;
+    _width:435px;
+}
+.w990 .prd-properties .songzhi .prd-properties-right .prd-properties-city .region {
+    +margin-top: 5px;
++padding-bottom: 0;
+    +line-height: 18px;
+    _line-height: 18px;
+    _margin-top: 5px;
+}
+.w990 .prd-properties .banben {
+    +margin-bottom:10px;
+    _margin-bottom:10px;
+}
+.w990 .prd-properties .yanse .prdRight .prdcol a:hover,
+.w990 .prd-properties .banben .prdRight .prd-properties-lists ul li a:hover,
+.w990 .prd-properties .yanbaofuwu .prdRight .prd-properties-lists ul li a:hover {
+    zoom: 1;
+    border-color: #eb515b;
+}
+.w990 .prd-properties .yanbaofuwu .prdRight .prdmod {
++white-space: nowrap;
+    _white-space: nowrap;
+}
+.w990 .prd-properties .yanbaofuwu .prdRight .prdmod a b {
+    _width:16px;
+    _height:16px;
+    _line-height:16px;
+    _position: absolute;
+    _top: 50%;
+    _margin: -8px 5px 0 5px;
+    _left: 0;
+    _background: url(i/sprite-product.gif) no-repeat;
+    _background-position: 0 -83px;
+}
+.w990 .prd-properties .yanbaofuwu .prdRight .prdmod a:hover b,
+.w990 .prd-properties .yanbaofuwu .prdRight .prdmod a.select b {
+    _position: absolute;
+    _top: 50%;
+    _margin: -8px 5px 0 5px;
+    _left: 0;
+}
+.w990 .prd-properties .yanbaofuwu .prdRight .prdmod span.years {
+    _margin-left:15px;
+}
+.w990 .prd-properties .banben .prd-properties-right .prd-properties-lists ul li a i {
+    _line-height:15px;
+}
+.w990 .prd-properties .banben .prdRight {
+    _width:330px;
+}
+
+.w990 .prd-properties .yanse .prdRight {
++padding-bottom: 10px;
+    _padding-bottom: 10px;
+}
+.w990 .prd-properties .yanse .prdRight .prdcol {
+    +width: 120px;
+    _width: 120px;
+    _white-space: nowrap;
+}
+.w990 .prd-properties .yanse .prdRight .prdcol a {
++height: 38px;
+    _height: 38px;
+}
+.w990 .prd-properties .yanse .prdRight .prdcol a i {
+    _bottom: 0;
+}
+.w990 .prd-properties .yanse .prdRight .prdcol a span {
+    _width: 60px;
+    _text-overflow: ellipsis;
+    _overflow: hidden;
+}
+.w990 .prd-properties .banben .prd-properties-right .prd-properties-lists ul li {
++height: 29px;
++line-height: 29px;
+    _height: 29px;
+    _line-height: 29px;
+}
+.w990 .prd-properties .banben .prd-properties-right .prd-properties-lists ul li a {
++width: 55px;
+    _width: 55px;
++height: 21px;
+    _height: 21px;
++line-height: 21px;
+    _line-height: 21px;
+}
+
+.w990 .prd-properties .banben .prd-properties-right .prd-properties-lists ul li.disabled:hover,
+.w990 .prd-properties .banben .prd-properties-right .prd-properties-lists ul li.disabled a:hover {
+    zoom: 1;
+    border-color: #fdabb0 !important;
+    cursor: not-allowed;
+    color: #e68080;
+}
+.w990 .prd-properties .yanbaofuwu,
+.w990 .prd-properties .xuanzexilie {
+    _padding-bottom: 10px;
+    +padding-bottom: 10px;
+}
+.w990 .prd-properties .yanbaofuwu .prd-properties-right .prd-properties-lists ul li {
++width: 145px;
+    _width: 145px;
+}
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a img {
++vertical-align: top;
+    _vertical-align: top;
+}
+.w990 .prd-properties .yanbaofuwu .prd-properties-right .prd-properties-lists ul li a i {
+    _background-position: 0 -83px;
+}
+
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li {
+    _width: 115px;
++height: 26px;
++line-height:26px;
+    _height: 24px;
+    _line-height:24px;
+}
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a {
++height: 24px;
++line-height:24px;
+    _height: 22px;
+    _line-height:22px;
+}
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a i {
+    _bottom:-2px;
+    _right:-2px;
+    _line-height:15px;
+}
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a img,
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a span {
++float: left;
+    _float: left;
+}
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a img {
++vertical-align: top;
+    _vertical-align: top;
+}
+.w990 .prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a span {
++line-height:26px;
+    _line-height:22px;
+}
+.w990 .prd-promotions .pop-scancode .pop-inner,
+.w990 .prd-buttons .pop-easeshopping .pop-inner {
+    position: relative \9;
+    z-index: 11 \9;
+}
+.w990 .prd-buttons .btn-product {
+    _padding:5px 20px;
+    _height: 20px;
+}
+.w990 .prd-promotions .pop-scancode .pop-inner .pop-tips {
+    _position: relative;
+}
+.w990 .prd-promotions .pop-scancode {
+    _left: 200px;
+    _top: -5px;
+}
+.w990 .prd-buttons {
++width: 400px;
+    _width: 400px;
+}
+.w990 .prd-buttons {
++height: 42px;
+    _height: 42px;
+}
+/*中 end*/
+
+/*右 start*/
+.w990 .prd-shops-info .shops-logo {
+    _padding-top: 10px;
+}
+.w990 .prd-shops-info .shops-name {
++width: 200px;
+    _width: 200px;
++height: 30px;
+    _height: 30px;
+}
+.w990 .prd-shops-info .service-label-wrapper ul li {
++width: 75px;
+    _width: 75px;
++white-space: nowrap;
+    _white-space: nowrap;
+}
+.w990 .prd-shops-info .surpport-label-wrapper ul li {
+    _padding: 5px 0
+}
+.w990 .prd-shops-info .services-wrapper .services-score-single .describe,
+.w990 .prd-shops-info .services-wrapper .services-score-single .logistics,
+.w990 .prd-shops-info .services-wrapper .services-score-single .services {
++width: 36px;
+    _width: 36px;
++height: 36px;
+    _height: 36px;
+}
+.w990 .prd-shops-info .services-wrapper .services-score-single .describe span,
+.w990 .prd-shops-info .services-wrapper .services-score-single .logistics span,
+.w990 .prd-shops-info .services-wrapper .services-score-single .services span {
++width:40px;
+    _width:40px;
+}
+.w990 .prd-shops-info .services-wrapper .services-score-single .describe span i,
+.w990 .prd-shops-info .services-wrapper .services-score-single .logistics span i,
+.w990 .prd-shops-info .services-wrapper .services-score-single .services span i {
++position: absolute;
+    _position: absolute;
++width: 12px;
+    _width: 12px;
++right: -4px;
++bottom: 0;
+    _right: -4px;
+    _top: 0;
+}
+.w990 .prd-shops-info .services-wrapper .services-score-detail .describe.up i,
+.w990 .prd-shops-info .services-wrapper .services-score-detail .logistics.up i,
+.w990 .prd-shops-info .services-wrapper .services-score-detail .services.up i {
+    _background-position: -93px -71px;
+}
+.w990 .prd-shops-info .services-wrapper .services-score-detail .describe.down i,
+.w990 .prd-shops-info .services-wrapper .services-score-detail .logistics.down i,
+.w990 .prd-shops-info .services-wrapper .services-score-detail .services.down i {
+    _background-position: -93px -81px;
+}
+.w990 .prd-shops-info .service-label-wrapper {
+    +height: 112px;
+    _height: 112px;
+}
+.w990 .prd-shops-info .services-wrapper .services-score {
++white-space: nowrap;
+    _white-space: nowrap;
++padding: 0 5 px;
+    _padding: 0 5px;
+}
+.w990 .prd-shops-info .services-wrapper .services-score-detail p {
++height: 18px;
+    _height: 18px;
+}
+.w990 .prd-promotions .pop-scancode .pop-inner .pop-tips p {
++white-space: nowrap;
+    _white-space: nowrap;
+}
+.w990 .prd-shops-info .services-wrapper .services-score .btn-arrow {
++margin: 0;
+    _margin: 0;
+}
+.w990 .prd-shops-info .btn-shops-wrapper .btn-product.btn-contact i {
+    _line-height:18px;
+}
+.w990 .prd-shops-info .btn-shops-wrapper .btn-product.btn-contact.disabled i {
+    _background-position: -44px -15px;
+}
+/*右 end*/
+.approbated-service ul {
++overflow: hidden;
+    _overflow: hidden;
+}
+.approbated-service ul li {
++float:left;
+    _float:left;
+}

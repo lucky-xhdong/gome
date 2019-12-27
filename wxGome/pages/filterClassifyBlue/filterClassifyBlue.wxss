@@ -1,0 +1,50 @@
+page {
+	background: #fff;
+	position: relative;
+	height: 100%;
+	font-family: 'Microsoft YaHei';
+}
+text {font: 28rpx/24rpx 'Microsoft YaHei';}
+
+.filter-wrapper {
+	padding-left: 20rpx;
+	padding-bottom: 60rpx;
+}
+.filter-wrapper .item-style {
+	position: relative;
+	display: block;
+	padding-right: 80rpx;
+	line-height: 94rpx;
+}
+.filter-wrapper .item-style .txt {
+	line-height: 94rpx;
+	height: 94rpx;
+	color: #333;
+	font-size: 28rpx;
+}
+.filter-wrapper .selected .txt {
+	color: #e3101e;
+}
+.filter-wrapper .item-style image {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+	right: 20rpx;
+	width: 40rpx;
+	height: 40rpx;
+}
+.border-b-e {border-bottom: 1rpx solid #e6e6e6;}
+.ellip {
+	-webkit-flex: 1;
+	flex: 1;
+	display: box;
+	display: -webkit-box !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+}

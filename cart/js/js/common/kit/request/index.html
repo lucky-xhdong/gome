@@ -1,0 +1,165 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>无标题</title>
+	<style>
+	pre{
+		border:solid 1px red;
+	}
+	</style>
+</head>
+<body>
+<script type="text/javascript" 
+src="/??/gmlib/jq/1.7.1/jquery.js,/gmpro/1.0.0/cart/1.0.0/js/common/kit/request/request.js"></script>
+<p>
+	以下所有函数都提供了默认的请求失败处理业务
+	如果想加入自己的逻辑使用.fail(function(err){x});
+	<pre>
+request.getApi('site','class/method',{pid:'xxxx'}).then(succesfn).fail(errorfn);		
+	</pre>
+</p>
+<ol>
+	<li>
+		<h3>request.getApi</h3>
+		<pre>
+request
+.getApi('home','test/method1',{p1:1,p2:2})//前两个参数是“站点” 和 调用的方法
+.then(function(val){
+	$("#result").html(JSON.stringify(val));
+});
+		</pre>
+		<h5>请求url</h5>
+		<pre>/api/test/method1?siteId=home&p1=1&p2=2	</pre>
+		<h5>运行结果</h5>
+		<pre id="result"></pre>
+	</li>
+	<li>
+		<h3>request.postApi</h3>
+		<pre>
+request
+.getApi('home','test/method1',{p1:1,p2:2})//前两个参数是“站点” 和 调用的方法
+.then(function(val){
+	$("#result").html(JSON.stringify(val));
+});
+		</pre>
+		<h5>请求url</h5>
+		<pre>/api/home/method1?site='home' </pre>
+		<h5>from data</h5>
+		<pre>p1=1&p2=2	</pre>
+		<h5>运行结果</h5>
+		<pre id="result2"></pre>
+	</li>
+	<li>
+		<h3>request.getJson 同getApi request.postJson 同getJson 功能请求方式是post</h3>
+		<pre>
+request.
+getJson('/api/test/method1',{p1:1,p2:2}). 
+then(function(val){
+	$("#result2").html(JSON.stringify(val));
+});			
+		</pre>
+	</li>
+	<li>
+		<h3>request.req</h3>
+		<pre>
+request.req('get','json',/api/test/method1?siteId=home',{p1:1,p2:2}).then(function(val){
+	//同getJson
+})			
+		</pre>
+	</li>
+	<li>
+		<h3>request.reqp 请求</h3>
+		<pre>
+/*参数url,param,jsonpname可选参数默认随机字符串,jsonp可选参数默认callback*/
+request.reqp('/api/test/jsonptest?siteId=home',{a:2}).then(function(val){
+	$("#result7").html(JSON.stringify(val));
+});		
+		</pre>
+		<h3>请求rul</h3>
+		<pre>/api/test/jsonptest?callback=dbk1448534199411&a=2&_=1448534199412</pre>
+		<h3>返回数据</h3>
+		<pre>dbk1448534199411([1,2,3,78888])</pre>
+		<h3>运行结果</h3>
+		<pre id="result7"></pre>
+	</li>
+	<li>
+		<h3>同时多个请求</h3>
+		<pre>
+var req1=request.getApi('home','test/method1');
+var req2=request.getApi('home','test/jsonptest');
+request
+.parall(req1,req2)
+.then(request.res(function(res1,res2){
+	$("#res1").html(JSON.stringify(res1));
+	$("#res2").html(JSON.stringify(res2));
+}))		
+		</pre>
+		<h3>res1</h3>
+		<pre id="res1"></pre>
+		<h3>res2</h3>
+		<pre id="res2"></pre>
+	</li>
+	<li>
+		<h3>请求数据缓存（同一请求，多次调用实际只请求一次）</h3>
+		<pre>
+var getApi=request.cachePromise(request.getApi,'home','test/cache');
+getApi().then(function(cacheres){
+	$("#cacheres").append(JSON.stringify(cacheres));
+	getApi().then(function(cacheres){
+		$("#cacheres").append(JSON.stringify(cacheres));
+	});
+});	
+
+		</pre>
+		<h3>运行结果</h3>
+		<pre id="cacheres"></pre>
+	</li>
+</ol>
+<script type="text/javascript">
+	/*参数url,param,jsonpname可选参数默认随机字符串,jsonp可选参数默认callback*/
+	request.reqp('/api/test/jsonptest?siteId=home',{a:2}).then(function(val){
+		$("#result7").html(JSON.stringify(val));
+	});
+</script>
+<script type="text/javascript">
+	request.
+	getApi('home','test/method1',{p1:1,p2:2}). //前两个参数是“站点” 和 调用的方法
+	then(function(val){
+		$("#result").html(JSON.stringify(val));
+	});
+</script>
+<script type="text/javascript">
+	request.
+	postApi('home','test/method1',{p1:1,p2:2}). //前两个参数是“站点” 和 调用的方法
+	then(function(val){
+		$("#result2").html(JSON.stringify(val));
+	});
+</script>
+<script type="text/javascript">
+	request.
+	getJson('/api/test/method1?siteId=home',{p1:1,p2:2}). 
+	then(function(val){
+		// $("#result2").html(JSON.stringify(val));
+	});
+</script>
+<script type="text/javascript">
+	var req1=request.getApi('home','test/method1');
+	var req2=request.getApi('home','test/jsonptest');
+	request
+	.parall(req1,req2)
+	.then(request.res(function(res1,res2){
+		$("#res1").html(JSON.stringify(res1));
+		$("#res2").html(JSON.stringify(res2));
+	}))
+</script>
+<script type="text/javascript">
+	var getApi=request.cachePromise(request.getApi,'home','test/cache');
+	getApi().then(function(cacheres){
+		$("#cacheres").append(JSON.stringify(cacheres));
+		getApi().then(function(cacheres){
+			$("#cacheres").append(JSON.stringify(cacheres));
+		});
+	});
+</script>
+</body>
+</html>

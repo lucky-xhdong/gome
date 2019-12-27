@@ -1,0 +1,48 @@
+<import src="../../wetoast/wetoast.wxml" />
+<view class="container">
+    <block wx:for="{{listData}}" wx:key="*this" wx:for-item="list" wx:for-index="idx">
+      <view wx:if="{{(list.type==1 || list.type==5) &&list.data && list.data[0] && list.data[0].type == 2 }}" data-wxaurl="{{list.data[0].url}}" bindtap="hrefToLink">
+        <!-- 头图 -->
+        <image wx:if="{{list.type==1 && list.data[0].type == 2 && idx==0}}" class='floor-image-one' mode="widthFix" src="{{list.data[0].image}}"></image>
+         <!-- 一般图片 -->
+        <image wx:if="{{list.type==1 && list.data[0].type == 2 && idx!=0}}" class='floor-image' mode="widthFix" src="{{list.data[0].image}}"></image>
+         <!-- 单图楼层样式 -->
+        <image wx:if="{{list.type==5 && list.data[0].type == 2}}" class='floor-image-style' mode="widthFix" src="{{list.data[0].image}}"></image>
+      </view> 
+      <!-- <text class='floor-title'>楼层标签(纯文字，仅参考高度)</text>
+      <view class="tab-box"></view> -->
+      <view wx:if="{{list.type==2 || list.type==3 || list.type==4 }}" class="goods-container">
+        <block wx:if="{{list.type==2 && list.data }}" wx:for="{{list.data}}"  wx:key="*this" wx:for-item="goods">
+          <view wx:if="{{goods.type==0}}" class="goods-box" data-wxaurl="{{goods.wxaUrl}}" bindtap="hrefToLink" data-prod="{{goods.mix_id}}" data-skuid="{{goods.skuid}}">
+              <image class="goods-img" mode="scaleToFill" src="{{goods.image}}"></image>
+              <view class='message-box'>
+                <text class='goods-title'>{{goods.title}}</text>
+                <view class='price-box'>
+                  <text class="price">¥{{goods.price}}</text>
+                  <view class='buy-btn'>立即购买</view>
+                </view>
+              </view>
+          </view>
+        </block>
+          
+        <block wx:if="{{list.type==3 && list.data }}" wx:for="{{list.data}}"  wx:key="*this" wx:for-item="goods">
+          <view wx:if="{{goods.type==0}}" class="goods-box type2" data-wxaurl="{{goods.wxaUrl}}" bindtap="hrefToLink" data-prod="{{goods.mix_id}}" data-skuid="{{goods.skuid}}">
+              <image class="goods-img" mode="scaleToFill" src="{{goods.image}}"></image>
+              <text class='goods-title'>{{goods.title}}</text>
+              <text class="price">¥{{goods.price}}</text>
+              <view class='buy-btn'>立即购买</view>
+          </view>
+        </block>
+          
+        <block wx:if="{{list.type==4 && list.data }}" wx:for="{{list.data}}"  wx:key="*this" wx:for-item="goods" >
+          <view wx:if="{{goods.type==0}}" class="goods-box type3" data-wxaurl="{{goods.wxaUrl}}" bindtap="hrefToLink" data-prod="{{goods.mix_id}}" data-skuid="{{goods.skuid}}">
+              <image class="goods-img" mode="scaleToFill" src="{{goods.image}}"></image>
+              <text class='goods-title'>{{goods.title}}</text>
+              <text class="price">¥{{goods.price}}</text>
+              <view class='buy-btn'>立即购买</view>
+          </view>
+        </block>
+        
+      </view>
+    </block>
+</view>

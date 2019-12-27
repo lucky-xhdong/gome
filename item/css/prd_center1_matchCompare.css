@@ -1,0 +1,301 @@
+/*搭配购*/
+
+.prd_rend {
+    width: 1198px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    word-break: break-all;
+    position: relative;
+    display: none;
+}
+
+
+.prd_rend_tabtit {
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 1px solid #eeeeee;
+    background: #f6f6f6;
+}
+
+.prd_rend_tabtit a {
+    font: 600 14px/36px 'Microsoft YaHei';
+    padding: 0 20px;
+    float: left;
+}
+ .tablink {
+    font: normal 12px/12px 'simsun';
+    color: #cccccc;
+    margin: 15px 0px;
+    text-indent: 20px;
+}
+ .tablink a{
+    color: #666;
+ }
+ .tablink a:hover{
+    color: #dd0c16;
+    text-decoration: none;
+ }
+  .tablink a.cur{
+    color: #dd0c16;
+ }
+
+.prd_rend_tabtit a.cur {
+    color: #e3101e;
+    height: 36px;
+    border-top: 2px solid #e3101e;
+    background: #fff;
+    margin: -1px 0 0;
+   
+}
+.prd_rend_tabtit a:hover {
+    color: #e3101e;
+    text-decoration: none;
+}
+
+.prd_rend_tabtit a.cur {
+   color: #e3101e
+}
+
+.prd_rend_tabtit a.allSuits {
+    border: 0;
+}
+
+.prd_rend dt {
+    padding: 0 20px;
+    
+    float: left;
+    position: relative;
+}
+
+.prd_rend .prd_rend_prd {
+    float: left;
+    width: 830px;
+    height: 230px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.w990  .prd_rend{
+    width: 988px!important;
+}
+.w990 .prd_rend_prd{
+    width: 630px;
+}
+.prd_rend .prd_rend_cart {
+    float: left;
+    width: 210px;
+}
+
+.prd_rend strong {
+    color: #e3101e;
+    font-weight: bold;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.prd_rend .f16 {
+    font-size: 16px;
+}
+
+.prd_rend .f14 {
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+.prd_rend_prd li {
+    padding: 0 20px;
+    float: left;
+    display: inline-block;
+    *width:100px;
+}
+
+.prd_rend_prd li:hover {
+    background: #f3f3f3;
+}
+
+.prd_rend_prd a {
+    color: #5e5e5e;
+}
+
+.prd_rend_prd .check {
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.prd_rend_prd .price {
+    font-weight: bold;
+    color: #e3101e;
+    font-family: 'microsoft yahei';
+}
+
+.prd_rend_prd .choose {
+    display: none;
+    text-align: center;
+    line-height: 20px;
+    width: 100px;
+    height: 20px;
+    margin: 10px auto;
+    background: #fff;
+    text-decoration: none;
+}
+
+.prd_rend_prd li:hover .choose {
+    display: block;
+}
+
+.prd_rend_prd li:hover .hid {
+    visibility: hidden;
+}
+
+.prd_rend_prd .prd_rend_prdBox {
+  
+}
+
+.prd_rend_prd .prdimg {
+    text-align: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.prd_rend_prd .prdnam {
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.prd_rend_prd .prdnam:hover {
+    text-decoration: underline;
+    color: #e3101e;
+    cursor: pointer;
+}
+
+.prd_rend_prdBox {
+    width: 100px;
+    display: block;
+}
+
+.prd_rend_prdBox a {
+    display: block;
+    line-height: 15px;
+    margin-top: 10px;
+    color: #5e5e5e;
+    text-decoration: none;
+    cursor: default;
+}
+
+.prd_rend_prdBox a.alink {
+    height: 31px;
+    overflow: hidden;
+}
+
+.prd_rend_prdBox .price {
+    font-weight: bold;
+    color: #e3101e;
+    font-family: 'microsoft yahei';
+    display: block;
+    padding: 5px 0 0;
+}
+
+.prd_rend_prdBox .prd_rend_version {
+    margin: 5px auto 0;
+    visibility: hidden;
+}
+
+.prd_rend_sign {
+   
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 22px;
+    color: #ccc;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0  13px;
+    margin-top: 45px;
+    display: block;
+    float: left;
+    overflow: hidden;
+}
+.prd_rend_sign_init{
+    padding: 0;
+}
+
+.prd_rend_cart {
+    position: relative;
+    height: 180px;
+}
+
+.prd_rend_cart .prd_rend_sign {
+    left: 20px;
+}
+
+.prd_rend_cart .count {
+    width: 150px;
+    line-height: 20px;
+    float: left;
+    margin-left: 10px;
+    color: #5e5e5e;
+    margin-top: 24px;
+}
+
+.prd_rend_cart .disab, .prd_rend_cart .disab:hover, .prd_rend_cart .disab:active {
+    background: #F8F8F8;
+    border: 1px solid #E6E6E6;
+    color: #ccc;
+    cursor: default;
+    text-decoration: none;
+}
+.prd_rend_cart .redlink{
+    margin-top: 10px;
+}
+.prd_rend_version {
+    width: 90px;
+    height: 20px;
+    overflow: hidden;
+    line-height: 20px;
+    color: #a5a5a5;
+    margin: 10px auto;
+    padding-left: 10px;
+    display: block;
+}
+
+.prd_rend_prd li:hover .rend_version_hid {
+    display: none;
+}
+
+.rend_assort_save {
+    background: #ea5504;
+    color: #fff;
+}
+a.redlink {
+    background: #e3101e;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+a.redlink:hover {
+    background: #d00;
+    color: #fff;
+}
+
+a.redlink:active {
+    background: #e3101e;
+    color: #fff;
+}
+/*end 搭配购*/
+/*最佳组合*/
+.similarDom_boether {
+    display: none;
+    padding-top: 28px;
+}
+#similarDom_boether{
+    border: 0;
+    height: 211px;
+    overflow: hidden;
+}

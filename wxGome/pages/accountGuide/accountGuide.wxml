@@ -1,0 +1,7 @@
+<view class="guide-wrapper">
+	<image class="avatar" mode="aspectFit" src="{{avatarUrl}}"></image>
+	<view class="nickname">{{nickName}}</view>
+	<view class="weixin-user"><image src="../../images/weixin-icon.png"></image>微信用户</view>
+	<view class="desc">为了给您更好的服务，请绑定一个国美账号，若还没有国美账号，则注册后默认完成绑定。</view>
+	<button class="confirm"  bindtap="bindConfirm">立即绑定/快速注册</button>
+</view>

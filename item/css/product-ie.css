@@ -1,0 +1,279 @@
+
+/*左 end*/
+/*中 start*/
+
+
+
+
+
+.prd-promotions .prd-promotions-red .ellipsis,
+.prd-promotions .prd-promotions-orange .ellipsis {
+    +width: 405px;
+    _width: 405px;
+}
+.promotions-collapse.open {
+    _height: auto !important;
+    _overflow: auto;
+    _position: static;
+}
+
+
+.prd-properties .prd-properties-other.added-service{
+   *margin-bottom:10px;
+}
+
+.prd-properties .prd-properties-other.fuwu .prd-properties-right{
+   *height:24px;
+}
+.prd-properties .banben {
++margin-bottom:10px;
+    _margin-bottom:10px;
+}
+.prd-properties .yanse .prdRight .prdcol a:hover,
+.prd-properties .banben .prdRight .prd-properties-lists ul li a:hover,
+.prd-properties .yanbaofuwu .prdRight .prd-properties-lists ul li a:hover {
+    zoom:1;
+    border-color: #eb515b;
+}
+.prd-properties .yanbaofuwu .prdRight .prdmod {
+   +white-space: nowrap;
+    _white-space: nowrap;
+}
+.prd-properties .yanbaofuwu .prdRight .prdmod a b {
+    _width:16px;
+    _height:16px;
+    _line-height:16px;
+    _position: absolute;
+    _top: 50%;
+    _margin: -8px 5px 0 5px;
+    _left: 0;
+    _background: url(i/sprite-product.gif) no-repeat;
+    _background-position: 0 -83px;
+}
+.prd-properties .yanbaofuwu .prdRight .prdmod a:hover b,
+.prd-properties .yanbaofuwu .prdRight .prdmod a.select b {
+    _position: absolute;
+    _top: 50%;
+    _margin: -8px 4px 0 4px;
+    _left: 0;
+}
+.prd-properties .yanbaofuwu .prdRight .prdmod span.years {
+    _margin-left:15px;
+}
+.prd-properties .banben .prd-properties-right .prd-properties-lists ul li a i {
+    _line-height:15px;
+}
+.prd-properties .added-service .prdRight .more .tips .tip-body:after {
+    background-color: #fff \9;
+    top:0 \9;
+    left:0 \9;
+}
+
+.prd-properties .yanse .prdRight {
+    +padding-bottom: 10px;
+    _padding-bottom: 10px;
+}
+.prd-properties .yanse .prdRight .prdcol {
+    +width: 120px;
+    _width: 120px;
+    _white-space: nowrap;
+}
+.prd-properties .yanse .prdRight .prdcol a {
++height: 38px;
+    _height: 38px;
+}
+.prd-properties .yanse .prdRight .prdcol a i {
+    _bottom: 0;
+}
+.prd-properties .yanse .prdRight .prdcol a span {
+    _width: 60px;
+    _text-overflow: ellipsis;
+    _overflow: hidden;
+}
+
+.prd-properties .banben .prd-properties-right .prd-properties-lists ul li {
+    +height: 29px;
++line-height:29px;
+    _height: 29px;
+    _line-height:29px;
+}
+.prd-properties .banben .prd-properties-right .prd-properties-lists ul li a {
++width: 55px;
+    _width: 55px;
++height: 21px;
+    _height: 21px;
+    +line-height:21px;
+    _line-height:21px;
+}
+.prd-properties .banben .prd-properties-right .prd-properties-lists ul li.disabled:hover,
+.prd-properties .banben .prd-properties-right .prd-properties-lists ul li.disabled a:hover {
+    zoom:1;
+    border-color: #fdabb0 !important;
+    cursor: not-allowed;
+    color: #e68080;
+}
+.prd-properties .yanbaofuwu,
+.prd-properties .xuanzexilie {
+    _padding-bottom:10px;
++padding-bottom: 10px;
+}
+.prd-properties .yanbaofuwu .prd-properties-right .prd-properties-lists ul li {
+    +width:145px;
+    _width:145px;
+}
+.prd-properties .yanbaofuwu .prd-properties-right .prd-properties-lists ul li a i {
+    _background-position: 0 -83px;
+}
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li {
+    _width: 115px;
+    +height: 26px;
+    +line-height:26px;
+_height: 24px;
+    _line-height:24px;
+}
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a {
++height: 24px;
++line-height:24px;
+    _height: 22px;
+    _line-height:22px;
+}
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a i {
+    _bottom:-2px;
+    _right:-2px;
+    _line-height:15px;
+}
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a img,
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a span {
++float: left;
+    _float: left;
+}
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a img {
+    +vertical-align: top;
+_vertical-align: top;
+}
+.prd-properties .xuanzexilie .prd-properties-right .prd-properties-lists ul li a span {
++line-height:26px;
+    _line-height:22px;
+}
+.prd-promotions .pop-scancode .pop-inner,
+.prd-buttons .pop-easeshopping .pop-inner {
+    position: relative \9;
+    z-index:11 \9;
+}
+.prd-buttons .btn-product {
+    _padding:5px 20px;
+    _height: 20px;
+}
+.prd-promotions .pop-scancode .pop-inner .pop-tips {
+    _position: relative;
+}
+.prd-promotions .pop-scancode {
+    _left:200px;
+    _top: -5px;
+}
+#prd-properties_min{
+    *position: relative;
+    *z-index:11;
+}
+.prd-buttons {
+    +width: 600px;
+    _width: 600px;
+    +height:42px;
+    _height:42px;
+    *z-index:10;
+}
+
+/*中 end*/
+
+/*右 start*/
+.prd-shops-info .shops-logo {
+    _padding-top:10px;
+}
+.prd-shops-info .shops-name {
+    +width: 200px;
+    _width: 200px;
+    +height: 30px;
+    _height: 30px;
+}
+.prd-shops-info .service-label-wrapper ul li {
+    +width: 75px;
+    _width: 75px;
+    +white-space:nowrap;
+    _white-space:nowrap;
+}
+.prd-shops-info .surpport-label-wrapper ul li {
+    _padding:5px 0
+}
+.prd-shops-info .services-wrapper .services-score-single .describe,
+.prd-shops-info .services-wrapper .services-score-single .logistics,
+.prd-shops-info .services-wrapper .services-score-single .services {
+    +width:36px;
+    _width:36px;
+    +height: 36px;
+    _height: 36px;
+}
+.prd-shops-info .services-wrapper .services-score-single .describe span {
+    +width:40px;
+    _width:40px;
+}
+.prd-shops-info .services-wrapper .services-score-single .describe span i,
+.prd-shops-info .services-wrapper .services-score-single .logistics span i,
+.prd-shops-info .services-wrapper .services-score-single .services span i {
+    +position: absolute;
+   _position: absolute;
+    +width: 12px;
+_width: 12px;
+    +right: -4px;
+    _right: -4px;
+    +bottom: 0;
+    _top: 0;
+}
+.prd-shops-info .services-wrapper .services-score-detail .describe.up i,
+.prd-shops-info .services-wrapper .services-score-detail .logistics.up i,
+.prd-shops-info .services-wrapper .services-score-detail .services.up i {
+    _background: url("i/sprite-product.gif") no-repeat;
+    _background-position: -93px -71px;
+}
+.prd-shops-info .services-wrapper .services-score-detail .describe.down i,
+.prd-shops-info .services-wrapper .services-score-detail .logistics.down i,
+.prd-shops-info .services-wrapper .services-score-detail .services.down i {
+    _background: url("i/sprite-product.gif") no-repeat;
+    _background-position: -93px -81px;
+}
+.prd-shops-info .service-label-wrapper {
++height: 112px;
+    _height: 112px;
+}
+.prd-shops-info .services-wrapper .services-score {
+    +white-space:nowrap;
+    _white-space:nowrap;
+    +padding:0 5px;
+    _padding:0 5px;
+}
+.prd-shops-info .services-wrapper .services-score-detail p {
+    +height: 18px;
+    _height: 18px;
+}
+.prd-promotions .pop-scancode .pop-inner .pop-tips p {
+    +white-space:nowrap;
+   _white-space:nowrap;
+}
+.prd-shops-info .services-wrapper .services-score .btn-arrow {
+    +margin:0;
+    _margin:0;
+}
+.prd-shops-info .btn-shops-wrapper .btn-product.btn-contact i {
+    _line-height:18px;
+}
+.prd-shops-info .btn-shops-wrapper .btn-product.btn-contact.disabled i {
+    _background-position: -44px -15px;
+}
+/*右 end*/
+.approbated-service ul {
+    +overflow: hidden;
+_overflow: hidden;
+}
+.approbated-service ul li {
+    +float:left;
+    _float:left;
+}

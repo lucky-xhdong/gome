@@ -1,0 +1,690 @@
+.local ul, .local li {
+    display: inline-block;
+}
+.local li .icon-crumbs-right {
+    display: inline-block;
+    vertical-align: middle;
+    width: 5px;
+    height: 9px;
+    margin: 0 2px;
+    background: url("i/arrow-left-01.png?__sprite") no-repeat;
+}
+.breadcrumbs-wrapper {
+    background-color: #f6f6f6;
+    margin-bottom: 16px;
+    position: relative;
+    z-index:501;
+}
+.breadcrumbs-container {
+    width:1200px;
+    height: 42px;
+    margin:0 auto;
+    font-family: arial, 'Microsoft YaHei';
+}
+.breadcrumbs-container .left {
+    float: left;
+}
+.breadcrumbs-container .left ul {
+    font-size: 0;
+    padding: 8px 6px;
+    display: inline-block;
+}
+
+.breadcrumbs-container .left ul li {
+    display: inline-block;
+    +display: inline;
+    _display: inline;
+    vertical-align: middle;
+    position: relative;
+    z-index: 31;
+}
+.breadcrumbs-container .left ul li a {
+    font-size: 12px;
+    color: #5e5e5e;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 4px 6px 4px 8px;
+}
+.breadcrumbs-container .left ul li a:hover {
+    color: #e3101e;
+}
+.breadcrumbs-container .left ul li .icon-crumbs-right {
+    display: inline-block;
+    vertical-align: middle;
+    width: 7px;
+    height: 11px;
+    margin: 0 2px;
+    background: url("i/arrow-left-01.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .left ul li:first-child + li + li a {
+    cursor: default;
+    text-decoration: none;
+}
+.breadcrumbs-container .left ul li.active a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100px;
+    text-overflow: ellipsis;
+}
+.breadcrumbs-container .left ul li.tz-cursor a {
+    cursor: pointer !important;
+}
+.breadcrumbs-container .left ul li.breadcrumb .has-breads {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 11;
+    position: relative;
+    margin: 0 5px;
+    display: inline-block;
+    height: 17px;
+    padding: 4px 5px 3px 9px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .has-breads .icon-crumbs-down {
+    display: inline-block;
+    vertical-align: top;
+    width: 10px;
+    height: 6px;
+    margin-top: 5px;
+    margin-left: 5px;
+    -webkit-transition: all .2s ease 0s;
+    -moz-transition: all .2s ease 0s;
+    -o-transition: all .2s ease 0s;
+    transition: all .2s ease 0s;
+    background: url("i/arrow-down-01.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown {
+    display: none;
+    position: absolute;
+    top: 25px;
+    left: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 604px;
+    z-index: 1;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists .andBuy-bread {
+    position: relative;
+    margin:0 10px;
+    border-bottom: 1px solid #ebebeb;
+}
+.andBuy-control a[data-btn="tlRight"], .andBuy-control a[data-btn="tlLeft"] {
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    z-index: 111;
+}
+.andBuy-control b, .andBuy-control s {
+    width: 8px;
+    height: 10px;
+    display: block;
+}
+.andBuy-control a[data-btn="tlRight"] {
+    left: 0;
+}
+.andBuy-control a[data-btn="tlLeft"] {
+    right: 0;
+}
+.andBuy-control b {
+    background: url(i/arrow-right-00.png?__sprite) no-repeat;
+}
+.andBuy-control s {
+    background: url(i/arrow-left-00.png?__sprite) no-repeat;
+}
+.andBuy-control b:hover {
+    background: url(i/arrow-right-01.png?__sprite) no-repeat;
+}
+.andBuy-control s:hover {
+    background: url(i/arrow-left-01.png?__sprite) no-repeat;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists .andBuy-wrapper {
+    overflow: hidden;
+    margin: 0 13px;
+    width: 558px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul {
+    display: block;
+    /*text-align: justify;*/
+    padding: 15px 0 10px;
+}
+/*.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul:after {*/
+    /*content: '';*/
+    /*width: 100%;*/
+    /*height: 0;*/
+    /*overflow: hidden;*/
+    /*display: inline-block;*/
+/*}*/
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li {
+    width: 186px;
+    height: 65px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-imgs {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-imgs img {
+    width: 65px;
+    height: 65px;
+    border: none;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-info {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 95px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    text-align: left;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-info a {
+    color: #666;
+    padding: 0;
+    height: 34px;
+    font: 12px arial, 'Microsoft YaHei';
+    overflow: hidden;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-info a:hover,
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists ul li a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-info span {
+    color: #e3101e;
+    font: 12px arial;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-info a,
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li .product-info span {
+    display: block;
+    line-height: 18px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists {
+    padding: 7px 0;
+    position: relative;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists ul li {
+    width: 98px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists ul li a {
+    font: 12px arial, 'Microsoft YaHei';
+    color: #666;
+    display: block;
+    line-height: 24px;
+    padding: 0;
+    white-space: nowrap;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists .more {
+    font: 12px arial, 'Microsoft YaHei';
+    position: absolute;
+    color: #069;
+    right: 85px;
+    bottom: 14px;
+    padding: 0;
+}
+.breadcrumbs-container .left ul li.breadcrumb:hover .has-breads {
+    border-bottom-color: #fff;
+}
+.breadcrumbs-container .left ul li.breadcrumb:hover .has-breads .icon-crumbs-down {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.breadcrumbs-container .right {
+    float: right;
+}
+.breadcrumbs-container .right .ly-stores {
+    padding:12px 0;
+    height: 18px;
+    position: relative;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect,
+.breadcrumbs-container .right .ly-stores .btn-service,
+.breadcrumbs-container .right .ly-stores .identify,
+.breadcrumbs-container .right .ly-stores .services-score,
+.breadcrumbs-container .right .ly-stores .name {
+    float: right;
+    color: #5e5e5e;
+}
+.breadcrumbs-container .right .ly-stores .btn-service:hover,
+.breadcrumbs-container .right .ly-stores .btn-collect:hover,
+.breadcrumbs-container .right .ly-stores .name:hover {
+    color: #e3101e;
+}
+
+.breadcrumbs-container .right .ly-stores .btn-collect {
+    font-size: 0;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect span,
+.breadcrumbs-container .right .ly-stores .btn-service,
+.breadcrumbs-container .right .ly-stores .identify,
+.breadcrumbs-container .right .ly-stores .name {
+    font-size: 13px;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect {
+    margin-left: 20px;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect:hover {
+    text-decoration: none;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect .icon-collect,
+.breadcrumbs-container .right .ly-stores .btn-collect .icon-arrow,
+.breadcrumbs-container .right .ly-stores .btn-collect span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect .icon-collect {
+    width: 16px;
+    height: 15px;
+    margin-right: 5px;
+    background: url("i/collect.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect .icon-arrow {
+    width: 10px;
+    height: 6px;
+    margin:0 5px;
+    -webkit-transition: all .2s ease 0s;
+    -moz-transition: all .2s ease 0s;
+    -o-transition: all .2s ease 0s;
+    transition: all .2s ease 0s;
+    background: url("i/arrow-down-01.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .btn-collect.disabled {
+    cursor: not-allowed;
+}
+.breadcrumbs-container .right .ly-stores:hover .btn-collect .icon-arrow {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.breadcrumbs-container .right .ly-stores .identify {
+    color: #fff;
+    background-color: #e3101e;
+    padding:0 4px;
+    font-size: 12px;
+    margin-left: 20px;
+}
+.breadcrumbs-container .right .ly-stores .services-score {
+    font-size: 12px;
+    overflow: hidden;
+}
+.breadcrumbs-container .right .ly-stores .services-score .star-gray,
+.breadcrumbs-container .right .ly-stores .services-score .star-gray .star-red {
+    width: 73px;
+    height: 11px;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.breadcrumbs-container .right .ly-stores .services-score .star-gray {
+    float: left;
+    margin:4px 5px;
+    background: url("i/star-gray.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .services-score .star-gray .star-red {
+    display: block;
+    background: url("i/star-red.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .services-score .score {
+    font-style: normal;
+    color: #e3101e;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.breadcrumbs-container .right .ly-stores .btn-service {
+    line-height: 22px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.breadcrumbs-container .right .ly-stores .btn-service:hover {
+    text-decoration: none;
+}
+.breadcrumbs-container .right .ly-stores .btn-service i {
+    float: left;
+    width: 21px;
+    height: 20px;
+    background: url("i/online-service.png?__sprite") no-repeat;
+    margin-right: 5px;
+}
+.breadcrumbs-container .right .ly-stores .btn-service.customerService_show {
+    display: block;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others {
+    display: none;
+    position: absolute;
+    width: 181px;
+    right:0;
+    top: 37px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 111;
+    padding:11px 14px 10px 13px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-stars {
+    color: #5e5e5e;
+    margin-bottom: 3px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-stars .star {
+    display: inline-block;
+    vertical-align: middle;
+    width: 73px;
+    height: 11px;
+    font-size: 0;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    margin-right: 12px;
+    background: url("i/star-gray.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-stars .star i {
+    display: block;
+    height: 11px;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    background: url("i/star-red.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-stars .score {
+    color: #e3101e;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail {
+    overflow: hidden;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail p {
+    overflow: hidden;
+    color: #5e5e5e;
+    margin-bottom: 3px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail p .detail {
+    float: left;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail p .contrast {
+    float: right;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services {
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe p,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics p,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services p {
+    color: #a5a5a5;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe p span,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics p span,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services p span {
+    color: #5e5e5e;
+    margin-right: 32px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe p i,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics p i,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services p i {
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+    width: 7px;
+    height: 9px;
+    margin: 4px 0 4px 5px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe p small,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics p small,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services p small {
+    display: inline-block;
+    width: 50px;
+    font-size: 12px;
+    text-align: right;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe i.gaoyu,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics i.gaoyu,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services i.gaoyu {
+    background: url("i/gaoyu.png?__sprite") no-repeat;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe small.gaoyu_text,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics small.gaoyu_text,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services small.gaoyu_text {
+    color: #e3101e;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe i.diyu,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics i.diyu,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services i.diyu {
+    background: url("i/diyu.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe small.diyu_text,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics small.diyu_text,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services small.diyu_text {
+    color: #68b64c;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe small.xiangdeng,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics small.xiangdeng,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services small.xiangdeng {
+    color: #5e5e5e;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper {
+    margin:7px 0 10px;
+    overflow: hidden;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .link-service,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .txt-phone {
+    float: left;
+    width: 180px;
+    color: #5e5e5e;
+    line-height: 20px;
+    overflow: hidden;;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .link-service:hover{
+    color: #e3101e;
+    text-decoration: none;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .link-service {
+    text-indent: 7px;
+    margin-bottom: 14px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .txt-phone {
+    text-indent: 9px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .link-service i {
+    float: left;
+    width: 21px;
+    height: 20px;
+    background: url("i/online-service.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .link-service.customerService_show {
+    display: block;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .phone-wrapper .txt-phone i {
+    float: left;
+    width: 19px;
+    height: 19px;
+    background: url("i/phone.png?__sprite") no-repeat;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .company-wrapper p {
+    color: #888;
+    line-height: 19px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .company-wrapper p img {
+    margin-left: 5px;
+    margin-top: -5px;
+}
+.breadcrumbs-container .right .zy-stores {
+    padding:12px 0;
+    overflow: hidden;
+}
+.breadcrumbs-container .right .zy-stores .name,
+.breadcrumbs-container .right .zy-stores .identify,
+.breadcrumbs-container .right .zy-stores .btn-collect,
+.breadcrumbs-container .right .zy-stores .btn-service {
+    float: right;
+}
+.breadcrumbs-container .right .zy-stores .identify {
+    color: #fff;
+    background-color: #e3101e;
+    padding:0 4px;
+    font-size: 12px;
+}
+.breadcrumbs-container .right .zy-stores .name,
+.breadcrumbs-container .right .zy-stores .btn-service {
+    font-size: 13px;
+    color: #5e5e5e;
+}
+.breadcrumbs-container .right .zy-stores .name {
+    margin:0 5px;
+}
+.breadcrumbs-container .right .zy-stores .name:hover {
+    color: #e3010e;
+}
+.breadcrumbs-container .right .zy-stores .btn-collect {
+    margin-left: 20px;
+}
+.breadcrumbs-container .right .zy-stores .btn-collect .icon-collect {
+    float: left;
+    width: 16px;
+    height: 15px;
+    margin-right: 5px;
+    background: url(i/collect.png?__sprite) no-repeat;
+}
+.breadcrumbs-container .right .zy-stores .btn-collect span {
+    font-size: 13px;
+}
+.breadcrumbs-container .right .zy-stores .btn-service {
+    line-height: 22px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.breadcrumbs-container .right .zy-stores .btn-service:hover {
+    text-decoration: none;
+}
+.breadcrumbs-container .right .zy-stores .btn-service i {
+    float: left;
+    width: 21px;
+    height: 20px;
+    background: url("i/online-service.png?__sprite") no-repeat;
+    margin-right: 5px;
+    font-size: 0;
+}
+.breadcrumbs-container .right .zy-stores .btn-service.customerService_show {
+    display: block;
+}
+/*IE8 start*/
+/*IE8 end*/
+/*IE7 start*/
+.breadcrumbs-container .left, .breadcrumbs-container .right {
+    _width: 600px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .has-breads {
+    height: 14px \9;
+    _height: 14px;
+    +height: 14px;
+}
+.local li:first-child + li a {
+    +margin: 0;
+}
+.breadcrumbs-container .left ul li.breadcrumb .has-breads .icon-crumbs-down {
+    +line-height: 6px;
+    _line-height: 6px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown {
+    top: 22px \9;
+    +top: 26px;
+    +left: 0;
+    _top: 25px;
+    _left: 10px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul {
+    +height: 71px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists {
+    +height: 55px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists .more {
+    +bottom: 8px;
+    +right: 90px;
+    _bottom: 18px;
+    _right: 90px;
+}
+.breadcrumbs-container .left ul li a {
+    +padding-right: 8px;
+    _padding-right: 8px;
+}
+.breadcrumbs-container .left ul li.breadcrumb {
+    +margin-left: 5px;
+    _margin-left: 5px;
+}
+.breadcrumbs-container .left ul li.active a {
+    _zoom:1;
+    +display: inline;
+    _display: inline;
+    +margin-top: 4px;
+    _margin-top: 4px;
+}
+.breadcrumbs-container .right .zy-stores .name {
+    +margin:3px 5px;
+    +margin:3px 5px;
+}
+.breadcrumbs-container .right .zy-stores .identify {
++line-height: 18px;
+    _line-height: 18px;
+}
+.breadcrumbs-container .right .zy-stores .btn-service {
+    +margin-top: 3px;
+    _margin-top: 3px;
+}
+.breadcrumbs-container .right .ly-stores {
+    +z-index: 1;
+    _z-index:1;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-stars .star {
+    +margin-right: 5px;
+    _margin-right: 5px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail p {
+    +height: 18px;
+    _height: 18px;
+}
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .describe p span,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .logistics p span,
+.breadcrumbs-container .right .ly-stores .pop-stores-others .services-wrapper .services-score-detail .services p span {
+    +margin-right: 20px;
+    _margin-right: 20px;
+}
+/*IE7 end*/
+/*IE6 start*/
+.breadcrumbs-container .left ul li .icon-crumbs-right  {
+ _margin: 5px 2px;
+    *margin: 5px 2px;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .bread-lists ul li {
+ _width: 98px;
+    *width: 98px;
+    _float: left;
+    *float:left;
+}
+.breadcrumbs-container .left ul li.breadcrumb .details-breadcrumbs-dropdown .product-lists ul li {
+    _float: left;
+    _width: 186px;
+    *float: left;
+    *width: 186px;
+}
+.breadcrumbs-container .left ul li.breadcrumb:hover .details-breadcrumbs-dropdown {
+    _display: none !important;
+}
+/*IE6 end*/
+
+.w990 .breadcrumbs-container {
+    width:1000px;
+}

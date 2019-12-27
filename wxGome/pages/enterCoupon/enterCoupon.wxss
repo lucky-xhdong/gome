@@ -1,0 +1,145 @@
+.container {
+  width: 750rpx;
+  height: 100%;
+  background: url('http://css.gomein.net.cn/gmpro/1.0.0/minapp/img/entrance-bg.png') repeat;
+  background-size: 100% auto;
+}
+
+.img {
+  width: 750rpx;
+  height: 530rpx;
+}
+
+.cont {
+  width: 750rpx;
+  padding-bottom: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cont-tit {
+  width: 750rpx;
+  height: 88rpx;
+  background-color: #ffdc24;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.tit-img {
+  width: 465rpx;
+  height: 56rpx;
+}
+
+.tit-img-num {
+  width: 230rpx;
+  height: 46rpx;
+}
+
+.tit-num {
+  font: 500 45rpx "Arial";
+  line-height: 88rpx;
+  color: #de4400;
+}
+
+.cont-box {
+  width: 596rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  width: 596rpx;
+  height: 92rpx;
+  background: #fff;
+  border: 3rpx solid #efba00;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.margin {
+  margin-top: 30rpx;
+}
+
+.item >input {
+  width: 425rpx;
+  padding-left: 30rpx;
+}
+
+.desc {
+  box-sizing: border-box;
+  width: 98rpx;
+  height: 40rpx;
+  padding: 0 15rpx;
+  border: 1rpx solid #ff5002;
+  border-radius: 20rpx;
+  color: #ff5002;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-right: 20rpx;
+}
+
+.clo-gray {
+  color: #c8c8c8;
+  border-color: #c8c8c8;
+}
+
+.confirm-btn {
+  width: 590rpx;
+  height: 120rpx;
+  margin-top: 25rpx;
+}
+
+.confirm-btn>image {
+  width: 590rpx;
+  height: 120rpx;
+}
+
+/*使用规则*/
+
+.desc-cont {
+  width: 590rpx;
+  /* height: 324rpx; */
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  border-top: 1rpx solid #685100;
+  border-bottom: 1rpx solid #685100;
+  color: #685100;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.desc-tit {
+  line-height: 60rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.canvas {
+  width: 750rpx;
+  height: 1000rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 100rpx;
+  left: 0;
+  z-index: 2;
+}
+
+.fill {
+  width: 750rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}

@@ -1,0 +1,119 @@
+/* ==== 公共样式 ==== */
+page {
+	background: #fff;
+	position: relative;
+	height: 100%;
+	font-family: 'Microsoft YaHei';
+}
+text {font: 28rpx/24rpx 'Microsoft YaHei';}
+
+.border-roof {
+	height: 0;
+	border-top: 1rpx solid #e6e6e6;
+}
+.border-t-e {border-top: 1rpx solid #e6e6e6;}
+.border-b-e {border-bottom: 1rpx solid #e6e6e6;}
+.margin-b-20 {margin-bottom: 20rpx;}
+.ellip {
+	-webkit-flex: 1;
+	flex: 1;
+	display: box;
+	display: -webkit-box !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+}
+
+.selected-brand-wrapper {
+	height: 97rpx;
+	padding-left: 20rpx;
+	
+}
+.selected-brand-wrapper .brand-selected {
+	-webkit-display: flex;
+	display: flex;
+	padding-right: 20rpx;
+	line-height: 96rpx;
+}
+.selected-brand-wrapper text {
+	line-height: 96rpx;
+	color: #a5a5a5;
+}
+.selected-brand-wrapper .txt {
+	font-weight: bold;
+	color: #333;
+}
+
+.selected-brand-wrapper .con {
+	padding-left: 5rpx;
+}
+.selected-brand-wrapper .count {
+}
+scroll-view {
+	position: absolute;
+	left: 0;
+	top: 98rpx;
+	right: 0;
+	bottom: 100rpx;
+}
+
+.filter-wrapper {
+	padding-left: 20rpx;
+	padding-bottom: 60rpx;
+}
+.filter-wrapper .item-style {
+	position: relative;
+	display: block;
+	padding-right: 80rpx;
+	line-height: 94rpx;
+}
+.filter-wrapper .item-style .txt {
+	line-height: 94rpx;
+	height: 94rpx;
+	color: #333;
+	font-size: 28rpx;
+}
+.filter-wrapper .selected .txt {
+	color: #e3101e;
+}
+.filter-wrapper .item-style image {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+	right: 20rpx;
+	width: 40rpx;
+	height: 40rpx;
+}
+.filter-wrapper  checkbox {
+	display: none;
+}
+
+
+.button-wrapper {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 100rpx;
+	line-height: 99rpx;
+	box-sizing: border-box;
+	width: 100%;
+	z-index: 2;
+}
+.button-wrapper .btn {
+	float: left;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	font-size: 36rpx;
+	color: #e3101e;
+	box-sizing: border-box;
+}
+.button-wrapper .reset {
+	color: #5e5e5e;
+	border-right: 1rpx solid #e6e6e6;
+}

@@ -1,0 +1,309 @@
+page {
+  background: #fff;
+}
+
+.contain {
+  position: relative;
+}
+
+.cont-box {
+  width: 750rpx;
+  position: relative;
+  padding-bottom: 140rpx;
+}
+
+.tit-box {
+  width: 750rpx;
+  position: relative;
+}
+
+.tit-bg {
+  width: 750rpx;
+  height: 600rpx;
+}
+
+.tit-img {
+  width: 640rpx;
+  height: 256rpx;
+  box-shadow: 0 8rpx 46rpx 0 rgba(8, 8, 8, 0.36);
+  border-radius: 20rpx;
+  margin-top: -130rpx;
+  margin-left: 55rpx;
+}
+
+.cont {
+  width: 630rpx;
+  padding: 20rpx 60rpx;
+  position: relative;
+}
+
+.tit {
+  position: relative;
+  width: 630rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 32rpx;
+}
+
+.margin-tit {
+  margin-top: 30rpx;
+}
+
+.tag {
+  width: 7rpx;
+  height: 31rpx;
+  background-image: linear-gradient(-30deg, #ff018b 0%, #ff2b00 100%);
+  border-radius: 30%;
+}
+
+.c-tit {
+  margin-left: 24rpx;
+  font-size: 32rpx;
+  padding: 36rpx 0;
+  color: #262c32;
+  letter-spacing: 0;
+}
+
+.section {
+  width: 630rpx;
+  position: relative;
+}
+
+.name {
+  position: relative;
+  width: 582rpx;
+  padding: 23rpx 24rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #262c32;
+  background: #f3f5f7;
+  border-radius: 8rpx;
+}
+
+.name-hover {
+  color: #919599;
+}
+
+.clear {
+  position: absolute;
+  right: 30rpx;
+  top: 32rpx;
+  width: 28rpx;
+  height: 28rpx;
+  display: none;
+  z-index: 2;
+}
+
+.show {
+  display: block;
+}
+
+.select {
+  position: relative;
+  width: 582rpx;
+  padding: 23rpx 24rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #262c32;
+  background: #f3f5f7;
+  border-radius: 8rpx;
+}
+
+/* .section-address {
+  height: 90rpx;
+} */
+
+.address {
+  position: relative;
+  width: 582rpx;
+  height: 90rpx;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  color: #919599;
+  background: #f3f5f7;
+  border-radius: 8rpx;
+  z-index: 0;
+}
+
+.down-ico {
+  position: absolute;
+  width: 20rpx;
+  height: 12rpx;
+  top: 34rpx;
+  right: 30rpx;
+  z-index: 2;
+}
+
+.top {
+  margin-top: 24rpx;
+}
+
+/* 领取按钮*/
+
+.btn-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 98;
+  width: 650rpx;
+  height: 90rpx;
+  padding: 25rpx 50rpx;
+  background: #fff;
+}
+
+.confirm-btn {
+  position: relative;
+  width: 650rpx;
+  font-size: 44rpx;
+  line-height: 90rpx;
+  background-image: linear-gradient(-90deg, #fa1e8c 0%, #f20c59 86%);
+  border-radius: 100rpx;
+  text-align: center;
+  color: #fff;
+}
+
+/* 关注的产品 */
+
+.select-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.select-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 750rpx;
+  height: 60%;
+  background: #fff;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-tit {
+  width: 660rpx;
+  font-size: 32rpx;
+  color: #262c32;
+  text-align: center;
+  line-height: 32rpx;
+  padding: 34rpx 45rpx;
+}
+
+.select-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.select-item {
+  box-sizing: border-box;
+  width: 190rpx;
+  font-size: 28rpx;
+  line-height: 64rpx;
+  color: #5a6066;
+  background: #f3f5f7;
+  border: 1rpx solid #f3f5f7;
+  border-radius: 100rpx;
+  text-align: center;
+  margin: 15rpx 0;
+  margin-left: 45rpx;
+}
+
+.opt {
+  background: #fff;
+  color: #f20c59;
+  border-color: #f20c59;
+}
+
+.select-btn {
+  width: 660rpx;
+  padding: 30rpx 45rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+}
+
+.select-confirm {
+  width: 318rpx;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 2.3rpx;
+  line-height: 84rpx;
+  background-image: linear-gradient(-90deg, #fa1e8c 0%, #f20c59 86%);
+  border-radius: 100rpx;
+  text-align: center;
+}
+
+.select-reset {
+  width: 318rpx;
+  font-size: 32rpx;
+  color: #00050a;
+  letter-spacing: 2.3rpx;
+  line-height: 84rpx;
+  background: #fff;
+  border: 2rpx solid #dcddde;
+  border-radius: 100rpx;
+  text-align: center;
+}
+
+/* 地址选择 */
+
+.address-cont {
+  position: relative;
+  background: #fff;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  width: 660rpx;
+  padding: 30rpx 45rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.receiver {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 660rpx;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  color: #262c32;
+}
+
+.section__title {
+  width: 150rpx;
+  text-align: left;
+}
+
+.picker {
+  width: 510rpx;
+  color: #919599;
+}
+
+.address-confirm {
+  position: fixed;
+  width: 660rpx;
+  left: 45rpx;
+  bottom: 20rpx;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 2.3rpx;
+  line-height: 90rpx;
+  background-image: linear-gradient(-90deg, #fa1e8c 0%, #f20c59 86%);
+  border-radius: 100rpx;
+  text-align: center;
+}

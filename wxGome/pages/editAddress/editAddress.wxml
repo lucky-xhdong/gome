@@ -1,0 +1,79 @@
+<!-- <loading hidden="{{!loading}}">加载中...</loading> -->
+<view class="loadingInt" hidden="{{ !loading }}">
+	<image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>
+<view class="newAddrItem">
+    <view class="receiver item">
+        <view class="name">收货人：</view>
+        <input class="nameInput" maxlength="30" placeholder="姓名" bindinput="checkName" value="{{name}}" />
+        <view class="deleteIco" bindtap="clearName"><icon type="cancel" size="16" color="#999"/></view>
+    </view>
+    <view class="receiver item">
+        <view class="name">联系方式：</view>
+        <input class="nameInput" type="number" placeholder="手机号码" bindinput="checkNumber" value="{{number}}" />
+        <view class="deleteIco" bindtap="clearNum"><icon type="cancel" size="16" color="#999"/></view>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">省：</view>
+        <picker class="nameInput" bindchange="bindPickerProvince" value="{{provinceIndex}}" range="{{province}}">
+            <view class="picker">
+                {{provinceJson[provinceIndex].label}}
+            </view>
+        </picker>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">市：</view>
+        <block wx:if="{{cityFlag}}">
+            <picker class="nameInput" bindchange="bindPickerCity" value="{{cityIndex}}" range="{{city}}">
+                <view class="picker">
+                    {{cityJson[cityIndex].label}}
+                </view>
+            </picker>
+        </block>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">区/县：</view>
+        <block wx:if="{{countryFlag}}">
+            <picker class="nameInput" bindchange="bindPickerCountry" value="{{countryIndex}}" range="{{country}}">
+                <view class="picker">
+                    {{countryJson[countryIndex].label}}
+                </view>
+            </picker>
+        </block>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">乡镇：</view>
+        <block wx:if="{{streetFlag}}">
+            <picker class="nameInput" bindchange="bindPickerStreet" value="{{streetIndex}}" range="{{street}}">
+                <view class="picker">
+                    {{streetJson[streetIndex].label}}
+                </view>
+            </picker>
+        </block>
+    </view>
+    <view class="receiver item">
+        <view class="name">详细地址</view>
+        <input class="nameInput getAddress" type="text" maxlength="80" placeholder="街道地址" bindinput="getAddress" value="{{address}}" />
+        <view class="deleteIco" bindtap="clearAddr"><icon type="cancel" size="16" color="#999"/></view>
+    </view>
+    <view class="tips">详细地址需填写楼栋楼层号或房间信息以免发生配送错误</view>
+    <view class="receiver item checkRadio" bindtap="checkRadio">
+        <view class="name checkAddr">设为默认收货地址</view>
+        <view class="radio">
+            <image src="/images/no-checked.png" />
+            <image class="{{checked == 1? 'view_show':'view_hide'}}" src="/images/checked.png" />
+        </view>
+    </view>
+    <view class="receiver confirm">
+        <button bindtap="confirmCheck">确认</button>
+    </view>
+    <block wx:if="{{addrLength > 1}}">
+        <view class="receiver delete">
+            <button bindtap="deleteCheck">删除</button>
+        </view>
+    </block>
+</view>

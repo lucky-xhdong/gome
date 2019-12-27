@@ -1,0 +1,138 @@
+
+text {font: 26rpx/60rpx SimSun;}
+page{
+	height:100%;
+	overflow:hidden;
+	transition-duration:0 !important;
+	margin-top: 0 !important;
+}
+.img-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding:20rpx 0;
+	border-top:1rpx solid #e6e6e6;
+	border-bottom:1rpx solid #e6e6e6;
+	background: #f8f8f8;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.search-btn{
+	 width: 628rpx;
+	 height: 85rpx;
+	 font: 400 28rpx/85rpx 'Microsoft YaHei';
+	 background: #fff;
+	 text-align: left;
+	 padding-left: 40rpx;
+	 color: #888;
+	 border-radius: 42rpx;
+}
+.search-btn icon{
+	margin-right: 10rpx;
+	line-height: 70rpx;
+	vertical-align:-5%;
+}
+.QR_button{
+  position: absolute;
+  right: 65rpx;
+  bottom: 20rpx;
+  width: 42rpx;
+  height: 42rpx;
+  padding: 20rpx;
+}
+.QR_button image{
+  width: 100%;
+  height: 100%;
+}
+.body{
+	padding-top: 125rpx;
+	width: 100%;
+	overflow: hidden;
+}
+.item-tab-box{
+	float: left;
+	width: 23%;
+	height: 100%;
+}
+.item-tab-box .tab-list{
+
+}
+.item-tab-box .tab-list .tab{
+	font: 400 28rpx/90rpx 'Microsoft YaHei';
+	padding: 0 5rpx;
+	text-align: center;
+	color: #5e5e5e;
+	margin-top:-1rpx;
+	border-left: 3px solid #e6e6e6;
+}
+.item-tab-box .tab-list .goodsTypeName{
+	width: 80%;
+	margin: 0 auto;
+	border-bottom: 1px solid #e6e6e6;
+}
+.item-tab-box .tab-list .tab-active .goodsTypeName{
+	border-bottom: 1px solid #fff;
+}
+.item-tab-box .tab-list .tab-active{
+	color: #e3101e;
+	background: #fff;
+	border-left: 3px solid #e3101e;
+}
+.item-list-box{
+	float: left;
+	width: 77%;
+	height: 100%;
+	background: #fff;
+}
+.item-list-box .item-list{
+
+}
+.item-list-box .item-list .item-list-i{
+	margin-top: -40rpx;
+}
+.item-list-box .item-list .item-list-i:first-child{
+	margin-top: 0rpx;
+}
+.item-list-box .item-list .item-header{
+	font: 400 28rpx/90rpx 'Microsoft YaHei';
+	color: #a5a5a5;
+	padding-left: 40rpx;
+}
+.item-list-box .item-content{
+	width:100%;
+	overflow:hidden;
+}
+.item-list-box .item-content .item{
+	padding-top: 20rpx;
+	width: 140rpx;
+	height: 210rpx;
+	margin-left: 40rpx;
+	margin-bottom: 40rpx;
+	float: left;
+	background:#f6f6f6;
+	text-align: center;
+}
+.item-list-box .item-content .item-img{
+	width: 110rpx;
+	height: 110rpx;
+	margin:0 auto;
+	/* background: url("../../images/default1.jpg"); */
+	background-size: 100%;
+}
+.item-list-box .item-content .item-img image{
+	width: 100%;
+	height: 100%;
+}
+.item-list-box .item-content .item-text{
+	width: 100%;
+	height: 2.5em;
+	line-height: 2.5em;
+	padding-bottom: 0.5em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #333;
+}

@@ -1,0 +1,106 @@
+<view style='height:{{height}}' scroll-y wx:if="{{loading}}" class='contain'>
+  <view class='cont-box'>
+    <view class='tit-box'>
+      <image class='tit-bg' src='../../images/jk-bg.png'></image>
+      <!-- <image class='tit-img' src='../../images/jk-prod.png'></image> -->
+      <image class='tit-img' src='{{imgSrc}}'></image>
+    </view>
+    <view class='cont'>
+      <view class='tit'>
+        <view class='tag'></view>
+        <view class='c-tit'>送您一张门票，输入姓名即可领取</view>
+      </view>
+      <view class="section">
+        <input class='name' placeholder="姓名请输入2-10个字以内的中、英文" placeholder-class="name-hover" type="text" maxlength="10" value="{{name}}" bindinput="getName" bindfocus="bindNameFocus" bindblur="bindNameBlur" />
+        <image class="clear {{nameClear ? 'show' : ''}}" src="../../images/close-icon.png" bindtap="bindClearName"></image>
+      </view>
+      <view class='tit margin-tit'>
+        <view class='tag'></view>
+        <view class='c-tit'>商品选择意向（非必填）</view>
+      </view>
+      <view class="section" bindtap='selectEvent'>
+        <input class='select' placeholder="选择您关注的产品" placeholder-class="name-hover" type="text" value="{{categoryValue}}" disabled="true" />
+        <!-- <view class='select'>{{categoryValue}}</view> -->
+        <image class='down-ico' src='../../images/jk-down.png'></image>
+      </view>
+      <view class="section top" bindtap='selectAddress'>
+        <input class='select' placeholder="您所在的区域" placeholder-class="name-hover" type="text" value="{{address}}" disabled="true" />
+        <image class='down-ico' src='../../images/jk-down.png'></image>
+      </view>
+      <view class="section top section-address">
+        <input class='select' placeholder="您的详细地址" placeholder-class="name-hover"   value="{{addressInfo}}"  type="text"  bindinput="getAddressInfo"  bindblur="bindAddressBlur"  maxlength="40"/>
+      </view>
+
+    </view>
+
+
+  </view>
+  <view class='select-layer' style='height:{{height}}' wx:if="{{selectShow}}" bindtap='closeSelectEvent'>
+  </view>
+  <view class='select-box' wx:if="{{selectShow}}">
+    <view class='select-tit'>选择关注的商品品类</view>
+    <view class='select-list'>
+      <view class='select-item {{item.select  ? "opt" : ""}} ' bindtap='selectItemEvent' wx:for="{{list}}" wx:key="*thislist" wx:for-index="idx" data-index="{{idx}}" data-id="{{item.goodsTypeId}}">{{item.goodsTypeName}}</view>
+    </view>
+    <view class='select-btn'>
+      <view class='select-reset' bindtap='resetEvent'>重置</view>
+      <view class='select-confirm' bindtap='selectConfrimEvent'>确定</view>
+    </view>
+  </view>
+
+  <view class='select-layer' style='height:{{height}}' wx:if="{{addressShow}}" bindtap='closeAddressEvent'>
+  </view>
+  <view class='select-box' wx:if="{{addressShow}}">
+    <view class='address-cont'>
+      <view class="receiver item">
+        <view class="section__title">省：</view>
+        <picker class="nameInput" bindchange="bindPickerProvince" value="{{provinceIndex}}" range="{{province}}">
+          <view class="picker">
+            {{provinceJson[provinceIndex].label}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="receiver  item">
+        <view class="section__title">市：</view>
+        <block wx:if="{{cityFlag}}">
+          <picker class="nameInput" bindchange="bindPickerCity" value="{{cityIndex}}" range="{{city}}">
+            <view class="picker">
+              {{cityJson[cityIndex].label}}
+            </view>
+          </picker>
+        </block>
+      </view>
+
+      <view class="receiver item">
+        <view class="section__title">区/县：</view>
+        <block wx:if="{{countryFlag}}">
+          <picker class="nameInput" bindchange="bindPickerCountry" value="{{countryIndex}}" mode="selector" range="{{country}}">
+            <view class="picker">
+              {{countryJson[countryIndex].label}}
+            </view>
+          </picker>
+        </block>
+      </view>
+
+      <view class="receiver item">
+        <view class="section__title">乡镇：</view>
+        <block wx:if="{{streetFlag}}">
+          <picker class="nameInput" bindchange="bindPickerStreet" value="{{streetIndex}}" range="{{street}}">
+            <view class="picker">
+              {{streetJson[streetIndex].label}}
+            </view>
+          </picker>
+        </block>
+      </view>
+
+
+    </view>
+    <view class="address-confirm" bindtap="confirmCheck">确认</view>
+
+  </view>
+
+  <view class='btn-box'>
+    <view class='confirm-btn' bindtap='getTicket'>领取门票</view>
+  </view>
+</view>

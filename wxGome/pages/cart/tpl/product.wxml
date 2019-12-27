@@ -1,0 +1,152 @@
+<!-- product.wxml -->
+<template name="product">
+    <view class="product-box {{_state.cssClass}} {{_stateGroup.cssClass}} ">
+        <div wx:if="{{_isSuit && _isLast}}" class="product-guider-last">這個div用來遮蓋套裝的最后一個商品超出部分的連線</div>
+        <div class="product-box-contents">
+            <!--————————————————————————————最左侧 选中框 分为是否是搭配购子品（如果是，则隐藏）————————————-->
+            <block wx:if="{{showDisabled && _state.type != 'QG'}}">
+                <!--如果是搭配购主品-->
+                <div wx:if="{{!_isSuit && !_isNotMatchMain}}" class="product-box-checked {{_isSuitClass}}" data-id="{{itemId}}" data-attr="{{_state}}" data-is-suit="{{_isSuit || false}}" data-checked="{{selected}}">
+                    <image class="check-box--uncheck product-check " src="/images/cart-uncheck.png"></image>
+                </div>
+                <!--如果是套装子品-->
+                <div wx:elif="{{_isSuit}}" class="product-box-checked {{_isSuitClass}}" data-id="{{itemId}}" data-attr="{{_state}}" data-is-suit="{{_isSuit || false}}" data-checked="{{selected}}">
+                    <span class="check-box--default product-suit-uncheck-sm "></span>
+                </div>
+                <!--搭配购子品空盒子-->
+                <div wx:else class="product-box-checked "></div>
+            </block>
+            <block wx:else>
+                <div wx:if="{{!_isNotMatchMain}}" bindtap="checkProduct" class="product-box-checked {{_isSuitClass}}" data-id="{{itemId}}" data-attr="{{_state}}" data-is-suit="{{_isSuit || false}}" data-checked="{{selected}}">
+                    <!--如果是套装，则不显示小图片-->
+                    <!--3个状态：check可勾选 checked已勾选 uncheck不可勾选-->
+                    <image wx:if="{{selected == true && !_isSuit}}" class="check-box--checked product-check " src="/images/cart-checked.png"></image>
+                    <span wx:elif="{{selected == true && _isSuit}}" class="check-box--checked product-suit-checked-sm "></span><!--小的红圆点，选中-->
+                    <block wx:elif="{{cType == 'TZ'}}">
+                        <span wx:if="{{showDisabled}}" class="check-box--default product-suit-uncheck-sm"></span><!--小的灰圆点，不可选-->
+                        <image wx:else class="check-box--default product-check " src="/images/cart-check.png"></image>
+                    </block>
+                    <block wx:else>
+                        <image wx:if="{{_state.notCheck}}" class="check-box--default product-check " src="/images/cart-uncheck.png"></image>
+                        <image wx:else class="check-box--default product-check " src="/images/cart-check.png"></image>
+                    </block>
+                </div>
+                <!--搭配购子品空盒子-->
+                <div wx:else class="product-box-checked "></div>
+            </block>
+
+            <!--————————————————————————————中间部分————————————————————-->
+            <div class="product-box-left">
+                <div class="product-contents-imgandname">
+                  <span class="product-contents__img {{_state.cssClass}}">
+                     <image src="{{_imgUrl}}"/>
+                     <block wx:if="{{_state.type=='OFF'}}">
+                        <image class="product-no-off img-off" src="/images/img-off-lg.png"/>
+                     </block>
+                     <block wx:if="{{_state.type=='NO_GOODS'}}">
+                        <image class="product-no-off img-no" src="/images/img-no-lg.png"/>
+                     </block>
+                      <span class="product-img-label {{_state.cssClass}}">
+                          <i class="half-opacity-bg">半透明背景</i>
+                          <em class="txt-label">{{_state.label}}</em>
+                      </span>
+                  </span>
+                    <div class="product-contents__name">
+                        <!--product名称-->
+                        <div class="name">
+                            <!--搭配购子品展示，其他不展示-->
+                            <span wx:if="{{_isMatch && _isNotMatchMain}}"class="group-header-title group-match-badge title">搭配购</span>{{itemName}}
+                        </div>
+                        <span class="prop" wx:if="{{_labelProperty}}">{{_labelProperty}}</span>
+                        <span class="prop beautyShop" wx:if="{{meidianId &&meiDians[meidianId]}}"><em></em>美店：{{meiDians[meidianId]}}</span>
+                        <div class="product-price-top {{_state.cssClass}}">
+                            <!-- 价格处理-->
+                            <span class="product-price-type" wx:if="{{_priceType}}">
+                                <em class="name">{{_priceType}}</em>
+                            </span>
+                            <!-- 套装商品屏蔽价格-->
+                            <block wx:if="{{_isSuit !== true}}">
+                                <em wx:if="{{listPrice &&listPrice == -1 }}" class="txt-price">暂无售价</em>
+                                <em wx:else class="txt-price">¥{{ _price}}</em>
+                            </block>
+                            <!--如果是套装和搭配购子品-->
+                            <span class="total-suits" wx:if="{{_isSuit}}">
+                                <em>{{baseQuantity}}件/套　x{{quantity}}</em>
+                            </span>
+                            <!--_isNotMatchMain表示搭配購子品-->
+                            <span class="total-suits" wx:elif="{{_isNotMatchMain}}">
+                                <em>x{{quantity}}</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!--图片下面显示 提醒和优惠-->
+                <!--预约抢购中提示-->
+                <div class="product-box-warn">
+                    <div class="red" wx:if="{{_serviceTagFlag=='i7N'}}">
+                        <!--<image src="/images/not7.png"/>-->
+                        <span>不支持7天无理由退货</span>
+                    </div>
+                    <div class="product-warn-assist">
+                        <span class="block" wx:if="{{promotions && promotions[0] &&  promotions[0].type=='POP_I_MZH'}}">[多买优惠]</span>
+                        <!--赠品-->
+                        <block wx:if="_labelGifts && _labelGifts.length > 0">
+                            <span class="gift-label">[赠品]</span>
+                            <span class="block" wx:for="{{_labelGifts}}" wx:key="*this" wx:for-item="gift">
+                                <text class="gift-itemName">{{gift.itemName}}</text>
+                                <text class="gift-quantity">X{{gift.quantity}}</text>
+                            </span>
+                        </block>
+                        <!--延保|碎屏保等服务-->
+                        <span class="block" wx:for="{{_labelService}}" wx:key="*this" wx:for-item="ser">{{ser}}</span>
+                    </div>
+                </div>
+                <!--抢购商品大于1分钟显示倒计时-->
+                <div class="product-box-tips" wx:if="{{_state.type=='QGQ' && singleProductObj[itemId].times && singleProductObj[itemId].timeCounts && singleProductObj[itemId].timeCounts > 0}}">
+                    <!--大于等于24小时显示预约商品几月几日几时几分开抢，小于24小时倒计时显示预约商品还剩几时几分开抢，隐藏秒数
+                        小于24小时，将前面的还剩，月和天数隐藏掉-->
+                    <p class="txt">
+                        预约商品<block wx:if="{{singleProductObj[itemId].times[1] < 1}}">还剩</block>
+                        <span>
+                            <em class="txt-month {{singleProductObj[itemId].times[1] < 1 ? 'hide' : ''}}">{{singleProductObj[itemId].times[0]}}月</em>
+                            <em class="txt-day {{singleProductObj[itemId].times[1] < 1 ? 'hide' : ''}}">{{singleProductObj[itemId].times[1]}}日</em>
+                            <em class="txt-hour {{singleProductObj[itemId].times[2] < 1 ? 'hide' : ''}}">{{singleProductObj[itemId].times[2]}}时</em>
+                            <em class="txt-minute">{{singleProductObj[itemId].times[3]}}分</em>
+                            <em class="txt-second {{(singleProductObj[itemId].times[1] > 0 || singleProductObj[itemId].times[2] > 0 ) ? 'hide' : ''}}">{{singleProductObj[itemId].times[4]}}秒</em>
+                        </span>
+                        开抢
+                    </p>
+                </div>
+                <div class="product-box-tips" wx:elif="{{_state.footerLabel}}">
+                    <span class="txt">{{_state.footerLabel}}</span>
+                </div>
+            </div>
+        </div>
+<!--————————————————————————————最右侧————————————————————————————-->
+        <div class="product-contents__price">
+            <!--对选择数量处理-->
+            <span class="product-price-bottom ">
+                <!--如果是套装和搭配购子品-->
+                <block wx:if="{{_isSuit || _isNotMatchMain}}"></block>
+                <!--如果是普通商品不能选，抢购商品不可选-->
+                <div wx:elif="{{showDisabled || _state.type == 'QG'}}" class="picker-count">
+                    <span class="select">
+                        <em class="disabled">{{quantity}}</em>
+                        <image src="/images/select.png"/>
+                    </span>
+                </div>
+                <!-- 普通商品可选-->
+                <picker wx:else class="picker-count" bindchange="modifyProductNum" data-id="{{itemId}}" value="{{quantity-1}}" range="{{_numRange}}">
+                    <span class="select">
+                        <em>{{quantity}}</em>
+                        <image src="/images/select.png"/>
+                    </span>
+                </picker>
+            </span>
+          <span wx:if="{{limitBuyGoods}}">限购{{limitNum}}件</span>
+          <!--删除处理 如是套装则不显示-->
+          <div class="{{(_isSuit || _isNotMatchMain)?'dele-none':'dele-pro'}}" bindtap="deleteProduct" data-id="{{itemId}}">删除</div>
+        </div>
+        <span class="match-label" wx:if="{{_savePrice&&_savePrice>0}}">[搭配]优惠¥{{_savePrice}}元</span>
+    </view>
+</template>

@@ -1,0 +1,6 @@
+[
+	[
+        "/api/cart/remove",
+        "/data/cart/remove${query.id}.json"
+    ]
+]

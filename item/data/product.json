@@ -1,0 +1,916 @@
+{
+   "page":{
+    "brandCode":"00215",
+    "brandId":"10000022",
+    "bread":[
+        {
+            "href":"http://www.atguat.com.cn/",
+            "linkOtherAttr":{
+
+            },
+            "target":"",
+            "text":"首页",
+            "textOtherAttr":{
+
+            },
+            "title":"首页"
+        },
+        {
+            "href":"http://electronic.atguat.com.cn/",
+            "linkOtherAttr":{
+
+            },
+            "target":"",
+            "text":"电视、冰箱、洗衣机、空调",
+            "textOtherAttr":{
+
+            },
+            "title":"电视、冰箱、洗衣机、空调"
+        },
+        {
+            "href":"",
+            "linkOtherAttr":{
+
+            },
+            "target":"",
+            "text":"空调",
+            "textOtherAttr":{
+
+            },
+            "title":"空调"
+        },
+        {
+            "href":"http://list.atguat.com.cn/cat10000062.html",
+            "linkOtherAttr":{
+
+            },
+            "target":"",
+            "text":"壁挂式空调",
+            "textOtherAttr":{
+
+            },
+            "title":"壁挂式空调"
+        },
+        {
+            "href":"http://list.atguat.com.cn/cat10000062-00-0-48-1-0-0-0-1-2035-0-0-0-0-0-0-0-0.html",
+            "linkOtherAttr":{
+
+            },
+            "target":"",
+            "text":"三洋",
+            "breadSign":true,
+            "textOtherAttr":{
+
+            },
+            "title":"三洋"
+        },
+        {
+            "href":"http://item.atguat.com.cn/9100007800-1000009775.html",
+            "linkOtherAttr":{
+
+            },
+            "target":"",
+            "text":"三洋（SANYO）KFRD-35GW/H1-B空调",
+            "textOtherAttr":{
+
+            },
+            "title":"三洋（SANYO）KFRD-35GW/H1-B空调"
+        }
+    ],
+    "breadCrumbs":[
+        {
+            "$ref":"$.bread[0]"
+        },
+        {
+            "$ref":"$.bread[1]"
+        },
+        {
+            "$ref":"$.bread[2]"
+        },
+        {
+            "$ref":"$.bread[3]"
+        },
+        {
+            "$ref":"$.bread[4]"
+        },
+        {
+            "$ref":"$.bread[5]"
+        }
+    ],
+    "breadName":{
+        "href":"壁挂式空调",
+        "linkOtherAttr":{
+
+        },
+        "target":"10000022",
+        "text":"三洋",
+        "textOtherAttr":{
+
+        },
+        "title":"cat10000062"
+    },
+    "categoryName":{
+        "linkOtherAttr":{
+
+        },
+        "text":"电视、冰箱、洗衣机、空调",
+        "textOtherAttr":{
+
+        },
+        "title":"电视、冰箱、洗衣机、空调"
+    },
+    "description":"国美在线提供三洋（SANYO）KFRD-35GW/H1-B空调,购买三洋（SANYO）KFRD-35GW/H1-B空调就到国美在线。有国美，生活美！",
+    "firstCategoryId":"cat10000004",
+    "keywords":"三洋（SANYO）KFRD-35GW/H1-B空调",
+    "prdClass":[
+        {
+            "href":"http://list.atguat.com.cn/cat10000063.html",
+            "linkOtherAttr":{
+
+            },
+            "target":"_blank",
+            "text":"柜式空调",
+            "textOtherAttr":{
+
+            },
+            "title":"柜式空调"
+        },
+        {
+            "href":"http://list.atguat.com.cn/cat10000062.html",
+            "linkOtherAttr":{
+
+            },
+            "target":"_blank",
+            "text":"壁挂式空调",
+            "textOtherAttr":{
+
+            },
+            "title":"壁挂式空调"
+        }
+    ],
+    "prdDescSpec":[
+        {
+            "modeInfo":"小米手机红米3S全网通版3GB内存32GB经典深灰",
+            "modeTxt":"商品名称"
+        },
+        {
+            "modeInfo":"小米（MI）",
+            "modeTxt":"品牌"
+        },
+        {
+            "modeInfo":"安卓（Android）",
+            "modeTxt":"操作系统"
+        },
+        {
+            "modeInfo":"移动4G（TD-LTE）, 联通4G（FDD-LTE）, 电信4G",
+            "modeTxt":"4G网络制式"
+        },
+        {
+            "modeInfo":"移动3G（TD-SCDMA）, 联通3G（WCDMA）, 电信3G（CDMA2000）",
+            "modeTxt":"3G网络制式"
+        },
+        {
+            "modeInfo":"移动2G（GSM）, 联通2G（GSM）, 电信2G（CDMA）",
+            "modeTxt":"2G网络制式"
+        },
+        {
+            "modeInfo":"32GB",
+            "modeTxt":"机身内存"
+        },
+        {
+            "modeInfo":"3GB",
+            "modeTxt":"运行内存"
+        },
+        {
+            "modeInfo":"5.0",
+            "modeTxt":"屏幕尺寸"
+        },
+        {
+            "modeInfo":"1300万",
+            "modeTxt":"后置摄像头"
+        },
+        {
+            "modeInfo":"500万",
+            "modeTxt":"前置摄像头"
+        }
+    ],
+    "rankinglist":{
+        "boxes":[
+            {
+                "lst":[
+                    {
+                        "pn":"Apple iPhone 6s 64G 金色 4G手机 (全网通版)",
+                        "purl":"9134047584-1123040396"
+                    },
+                    {
+                        "pn":"Apple iPhone 6s Plus 64G 金色 4G手机 (全网通版)",
+                        "purl":"9134047593-1123040425"
+                    },
+                    {
+                        "pn":"小米 5 全网通高配版 3GB内存 64GB ROM 淡紫色 移动联通电信4G手机",
+                        "purl":"9134262816-1123240506"
+                    },
+                    {
+                        "pn":"华为 HUAWEI P9 4GB+64GB版 全网通版（陶瓷白）",
+                        "purl":"9134269713-1123240921"
+                    },
+                    {
+                        "pn":"Apple iPhone SE 16G 玫瑰金 4G手机 （全网通版）",
+                        "purl":"9134262921-1123200791"
+                    },
+                    {
+                        "pn":"Apple iPhone 6s (128G) 玫瑰金",
+                        "purl":"9134234218-1123180406"
+                    }
+                ]
+            },
+            {
+                "lst":[
+                    {
+                        "pn":"小米 5 全网通高配版 3GB内存 64GB ROM 淡紫色 移动联通电信4G手机",
+                        "purl":"9134262816-1123240506"
+                    },
+                    {
+                        "pn":"小米（MI）红米3S全网通版3GB内存32GB经典银白",
+                        "purl":"9134300428-1123240760"
+                    },
+                    {
+                        "pn":"小米 Max 全网通 2GB内存16GB ROM 银色 移动联通电信4G手机",
+                        "purl":"9134291580-1123260090"
+                    },
+                    {
+                        "pn":"小米 红米Note4 全网通 移动联通电信4G手机 双卡双待 红米note4(深灰 全网通 2G+16G)",
+                        "purl":"A0006042891-pop8009249093"
+                    },
+                    {
+                        "pn":"Xiaomi/小米 小米5 全网通版（5.15英寸，骁龙820，指纹识别）小米手机5(白色 标准版32G)",
+                        "purl":"A0005696093-pop8009205351"
+                    },
+                    {
+                        "pn":"小米手机红米3X全网通版2GB内存32GB经典金",
+                        "purl":"9134310038-1123250028"
+                    }
+                ]
+            },
+            {
+                "lst":[
+                    {
+                        "pn":"Apple iPhone 6s 64G 金色 4G手机 (全网通版)",
+                        "purl":"9134047584-1123040396"
+                    },
+                    {
+                        "pn":"Apple iPhone 6s Plus 64G 金色 4G手机 (全网通版)",
+                        "purl":"9134047593-1123040425"
+                    },
+                    {
+                        "pn":"小米 5 全网通高配版 3GB内存 64GB ROM 淡紫色 移动联通电信4G手机",
+                        "purl":"9134262816-1123240506"
+                    },
+                    {
+                        "pn":"华为 HUAWEI P9 4GB+64GB版 全网通版（陶瓷白）",
+                        "purl":"9134269713-1123240921"
+                    },
+                    {
+                        "pn":"Apple iPhone SE 16G 玫瑰金 4G手机 （全网通版）",
+                        "purl":"9134262921-1123200791"
+                    },
+                    {
+                        "pn":"Apple iPhone 6s (128G) 玫瑰金",
+                        "purl":"9134234218-1123180406"
+                    }
+                ]
+            }
+        ]
+    },
+    "suitInfo":[{"description":"坚果激光电视套装S1","flag":true,"pictureUrl":"http://gfs3.gomein.net.cn/T1v5KTBgZT1RCvBVdK","skuId":"tz10000318","suitName":"JmGO 坚果 激光电视套装 S1 银色"}],
+    "prdInfo":{
+        "affixAttr":{
+            "coo8Sign":"true"
+        },
+        "brand":"三洋",
+        "brandCode":"00215",
+        "brandId":"10000022",
+        "buyWay":[
+
+        ],
+        "bztType":-1,
+        "channel":"",
+        "description":"三洋（SANYO）KFRD-35GW/H1-B空调",
+        "detailHref":"http://item.atguat.com.cn/9100007800-1000009775.html",
+        "energyState":0,
+        "gomePrice":2990,
+        "goodsColor":[
+
+        ],
+        "goodsImgs":[
+            {
+                "href":"http://item.atguat.com.cn/bigimage/9100007800-1000009775.html",
+                "imgOtherAttr":{
+
+                },
+                "linkOtherAttr":{
+
+                },
+                "src":"http://gfs.atguat.net.cn/T1bXDTBm_v1RCvBVdK"
+            },
+            {
+                "href":"http://item.atguat.com.cn/bigimage/9100007800-1000009775.html",
+                "imgOtherAttr":{
+
+                },
+                "linkOtherAttr":{
+
+                },
+                "src":"http://gfs2.atguat.net.cn/T1hZKTBvbv1RCvBVdK"
+            },
+            {
+                "href":"http://item.atguat.com.cn/bigimage/9100007800-1000009775.html",
+                "imgOtherAttr":{
+
+                },
+                "linkOtherAttr":{
+
+                },
+                "src":"http://img.atguat.net.cn/image/img/201103/c11/1000000152/1000009161"
+            },
+            {
+                "href":"http://item.atguat.com.cn/bigimage/9100007800-1000009775.html",
+                "imgOtherAttr":{
+
+                },
+                "linkOtherAttr":{
+
+                },
+                "src":"http://gfs2.atguat.net.cn/T1TzxTBQEv1RCvBVdK"
+            },
+            {
+                "href":"http://item.atguat.com.cn/bigimage/9100007800-1000009775.html",
+                "imgOtherAttr":{
+
+                },
+                "linkOtherAttr":{
+
+                },
+                "src":"http://gfs.atguat.net.cn/T1gzETBXZT1RCvBVdK"
+            },
+            {
+                "href":"http://item.atguat.com.cn/bigimage/9100007800-1000009775.html",
+                "imgOtherAttr":{
+
+                },
+                "linkOtherAttr":{
+
+                },
+                "src":"http://img.atguat.net.cn/image/img/201103/c11/1000000152/1000009164"
+            }
+        ],
+        "goodsModel":[
+
+        ],
+        "htmlHref":"http://desc.atguat.com.cn/html/desc/201202/desc257/1000000152.html",
+        "name":"三洋（SANYO）KFRD-35GW/H1-B空调",
+        "operADHref":"",
+        "price":2990,
+        "productId":"9100025831",
+        "productType":"jydq-prd",
+        "programId":"111111111",
+        "selltype":"1",
+        "shelfCtgy":"AJ01",
+        "shopName":"",
+        "shopNo":"",
+        "sku":"1000040291",
+        "skuId":"1000040291",
+        "skuNo":"1000000152",
+        "skuNoMap":{
+            "1000009775":"1000000152"
+        },
+        "skuType":"ZSP",
+        "stats":1,
+        "suitSku":[
+
+        ],
+        "templateId":"m10004",
+        "threeDflag":false,
+        "vipShopFlag":"0"
+    },
+    "prdPack":{
+        "modeInfo":"遥控器x1保修卡x1说明书x1联机管x1"
+    },
+    "prdService":{
+        "modeInfo":"全国联保，享受三包服务"
+    },
+   "prdSpec":[
+        {
+            "modeData":[
+                {
+                    "modeInfo":"小米（MI）",
+                    "modeTxt":"品牌"
+                },
+                {
+                    "modeInfo":"红米3s",
+                    "modeTxt":"型号"
+                },
+                {
+                    "modeInfo":"深灰",
+                    "modeTxt":"颜色"
+                },
+                {
+                    "modeInfo":"触控",
+                    "modeTxt":"输入方式"
+                },
+                {
+                    "modeInfo":"是",
+                    "modeTxt":"智能机"
+                },
+                {
+                    "modeInfo":"安卓（Android）",
+                    "modeTxt":"操作系统"
+                },
+                {
+                    "modeInfo":"高通（Qualcomm）",
+                    "modeTxt":"CPU品牌"
+                },
+                {
+                    "modeInfo":"骁龙430",
+                    "modeTxt":"CPU型号"
+                },
+                {
+                    "modeInfo":"4x1.4GHz + 4x1.1GHz",
+                    "modeTxt":"CPU频率"
+                },
+                {
+                    "modeInfo":"双四核",
+                    "modeTxt":"CPU核数"
+                },
+                {
+                    "modeInfo":"Adreno 505 高性能图形处理器",
+                    "modeTxt":"GPU"
+                }
+            ],
+            "modeTit":"主体"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"移动4G（TD-LTE）, 联通4G（FDD-LTE）, 电信4G",
+                    "modeTxt":"4G网络制式"
+                },
+                {
+                    "modeInfo":"移动3G（TD-SCDMA）, 联通3G（WCDMA）, 电信3G（CDMA2000）",
+                    "modeTxt":"3G网络制式"
+                },
+                {
+                    "modeInfo":"移动2G（GSM）, 联通2G（GSM）, 电信2G（CDMA）",
+                    "modeTxt":"2G网络制式"
+                },
+                {
+                    "modeInfo":"双卡双待",
+                    "modeTxt":"双卡机类型"
+                }
+            ],
+            "modeTit":"网络"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"32GB",
+                    "modeTxt":"机身内存"
+                },
+                {
+                    "modeInfo":"3GB",
+                    "modeTxt":"运行内存"
+                }
+            ],
+            "modeTit":"存储"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"5.0",
+                    "modeTxt":"屏幕尺寸"
+                },
+                {
+                    "modeInfo":"1280*720分辨率",
+                    "modeTxt":"屏幕分辨率"
+                }
+            ],
+            "modeTit":"显示"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"1300万",
+                    "modeTxt":"后置摄像头"
+                },
+                {
+                    "modeInfo":"500万",
+                    "modeTxt":"前置摄像头"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"连拍功能"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"视频拍摄"
+                }
+            ],
+            "modeTit":"摄像功能"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"重力感应"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"光线感应"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"距离感应"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"指纹感应"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"电子罗盘"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"陀螺仪"
+                }
+            ],
+            "modeTit":"感应器"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"WiFi"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"蓝牙"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"WIFI热点"
+                }
+            ],
+            "modeTit":"传输功能"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"内置/需使用第三方应用",
+                    "modeTxt":"收音机"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"音乐播放"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"视频播放"
+                },
+                {
+                    "modeInfo":"支持",
+                    "modeTxt":"录音"
+                }
+            ],
+            "modeTit":"娱乐功能"
+        },
+        {
+            "modeData":[
+                {
+                    "modeInfo":"Micro + Nano / TF二选一,可将任意制式 SIM 卡插入卡槽1,TF(Micro SD)卡可插入卡槽2。双卡使用说明：移动卡与联通卡、电信卡可以任意搭配使用，任意一张卡可选 4G 网络，另一张为 2G 网络。 2张电信卡无法同时使用：同时使用时一张卡可使用 4G 网络，另一张卡将不能注册网络。",
+                    "modeTxt":"SIM卡尺寸"
+                },
+                {
+                    "modeInfo":"4000mAh / 4100mAh(typ)",
+                    "modeTxt":"电池容量（mAh）"
+                },
+                {
+                    "modeInfo":"144g",
+                    "modeTxt":"机身重量"
+                },
+                {
+                    "modeInfo":"双卡双待",
+                    "modeTxt":"功能特点"
+                }
+            ],
+            "modeTit":"其他"
+        }
+    ],
+    "presellFlag":false,
+    "prodVideoInfo":{
+
+    },
+    "productId":"9100007800",
+    "relatedBrands":[
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/1aK0-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"Apple",
+            "textOtherAttr":{
+
+            },
+            "title":"Apple"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/11st-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"SAMSUNG",
+            "textOtherAttr":{
+
+            },
+            "title":"三星（SAMSUNG）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/15L9-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"HUAWEI",
+            "textOtherAttr":{
+
+            },
+            "title":"华为（HUAWEI）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/11I7-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"MI",
+            "textOtherAttr":{
+
+            },
+            "title":"小米（MI）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/10PQ-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"SONY",
+            "textOtherAttr":{
+
+            },
+            "title":"索尼（SONY）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/11FA-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"Motorola",
+            "textOtherAttr":{
+
+            },
+            "title":"摩托罗拉（Motorola）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/147L-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"lenovo",
+            "textOtherAttr":{
+
+            },
+            "title":"联想（lenovo）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/12sM-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"NOKIA",
+            "textOtherAttr":{
+
+            },
+            "title":"诺基亚（NOKIA）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/10Rn-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"HTC",
+            "textOtherAttr":{
+
+            },
+            "title":"HTC"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/147z-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"ZTE",
+            "textOtherAttr":{
+
+            },
+            "title":"中兴（ZTE）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/1avI-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"Coolpad",
+            "textOtherAttr":{
+
+            },
+            "title":"酷派（Coolpad）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/14WS-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"GiONEE",
+            "textOtherAttr":{
+
+            },
+            "title":"金立（GiONEE）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/1bF4-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"macoox",
+            "textOtherAttr":{
+
+            },
+            "title":"macoox"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/14Lg-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "textOtherAttr":{
+
+            },
+            "title":"努比亚"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/12sQ-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "textOtherAttr":{
+
+            },
+            "title":"OPPO"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/13i5-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"BBK",
+            "textOtherAttr":{
+
+            },
+            "title":"步步高"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/14Lb-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"Philips",
+            "textOtherAttr":{
+
+            },
+            "title":"飞利浦（Philips）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/10R9-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"DOOV",
+            "textOtherAttr":{
+
+            },
+            "title":"朵唯（DOOV）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/12sC-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "text":"MEIZU",
+            "textOtherAttr":{
+
+            },
+            "title":"魅族（MEIZU）"
+        },
+        {
+            "breadSign":true,
+            "href":"http://brand.gome.com.cn/12sR-cat10000070.html",
+            "linkOtherAttr":{
+
+            },
+            "textOtherAttr":{
+
+            },
+            "title":"天语（K-touch）"
+        }
+    ],
+    "secCategoryName":{
+        "linkOtherAttr":{
+
+        },
+        "text":"空调",
+        "textOtherAttr":{
+
+        },
+        "title":"空调"
+    },
+    "secondCategoryId":"cat10000010",
+    "serviceTags":{
+        "back_no":"不支持7天无理由退货",
+        "genuine":"测试正品保障标签",
+        "warranty_180":"测试保180天"
+    },
+    "skuId":"1000009775",
+    "thirdCategoryId":"cat21455930",
+    "coo8thirdCategoryId":"cat21455930",
+    "title":"三洋（SANYO）KFRD-35GW/H1-B空调【图片 价格 品牌 报价】-国美在线",
+    "vipShopFlag":"0"
+   },
+    "storeConfiguration":{
+        "newsUrl":"http://news.atguat.com.cn/",
+        "qiangSite":"http://q.atguat.com.cn",
+        "gome.stage.newsTopic":"newsCount_uat",
+        "gome.stage.newsTags":"newsCount_increment",
+        "errorUrl":"http://www.atguat.com.cn/ec/errorpage.html",
+        "ssoLoginURL":"http://login.atguat.com.cn/login",
+        "gccUrl":"http://gcc.ds.atguat.com.cn/",
+        "ssoRegisterURL":"http://reg.atguat.com.cn/register/index/person",
+        "cssserver":"http://css.atguat.com.cn/css",
+        "qdsUrl":"http://qds.atguat.com.cn",
+        "appserver":"http://app.atguat.net.cn/images",
+        "imageserver":"http://img.atguat.net.cn/images",
+        "errorTuanUrl":"http://www.atguat.com.cn/ec/errorpage.html",
+        "reviewSite":"http://review.atguat.com.cn",
+        "tuanSiteAjax":"http://ajax.tuan.atguat.com.cn",
+        "jsserver":"http://js.atguat.com.cn/js",
+        "sync":"false",
+        "tuanSite":"http://tuan.atguat.com.cn",
+        "itemSite":"http://item.atguat.com.cn",
+        "mallSite":"http://mall.atguat.com.cn",
+        "protocol":"http",
+        "secureURL":"http://g.atguat.com.cn",
+        "dynSite":"http://g.atguat.com.cn",
+        "jsonServer":"",
+        "stageImageServer":"http://img.atguat.net.cn",
+        "stageJsServer":"http://js.atguat.com.cn",
+        "gomehigo":"http://www.gomehigo.hk",
+        "gccCacheUrl":"http://10.126.45.28:7033/prdws/pages/pageData.jsp?keyword=gome-header&isShow=clean",
+        "stageCssServer":"http://css.atguat.com.cn",
+        "preJsonURL":"",
+        "gome.stage.newsMQAdress":"10.58.50.204:9876",
+        "staSite":"http://www.atguat.com.cn",
+        "cookieDomain":".atguat.com.cn",
+        "pictureserver":"http://img.atguat.net.cn/image",
+        "storeSite":"/ec/homeus",
+        "searchAPI":"http://api.search.atguat.com.cn",
+        "indexView":"false",
+        "ssSite":"http://ss.atguat.com.cn",
+        "gomePlus":"https://api-bs-pre.gomeplus.com"
+    }
+}

@@ -1,0 +1,308 @@
+body {
+    background-color: #ffffff;
+}
+
+.head {
+    background-color: #ffffff;
+}
+
+.head .head-info {
+    height: 159rpx;
+    width: 100%;
+    position: relative;
+    margin-bottom: 54rpx;
+}
+
+.head-info .per-img {
+    width: 120rpx;
+    height: 120rpx;
+    margin-left: 30rpx;
+    margin-top: 39rpx;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.head-info-msg {
+    margin-left: 26rpx;
+    display: inline-block;
+}
+
+.head-info-msg .per-name {
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #262c32;
+    letter-spacing: 0;
+    line-height: 40rpx;
+    display: inline-block;
+}
+
+.per-name-xing {
+    display: inline-block;
+}
+
+.per-name-xing .kong-xing {
+    width: 28rpx;
+    height: 27rpx;
+    display: inline-block;
+}
+
+.head-info-msg .per-num {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #919599;
+    letter-spacing: 0;
+    line-height: 36rpx;
+}
+
+.head-info-msg .per-ads {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #919599;
+    letter-spacing: 0;
+    line-height: 36rpx;
+}
+
+.head .per-call {
+    width: 68rpx;
+    height: 68rpx;
+    position: absolute;
+    top: 29rpx;
+    right: 30rpx;
+}
+
+.head-label {
+    /* margin-top: 54rpx; */
+    padding: 0 30rpx;
+}
+
+.guanbi-babel {
+    overflow: hidden;
+}
+
+.guanbi-babel-add {
+    height: 92rpx;
+}
+
+.head-label .label-msgs {
+    padding: 10rpx 20rpx;
+    margin-right: 10rpx;
+    display: inline-block;
+    border-radius: 25rpx;
+    background-color: #F3F5F7;
+}
+
+.label-msgs .label-msg {
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #5A6066;
+    letter-spacing: 0;
+    line-height: 20rpx;
+}
+
+.head-zhankai {
+    /* display: none; */
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #7a7f85;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 34rpx;
+    margin-top: 32rpx;
+    margin-bottom: 41rpx;
+}
+
+.head-zhankai image {
+    display: inline-block;
+    width: 17rpx;
+    height: 17rpx;
+    margin-left: 19.5rpx;
+}
+
+.head-shouqi {
+    /* display: none; */
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #7a7f85;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 34rpx;
+    margin-top: 32rpx;
+    margin-bottom: 41rpx;
+}
+
+.head-shouqi image {
+    display: inline-block;
+    width: 17rpx;
+    height: 17rpx;
+    margin-left: 19.5rpx;
+}
+
+.head-kong-add {
+    height: 20rpx;
+    background-color: #ffffff;
+}
+
+.head-kong {
+    height: 20rpx;
+    background-color: #F3F5F7;
+}
+
+
+/* 我的评价-未评价 */
+
+.main {
+    /* display: none; */
+    padding-top: 20rpx;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.main-eval {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #262c32;
+    letter-spacing: 0;
+    line-height: 40rpx;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+
+
+/* 星级 */
+
+
+/* .stars{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+} */
+
+.main-xing {
+    margin-top: 2rpx;
+    margin-bottom: 16rpx;
+    padding-left: 197rpx;
+}
+
+.main-xing .xing {
+    width: 52.2rpx;
+    height: 50rpx;
+    margin-right: 23.9rpx;
+}
+
+.main-satisfy {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #cacccf;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 34rpx;
+    margin: 0 auto;
+}
+
+.main-evalTag {
+    width: 100%;
+    margin-top: 38rpx;
+}
+
+.main-evalTag .tags {
+    padding: 15rpx 21rpx;
+    margin-left: 30rpx;
+    margin-bottom: 24rpx;
+    background: #fff;
+    border: 1rpx solid #cacccf;
+    border-radius: 4.2rpx;
+    display: inline-block;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #00050A;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.main-evalTag .tagOn {
+    color: #F20C59;
+    border: 1px solid #F20C59;
+}
+
+.main-sub {
+    background-image: linear-gradient(-90deg, #fa1e8c 0%, #fc1e56 100%);
+    border-radius: 44px;
+    width: 690rpx;
+    height: 74rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 74rpx;
+    margin: 0 auto;
+}
+
+
+/* 已评价好评/中评/差评 */
+
+.eval-good,
+.eval-bad,
+.eval-zhong {
+    /* display: none; */
+    /* padding-top: 20rpx; */
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #ffffff;
+}
+
+.eval-good .eval,
+.eval-bad .eval,
+.eval-zhong .eval {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #262c32;
+    letter-spacing: 0;
+    line-height: 40rpx;
+    margin-left: 30rpx;
+    margin-right: 20rpx;
+    display: inline-block;
+}
+
+.eval-good .good,
+.eval-bad .bad,
+.eval-zhong .zhong {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #b3b8bd;
+    letter-spacing: 0;
+    line-height: 34rpx;
+    display: inline-block;
+    margin-right: 3rpx;
+}
+
+.eval-good .good-xing,
+.eval-bad .bad-xing,
+.eval-zhong .zhong-xing {
+    display: inline-block;
+}
+
+.eval-good .good-xing .good-shi-xing,
+.eval-bad .bad-xing .bad-shi-xing,
+.eval-zhong .zhong-xing .zhong-shi-xing {
+    width: 28rpx;
+    height: 27rpx;
+    display: inline-block;
+    margin-left: 8rpx;
+}
+
+.eval-good .evalTime,
+.eval-bad .evalTime,
+.eval-zhong .evalTime {
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #b3b8bd;
+    letter-spacing: 0;
+    line-height: 20rpx;
+    width: 197rpx;
+    height: 20rpx;
+    margin-left: 152rpx;
+    display: inline-block;
+}

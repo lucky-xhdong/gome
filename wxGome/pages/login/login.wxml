@@ -1,0 +1,50 @@
+<view class="login-wrapper">
+	<image class="logo" mode="aspectFit" src="../../images/logo.png"></image>
+
+	<view class="verify-box">
+		<view class="verify-box">
+			<view class="verify-list phone">
+				
+				<view class="input-box">
+					<image class="icon" src="../../images/phone-icon.png"></image>
+					<input placeholder-class="placeholder-s" placeholder="请输入手机号"  type="number" maxlength="11" bindinput="bindPhoneInput" bindfocus="bindPhoneFocus" bindblur="bindPhoneBlur" focus="{{phoneFocus}}"  value="{{phone}}"/>
+					<image class="clear {{phoneClear ? 'show' : ''}}" src="../../images/close-icon.png" bindtap="bindClearPhone"></image>
+				</view>
+			</view>
+			<view class="error" hidden="{{showPhoneError}}">请输入正确的手机号</view>
+		</view>
+
+		<view class="verify-box">
+			<view class="verify-list verify-code">
+				<view class="input-box">
+					<image class="icon" src="../../images/key-icon.png"></image>
+					<input placeholder-class="placeholder-s" placeholder="请输入验证码" type="number" bindinput="bindCodeInput" bindfocus="bindCodeFocus" bindblur="bindCodeBlur"  value="{{code}}"/>
+					<image class="clear {{codeClear ? 'show' : ''}}" src="../../images/close-icon.png" bindtap="bindClearCode"></image>
+				</view>
+				<button hidden="{{codeHide}}" disabled="{{codeIsClick}}" class="code"  bindtap="bindGetCode">{{codeTxt}}</button>
+				<button class="code countdown" hidden="{{countdownHide}}">{{countdown}}s</button>
+			</view>
+			<view hidden="{{!codeError}}" class="error">{{codeError}}</view>
+		</view>
+
+		<view class="verify-box" hidden="{{relationCode == relationNewUserCode ? false : true}}">
+			<view class="verify-list password">
+				<view class="input-box">
+					<image class="icon" src="../../images/lock.png"></image>
+					<input placeholder-class="placeholder-s" placeholder="请设置密码，6-20位数字、字母或字符"  type="password" minlength="6" maxlength="20" bindinput="bindPasswordInput" bindblur="bindPasswordBlur" bindfocus="bindPasswordFocus" value="{{password}}"/>
+					<image class="clear {{passwordClear ? 'show' : ''}}" src="../../images/close-icon.png" bindtap="bindClearPassword"></image>
+				</view>
+			</view>
+			<view class="error" hidden="{{!passwordError}}">{{passwordError}}</view>
+		</view>
+	</view>
+
+	<button class="confirm" disabled="{{confirmIsClick}}" bindtap="bindConfirm" open-type="getUserInfo">完成</button>
+
+	<view class="agreement-box" hidden="{{relationCode == relationNewUserCode ? false : true}}">未注册手机登录成功将自动注册，且代表您同意协议<navigator url="../platform-service/platform-service">《国美平台服务协议》</navigator><navigator url="../platform-privacy/platform-privacy">《国美平台隐私政策》</navigator><navigator url="../meifubao-agreement/meifubao-agreement">《美付宝服务协议》</navigator></view>
+
+	
+</view>
+
+<view class="mask" hidden="{{confirmMask}}"></view>
+

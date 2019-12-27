@@ -1,0 +1,67 @@
+<view class="border-roof"></view>
+<scroll-view scroll-y="true">
+	<view class="filter-wrapper">
+		<!-- 营业分类 -->
+		<view class="operation-type checkedWrap border-b-e margin-b-20">
+			<checkbox-group bindchange="_optChangeEvt">
+				<label class="checkbox" wx:for="{{operation}}"  wx:for-item="item" wx:key="*this" >
+					<view class="isChecked {{item.selected ? 'checked' : ''}}">
+					    <checkbox value="{{item.type}}" checked="{{ item.selected }}"/>
+						<text>{{ item.label }}</text>
+						<image mode="aspectFit" src="../../images/bg-tick.png"></image>
+					</view>
+				</label>
+			</checkbox-group>
+		</view>
+
+		<!-- 价格区间 -->
+		<view class="price-range border-t-e border-b-e margin-b-20">
+			<view class="title">价格区间</view>
+			<view class="range-wrapper">
+				<view class="range minPrice ">
+					<input placeholder-class="place-style" type="number" maxlength="6" placeholder="最低价" value="{{priceRange.minPrice}}" data-price-mark="min"  bindblur="_PriceEvt"/>
+				</view>
+				<view class="interval">
+					<view class="line"></view>
+				</view>
+				<view class="range maxPrice">
+					<input placeholder-class="place-style" type="number" maxlength="6" placeholder="最高价"  value="{{priceRange.maxPrice}}" data-price-mark="max" bindblur="_PriceEvt"/>
+				</view>
+			</view>
+		</view>
+
+		<!-- 分类 -->
+		<navigator wx-if="{{facets.hotCategory.length}}" url="../filterClassify/filterClassify">
+			<view class="classify-brank-wrapper border-t-e border-b-e margin-b-20">
+				<view class="title">分类</view>
+				<view class="content">
+					<text wx-if="{{!selectClassify.item}}">全部</text>
+					<text class="select" wx:else >{{selectClassify.item.name}}</text>
+				</view>
+				<image class="arrow" src="../../images/arrowright.png" mode="aspectFit"></image>
+			</view>
+		</navigator>
+
+		<!-- 品牌 -->
+		<navigator  wx-if="{{facets.brand && facets.brand.items && facets.brand.items.length>0}}" url="../filterBrand/filterBrand">
+			<view class="classify-brank-wrapper border-t-e border-b-e margin-b-20">
+				<view class="title">品牌</view>
+				<view class="content">
+					<text wx-if="{{!selectBrand.length}}">全部</text>
+					<block  wx:else >
+						<text class="select" wx:for="{{selectBrand}}"  wx:for-item="item" wx:key="*this" >{{item.value}}</text>
+					</block>
+					
+				</view>
+				<view class="count" wx-if="{{selectBrand.length}}">共{{selectBrand.length}}个</view>
+				<image class="arrow" src="../../images/arrowright.png" mode="aspectFit"></image>
+			</view>
+		</navigator>
+	</view>
+</scroll-view>
+
+<view class="button-wrapper border-t-e">
+	<view class="btn reset" bindtap="_resetEvt">重置</view>
+	<view class="btn confirm" bindtap="_confirmEvt">确认</view>
+</view>
+

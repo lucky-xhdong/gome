@@ -1,0 +1,36 @@
+<view style="width: 100%; overflow-x:hidden;" >
+  <view class='tab' wx:if="{{isHaveUnExProduct=='Y'}}">
+    <view class="{{datatype==1?'cur':''}}" data-type="1" bindtap="packageTapEven">配送中</view>
+    <view class="{{datatype==2?'cur':''}}" data-type="2" bindtap="packageTapEven">待发货</view>
+  </view>
+  <view class='totalPackage' wx:if="{{datatype==1}}">{{shipPackagList.length}}个包裹已发货</view>
+
+  <view class='package_boxs' wx:for="{{shipPackagList}}" wx:for-item="shipPackage">
+      <view class='package_box'>
+        <view class="package_state_box" wx:if="{{datatype==1}}">
+          <text class='package_name'>{{shipPackage.packageName}}</text>
+          <text class='package_state'>{{shipPackage.packageStatus}}</text>
+        </view>
+         <navigator url="../orderTracking/orderTracking?orderId={{orderId}}&shippingGroupId={{shippingGroupId}}&imgUrl={{shipPackage.packageProductList[0].productImageUrl}}&number={{shipPackage.packageNumber}}&sgId={{shippingGroupId}}&packageId={{shipPackage.packageId}}">
+        <view class="expressInfo_box">
+            <text wx:if="{{datatype==1}}" class="express_data">{{shipPackage.shippingGroupInforModel.deliveryCompanyName}}：{{shipPackage.shippingGroupInforModel.shippingGroupID}}</text>
+            <text class="express_msg">{{shipPackage.orderHistories[shipPackage.orderHistories.length-1].orderHistoryInfo}}</text>
+            <image class="icon_arrowdown" src="../../images/arrowright.png" mode="aspectFit"></image>
+        </view>
+        </navigator>
+        <scroll-view class='distribution_box' scroll-x style="height:176rpx;width:720rpx" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+        <block wx:for="{{shipPackage.packageProductList}}" wx:for-item="packageProduct">
+          <view class='distribution_goods'>
+            <image class='good_image' src="{{packageProduct.productImageUrl}}"></image>
+            <view class='good_num_box'>
+                <text>× {{packageProduct.productQuantity}}</text>
+                <view class='num_bg'></view>
+            </view>
+          </view>
+          
+          </block>
+        </scroll-view>
+      </view>
+  </view>
+  
+</view>

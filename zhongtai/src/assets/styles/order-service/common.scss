@@ -1,0 +1,300 @@
+.common-table {
+  min-height: 760px;
+  border: solid 1px $border-color;
+  &.common-table-01 {
+    min-height: auto;
+  }
+  .fixedBar {
+    .el-table__header-wrapper {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 11;
+    }
+  }
+  .el-table__header-wrapper,
+  .el-table__body-wrapper,
+  .el-table__fixed-header-wrapper,
+  .el-table__fixed-body-wrapper {
+    thead {
+      tr {
+        th {
+          background-color: $background-color;
+          font-family: $font-family;
+          color: $font-color1;
+          text-align: center;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          font-family: $font-family;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .el-table__body-wrapper {
+    .el-table__empty-text {
+      font-family: $font-family;
+    }
+  }
+  .el-table__body-wrapper,
+  .el-table__fixed-body-wrapper {
+    .btn-normal {
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      font-family: $font-family;
+      color: $font-color4;
+      padding:0 5px;
+      margin: 5px 0;
+      &:hover {
+        color: $font-color-hover;
+      }
+    }
+  }
+  .el-pagination {
+    text-align: right;
+    margin:20px 0;
+  }
+  table {
+    .show {
+      display: table-cell;
+    }
+    .hide {
+      display: none;
+    }
+  }
+}
+.common-aside {
+  padding: 50px 10px 10px;
+  font-family: $font-family;
+  border:1px solid $border-color;
+  background-color: $background-color2;
+  position: fixed;
+  font-size: 0;
+  top: 20px;
+  right: 20px;
+  z-index: 11;
+  .globel-d-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+  }
+  .common-aside__module {
+    background-color: $background-color3;
+    padding: 10px;
+    margin-bottom: 10px;
+    .product-group {
+      display: flex;
+      .product-img-group {
+        position: relative;
+        flex: 0 0 75px;
+        height: 75px;
+        padding-right: 10px;
+        background: url("../../../assets/images/default.png") no-repeat;
+        &:before {
+          content: attr(data-before);
+          position: absolute;
+          top:0;
+          left:0;
+          padding:0 5px;
+          font-size: 12px;
+          color: $font-color3;
+          background-color: $background-color1;
+        }
+        .product-img {
+          width: 75px;
+          height: 75px;
+        }
+      }
+      .product-txt {
+        flex:1;
+        overflow: hidden;
+        color: $font-color1;
+        font-family: $font-family;
+        font-size: 14px;
+        .product-txt-title {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          margin-top: 10px;
+          margin-bottom: 20px;
+        }
+        .product-txt-price-num {
+          overflow: hidden;
+          .product-txt-price {
+            float: left;
+          }
+          .product-txt-num {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+  .order-info__inner {
+    min-height: 30px;
+    padding-bottom: 10px;
+    padding-left: 85px;
+    &:before {
+      content: attr(data-before);
+      position: absolute;
+      left:0;
+      min-width: 85px;
+      text-align: right;
+      font-size: 14px;
+      color: #666;
+    }
+    .as-product-info__span {
+      font-size: 14px;
+      color: #666;
+    }
+    .as-product-info__button {
+      margin-left:8px;
+    }
+  }
+}
+
+.common-money-group {
+  padding-bottom: 10px;
+  &:before {
+    content: attr(data-before);
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    color: $font-color1;
+    background-color: $background-color;
+  }
+  .cmg__deduct-money {
+    padding:0 15px;
+    margin-bottom: 15px;
+    .cmg__deduct-money-title {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      color: $font-color1;
+      background-color: $background-color6;
+    }
+    .cmg__deduct-money-item {
+      line-height:30px;
+      margin-bottom:10px;
+      font-size: 14px;
+      &:before {
+        content: attr(data-before);
+        display: inline-block;
+        width: 138px;
+        text-align: right;
+        color: $font-color1;
+      }
+      .cmg__em {
+        color: $font-color2;
+      }
+      .cmg__span {
+        color: $font-color1;
+      }
+    }
+  }
+  .cmg__refund-money {
+    padding:0 15px;
+    .cmg__refund-money-title {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      color: $font-color1;
+      background-color: $background-color6;
+    }
+    .cmg__refund-money-item {
+      line-height:30px;
+      margin-bottom:10px;
+      font-size: 14px;
+      &:before {
+        content: attr(data-before);
+        display: inline-block;
+        width: 138px;
+        text-align: right;
+        color: $font-color1;
+      }
+      .cmg__em {
+        color: $font-color2;
+      }
+      .cmg__span {
+        color: $font-color1;
+      }
+    }
+  }
+  .cmg__popover-tips {
+    width: 20px;
+    height: 20px;
+    padding:0;
+    text-align: center;
+    line-height: 20px;;
+    border-radius: 50%;
+  }
+}
+.cmg__promotions-table {
+  margin:10px 30px;
+  ._table {
+    border:1px solid $background-color5;
+    font-size: 14px;
+    thead {
+      border-bottom:1px solid $background-color5;
+      tr {
+        th {
+          text-align: center;
+          padding:5px;
+          line-height:40px;
+          font-size: 14px;
+          border-left:1px solid $background-color5;
+          background-color: $background-color7;
+          color: $font-color5;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          text-align: center;
+          border-left:1px solid $background-color5;
+          color: $font-color5;
+          padding:5px;
+          line-height:30px;
+        }
+      }
+    }
+  }
+  table {
+    width:100%;
+    thead {
+      tr {
+        th {
+          text-align: center;
+          background-color: $background-color7;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          text-align: center;
+          .cell {
+            max-height: 44px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+.el-popover {
+  .cmg__em {
+    color: $font-color2;
+  }
+}

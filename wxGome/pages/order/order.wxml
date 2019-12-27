@@ -1,0 +1,35 @@
+<!--pages/order/order.wxml-->
+<import src="/template/orderList.wxml" />
+<scroll-view class="order_scroll_group" scroll-y="true" bindscrolltolower="lower" style='height:{{height}}'>
+  <view class="order_tab">
+    <view class="{{datatype==1?'cur':''}}" data-type="1" bindtap="orderTapEven">全部订单</view>
+    <view class="{{datatype==2?'cur':''}}" data-type="2" bindtap="orderTapEven">待付款
+      <text wx:if="{{pendingPayOrders>0}}" class="red">{{pendingPayOrders}}</text>
+    </view>
+    <view class="{{datatype==3?'cur':''}}" data-type="3" bindtap="orderTapEven">待收货
+      <text wx:if="{{pendingConfirmOrders>0}}" class="red">{{pendingConfirmOrders}}</text>
+    </view>
+  </view>
+
+  <view class="order_tips" wx:if="{{tips}}">
+    <image class="tip" src="../../images/tip.png"></image>
+    <view class="close_view" bindtap="closeEven">
+      <image class="close" src="../../images/close.png"></image>
+    </view>
+    <text>重要提醒:请谨防网络及客服诈骗！国美不会以订单异常、系统维护等情况为由，要求您进行退款操作。</text>
+  </view>
+  <view class="order_list_group">
+    <block wx:if="{{currentList.length==0}}">
+      <view class="errTips" wx:if="{{datatype==1}}">您暂时还没有订单</view>
+      <view class="errTips" wx:elif="{{datatype==2}}">您暂时还没有待支付订单</view>
+      <view class="errTips" wx:else>您暂时还没有待收货订单</view>
+    </block>
+    <template is="orderList" data="{{currentList:currentList}}" />
+    <block wx:if="{{currentList.length>0}}">
+      <view class="ismore" wx:if="{{isMore}}">玩命加载中...</view>
+      <block wx:if="{{isMore==false}}">
+        <view class="nomore">没有更多了</view>
+      </block>
+    </block>
+  </view>
+</scroll-view>

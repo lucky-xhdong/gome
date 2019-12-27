@@ -1,0 +1,81 @@
+<!-- 配送导购安装个人信息 -->
+<view class='head'>
+    <view class='head-info'>
+        <image class='per-img' src='{{userType==3?"../../images/salers-ico.png":courierImg}}'></image>
+        <view class='head-info-msg'>
+            <view class='per-name'>{{courierName}}
+                <view wx:for='{{starsArr}}' wx:key='{{index}}' class='per-name-xing'>
+                    <image wx:if='{{item==2}}' src='../../images/shi-small.png' class='kong-xing'></image>
+                    <image wx:if='{{item==1}}' src='../../images/dao-ban.png' class='kong-xing'></image>
+                    <image wx:if='{{item==0}}' src='../../images/kong-small.png' class='kong-xing'></image>
+                </view>
+            </view>
+            <view class='per-num'>员工编号：{{courierNo}}</view>
+            <!-- <view class='per-ads' wx:if='{{userType==1}}'>配送站点：{{serviceSite}}</view>
+            <view class='per-ads' wx:if='{{userType==2}}'>服务站点：{{serviceSite}}</view> -->
+            <view class='per-ads' wx:if='{{userType==3}}'>服务门店：{{serviceSite}}</view>
+        </view>
+        <image class='per-call' src='../../images/call.png' bindtap='dialPhone'></image>
+    </view>
+    <view class='head-label {{labelLength?"":(openLabel?"guanbi-babel":"guanbi-babel guanbi-babel-add")}}' wx:if='{{headLabelShow}}'>
+        <view class='label-msgs' wx:for='{{labels}}' wx:key='{{index}}'>
+            <view class='label-msg'>{{item.name}} {{item.count}}</view>
+        </view>
+    </view>
+    <view class="head-kong-add" wx:if='{{labelLength}}'></view>
+    <view class='head-zhankai' wx:if='{{labelLength?false:!openLabel}}' bindtap='openCloseLabel'>查看全部标签
+        <image src='../../images/zhankai.png' class='tan-top'></image>
+    </view>
+    <view class='head-shouqi' wx:elif='{{labelLength?false:openLabel}}' bindtap='openCloseLabel'>收起
+        <image src='../../images/shouqi.png' class='tan-down'></image>
+    </view>
+    <view class="head-kong"></view>
+</view>
+
+<!-- 我的评价-未评价 -->
+<view class='main' wx:if='{{!isEval}}'>
+    <view class='main-eval'>我要评价</view>
+    <star id='star' index="0" type="1" score="{{myScore}}" bindtap='starTap' star-box='main-xing' star-img='xing'>
+    </star>
+
+    <view class='main-satisfy'>满意请给5星哦~</view>
+    <view class='main-evalTag'>
+        <view class='tags {{item.count==1?"tagOn":""}}' data-id='{{index}}' wx:for='{{myEvalLabel}}' bindtap='pickUserLabel' wx:key='{{index}}'>
+            {{item.name}}
+        </view>
+    </view>
+    <view class='main-sub' bindtap='submit'>提交</view>
+</view>
+
+<!-- 已评价差评 -->
+<view class='eval-bad' wx:if='{{isEval?(goodEval==0):false}}'>
+    <view class='eval'>已评价</view>
+    <view class='bad'>差评</view>
+    <view class='bad-xing' wx:for='{{evalStarsArr}}' wx:key='{{index}}'>
+        <image wx:if='{{item==2}}' src='../../images/shi-small.png' class='bad-shi-xing'></image>
+        <image wx:if='{{item==0}}' src='../../images/kong-small.png' class='bad-shi-xing'></image>
+    </view>
+    <view class='evalTime'>{{evalDate}}</view>
+</view>
+
+<!-- 已评价中评 -->
+<view class='eval-zhong' wx:if='{{isEval?(goodEval==1):false}}'>
+    <view class='eval'>已评价</view>
+    <view class='zhong'>中评</view>
+    <view class='zhong-xing' wx:for='{{evalStarsArr}}' wx:key='{{index}}'>
+        <image wx:if='{{item==2}}' src='../../images/shi-small.png' class='zhong-shi-xing'></image>
+        <image wx:if='{{item==0}}' src='../../images/kong-small.png' class='zhong-shi-xing'></image>
+    </view>
+    <view class='evalTime'>{{evalDate}}</view>
+</view>
+
+<!-- 已评价好评 -->
+<view class='eval-good' wx:if='{{isEval?(goodEval==2):false}}'>
+    <view class='eval'>已评价</view>
+    <view class='good'>好评</view>
+    <view class='good-xing' wx:for='{{evalStarsArr}}' wx:key='{{index}}'>
+        <image wx:if='{{item==2}}' src='../../images/shi-small.png' class='good-shi-xing'></image>
+        <image wx:if='{{item==0}}' src='../../images/kong-small.png' class='good-shi-xing'></image>
+    </view>
+    <view class='evalTime'>{{evalDate}}</view>
+</view>

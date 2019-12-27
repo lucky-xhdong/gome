@@ -1,0 +1,19 @@
+.fanli-box{
+  background-color: #fff;
+}
+.explain{
+  padding:20rpx;
+  border-top: 1rpx solid #eee;
+  width: 710rpx;
+}
+.tit{
+  width: 710rpx;
+  padding: 10rpx 0;
+  font: 500 26rpx "Microsoft YaHei";
+  color: #333;
+}
+.content{
+  font: 400 24rpx/40rpx  "Microsoft YaHei";
+  color: #999;
+  padding:18rpx 0; 
+}

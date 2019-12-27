@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "包裹信息",
+  "backgroundColor": "#f8f8f8",
+  "backgroundTextStyle": "#030303",
+  "enablePullDownRefresh":false
+}

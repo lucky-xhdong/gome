@@ -1,0 +1,286 @@
+.cancelRefuse_detail {
+  margin:0 auto;
+  transition: .2s;
+  .cr-detail__main {
+    position: absolute;
+    right: 320px;
+    left: 20px;
+    padding:0;
+    margin-right: 20px;
+    margin-bottom:20px;
+    border: solid 1px $border-color;
+  }
+  .cr-detail__deliveryInfo {
+    margin:10px 20px;
+    .deliveryInfo__inner {
+      font: 14px/30px $font-family;
+      color:$font-color;
+      &:before {
+        content: attr(data-before);
+      }
+    }
+  }
+  .cr-detail__table {
+    margin: 10px;
+  border: 1px solid $border-color;
+    .el-table__header {
+      thead {
+        tr {
+          th {
+            background-color: $background-color;
+            font-family: $font-family;
+            text-align: center;
+          }
+        }
+      }
+      .el-table__body-wrapper {
+        .el-table__empty-text {
+          font-family: $font-family;
+        }
+      }
+    }
+    .el-table__body-wrapper {
+      tbody {
+        tr {
+          td {
+            font-family: $font-family;
+            text-align: center;
+            .productInfo {
+              display: flex;
+              align-items: center;
+              .img-group {
+                width: 75px;
+                height: 75px;
+                flex: 0 0 75px;
+                margin-right: 10px;
+                position: relative;
+                background: url("../../../assets/images/default.png") no-repeat;
+                img {
+                  width: 75px;
+                  height: 75px;
+                }
+                &:after {
+                  content: attr(data-after);
+                  font-size: 12px;
+                  line-height: 18px;
+                  position: absolute;
+                  top:0;
+                  left:0;
+                  padding:0 5px;
+                  color: $font-color3;
+                  background-color: $background-color1;
+                }
+              }
+              .txt-group {
+                .txt-title {
+                  color: $font-color;
+                  font-size: 14px;
+                  max-height: 46px;
+                  overflow: hidden;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .el-pagination {
+      text-align: right;
+      margin:20px 0;
+    }
+  }
+  .cr-detail__form {
+    position: relative;
+    padding-top:36px;
+    font-family: 'Microsoft YaHei';
+    &:before {
+      content: attr(data-before);
+      position: absolute;
+      left:0;
+      right:0;
+      top:0;
+      padding:0 10px;
+      font: 16px/40px $font-family;
+      color: $font-color;
+      background-color: $background-color5;
+    }
+    .input-group {
+      padding:10px 0;
+      .common-money-group {
+        margin: 0 10px;
+      }
+      .cr-detail__caption {
+        &:before {
+          content: attr(data-before);
+          display: block;
+          height: 36px;
+          line-height: 36px;
+          padding:0 20px;
+          margin:10px;
+          font-weight: bold;
+          color: $font-color1;
+          background-color: $background-color;
+        }
+      }
+      .el-form-item {
+        margin-bottom: 10px;
+        margin-left: 80px;
+        margin-right: 80px;
+        &.label__hidden {
+          .el-form-item__label {
+            font-size: 0;
+            width: 30px;
+          }
+        }
+        .el-form-item__label {
+          width:110px;
+          font-family: $font-family;
+        }
+        .el-form-item__content {
+          input, select {
+            width: 202px;
+          }
+          .form__span {
+            font-family: $font-family1;
+            color: $font-color1;
+          }
+        }
+      }
+    }
+  }
+  .cr-success-tip {
+    padding: 15px 20px;
+    .txt {
+      color: $font-color2;
+    }
+  }
+  .form__tips {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    vertical-align: middle;
+    .form__tips__icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      color: $font-color;
+      text-align: center;
+      border-radius: 50%;
+      background-color: $background-color;
+    }
+    .form__tips__content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 270px;
+      min-height: 100px;
+      padding: 10px;
+      left: 32px;
+      top: 0;
+      border:1px solid $border-color;
+      &:before {
+        content: '';
+        position: absolute;
+        border:6px solid transparent;
+        border-right-color: $border-color;
+        left: -13px;
+        top: 8px;
+      }
+    }
+    &:hover {
+      .form__tips__content {
+        display: block;
+      }
+    }
+  }
+  .form__popover__tips {
+    width: 20px;
+    height: 20px;
+    padding:0;
+    text-align: center;
+    line-height: 20px;;
+    border-radius: 50%;
+  }
+  .btn-group {
+    text-align: center;
+    .el-button {
+      margin:0 50px;
+    }
+  }
+  .el-dialog__body_bean {
+    .dialog_span {
+      display: block;
+      overflow: hidden;
+      line-height:30px;
+      padding:0 10px;
+      &:before {
+        content: attr(data-before);
+        float: left;
+        color: $font-color1;
+      }
+      &.dialog_em {
+        &:before {
+          color: $font-color2;
+        }
+        color: $font-color2;
+      }
+    }
+    .dialog_p {
+      line-height:30px;
+      padding:0 10px;
+      .dialog_em {
+        color: $font-color2;
+      }
+    }
+  }
+}
+.cr-detail__aside {
+  padding: 50px 10px 0;
+  font-family: $font-family;
+  border: solid 1px $border-color;
+  position: fixed;
+  font-size: 0;
+  top: 20px;
+  right: 20px;
+  z-index: 11;
+  .globel-d-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+  }
+  .aside__userInfo,
+  .aside__totalPrice {
+    .el-row {
+      min-height: 30px;
+      padding-bottom: 10px;
+      padding-left: 100px;
+      &:before {
+        content: attr(data-before);
+        position: absolute;
+        left:0;
+        font-size: 14px;
+        width: 100px;
+        text-align: right;
+        color: $font-color1;
+      }
+      .aside__span {
+        font-size: 14px;
+        color: $font-color1;
+      }
+    }
+  }
+  .aside__userInfo,
+  .aside__totalPrice {
+    background-color: $background-color3;
+    padding: 10px;
+  }
+  .aside__userInfo {
+    margin-bottom: 10px;
+    .as-product-info__button {
+      margin-left: 8px;
+    }
+  }
+}

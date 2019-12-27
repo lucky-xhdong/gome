@@ -1,0 +1,12 @@
+{
+  "packageDir": "build",
+  "projectPath": "gmpro/2.0.0/item/1.12.14",
+  "projectFolder": "css|js|widget",
+  "projectAppend": "",
+  "appPath": "WEB-INF/template",
+  "appFolder": "html",
+  "appAppend": "",
+  "output": {
+    "cssSpriteMode": 0
+  }
+}

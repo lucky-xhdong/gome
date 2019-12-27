@@ -1,0 +1,172 @@
+<!-- 初始化loading -->
+<view class="loadingInt" wx:if="{{ loadingInit }}">
+  <image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>
+
+<view class="mainCon">
+  <scroll-view scroll-y="true" class="{{shopsLength != 1 ? 'bottom0' : ''}}">
+    <!-- 单个商品 begin-->
+    <block wx:if="{{shopsLength == 1}}">
+      <view class="deliveryTimeWrap margin-b-20">
+        <view class="deliverTitle">
+          <text>配送时间</text>
+        </view>
+        <view class="checkedWrap" wx:if="{{day.has}}" bindtap="bindTest" data-select="{{day.selected}}" id="day" wx:key="*this">
+          <label wx:for="{{ day.items }}">
+            <view class="isChecked {{item.selected ? 'checked' : ''}}" data-value="{{index}}">
+              <!-- <radio value="{{index}}" checked="{{ item.selected }}"/> -->
+              <text wx:if="{{item.code=='WEEKDAY'}}" id='11' data-index='0'>工作日送货</text>
+              <text wx:if="{{item.code=='WEEKEND'}}" id='22' data-index='1'>双休/节假日送货</text>
+              <text wx:if="{{item.code=='ALL'}}" id='33' data-index='2'>时间不限</text>
+              <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+            </view>
+          </label>
+        </view>
+        <view class="checkedWrap" wx:if="{{jsd.has}}" data-select="{{jsd.selected}}" id='jsd' bindtap="bindTest">
+          <view class="ttIscheck margin-b-20 deliveryTime">
+            <!-- <radio value="{{index}}" checked="{{ item.selected  }}"/> -->
+            <image hidden="{{!jsd.selected}}" class="checkImg" src="../../images/checked.png"></image>
+            <image hidden="{{jsd.selected}}" class="checkImg" src="../../images/no-checked.png"></image>
+            <text wx:if="{{jsd.days==0}}">预计将在今天{{jsd.hours}}前送达</text>
+            <text wx:if="{{jsd.days==1}}">预计将在明天{{jsd.hours}}前送达</text>
+          </view>
+        </view>
+        <view class="checkedWrap" wx:if="{{xsd.has}}" id='xsd'>
+          <!--bindtap="bindTest"-->
+          <view class="ttIscheck margin-b-20 deliveryTime">
+            <!-- <radio value="{{index}}" checked="{{ item.selected  }}"/> -->
+            <image hidden="{{!xsd.selected}}" class="checkImg" src="../../images/checked.png"></image>
+            <image hidden="{{xsd.selected}}" class="checkImg" src="../../images/no-checked.png"></image>
+            <text hidden="{{xsd.selected}}">点击选择时间</text>
+            <text hidden="{{!xsd.selected}}">{{xsd.time}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="deliveryWayWrap margin-b-20">
+        <view class="deliverTitle">
+          <text>配送方式</text>
+        </view>
+
+        <!-- <view class="delivery"><text>由 【{{ deliveryWay.name }}】 配送{{ deliveryWay.num }}件商品</text></view> -->
+        <view class="delivery">
+          <text>由 【{{ deliveryWay.name }}】 配送</text>
+        </view>
+
+        <view class="productImg">
+          <image mode="aspectFit" src="https:{{ deliveryWay.itemImageURL }}"></image>
+        </view>
+        <view class="checkedWrap">
+          <radio-group bindchange="bindDeliveryWay">
+            <label wx:for="{{ express }}" wx:key="*thisExpress">
+              <view class="isChecked {{item.selected ? 'checked' : ''}}">
+                <radio value="{{index}}" checked="{{ item.selected }}" />
+                <text>{{ item.name }} {{ item.shipPrice }}</text>
+                <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+              </view>
+            </label>
+          </radio-group>
+        </view>
+        <!-- 当站点为gomeVirtualCard,operator时不显示这个配置，其它站点都显现。目前小程序只有主站 -->
+        <view class="tip">
+          <text>大家电配送时部分偏远地区需额外收取远程费</text>
+        </view>
+      </view>
+      <!-- <view class="remark  margin-b-20">
+            <text>备注</text>
+            <input type="text" bindinput="bindRemark" placeholder="30字以内" maxlength="30" bindinput="bindKeyInput" value="{{comments}}" />
+        </view> -->
+    </block>
+    <!-- 单个商品end -->
+    <!-- 多个商品 begin -->
+    <block wx:else>
+      <view class="deliveryTimeWrap deliveryTimeWrapMore margin-b-20">
+        <block wx:for="{{information.data.shops}}" wx:key="*this">
+          <view class="allItems">
+            <view class="deliverTitle">
+              <text>配送时间</text>
+            </view>
+            <block wx:for="{{item.shippinginfo}}" wx:key="*this">
+              <!-- 时间不限 start -->
+              <view wx:if="{{item.dayShow == 0}}" class="checkedWrap">
+                <view class="deliversubTitle">非计/限时达商品配送时间</view>
+                <view class="isChecked {{item.timeSelected == 0 ? 'checked' : ''}}">
+                  <text>工作日送货</text>
+                  <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+                </view>
+                <view class="isChecked {{item.timeSelected == 1 ? 'checked' : ''}}">
+                  <text>双休/节假日送货</text>
+                  <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+                </view>
+                <view class="isChecked {{item.timeSelected ==2 ? 'checked' : ''}}">
+                  <text>时间不限</text>
+                  <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+                </view>
+              </view>
+              <!-- 时间不限 end -->
+              <!-- 计时达 start -->
+              <view wx:if="{{item.dayShow == 1}}" class="checkedWrap">
+                <view class="ttIscheck margin-b-20 deliveryTime">
+                  <image hidden="{{!item.times[0].selected}}" class="checkImg" src="../../images/checked.png"></image>
+                  <image hidden="{{item.times[0].selected}}" class="checkImg" src="../../images/no-checked.png"></image>
+                  <text wx:if="{{item.times[0].days == 0}}">预计将在今天{{item.times[0].hours}}前送达</text>
+                  <text wx:if="{{item.times[0].days == 1}}">预计将在明天{{jsd.hours}}前送达</text>
+                </view>
+              </view>
+              <!-- 计时达 end -->
+              <!-- 限时达 start -->
+              <view wx:if="{{item.dayShow == 2}}" class="checkedWrap">
+                <view class="deliversubTitle">限时达商品配送时间</view>
+                <view class="isChecked {{item.timeSelected == 3 ? 'checked' : ''}}">
+                  <text>{{item.dateTime}}</text>
+                  <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+                </view>
+              </view>
+              <!-- 限时达 end -->
+            </block>
+            <view class="deliverTitle">
+              <text>配送方式</text>
+            </view>
+            <view class="delivery">
+              <text>由 【{{ item.shopMName }}】 配送</text>{{item.numTotal}}件商品</view>
+            <view class="productImgWrap">
+              <view class="productImgBox">
+                <block wx:for="{{item.groupArr}}" wx:key="*thisGroupArr">
+                  <view class="productImgList">
+                    <view class="productImg">
+                      <image mode="aspectFit" src="https:{{ item.itemImageURL }}"></image>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <block wx:if="{{item.groupArr.length >= 4}}">
+                <text class="productPoints">...</text>
+              </block>
+            </view>
+
+
+            <view class="checkedWrap">
+              <block wx:for="{{item.shippinginfo}}" wx:key="*this">
+                <block wx:for="{{item.express}}" wx:key="*this">
+                  <view class="isChecked  {{item.selected ? 'checked' : ''}}">
+                    <text>{{ item.codeName }} {{ item.shipPrice }}</text>
+                    <image mode="aspectFit" src="../../images/bg-tick.png"></image>
+                  </view>
+                </block>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <!-- 多个商品 end-->
+  </scroll-view>
+
+  <view wx:if="{{shopsLength == 1}}" class="confirmBtn" bindtap="bindConfirm">
+    <button>确定</button>
+  </view>
+</view>
+
+<view class="timeMask {{ mask ? (timeMask ? 'timeMaskShow': 'timeMaskHide') : '' }}"></view>
+<view class="timeMaskCon {{ timeMask ? 'timeMaskConShow': '' }}">
+
+</view>

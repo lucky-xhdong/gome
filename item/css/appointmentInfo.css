@@ -1,0 +1,75 @@
+ .dn {
+        display:none;
+    }
+
+
+
+.yuyue_info {
+    margin-top: 36px;
+}
+    .yuyue_info dl {
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+    .yuyue_info dd {
+        height: 50px;
+    }
+    .yuyue_info dt, .yuyue_info dd {
+        float: left;
+    }
+    .yuyue_info dt {
+        font-size: 12px;
+        padding: 6px;
+        width: 360px;
+        text-align: right;
+    }
+.verify_val {
+    border: 1px solid #ccc;
+}
+.verify_msg {
+    visibility: hidden;
+}
+.verify_error .verify_val {
+    border: 1px solid #c00;
+}
+.verify_error .verify_msg {
+    display: block;
+}
+#get_verify_code {
+    border: 1px solid #ccc;
+    color: #333;
+    background-color: #f8f8f8;
+    line-height: 12px;
+    padding: 6px;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+    #get_verify_code.unable {
+        color: #ccc;
+    }
+
+
+.verify_border {
+    border: 1px solid #ccc;
+    line-height: 12px;
+    padding: 6px;
+    display: inline-block;
+    font-size: 12px;
+}
+#phone_num.error .verify_border {
+    border: 1px solid #c00;
+}
+#phone_num.error .verify_msg{
+    visibility:visible;
+}
+
+#verify_num.error .verify_border {
+    border: 1px solid #c00;
+}
+
+#verify_num.error .verify_msg {
+    visibility:visible;
+    color:#c00;
+}

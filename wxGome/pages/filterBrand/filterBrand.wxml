@@ -1,0 +1,31 @@
+<view class="border-roof"></view>
+<view class="selected-brand-wrapper">
+	<view class="brand-selected border-b-e">
+		<text class="txt">已选择：</text>
+		<view class="ellip">
+			<text class="con" wx:if="{{selectBrand.length == 0}}">暂无</text>
+			<block wx:else>
+				<text class="con" wx:for="{{selectBrand}}"  wx:for-item="item" wx:key="*this" >{{item.value}}</text>
+			</block>
+		</view>
+		<text class="count" wx:if="{{selectBrand.length}}">共{{selectBrand.length}}个</text>
+	</view>
+</view>
+<scroll-view scroll-y="true">
+	<view class="filter-wrapper">
+		<checkbox-group bindchange="_selectChangeEvt">
+			<label class="item-style border-b-e {{item.selected ? 'selected' : ''}}" wx:for="{{brand}}"  wx:for-item="item" wx:key="*this" >
+				<view class="txt ellip">{{item.value}}</view>
+				<checkbox  value="{{item.id}}" checked="{{ item.selected }}"/>
+				<image wx:if="{{item.selected}}" mode="aspectFit" src="../../images/checked.png"></image>
+				<image wx:else mode="aspectFit" src="../../images/no-checked.png"></image>
+			</label>
+		</checkbox-group>
+	</view>
+</scroll-view>
+
+<view class="button-wrapper border-t-e">
+	<view class="btn reset" bindtap="_resetEvt">重置</view>
+	<view class="btn confirm" bindtap="_confirmEvt">确认</view>
+</view>
+

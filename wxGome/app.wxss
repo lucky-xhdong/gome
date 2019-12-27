@@ -1,0 +1,114 @@
+/**app.wxss**/
+@import "wetoast/wetoast.wxss";
+page{
+    font:26rpx/44rpx 'Microsoft Yahei';
+    color:#333333;
+    background: #f8f8f8;
+}
+.container {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.flex{
+    display: flex;
+}
+.column{
+    flex-direction: column;
+}
+.row{
+    flex-direction: row;
+}
+.fr{
+	float:right;
+}
+.grey{
+    color:#9d9d9d;
+}
+.red{
+    color:#e43a3d;
+}
+.black{
+    color:#333;
+}
+.martop20{ margin-top:20rpx;}
+/* ==== start radio ==== */
+.checkedWrap { 
+	overflow: hidden;
+}
+.isChecked {
+	border: 1px solid #d2d2d2;
+	border-radius: 2rpx;
+	padding: 0 20rpx;
+	float: left;
+	overflow: hidden;
+	margin-right: 20rpx;
+	margin-bottom: 20rpx;
+	min-width: 130rpx;
+	text-align: center;
+
+	position: relative;
+}
+.isChecked text{
+	color: #666;
+	line-height: 64rpx;
+}
+.isChecked image,.isChecked radio { display: none;}
+.isChecked.checked { border-color: #ef3030;}
+.isChecked.checked text { color: #ef3030; }
+.isChecked.checked image {
+	width: 44rpx;
+	height: 44rpx;
+	display: block;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+    
+}
+/* ==== end radio ==== */
+
+/* ==== 初始化加载dom和出事化数据的loading */
+.loadingInt {
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999999999;
+	position: absolute;
+	background-color: #f8f8f8;
+}
+.loadingInt image {
+	width: 100rpx;
+	height: 100rpx;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-100%);
+}
+
+/* 平台协议样式 */
+.platform-agreement {
+	padding-bottom: 40rpx;
+	color: #333;
+	font-family: "PingFangSC-Regular";
+	font-size: 28rpx;
+	line-height: 52rpx;
+	border-top: 1rpx solid #ddd;
+	padding: 40rpx;
+}
+.platform-agreement view {
+	text-indent: 2em;
+}
+.platform-agreement .title {
+	margin-bottom: 14rpx;
+	margin-top: 26rpx;
+	line-height: 30rpx;
+	font-weight: bold;
+}
+
+.platform-agreement .w-b {
+	font-weight: bold;
+}

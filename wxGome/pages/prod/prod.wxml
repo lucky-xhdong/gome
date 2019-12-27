@@ -1,0 +1,371 @@
+<import src="../../wxParse/wxParse.wxml" />
+<scroll-view scroll-y="true" class="container" style="height:{{height}};border-top:2rpx solid #e6e6e6;">
+  <view class="prodInfo">
+
+    <!--轮播图-->
+    <view class="solid-box">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="false" circular="true">
+        <block wx:key="prdImgId" wx:for="{{prod.prdInfo.goodsImgs}}" wx:for-item="prdImg">
+          <swiper-item>
+            <image class="slide-image" src="https:{{prdImg.src}}_430.jpg" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--团购、抢购  -->
+    <view class='prod-tuan' wx:if="{{items.preHeatSlogan && items.stock.status}}">
+      <!--预约  -->
+      <view class='tuan-no-start' wx:if="{{items.preHeatSlogan.status==0}}">
+        <view class='no-start-tip'>抢购预告</view>
+        <view class='no-start-price'>
+          <view class='price-tip'>抢购价</view>
+          <view class="price-icon">¥</view>
+          <view class="price-phone">{{items.preHeatSlogan.preheatPrice}}</view>
+        </view>
+        <view class='prod-time'>
+          <view class='prod-time-tip'>预计开始时间</view>
+          <view class="prod-day-box">{{startTime}}</view>
+        </view>
+      </view>
+      <!--团抢  -->
+      <view class='tuan-start' wx:else>
+        <view class='start-price-box'>
+          <view class="start-price-icon">¥</view>
+          <view class='start-price'>{{prodPrice.price}}</view>
+        </view>
+        <view class='start-state-box'>
+          <view class='normal-price'>¥{{items.preHeatSlogan.price}}</view>
+          <view class='state-box'>
+            <view class='tuan-state' wx:if="{{items.preHeatSlogan.saleType=='TUANPRICE'}}">团购中</view>
+            <view class='tuan-state' wx:else>抢购中</view>
+            <view class='tuan-nums'>{{items.preHeatSlogan.buyerCount}}人已购</view>
+          </view>
+        </view>
+        <view class='prod-time'>
+          <view class='prod-time-tip'>距离结束时间</view>
+          <view class='prod-time-box' wx:if="{{showEndTime}}">
+            <view class='time-box'>{{endTime[0]}}</view>
+            <view class='time-box-symbol'>:</view>
+            <view class='time-box'>{{endTime[1]}}</view>
+            <view class='time-box-symbol'>:</view>
+            <view class='time-box'>{{endTime[2]}}</view>
+          </view>
+          <view class="prod-day-box" wx:else>{{endTime}}</view>
+        </view>
+      </view>
+      <view class='endTime'>{{endTime}}</view>
+    </view>
+    <view class="prod-fanli" wx:if="{{rebate!='0.00'}}">
+      <navigator url="../../pages/rebateExplain/rebateExplain" hover-class="none">
+        <image class="fanli-icon1" src="/images/fanli-icon.png"></image>
+        <view class="fanli-tip" wx:if="{{rebate!='0.00'}}">购买后最高返¥{{rebate}}</view>
+        <!-- <view class="fanli-tip"  wx:if="{{sharerebate!='0.00'}}">分享后最高赚¥{{sharerebate}}</view> -->
+        <image class="fanli-icon2" src="/images/fanli-icon2.png"></image>
+      </navigator>
+    </view>
+    <!--商品标题-->
+    <view class="prod-tit">
+      <view class="prod-tit-name">
+        <text class="tit-icon" wx:if="{{prod.prdInfo.shopNo==''}}">自营</text> {{prod.prdInfo.name}}
+      </view>
+      <view class="prod-desc">{{item.desc}}</view>
+
+      <!--价格-->
+      <view wx:if="{{items.preHeatSlogan.status!=1 || (items.preHeatSlogan.status==1 && !items.stock.status)}}">
+        <view class="prod-viprice" wx:if="{{prodPrice.priceType=='MEMBERPRICE'}}">
+          <view class="price-icon">¥</view>
+          <view class="price-phone">{{prodPrice.price}}</view>
+          <view class="vip-phone">会员价</view>
+        </view>
+        <view class="prod-viprice" wx:elif="{{prodPrice.priceType=='PALMPRICE'}}">
+          <view class="price-icon">¥</view>
+          <view class="price-phone">{{prodPrice.price}}</view>
+          <view class="vip-phone">掌上专享</view>
+        </view>
+        <view class="prod-price" wx:else>
+          <view class="price-icon">¥</view>
+          {{prodPrice.price}}
+        </view>
+      </view>
+      <!--促销(暂时屏蔽促销字段{sales})-->
+      <view class="prod-sales " wx:if="{{items.preHeatSlogan.status!=1  && (sales.length > 1 || (sales.length== 1 && sales[0].promName !='加价换购'))}}" hover-class="none" bindtap="getSalesDesc">
+        <view class="tit-sales-name">促销</view>
+        <view class="sales">
+          <view class="sales-info {{isSale}}" wx:for="{{sales}}" wx:key="salesId" wx:for-index="index">
+            <view class='sales-list  {{isSale}}' wx:if="{{item.promName  != '加价换购'}}" wx:for="{{item.promList}}" wx:key="*thisprom" wx:for-item="list">
+              <!-- <view class='sales-item' wx:if="{{list.zengType==0}}" wx:key="titleListId" wx:for="{{list.titleList}}" wx:for-item="titleL">
+                <view class='sales-item'>
+                    <view class="sales-icon">{{list.iconText}}</view>
+                    <view class='sales-desc'>{{list.desc}}</view>
+                  </view>
+                  <view class='sales-item-cont'>
+                    <view class='sales-item-title'>{{titleL.title}}</view>
+                    <view class='sales-item-num'>x1</view>
+                  </view>
+                </view> -->
+              <view class='sales-item-mz' wx:if="{{list.zengType==0 || list.zengType==1 }}">
+                <view class='sales-item'>
+                  <view class="sales-icon">{{list.iconText}}</view>
+                  <view class='sales-desc'>{{list.desc}}</view>
+                </view>
+                <view class='sales-items' wx:key="titleListId" wx:for="{{list.titleList}}" wx:for-item="titleL">
+                  <view class='sales-item-title'> {{titleL.title}}</view>
+                  <view class='sales-item-num' wx:if="{{list.zengType==1}}">x{{titleL.giftNum}}</view>
+                  <view class='sales-item-num' wx:else>x1</view>
+                </view>
+              </view>
+              <view class='sales-item' wx:else>
+                <view class="sales-icon">{{item.promName}}</view>
+                <view class='sales-desc'>{{list.desc}}</view>
+              </view>
+            </view>
+
+            <!-- <view class='sales-list  {{isSale}}' wx:if="{{item.promName  != '加价换购'}}">
+              <view class='sales-item'>
+                <view class="sales-icon">{{item.promName}}</view>
+                <view class='sales-desc'>{{item.promList[0].desc}}</view>
+              </view>
+
+            </view> -->
+          </view>
+
+        </view>
+        <view class="sale-parameter-icon">
+          <image class="{{saleTab}}" src="/images/arrowright.png" />
+        </view>
+      </view>
+
+    </view>
+
+    <!--已选&参数-->
+    <view class="prod-properties {{arrowright== 'arrowright' ? 'up':''}}">
+      <view class="parameter" bindtap="closeParameter" wx:if="{{salesProperty.length>0}}">
+        <view class="tit-name">已选</view>
+        <view class="parameter-box">
+          <text wx:for="{{attr}}" wx:key="arrtId">{{item}}</text>
+          <text>{{num}}个</text>
+        </view>
+        <view class="parameter-icon">
+          <image class="{{arrowright}}" src="/images/arrowright.png" />
+        </view>
+        <!-- <template is="wetoast" data="{{...__wetoast__}}" /> -->
+      </view>
+
+      <!--参数-->
+      <view class="property-box">
+        <block wx:key="propertyId" wx:for="{{salesProperty}}" wx:for-item="prdProperty" wx:for-index="proIdx">
+          <view class="prod-property">
+            <view class="prod-property-left">
+              <view class="tit-name">{{prdProperty.chinesename}}</view>
+            </view>
+            <view class="prod-property-right">
+              <view class="property-cont">
+                <view class="property-btn {{prdskutions.target}}" wx:key="skutionsId" wx:for="{{prdProperty.skutions}}" data-id="{{prdskutions.id}}" data-alt="{{prdskutions.alt}}" wx:for-item="prdskutions" bindtap="productEvent" hover-class="none" wx:for-index="btnIdx"
+                  data-parentIdx="{{proIdx}}" data-index="{{btnIdx}}" data-weight="{{prdskutions.weight}}">{{prdskutions.title}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="prod-num">
+          <view class="tit-name">数量</view>
+          <view class="property-num-box">
+            <view class="property-num" wx:if="{{items.stock.status}}">
+              <view bindtap="reduceNum">－</view>
+              <input type="number" bindinput="changeNum" maxlength="3" value="{{num}}" />
+              <view bindtap="addNum">+</view>
+            </view>
+            <view class="property-num" wx:else>
+              <view>－</view>
+              <input type="number" maxlength="3" value="{{num}}" />
+              <view>+</view>
+            </view>
+            <view class="num-limit" wx:if="{{items.others.merchantLimit}}">限购{{items.others.merchantLimit}}件</view>
+          </view>
+        </view>
+        <view class='prod-num-tip' wx:if="{{numTipShow}}">{{numTips}}</view>
+      </view>
+    </view>
+
+    <!--地址栏-->
+    <view class="prod-address">
+      <navigator class="address-box" url="../getAddress/getAddress" hover-class="none">
+        <view class="tit-name">送至</view>
+        <view class="address-info">
+          <text wx:for="{{address}}" wx:key="adressId">{{item}}</text>
+        </view>
+        <view class="parameter-icon">
+          <image class="arrowright" src="/images/arrowright.png" />
+        </view>
+      </navigator>
+      <view class="prod-available">
+        <view class="ava-tit" wx:if="{{items.status==2}}">下架</view>
+        <view class="ava-tit" wx:else>
+          <text wx:if="{{items.stock.status}}">有货</text>
+          <text wx:else>无货</text>
+        </view>
+        <view class="ava-cont" wx:if="{{prod.merchantInfo}}">
+          由
+          <text>{{prod.merchantInfo.merchantName}}</text>发货并负责售后服务
+        </view>
+        <view wx:else>
+          <view class="ava-cont" wx:if="{{prod.prdInfo.selltype == 0 || prod.prdInfo.selltype == 1}}">
+            由
+            <text>国美</text>配送并提供保障
+          </view>
+          <view class="ava-cont" wx:if="{{prod.prdInfo.selltype == 5}}">
+            由
+            <text>国美</text>安排厂商配送并提供保障监管。
+          </view>
+        </view>
+      </view>
+
+      <view class='weight-box' wx:if="{{prod.prdInfo.departmentStoreSkuType=='gome-departmentStore-sku'}}">
+        <view class="tit-name">重量</view>
+        <view class="weight-info">
+          <text>{{prod.prdInfo.grossWeight}}{{prod.prdInfo.gWeightUnit}}</text>
+        </view>
+      </view>
+      <!--<navigator url="../prodTags/prodTags?productId={{prod.productId}}&skuId={{prod.skuId}}" class="prod-tags" hover-class="none">-->
+      <view class="prod-tags">
+        <view wx:key="serviceTagsId" wx:for="{{prod.serviceTags}}">
+          <icon type="success_circle" size="12" color="cornflowerblue" /> {{item}}
+        </view>
+
+        <!--<view wx:if="{{items.tips.pickupSelf }}">
+          <icon type="success_circle" size="12" color="cornflowerblue" /> 支持自提
+          <image class="tags-circle" src="/images/bluetip.png" />
+        </view>-->
+        <view wx:if="{{items.tips.iscod}}">
+          <icon type="success_circle" size="12" color="cornflowerblue" /> 支持货到付款
+        </view>
+
+        <!--<view wx:if="{{items.tips.isFreeShipping}}">
+          <icon type="success_circle" size="12" color="cornflowerblue" /> 支持运费说明
+        </view>-->
+        <view wx:if="{{items.tips.isFreeShippingFee}}">
+          <icon type="success_circle" size="12" color="cornflowerblue" /> 支持免运费
+        </view>
+      </view>
+
+
+
+    </view>
+
+    <!--商品评价-->
+    <navigator class="prod-appraise" url="../appraise/appraise?productId={{prod.productId}}" hover-class="none" wx:if="{{appr.apprList.length > 0}}">
+      <view class="appraise-tit">
+        <view class="tit-name">评价
+          <text>({{appr.apprPrd.praiseTotal}})</text>
+        </view>
+        <view class="parameter-icon">
+          <image class="arrowright" src="/images/arrowright.png" />
+        </view>
+        <view class="tit-cont">好评度
+          <text>{{appr.apprPrd.prdPraise}}%</text>
+        </view>
+      </view>
+      <view class="appraise-info">
+        <view class="user-info" wx:if="{{appr.apprList[0]}}">
+          <text class="user-name">{{appr.apprList[0].uesrNick}}</text>
+          <text class="user-grade">G{{appr.apprList[0].userLevel}}</text>
+          <view class="user-start">
+            <view class="user-start-yellow" style="width:{{appr.apprList[0].prdStar}}%"></view>
+          </view>
+        </view>
+        <view class="appraise-text">{{appr.apprList[0].prdContent}}</view>
+        <view class="appraise-parameter">
+          <view wx:if="{{appr.apprList[0].skuInfo != null}}">{{appr.apprList[0].skuInfo}}</view>
+          <view>{{appr.apprList[0].dateFeed}}</view>
+        </view>
+      </view>
+    </navigator>
+    <view class="prod-appraise" wx:else>
+      <view class="appraise-tit">暂无评价
+      </view>
+    </view>
+
+    <!--导航栏-->
+    <view class="prod-info">
+      <view class="prod-nav" style="flex-direction:row;">
+        <view class="nav-items  {{currentTab==0 ? 'on' : ''}}" bindtap="bottomNavTab" hover="true" hover-class="nav-items-hover" data-current="0">
+          商品介绍
+        </view>
+        <view class="nav-icon"></view>
+        <view class="nav-items {{currentTab==1 ? 'on' : ''}}" bindtap="bottomNavTab" hover="true" hover-class="nav-items-hover" data-current="1">
+          规格参数
+        </view>
+        <view class="nav-icon"></view>
+        <view class="nav-items {{currentTab==2 ? 'on' : ''}}" bindtap="bottomNavTab" hover="true" hover-class="nav-items-hover" data-current="2">
+          包装清单
+        </view>
+        <view class="nav-icon"></view>
+        <view class="nav-items {{currentTab==3 ? 'on' : ''}}" bindtap="bottomNavTab" hover="true" hover-class="nav-items-hover" data-current="3">
+          售后服务
+        </view>
+      </view>
+      <view class="prod-items-info">
+        <!-- <view class="tips" wx:if="{{loadMore}}">
+          <icon type="waiting_circle" size="15" color="red"></icon>
+          <text>正在加载...</text>
+        </view> -->
+        <view class="prod-info   {{currentTab==0 ? 'active' : ''}}">
+          <image wx:key="prodInfoImg" wx:for="{{listImg}}" src="https:{{item}}" mode="widthFix" style="width:750rpx;display:block;" />
+        </view>
+        <view class="prod-spec  {{currentTab==1 ? 'active' : ''}}">
+          <view class="spec-cont" wx:key="prdId" wx:for="{{prod.prdSpec}}">
+            <text>{{item.modeTit}}</text>
+            <view wx:key="prdSpecId" wx:for="{{item.modeData}}" wx:for-item="prdSpec">
+              <text>{{prdSpec.modeTxt}}:</text>{{prdSpec.modeInfo}}
+            </view>
+          </view>
+        </view>
+        <view class="prod-ped wxParse {{currentTab==2 ? 'active' : ''}}" wx:if="{{isPrdPackTemplate==true}}">
+          <template is="wxParse" data="{{wxParseData:prdPack.nodes}}" />
+        </view>
+        <view class="prod-ped  {{currentTab==2 ? 'active' : ''}}" wx:else>
+          {{prod.prdPack.modeInfo}}
+        </view>
+        <view class="prod-after wxParse  {{currentTab==3 ? 'active' : ''}}" wx:if="{{isServiceTemplate==true}}">
+          <template is="wxParse" data="{{wxParseData:prdService.nodes}}" />
+        </view>
+        <view class="prod-after {{currentTab==3 ? 'active' : ''}}" wx:else>
+          {{prod.prdService.modeInfo}}
+          <view class='after-cont'>
+            <view class='after-tit'>价格说明</view>
+            <view class='after-item-tit'> 未划线价格：</view>
+            <view class='after-item-cont'>该价格是商品的销售标价，最终成交价格可能会因使用优惠券等原因而发生变化，请以订单结算页面价格为准。</view>
+            <view class='after-item-tit'>划线价格：</view>
+            <view class='after-item-cont'>该价格是商品的参考价，可能是商品的厂商指导价、正品零售价、商品吊牌价、品牌专柜价，或者是在国美平台上曾经展示过的销售价等价格,仅供您选购商品时参考。</view>
+            <view class='after-item-tit'>其他：</view>
+            <view class='after-item-cont'>1.商品促销信息以商品详情页促销栏目中的信息为准；</view>
+            <view class='after-item-cont'>2.如您发现活动商品售价或促销信息有异常，请购买前先联系销售商咨询。</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--<loading hidden="{{hiddenLoading}}">正在加载</loading>-->
+</scroll-view>
+<view class="buyBox" wx:if="{{items.preHeatSlogan.status==1 && items.preHeatSlogan.saleType=='TUANPRICE'}}">
+  <view class="buyTuanBtn" wx:if="{{items.status==1 && items.stock.status && prodPrice.finalPrice != 0}}" bindtap="buyNowEvent" hover="true" hover-class="buyTuanBtnHover">立即团购</view>
+  <view class="buyTuanBtnNo" wx:else>立即团购
+  </view>
+</view>
+<view class="buyBox" wx:elif="{{items.preHeatSlogan.status==1 && items.preHeatSlogan.saleType=='RUSHBUYPRICE'}}">
+  <view class="buyTuanBtn" wx:if="{{items.status==1 && items.stock.status && prodPrice.finalPrice != 0}}" bindtap="buyNowEvent" hover="true" hover-class="buyTuanBtnHover">立即抢购</view>
+  <view class="buyTuanBtnNo" wx:else>立即抢购
+  </view>
+</view>
+<view class="buyBox" wx:else>
+  <navigator class="cartlink" bindtap="cliCart">
+    <image class="cart" src="/images/rcartt.png"></image>
+    <view>{{cartNum}}</view>
+  </navigator>
+  <view class="addCart" hover-class="addCartBtnHover" bindtap="addCart" wx:if="{{items.status==1 && items.stock.status && prodPrice.finalPrice != 0}}">加入购物车</view>
+  <view class="addCart addCartNo" wx:else>加入购物车</view>
+  <view class="buyBtn" wx:if="{{items.status==1 && items.stock.status && prodPrice.finalPrice != 0}}" bindtap="buyNowEvent" hover="true" hover-class="buyBtnHover">立即购买</view>
+  <view class="buyBtnNo" wx:else>立即购买
+    <!--<view class="noBtn-desc">无货，或此商品不支持配送到该地址</view>-->
+  </view>
+</view>

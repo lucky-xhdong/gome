@@ -1,0 +1,321 @@
+/* 底部 对比栏*/
+.compare-bar {
+    width: 990px;
+    left: 50%;
+    margin-left: -390px;
+    bottom: 0;
+    *bottom: 0;
+    bottom: 0\9;
+    text-align: center;
+    background: #FFF;
+    z-index: 10000;
+    position: fixed;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 0)||0)-(parseInt(this.currentStyle.marginBottom, 0)||0)));
+    box-shadow: 0 0 20px rgba(0, 0, 0, .19);
+    *border: 2px solid #a5a5a5;
+    border: 2px solid #a5a5a5\9;
+    border: 2px solid #a5a5a5\0;
+}
+
+.fixed {
+    position: fixed;
+    _position: absolute;
+    bottom: 0;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 0)||0)-(parseInt(this.currentStyle.marginBottom, 0)||0)));
+}
+
+.compare-bar .hd {
+    height: 32px;
+    line-height: 32px;
+    background: #F3F3F3;
+    border-bottom: 1px solid #E6E6E6;
+    position: relative;
+}
+
+.compare-bar .error {
+    height: 32px;
+    line-height: 32px;
+    background: #ffdfe0;
+    border: 2px solid #fed2d3;
+    position: relative;
+}
+
+.compare-bar .hd .more {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #069;
+}
+
+.compare-bar .hd li {
+    float: left;
+    width: 140px;
+    height: 32px;
+    text-align: center;
+}
+
+.compare-bar .hd li em {
+    font: bold 12px/32px Arial, Helvetica, sans-serif;
+    color: #cc0000;
+}
+
+.compare-bar .error em {
+    color: #cd0001;
+    font: bold 12px/32px Arial,Helvetica,sans-serif;
+}
+
+.compare-bar .hd li.hover {
+    background: #fff;
+    color: #cc0000;
+    font-weight: bold;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #e6e6e6;
+    z-index: 1;
+}
+
+.compare-bar .compare-bd ul {
+    padding: 15px 0;
+}
+
+.compare-bar .bd li {
+    float: left;
+}
+
+.compare-bd li {
+    width: 191px;
+    height: 70px;
+    padding: 10px 12px 0;
+    _padding: 10px 10px 0;
+    position: relative;
+    border-right: 1px dashed #e5e5e5;
+}
+
+.compare-bd li s {
+    display: block;
+    width: 214px;
+    height: 4px;
+    background: #E6E6E6;
+    line-height: 0;
+    font-size: 0;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+}
+
+.newly-bd .noItem {
+    text-align: left;
+    margin-left: -45px;
+    padding-top: 15px;
+}
+
+.compare-bar .newly-bd,
+.compare-bd li.add .pic,
+.newly-cont li.goods .pic {
+    font-size: 12px;
+}
+
+.compare-bd li.add s {
+    background: #cc0000;
+}
+
+.compare-bd .pic,
+.compare-bar .newly-bd .pic {
+    float: left;
+    display: inline;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background: #F6F6F6;
+    font: 46px/50px Microsoft YaHei;
+    text-align: center;
+    border: 1px solid #E7E7E7;
+    color: #CCCCCC;
+    overflow: hidden;
+}
+
+.compare-bd .name,
+.compare-bar .newly-bd .name {
+    text-align: left;
+    height: 36px;
+    overflow: hidden;
+    line-height: 18px;
+}
+
+.compare-bd .name a,
+.compare-bar .newly-bd .name a {
+    color: #5e5e5e;
+}
+
+.compare-bd .name a:hover,
+.compare-bar .newly-bd .name a:hover {
+    color: #cc0000;
+}
+
+.compare-bd .price,
+.compare-bar .newly-bd .price {
+    font: 700 14px/22px Arial;
+    color: #cc0000;
+    text-align: left;
+}
+
+.compare-bd .price-wrap .price {
+    float: left;
+}
+
+.compare-bd .price-wrap .del {
+    display: none;
+    float: right;
+    line-height: 22px;
+    color: #0068CB;
+}
+
+.compare-bd .txt,
+.compare-bar .newly-bd .txt {
+    text-align: left;
+    color: #ccc;
+}
+
+.compare-bd li.last {
+    width: 90px;
+    background: none;
+    border: 0;
+}
+
+.compare-bd li.last .btn {
+    display: block;
+    width: 68px;
+    height: 30px;
+    background: #cc0000;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.compare-bd li.last .btn:hover {
+    background: #dd0000;
+    text-decoration: none;
+}
+
+.compare-bd li.last .disable:hover {
+    background: #F8F8F8;
+    text-decoration: none;
+}
+
+.compare-bd li.last .disable {
+    background: #F8F8F8;
+    cursor: default;
+    color: #ccc;
+    border: 1px solid #E6E6E6;
+}
+
+.compare-bd li.last .btn-clear {
+    line-height: 30px;
+    color: #069;
+}
+.compare-bar .newly-bd {
+    height: 111px;
+    overflow: hidden;
+    padding: 0 62px;
+    position: relative;
+    width: 866px;
+}
+.compare-bar .newly-bd li {
+    margin: 15px 0;
+    padding: 0 10px;
+    width: 195px;
+}
+.newly-cont .btn {
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.newly-cont .btn a {
+    background: rgba(0, 0, 0, 0) url("i/sprite-product.png") no-repeat;
+    _background: rgba(0, 0, 0, 0) url("i/sprite-product.gif") no-repeat;
+    display: block;
+    height: 23px;
+    width: 65px;
+}
+.newly-cont .btn a:hover {
+    background-position: 0 -50px;
+}
+.newly-cont .btn a.click, .newly-cont .btn a.click:hover {
+    background-position: 0 -100px;
+}
+.newly-cont {
+    height: 111px;
+    overflow: hidden;
+    position: relative;
+    width: 866px;
+}
+.newly-cont ul {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 10000px;
+}
+.newly-bd .icon {
+    cursor: pointer;
+    display: block;
+    height: 18px;
+    position: absolute;
+    top: 40px;
+    width: 13px;
+}
+.newly-bd .disable {
+    cursor: default;
+}
+.newly-bd .icon-prev {
+    left: 24px;
+}
+.newly-bd .icon-next {
+    right: 24px;
+}
+.newly-bd .icon i {
+    background: url(i/sprite-product.png) no-repeat;
+    _background: url(i/sprite-product.gif) no-repeat;
+    display: block;
+    height: 18px;
+    width: 13px;
+}
+.newly-bd .icon-prev i {
+    background-position: -1px -46px;
+}
+.newly-bd .icon-next i {
+    background-position: -15px -46px;
+}
+.newly-bd a.icon:hover .prev {
+    background-position: -1px -66px;
+}
+.newly-bd a.icon:hover .next {
+   background-position: -15px -66px;
+}
+.newly-bd a.disable .prev, .newly-bd a.disable:hover .prev {
+   background-position: -1px -46px;
+   cursor:default;
+}
+.newly-bd a.disable .next, .newly-bd a.disable:hover .next {
+   background-position: -15px -46px;
+   cursor:default;
+}
+.contrast-backtop-btn {
+    display: block;
+    border: 1px solid #e6e6e6;
+    border-top: 0 none;
+    width: 27px;
+    height: 11px;
+    padding-top: 72px;
+    padding-bottom: 10px;
+    background: url(i/sprite-product.png) no-repeat 0 -307px;
+    _background: url(i/sprite-product.gif) no-repeat 0 -307px;
+    color: #c00;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.contrast-backtop-btn:hover {
+    text-decoration: none;
+    background-position: -31px -307px;
+}
+/* 底部 对比栏 end*/

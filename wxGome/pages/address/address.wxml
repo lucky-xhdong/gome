@@ -1,0 +1,44 @@
+<!-- <import src="addressTpl.wxml"/> -->
+<!-- <loading hidden="{{!loading}}">加载中...</loading> -->
+<view class="loadingInt" hidden="{{ !loading }}">
+	<image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>
+<view class="shipAddressListW">
+	<view class="shippingAddress"><text>收货地址</text></view>
+	<!-- <template is="shipAddressList" data="{{ information }}"/> -->
+
+<!-- 地址列表 -->
+    <view class="shipAddressList">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <view class="list" wx:for="{{information.data.consig.consigneeInfos}}" id = "{{index}}">
+            	<view class="list-item {{item.leftRight== true ? 'leftRight' : ''}}" style="width:{{screenWidth}}rpx">
+            		<view class="list-del" bindtap="deleteCheck" dataChecked="{{item.selected}}" id="{{index}}">
+	                    <view class="delete">删除</view>
+	                </view>
+	                <label bindtap="radioTap" id="{{index}}">
+	                    <radio value="{{ index }}" checked="{{item.selected}}" color="#e33336"/>
+	                    <view class="detail">
+	                        <view class="detail-per">
+	                            <text class="detail-per-name">{{ item.name }}</text><text class="detail-per-number">{{ item.mobileNumber }}</text>
+	                        </view>
+	                        <view class="detail-addr">
+	                            <text>{{ item.address.name }}</text><text>{{ item.address.mobileNumber }}</text>
+	                            <text class="adderss"><text class="default {{ item.address.default ? 'view_show':'view_hide' }}">默认</text>{{ item.address.provinceName }}    {{ item.address.cityName }} {{ item.address.countyName }} {{ item.address.townName }} {{ item.address.detailedAddress }}</text>
+	                        </view>
+	                    </view>
+	                </label>
+                    <view class="edit">
+                        <navigator url="../editAddress/editAddress?name={{item.name}}&mobileNumber={{item.mobileNumber}}&provinceCode={{item.address.provinceCode}}&provinceName={{item.address.provinceName}}&cityCode={{item.address.cityCode}}&cityName={{item.address.cityName}}&countyCode={{item.address.countyCode}}&countyName={{item.address.countyName}}&townCode={{item.address.townCode}}&townName={{item.address.townName}}&detailedAddress={{item.address.detailedAddress}}&owerId={{item.owerId}}&isSelected={{item.selected}}&addrLength={{information.data.consig.consigneeInfos.length}}&owerId={{item.owerId}}&isDefault={{item.address.default}}" open-type="redirect">
+                            <text>编辑</text>
+                        </navigator>
+                    </view>
+            	</view>
+            </view>
+        </radio-group>
+    </view>
+</view>
+<!-- 增加或修改地址 -->
+<view class="modifyAdress">
+    <button bindtap="newAddress">新增收货地址</button>
+</view>
+

@@ -1,0 +1,9 @@
+<scroll-view scroll-y="true">
+  <view class="filter-wrapper">
+    <view class="item-style border-b-e  {{item.select ? 'selected' : ''}}" wx:for="{{classify}}" wx:for-item="item" wx:key="*this" bindtap="_selectedClassifyEvt"  data-index="{{index}}" >
+      <view class="txt ellip">{{item.name}}</view>
+      <image wx:if="{{item.select}}" mode="aspectFit" src="../../images/checked.png"></image>
+      <image wx:else mode="aspectFit" src="../../images/no-checked.png"></image>
+    </view>
+  </view>
+</scroll-view>

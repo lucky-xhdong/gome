@@ -1,0 +1,73 @@
+.bd-praise-goods {
+    width: 980px;
+    overflow: hidden;
+}
+.bd-praise-goods h2 {
+    font: 14px/36px 'Microsoft YaHei';
+    font-weight: bold;
+    color: #5e5e5e;
+    padding: 0 24px;
+    background-color: #f6f6f6;
+    border: 1px solid #eee;
+    margin-top: 25px;
+}
+.bd-praise-goods .praise-goods-lists {
+    width: 980px;
+    padding:30px 0;
+    position: relative;
+}
+.bd-praise-goods .praise-goods-lists .goods-block {
+    position: absolute;
+    width: 234px;
+    border: 1px solid #f3f3f3;
+}
+.bd-praise-goods .praise-goods-lists .goods-block:hover {
+    border-color: #ccc;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .picture-wrapper {
+    position: relative;
+    width: 234px;
+    overflow: hidden;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .picture-wrapper img {
+    width: 160px;
+    height: 160px;
+    display: block;
+    margin:20px auto;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .picture-wrapper p {
+    padding: 0 10px;
+    font: 12px arial, 'Microsoft YaHei';
+    line-height: 30px;
+    color: #5e5e5e;
+    background-color: #f8f8f8;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .picture-wrapper:hover p {
+    color: #e3010e;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .appraise-wrapper ul li:first-child {
+    border-top:none;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .appraise-wrapper ul li {
+    border-top:1px dashed #f3f3f3;
+    padding: 5px 10px 6px;
+    font-family: "Microsoft YaHei", "Arial";
+}
+.bd-praise-goods .praise-goods-lists .goods-block .appraise-wrapper ul li .txt-appraise {
+    max-height: 40px;
+    overflow: hidden;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .appraise-wrapper ul li span {
+    line-height: 20px;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .appraise-wrapper ul li .nickname {
+    color: #888;
+    padding-right: 2px;
+}
+.bd-praise-goods .praise-goods-lists .goods-block .appraise-wrapper ul li .content {
+    color: #5e5e5e;
+}
+.w990 .prdtitbox li.bendiangood,
+.w990 .bd-praise-goods {
+    display: none;
+}

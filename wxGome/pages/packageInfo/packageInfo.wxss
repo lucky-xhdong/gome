@@ -1,0 +1,146 @@
+/* pages/orderdetails/orderdetails.wxss */
+page {
+  width: 100%;
+  font-family:'Microsoft Yahei';
+}
+.page_top_line{
+    width:100%;
+    border-top:#e6e6e6 solid 1rpx;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:5;
+}
+.tab{
+    width:100%;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
+    background: #fff;
+    z-index: 5;
+}
+.tab view{
+    color: #00050A;
+    font:28rpx/80rpx 'Microsoft Yahei';
+    text-align: center;
+    width: 124rpx;
+}
+.tab .cur{
+    border-bottom:#FF5C5C solid 4rpx;
+    color:#FF5C5C;
+}
+.totalPackage{
+  font-size: 26rpx;
+  color: #262C32;
+  line-height: 36rpx;
+  padding:20rpx 30rpx;
+}
+
+.package_box{
+  background: #fff;
+  margin-top:20rpx;
+}
+.package_box:nth-child(1){
+  margin-top:0;
+}
+.package_state_box{
+  width: 720rpx;
+  height: 36rpx;
+  margin-left:30rpx;
+  padding:22rpx 0;
+  border-bottom: #ebeced solid 1rpx;
+}
+.package_name{
+  font-size: 26rpx;
+  color: #262C32;
+  line-height: 36rpx;
+  float: left;
+}
+.package_state{
+  font-size: 26rpx;
+  color: #FF5C5C;
+  line-height: 36rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+.expressInfo_box{
+  position: relative;
+  padding:20rpx 0 20rpx 30rpx;
+  background: #FFFFFF;
+  border-bottom: #ebeced solid 1rpx;
+}
+.expressInfo_box text{
+  width: 645rpx;
+  font:26rpx/36rpx 'Microsoft Yahei';
+  color:#262C32;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+
+}
+.expressInfo_box text.express_msg{
+  padding-top:4rpx;
+  color: #15A100;
+}
+.icon_arrowdown{
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  right: 22rpx;
+  top:50%;
+  -webkit-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+
+.distribution_box{
+  margin-left:30rpx;
+  display: flex;
+  white-space: nowrap;
+}
+.distribution_goods{
+  width: 152rpx;
+  height: 152rpx;
+  position: relative;
+  margin-right: 12rpx; 
+  flex: 1;
+  display: inline-block;
+  
+}
+ .distribution_box .distribution_goods:nth-last-child(1){
+   margin-right: 30rpx; 
+} 
+.good_num_box{
+   width: 68rpx;
+   height: 38rpx;
+   position: absolute;
+   bottom:0;
+   right: 0;
+}
+.good_image{
+   width: 152rpx;
+   height: 152rpx;
+}
+.good_num_box text{
+  width: 68rpx;
+  height: 38rpx;
+  display: block;
+  font-size: 26rpx;
+  color: #FFFFFF;
+  line-height: 38rpx;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+.num_bg{
+  width: 68rpx;
+  height: 38rpx;
+  opacity: 0.5;
+  background: #000000;
+  position: absolute;
+  bottom:0;
+  right: 0;
+  z-index: 1;
+}

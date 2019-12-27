@@ -1,0 +1,88 @@
+/* ==== 公共样式 ==== */
+page {
+	background: #fff;
+	position: relative;
+	height: 100%;
+	font-family: 'Microsoft YaHei';
+}
+text {font: 28rpx/24rpx 'Microsoft YaHei';}
+
+.border-roof {
+	height: 0;
+	border-top: 1rpx solid #e6e6e6;
+}
+.border-t-e {border-top: 1rpx solid #e6e6e6;}
+.border-b-e {border-bottom: 1rpx solid #e6e6e6;}
+.margin-b-20 {margin-bottom: 20rpx;}
+.ellip {
+	-webkit-flex: 1;
+	flex: 1;
+	display: box;
+	display: -webkit-box !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+}
+
+scroll-view {
+	position: absolute;
+	left: 0;
+	top: 1rpx;
+	right: 0;
+	bottom: 0rpx;
+}
+.filter-wrapper {
+	padding-left: 20rpx;
+	padding-bottom: 60rpx;
+}
+.filter-wrapper .item-style,.filter-wrapper .title-wrapper {
+	position: relative;
+	display: block;
+	padding-right: 80rpx;
+	line-height: 94rpx;
+}
+.filter-wrapper .item-style.no-all {
+	margin-left: 20rpx;
+}
+.filter-wrapper .item-style.all {
+	margin-left: 0rpx;
+}
+.filter-wrapper .item-style.all .txt {
+	color: #333;
+}
+.filter-wrapper .item-style .txt,.filter-wrapper .title-wrapper .txt {
+	line-height: 94rpx;
+	height: 94rpx;
+	color: #888;
+	font-size: 28rpx;
+}
+.filter-wrapper .title-wrapper .txt {
+	color: #333;
+}
+.filter-wrapper .selected .txt {
+	color: #e3101e;
+}
+
+.filter-wrapper .item-style image,.filter-wrapper .title-wrapper image {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+	right: 20rpx;
+	width: 40rpx;
+	height: 40rpx;
+}
+.filter-wrapper .title-wrapper image {
+	width:30rpx;
+	height: 17rpx;
+	right: 25rpx;
+}
+
+.filter-wrapper  checkbox {
+	display: radio;
+}
+

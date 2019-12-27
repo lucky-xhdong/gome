@@ -1,0 +1,346 @@
+/* pages/profile/profile.wxss */
+@import "/wxParse/wxParse.wxss";
+
+page{
+  font-family:Helvetica Neue, Helvetica, Arial, sans-serif ,'Microsoft Yahei','PingFangSC-Regular';
+}
+.page_bg{
+  width: 100%;
+  background: #F20C59;
+  overflow: hidden;
+  padding-bottom: 140rpx;
+}
+.hd_box{
+  overflow: hidden;
+}
+.hd_image{
+  width: 100%;
+  height: 366rpx;
+  vertical-align: top;
+}
+.title_box{
+  width: 690rpx;
+  height: 237rpx;
+  background-image:url('http://css.gomein.net.cn/gmpro/1.0.0/minapp/img/bj_title@2x.png');
+  background-size: 100% 100%;
+  margin:-16rpx 0 0 30rpx;
+  position: relative;
+  z-index: 1;
+  color: #FFFFFF;
+  text-align: center;
+  
+}
+.title_box .title{
+  width: 100%;
+  font-size: 36rpx;
+  display: inline-block;
+  margin-top:60rpx;
+  font-weight: bold;
+}
+.title_box .desc{
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  display: inline-block;
+  vertical-align:top;
+  padding-top:5rpx;
+}
+.list_wrap{
+  width: 689rpx;
+  height: auto;
+  margin:0 30rpx;
+  display: flex;
+}
+.flex_wrap{
+  flex: 1;
+  padding-bottom:10rpx;
+  position: relative;
+}
+
+.list_wrap_bg{
+  position: absolute;
+  width: 689rpx;
+  height: 100%;
+  opacity: 0.29;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  z-index: 0;
+}
+.list{
+  width: 650rpx;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box; /* Firefox */
+  -webkit-box-sizing:border-box; /* Safari */
+  margin: 0 0 10rpx 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx 20rpx 20rpx 14rpx;
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+.image{
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  border-radius:8rpx;
+}
+.text_content{
+  width: 416rpx;
+  position: relative;
+}
+.goods_title{
+  height: 76rpx;
+  font-size: 30rpx;
+  color: #262C32;
+  line-height: 38rpx;
+  margin-top: 8rpx;
+  margin-bottom: 26rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* .goods_desc{
+  font-size: 24rpx;
+  color: #919599;
+  line-height: 24rpx;
+  margin-top: 14rpx;
+  margin-bottom: 34rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
+.price_box{
+  font-size: 24rpx;
+  color: #262C32;
+  line-height: 24rpx;
+}
+.price{
+  font-size: 26rpx;
+  color: #F2005A;
+  line-height: 34rpx;
+}
+.price .large{
+  font-size: 34rpx;
+}
+.old_price_box{
+  font-size: 24rpx;
+  color: #919599;
+  line-height: 24rpx;
+  margin-top: 12rpx;
+}
+.old_price{
+  text-decoration:line-through;
+}
+
+.btn_yy,.btn_alreadyOrder{
+  position: absolute;
+  line-height: 54rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border-radius: 27rpx;
+  bottom: 0;
+  right: 0;
+}
+.btn_yy{
+  width: 135rpx;
+  height: 56rpx;
+  background-image: linear-gradient(-90deg, #FA1E8C 0%, #F20C59 86%);
+  color: #fff;
+}
+.btn_alreadyOrder{
+  width: 133rpx;
+  height: 54rpx;
+  border: 1rpx solid #F2005A;
+  color: #F2005A;
+  background-image: none;
+}
+
+
+.rule_wrap{
+  width: 682rpx;
+  margin:60rpx 0 40rpx 34rpx;
+  position:relative;
+  z-index:2;
+  display: flex;
+}
+
+.rule_bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 20rpx;
+}
+.rule_bg{
+  opacity: 0.1;
+  background: #000000;
+}
+.rule_title{
+  margin:22rpx 0 0 150rpx;
+  width: 384rpx;
+  height: 76rpx;
+  background-image: url("http://css.gomein.net.cn/gmpro/1.0.0/minapp/img/bj_guize@2x.png");
+  background-size:100% 100%;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  line-height:70rpx;
+  text-align:center;
+  font-weight:bold;
+}
+.rule_box{
+  width: 630rpx;
+  margin-left: 26rpx;
+  padding-bottom: 35rpx;
+}
+.rule_box text,.rule_box .wxParse-p{
+  display: inline-block;
+  font-size: 26rpx;
+  color: #FFFFFF;
+  line-height: 38rpx;
+  margin-top: 20rpx;
+}
+
+.get_btn_box{
+  width: 100%;
+  height: 140rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+}
+.get_btn_bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  background: #FFFFFF;
+  z-index: 1;
+}
+.get_btn{
+  width: 650rpx;
+  height: 92rpx;
+  margin: 26rpx 0 0 50rpx;
+  background-image: linear-gradient(-222deg, #FF336C 0%, #FF0044 100%);
+  border-radius: 100rpx;
+  font-family: PingFang-SC-Semibold;
+  font-size: 44rpx;
+  line-height: 92rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+}
+
+/*浮层样式*/
+.fixed_box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  z-index: 4;
+  transition: 0.3s;
+}
+.fixed_bg{
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.flex_box{
+  position: relative;
+  z-index: 1;
+}
+.fixed_tips_box{
+  width: 440rpx;
+  height: 238rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+}
+.icon{
+  width: 76rpx;
+  height: 76rpx;
+  margin:50rpx 0 25rpx 182rpx;
+  display: inline-block;
+  vertical-align: top;
+}
+.tips{
+  width: 100%;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 32rpx;
+  color: #262C32;
+}
+.fixed_countDown_box{
+  width: 540rpx;
+  height: 312rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+}
+.countDown_title{
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #262C32;
+  line-height: 32rpx;
+  padding: 50rpx 0 40rpx 0;
+  text-align: center;
+  font-weight: bold;
+}
+.countDown_time_box{
+  background: #F3F5F7;
+  border-radius: 8rpx;
+  margin-left:34rpx;
+  width: 472rpx;
+  height: 140rpx; 
+}
+.time_box{
+  margin-left:32rpx;
+  margin-top: 30rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 40rpx;
+  color: #262C32;
+}
+.time_box view{
+   width: 72rpx;
+   font-size: 60rpx;
+   line-height: 60rpx;
+   float:left;
+   display: block;
+   text-align: center;
+}
+.time_box view text{
+  float: left;
+  display: block;
+}
+.time_box view text.time_desc{
+   margin-top: 3rpx;
+   font-size: 24rpx;
+   color: #919599;
+   line-height: 32rpx;
+   width: 100%;
+   
+}
+.time_box view.fh{
+   width: 40rpx;
+   height: 60rpx;
+   font-size: 40rpx;
+   line-height: 56rpx;
+   text-align:center;
+}

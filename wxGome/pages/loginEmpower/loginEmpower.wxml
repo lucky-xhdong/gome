@@ -1,0 +1,9 @@
+<view class="container" style='height:{{height}}'>
+  <view class='cont'>
+    <image class="logo" src='../../images/logo.png'></image>
+    <button class='login-btn'  lang="zh_CN" open-type="getUserInfo"  bindgetuserinfo="getUserInfo">开启授权</button> 
+    <!-- <view class='login'>
+      <view class='login-box'></view>
+    </view> -->
+  </view>
+</view>

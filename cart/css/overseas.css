@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+/**海外购授权**/
+.overseas_license{
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    color: #5e5e5e;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    height: 320px;
+    margin: 100px auto 150px;
+    padding: 40px 0 0;
+    width: 642px;
+	border/**/:1px solid #e8e8e8;	
+}
+.overseas_license .authorize_title{
+	border-bottom: 1px solid #e6e6e6;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 0 0 20px;
+    width: 560px;
+}
+.overseas_license .authorize_part1 {
+    border-bottom: 1px solid #e6e6e6;
+    color: #333333;
+    margin: 0 auto;
+    padding: 18px 0;
+    vertical-align: middle;
+    width: 560px;
+}
+
+.overseas_license .img_arrow {
+    background: url("//js.gomein.net.cn/f2eimage/myaccount/jinxiang-arrow.jpg") no-repeat scroll 0 0;
+    float: left;
+    height: 43px;
+    width: 111px;
+	margin:0 30px;
+}
+
+.overseas_license .img_arrow span {
+    display: block;
+    text-align: center;
+}
+.overseas_license .authorize_part2 {
+    color: #333333;
+    margin: 0 auto;
+    padding: 20px 0 18px;
+    width: 560px;
+}
+
+.overseas_license .authorize_part2 ul li {
+    line-height: 22px;
+    list-style: outside none none;
+}
+
+.overseas_license .authorize_part2 ul li b {
+    background: #666666 none repeat scroll 0 0;
+    border-radius: 50%;
+    display: inline-block;
+    height: 6px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 6px;
+}
+
+.overseas_license .authorize_part3 {
+    background: #f3f3f3 none repeat scroll 0 0;
+    margin: 0 auto;
+    padding: 11px 0 18px;
+    position: relative;
+    text-align: center;
+    width: 642px;
+}
+.overseas_license .authorize_part3 label {
+    line-height: 22px;
+}
+.overseas_license .inputcheck {
+    margin: -2px 4px 0 1px;
+    vertical-align: middle;
+}
+.overseas_license .con_btn a{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+	color:#5e5e5e;
+	width:90px;
+}
+.overseas_license .con_btn a:hover{
+	text-decoration:none;
+}
+.overseas_license .con_btn a.sure_btn{
+	background:#cc0000;
+	color:#fff;
+	margin-right:20px;
+}
+.overseas_license .con_btn a.cancell_btn{
+	background:#e6e6e6;
+}
+

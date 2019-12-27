@@ -1,0 +1,38 @@
+
+text {font: 26rpx/60rpx SimSun;}
+page {}
+
+.paySucess {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20rpx 0;
+}
+
+.paySucess image {
+	width: 90rpx;
+	height: 90rpx;
+	padding: 12rpx 0;
+}
+.paySucess .paySucessTitle,.stroll {
+	color: #333;
+	font-size: 32rpx;
+	font-family: "Microsoft Yahei";
+}
+.paySucess .paySucessTip {
+	color: #666;
+}
+.stroll {
+	margin: 0 20rpx;
+}
+.skipOrder {
+	color: #666;
+	padding-top: 20rpx;
+	text-align: center;
+	line-height: 60rpx;
+}
+.skipOrder text {
+	color: #333;
+	padding: 0 10rpx;
+}

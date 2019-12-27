@@ -1,0 +1,191 @@
+/* pages/profile/profile.wxss */
+
+.grey {
+  color: #999;
+}
+
+.red {
+  color: #e3101e;
+}
+
+.black {
+  color: #333;
+}
+
+.order_tab {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  height: 96rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #fff;
+}
+
+.order_tab view {
+  border-bottom: #e6e6e6 solid 1rpx;
+  color: #333;
+  font: 30rpx/96rpx 'Microsoft Yahei';
+  flex: 1;
+  text-align: center;
+}
+
+.order_tab .cur {
+  border-bottom: #ff5757 solid 4rpx;
+  color: #e3101e;
+}
+
+.order_scroll_group {
+  position: relative;
+}
+
+.order_tips {
+  background: #fff7d2;
+  color: #ff8000;
+  padding: 7rpx 60rpx;
+  position: fixed;
+  z-index: 1;
+  top: 96rpx;
+  left: 0;
+  font: 22rpx/28rpx 'Microsoft Yahei';
+}
+
+.order_tips .tip {
+  position: absolute;
+  top: 22rpx;
+  left: 20rpx;
+  width: 28rpx;
+  height: 24rpx;
+}
+
+.order_tips .close_view {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60rpx;
+  height: 69rpx;
+  background: #ffde9c;
+  text-align: center;
+}
+
+.order_tips .close {
+  margin-top: 27rpx;
+  width: 18rpx;
+  height: 18rpx;
+}
+
+.bordertop {
+  border-top: #e6e6e6 solid 1rpx;
+  width: 100%;
+}
+
+.order_list_group {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 160rpx;
+}
+
+.order_list {
+  overflow: hidden;
+}
+
+.goods_list_box {
+  background: #fff;
+}
+
+.goods_list {
+  background: #fff;
+  padding: 18rpx 0;
+  overflow: hidden;
+  width: 710rpx;
+  margin-left: 20rpx;
+  border-bottom: #e6e6e6 solid 1rpx;
+}
+
+.goods_list image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  float: left;
+}
+
+.goods_list .goods_box {
+  width: 587rpx;
+  color: #333;
+  font: 24rpx/36rpx 'Microsoft Yahei';
+  float: left;
+}
+
+.goods_name_box {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.goods_list .goods_num {
+  color: #888;
+  font: 24rpx/36rpx 'Arial';
+  padding-top: 3rpx;
+}
+
+.order_status {
+  font: 24rpx/40rpx 'Microsoft Yahei';
+  position: relative;
+  background: #fff;
+  border-bottom: #e6e6e6 solid 1rpx;
+}
+
+.order_status_text {
+  width: 710rpx;
+  margin-left: 20rpx;
+  padding: 10rpx 0;
+}
+
+.go_play_btn {
+  position: absolute;
+  width: 142rpx;
+  height: 54rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 54rpx;
+  top: 23rpx;
+  right: 20rpx;
+  background: #e3101e;
+  border: #ef3030 solid 1rpx;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+}
+
+.errTips {
+  color: #a5a5a5;
+  font: 26rpx/30rpx 'Microsoft Yahei';
+  padding-top: 60rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.nomore, .ismore {
+  color: #a5a5a5;
+  font: 26rpx/30rpx 'Microsoft Yahei';
+  padding: 30rpx 0;
+  width: 100%;
+  text-align: center;
+}
+
+.gift {
+  color: #ef3030;
+  width: 62rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+  /* float:left; */
+  text-align: center;
+  border: #e3101e solid 2rpx;
+  border-radius: 5rpx;
+  font: 24rpx/28rpx 'Microsoft Yahei';
+}

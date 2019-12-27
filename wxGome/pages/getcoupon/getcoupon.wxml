@@ -1,0 +1,37 @@
+<import src="../../wetoast/wetoast.wxml" />
+<basic bindsuccess='captchaSuccess' bindhide='captchaHide' captchaReload='{{captchaReload}}' captchaShow='{{captchaShow}}' options='{{options}}'/>
+<view class="container" wx:if="{{hasStatus}}">   
+  <view class="coupon-prod">
+    <view class="coupon-list" wx:if="{{coupon.length>0}}"  >
+      <block wx:for="{{coupon}}" wx:for-index="idx" wx:key="couponId" >
+          <view class="info-box {{item.info_box_grey}}" data-isGetCoupon="{{item.isGetCoupon}}" data-isNone="{{item.isNone}}" data-id="{{item.id}}" data-refPromotionId="{{item.refPromotionId}}" data-couponName="{{item.refPromotionDesc}}" data-index="{{idx}}" bindtap="hrefLink">
+              <view class="coupon-parameter">
+                <view class="cprice">
+                    <text class="icon">¥</text>
+                    <text class="cprice-tip">{{item.couponValueNew}}</text>
+                    <text class="coupon-type">蓝券 . 促销活动</text>
+                </view>
+                <view class="coupname">{{item.refPromotionDesc}}</view>
+                <view class="time">{{item.startDateNew}} - {{item.endDateNew}}</view>
+              </view>
+              <view class="goget">
+                <text class="goget-txt">
+                  {{item.useTip}}
+                </text>
+              </view>  
+          </view>
+      </block>
+    </view>
+   
+    <view class="coupon-list" wx:if="{{noflag}}">
+        <view class="coupon-info-no">暂无优惠券信息，请稍后再试</view>
+    </view>
+    <template is="wetoast" data="{{...__wetoast__}}" />
+  </view>
+</view>
+<view class='container' wx:else>
+  <view class='cont'>
+    <image class='logo' src='../../images/coupon-no-user.png'></image>
+    <button class='login-btn'  lang="zh_CN" open-type="getUserInfo"  bindgetuserinfo="getUserInfo">开启授权</button> 
+  </view>
+</view>

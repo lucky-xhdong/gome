@@ -1,0 +1,165 @@
+page{
+  background: #fff;
+}
+.shop-list {
+  width: 750rpx;
+  background: #fff;
+}
+
+.list-tit {
+  width: 710rpx;
+  height: 70rpx;
+  padding: 0 20rpx;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.tit-left {
+  float: left;
+  font: 500 26rpx/70rpx "Microsoft YaHei";
+  color: #888;
+}
+
+.tit-left-no{
+  float: left;
+  font: 500 24rpx/70rpx "Microsoft YaHei";
+  color: #888;
+}
+.tit-left-no .empower{
+  display: block;
+  float: right;
+  color: #7ab1f0;
+  height: 70rpx;
+  font:500 24rpx/70rpx "Microsoft YaHei";
+  border: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right:0;
+  background-color:#f8f8f8;
+}
+.tit-right {
+  float: right;
+  font: 500 26rpx/70rpx "Microsoft YaHei";
+  color: #fff;
+  overflow: hidden;
+}
+
+.tit-right  view {
+  color: #333;
+  float: left
+}
+.tit-right image{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+  margin-top: 20rpx;
+}
+
+.list-content {
+  width: 710rpx;
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+
+.cont-box {
+  width: 710rpx;
+  /* padding: 10rpx 0; */
+  border-bottom: 1rpx solid #ddd;
+  overflow: hidden;
+  font: 500 24rpx/30rpx "Microsoft YaHei";
+}
+
+.cont-left {
+  width: 510rpx;
+  padding-right: 40rpx;
+  float: left;
+}
+
+.cont-name {
+  color: #333;
+  font: 500 28rpx "Microsoft YaHei";
+  padding: 25rpx 0;
+}
+
+.cont-adress, .cont-time, .cont-phone {
+  color: #888;
+  font: 500 24rpx/36rpx "Microsoft YaHei";
+}
+.cont-phone {
+  padding-bottom: 30rpx;
+}
+.phone-cont{
+  color: #4d97eb;
+  font-style: "Arial"
+}
+.cont-right {
+  width: 140rpx;
+  padding:30rpx 0;
+  float: left;
+}
+
+.cont-map {
+  width: 140rpx;
+  padding: 0 10rpx;
+}
+
+.cont-right image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 50rpx;
+}
+
+.cont-right  .distance {
+  text-align: center;
+  color: #888;
+  font: 500 24rpx/36rpx "Microsoft YaHei";
+  padding-bottom: 15rpx;
+}
+
+.cont-right  .shop-prod {
+  display: block;
+  width: 120rpx;
+  height: 50rpx;
+  border-radius: 8rpx;
+  background: #ff5757;
+  color: #fff;
+  font: 500 26rpx/50rpx "Microsoft YaHei";
+  text-align: center;
+  margin: 0 20rpx;
+}
+/*没有门店时  */
+.more-icon{
+  width: 750rpx;
+  padding-top: 180rpx;
+ text-align: center;
+}
+.more-icon image{
+  display: inline-block;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.more-tip{
+  width: 750rpx;
+  text-align: center;
+  padding: 30rpx 0;
+  font: 500 32rpx "Microsoft YaHei";
+  color: #a5a5a5;
+}
+
+.more-shop{
+  width: 750rpx;
+  padding-top: 70rpx;
+  text-align: center
+}
+.more-shop navigator{
+  display: inline-block;
+  padding: 20rpx 60rpx;
+  font: 500 32rpx "Microsoft YaHei";
+  color: #fff;
+  background: #ff5c5c;
+  border-radius: 50rpx;
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "好券推荐",
+  "backgroundColor": "#f8f8f8",
+  "backgroundTextStyle": "#030303",
+  "usingComponents": {
+    "basic": "plugin://captcha/basic",
+    "oneclick": "plugin://captcha/oneclick"
+  }
+}

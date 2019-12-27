@@ -1,0 +1,328 @@
+/* pages/profile/profile.wxss */
+
+page {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif, 'Microsoft Yahei';
+}
+
+.coupon_boxs {
+  position: relative;
+}
+
+.coupon_tab {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.coupon_tab view {
+  border-bottom: #e6e6e6 solid 2rpx;
+  color: #333;
+  font: 30rpx/96rpx 'Microsoft Yahei';
+  flex: 1;
+  text-align: center;
+}
+
+.coupon_tab .cur {
+  border-bottom: #ff5c5c solid 4rpx;
+  color: #e3101e;
+}
+
+.coupon_list_group {
+  /* box-sizing: border-box;
+  padding-top: 100rpx;
+  padding-bottom: 98rpx;*/
+  position: fixed;
+  top: 100rpx;
+  bottom: 98rpx;
+  left: 0;
+}
+
+/* 去掉滚动条*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.coupon_list {
+  width: 710rpx;
+  padding: 0 25rpx 180rpx 25rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.coupon_box {
+  width: 710rpx;
+  height: 200rpx;
+  margin-top: 30rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.coupon_type {
+  position: relative;
+  width: 710rpx;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.coupon_type .price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 214rpx;
+  height: 200rpx;
+  font-family: PingFangSC-Semibold;
+  background-image: linear-gradient(-35deg, #ff9100 0%, #ffb300 100%);
+  border-radius: 12rpx 0 0 12rpx;
+  color: #fff;
+}
+
+.coupon_type .price-box {
+  width: 214rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  line-height: 64rpx;
+}
+
+.coupon_type .blue-limit {
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.icon {
+  width: 32rpx;
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+
+.price_over {
+  font-size: 72rpx;
+}
+
+.price_over_small {
+  font-size: 60rpx;
+}
+
+.s_top {
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 24rpx;
+  left: 204rpx;
+  top: -12rpx;
+  background-color: #f0f2f4;
+}
+
+.s_bottom {
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 24rpx;
+  left: 204rpx;
+  background-color: #f0f2f4;
+  bottom: -12rpx;
+}
+
+.coupon_descript {
+  background: #fff;
+  box-shadow: 0 4rpx 12rpx 8rpx rgba(0, 0, 0, 0.04);
+  border-radius: 12rpx;
+  width: 496rpx;
+  box-sizing: border-box;
+  padding: 24rpx 83rpx 0 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+
+.coupon_desc {
+  width: 310rpx;
+  font-size: 28rpx;
+  color: #333;
+  height: 68rpx;
+  line-height: 34rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.coupon_name {
+  padding-top: 10rpx;
+}
+
+.coupon_name>text {
+  font-size: 22rpx;
+  padding: 4rpx 10rpx;
+  border: 1rpx solid #fa7a19;
+  color: #fa7a19;
+  border-radius: 100rpx;
+}
+
+.goget-txt {
+  position: absolute;
+  right: 23rpx;
+  top: 79rpx;
+  width: 138rpx;
+  font: 26rpx/48rpx 'Microsoft Yahei';
+  border: 1px solid #2ba4ee;
+  background: #fff;
+  border-radius: 100rpx;
+  color: #2ba4ee;
+  text-align: center;
+  display: inline-block;
+}
+
+/* 价格 */
+
+.freight .price {
+  background-image: linear-gradient(-35deg, #ff9100 0%, #ffb300 100%);
+}
+
+.blue .price {
+  background-image: linear-gradient(-30deg, #34a7ed 0%, #55befd 100%);
+}
+
+.red .price, .selfred .price {
+  background-image: linear-gradient(-221deg, #fa396d 0%, #eb265a 100%);
+}
+
+.shop .price {
+  background-image: linear-gradient(-31deg, #51ad2a 0%, #5acc29 100%);
+}
+
+.offlineBlue .price, .platform .price {
+  background-image: linear-gradient(-34deg, #d12eb6 0%, #f048d4 100%);
+}
+
+.price {
+  background-image: linear-gradient(-217deg, #e6ba5c 0%, #d49c3b 100%);
+}
+
+/* 标签 */
+
+.freight .coupon_name>text, .freight .goget-txt {
+  color: #fa7a19;
+  border-color: #fa7a19;
+}
+
+.blue .coupon_name>text, .blue .goget-txt {
+  color: #2ba4ee;
+  border-color: #2ba4ee;
+}
+
+.red .coupon_name>text, .red .goget-txt, .selfred  .coupon_name>text,
+.selfred .goget-txt {
+  color: #f04;
+  border-color: #f04;
+}
+
+.platform .coupon_name>text, .platform .goget-txt,
+.offlineBlue .coupon_name>text, .offlineBlue .goget-txt {
+  color: #d900b4;
+  border-color: #d900b4;
+}
+
+.shop .coupon_name>text, .shop .goget-txt {
+  color: #4ab61b;
+  border-color: #4ab61b;
+}
+
+.time_box {
+  color: #b3b3b3;
+  font-size: 22rpx;
+}
+
+.time_tips {
+  color: #ff5c5c;
+}
+
+.errTips {
+  color: #a5a5a5;
+  font: 26rpx/30rpx 'Microsoft Yahei';
+  padding-top: 60rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.nomore, .ismore {
+  color: #a5a5a5;
+  font: 26rpx/30rpx 'Microsoft Yahei';
+  padding: 30rpx 0;
+  width: 100%;
+  text-align: center;
+}
+
+.getOther {
+  width: 750rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: 'PingFangSC-Semibold', 'Microsoft Yahei';
+  font-size: 32rpx;
+  color: #ff5c5c;
+  line-height: 90rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* 即将过期 */
+
+.past-ico {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 109rpx;
+  height: 98rpx;
+}
+
+/*已过期、已使用的样式*/
+
+.coupon_box_grey  .coupon_type  .coupon_desc,
+.coupon_box_grey  .coupon_type  .time_box {
+  color: #b3b8bd;
+}
+
+.coupon_box_grey  .coupon_type  .coupon_name>text,
+.coupon_box_grey  .coupon_type  .goget-txt {
+  color: #b3b8bd;
+  border-color: #b3b8bd;
+}
+
+.coupon_box_grey .coupon_type .price {
+  background: #cacccf;
+}
+
+/*已使用的新增图片样式*/
+
+.icon_used {
+  width: 120rpx;
+  height: 104rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.coupon_box_expired .goget {
+  background-image: url('http://css.gomein.net.cn/gmpro/1.0.0/minapp/img/expired@2x.png');
+}
+
+.wetoast__bd__title {
+  text-align: center;
+}

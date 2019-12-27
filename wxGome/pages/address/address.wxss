@@ -1,0 +1,143 @@
+/* ==== 公共样式 ==== */
+page{ background: #fff; }
+text {font-size: 26rpx;font-family: SimSun;}
+.col-b1 {color: #2e2e2e;} /* 姓名类颜色 */
+.col-gray1 {color: #6d6d6d;} /* 地址类颜色 */
+.col-red1{color: #e33336;}/* 红色 */
+
+/* ==== 收货列表 ==== */
+.shipAddressListW {
+	padding-left: 16rpx;
+	background-color: #fff;
+	border-top: 1px solid #e3e3e3;
+	padding-bottom: 80rpx;
+}
+.shipAddressList{
+	width:100%;
+	overflow:hidden;
+}
+.shipAddressListW .shippingAddress {
+	border-bottom: 1px solid #f1f1f1;
+	line-height: 66rpx;
+	font-size: 22rpx;
+	color: #2e2e2e;
+}
+.shipAddressListW .list {
+	border-bottom: 1px solid #f1f1f1;
+}
+.shipAddressListW .list .list-item{
+	display: -webkit-box;
+	-webkit-box-align:center;
+	-webkit-transition: all  .25s ease-in;
+    transition: all  .25s ease-in;
+    margin-left:-160rpx;
+    height:160rpx;
+}
+.shipAddressListW .list .leftRight{
+	margin-left:0;
+}
+.shipAddressListW .list .list-del{
+	-webkit-box-align:center;
+	width: 150rpx;
+	text-align: center;
+	height: 100%;
+	background: #e33336;
+	height:160rpx;
+	line-height:160rpx;
+}
+.shipAddressListW .list .list-del .delete{
+	color: #fff;
+	text-align: center;
+}
+.shipAddressListW .list:last-child {
+	border: none;
+}
+.shipAddressListW .list label {
+	display: -webkit-box;
+	-webkit-box-align:center;
+	-webkit-box-flex: 1;
+	background:#fff;
+	padding-left: 20rpx;
+}
+.shipAddressListW .list radio {
+	width: 70rpx;
+}
+.shipAddressListW .list .detail {
+	-webkit-box-flex: 1;
+}
+.shipAddressListW .list .detail .detail-per{
+	font:bold 32rpx/56rpx 'Microsoft YaHei';
+	line-height: 2em;
+}
+.shipAddressListW .list .detail .detail-per .detail-per-name{
+	margin-right: 10rpx;
+	color: #333;
+	font-size: 32rpx;
+}
+.shipAddressListW .list .detail .detail-per .detail-per-number{
+	color: #333;
+	font-size: 32rpx;
+}
+.shipAddressListW .list .detail .detail-addr{
+	font:26rpx/56rpx 'Microsoft YaHei';
+	color: #5e5e5e;
+}
+.shipAddressListW .list .detail .detail-addr{
+	display:-webkit-box;
+	line-height: 1.5em;
+	height:3em;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    word-break:break-all;
+}
+.shipAddressListW .list .detail .detail-addr .default{
+	color: #e3101e;
+	font-size: 22rpx;
+	font-weight: bold;
+	border-radius: 4rpx;
+	line-height: 1.5em;
+	height: 1.5em;
+	padding: 4rpx 10rpx;
+	margin-right: 4rpx;
+	border:1px solid #e3101e;
+}
+.view_show{
+	display: inline-block;
+}
+.view_hide{
+	display: none;
+}
+.shipAddressListW .list .edit {
+	width: 100rpx;
+	text-align: center;
+	background: #fff;
+	color: #e33336;
+	padding-right: 20rpx;
+	margin-top:30rpx;
+}
+.shipAddressListW .list .edit text{
+	line-height: 100%;
+}
+
+.detail-addr .adderss {
+    line-height: 1.5em;
+}
+
+/* 新增收货地址 */
+.modifyAdress{ position: fixed; background: #fff; bottom:0; left: 0; width: 100%; padding: 15rpx 0; text-align: center;border:1rpx solid #e6e6e6; z-index:999;
+ }
+.modifyAdress button{color: #fff;font:500 32rpx/80rpx "Microsoft YaHei";
+ font-size: 28rpx; width: 708rpx; height: 80rpx; line-height: 80rpx; border-radius:10rpx; margin:0 auto;
+ background-color:#ff5757;
+ /* border:1rpx solid #ff5757; */
+ border:none;
+}
+.buyBtnHover{
+  background-color: #e3111e;
+  border: 1rpx solid #e3111e;
+}
+
+
+

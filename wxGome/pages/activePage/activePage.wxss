@@ -1,0 +1,166 @@
+page{
+  background: #f8f8f8;
+  font-family:  'Microsoft Yahei';
+}
+.img-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom:20rpx;
+}
+.floor-image-one{
+  width: 750rpx;
+  height: auto;
+  vertical-align: top;
+}
+.floor-image{
+  width: 750rpx;
+  height: auto;
+  margin:20rpx 0;
+  vertical-align: top;
+}
+
+.floor-image-style{
+  width: 710rpx;
+  height:220rpx;
+  margin:0 20rpx 20rpx;
+  vertical-align: top;
+}
+.floor-title{
+  padding: 10rpx 20rpx;
+  font-size: 36rpx;
+  color: #000000;
+  letter-spacing: 0;
+}
+.tab-box{
+  width: 750rpx;
+  height: 80rpx;
+  background: #FFFFFF;
+}
+.goods-container{
+  padding-left:20rpx;
+}
+.goods-box{
+  width: 710rpx;
+  height: 250rpx;
+  margin-bottom:10rpx;
+  background: #fff;
+}
+.goods-img{
+  width:250rpx;
+  height: 250rpx;
+  overflow: hidden;
+  float: left;
+}
+.message-box{
+  margin-left: 24rpx;
+  width: 436rpx;
+  float: left;
+}
+.goods-title{
+  width: 412rpx;
+  height: 72rpx;
+  margin-top: 24rpx;
+  line-height: 34rpx;
+  color: #333333;
+  font-size: 26rpx;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+}
+.price-box{
+  width: 100%;
+  margin-top:84rpx;
+}
+.price{
+  font-size: 30rpx;
+  color: #FF5757;
+  text-align: left;
+  line-height: 32rpx;
+  padding-top: 8rpx;
+  float: left;
+}
+.buy-btn{
+  width: 214rpx;
+  height: 48rpx;
+  background: #FF5757;
+  line-height: 48rpx;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+
+/*第二种类型商品*/
+.type2{
+  padding: 20rpx 20rpx 16rpx 20rpx;
+  width: 310rpx;
+  height: auto;
+  float: left;
+  margin: 10rpx 10rpx 10rpx 0;
+}
+.type2 .goods-box{
+  padding: 20rpx;
+}
+.type2 .goods-img{
+  width:310rpx;
+  height: 310rpx;
+}
+
+.type2 .goods-title{
+  width: 310rpx;
+  font-size: 26rpx;
+  line-height: 34rpx;
+  color: #333333;
+  padding-top: 16rpx;
+  margin:0;
+}
+.type2 .price-box{
+   width:310rpx;
+   padding: 0;
+}
+.type2 .price, .type3 .price{
+  width:100%;
+  font-size: 30rpx;
+  display: inline-block;
+  color: #FF5757;
+  text-align: left;
+  line-height: 32rpx;
+  float: none;
+  margin-bottom:20rpx;
+}
+.type2 .buy-btn{
+  width: 310rpx;
+  height: 48rpx;
+  background: #FF5757;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 48rpx;
+  float: left;
+}
+
+/*第三种类型商品*/
+.type3{
+  width: 215rpx;
+  height: auto;
+  padding: 10rpx 10rpx 12rpx 10rpx;
+  margin-right:7rpx;
+  float: left;
+}
+.type3 .goods-img{
+  width: 215rpx;
+  height: 215rpx;
+}
+.type3 .goods-title{
+  width: 215rpx;
+  padding-top:12rpx;
+  margin:0;
+}
+.type3 .buy-btn{
+  width: 215rpx;
+  height: 48rpx;
+  float: left;
+}

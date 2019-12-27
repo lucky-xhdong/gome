@@ -1,0 +1,2042 @@
+@charset "utf-8"; 
+
+html {
+	overflow-x: auto;
+	overflow-y: scroll
+}
+
+body,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,p,blockquote,th,td,menu {
+	font-weight: 400;
+	margin: 0;
+	padding: 0
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: 400
+}
+
+body {
+	background-color: #fff;
+	color: #333;
+	font: normal 12px/1.5 'Arial', 'SimSun', 'Tahoma', 'Helvetica',
+		'sans-serif';
+	text-align: left
+}
+
+fieldset,img {
+	border: 0 none
+}
+
+img {
+	vertical-align: middle
+}
+
+address,caption,em,strong,th,i {
+	font-style: normal;
+	font-weight: 400
+}
+
+ol,ul,li {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none
+}
+
+html,body {
+	-webkit-text-size-adjust: none
+}
+
+table,table td,table th {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+	outline: 0;
+	cursor: pointer
+}
+
+a:hover {
+	color: #F00;
+	text-decoration: underline
+}
+
+.link {
+	color: #06c
+}
+
+a:hover.link {
+	color: #06c;
+	text-decoration: underline
+}
+
+.highlight {
+	color: #F00
+}
+
+.light {
+	color: #C00
+}
+
+.lowlight {
+	color: #999
+}
+
+.fl {
+	float: left;
+	display: inline
+}
+
+.fr {
+	float: right;
+	display: inline
+}
+
+.pr {
+	position: relative
+}
+
+.fixed {
+	position: fixed;
+	_position: absolute;
+	bottom: 0;
+	_top: expression(eval(document.documentElement.scrollTop +
+		document.documentElement.clientHeight-this.offsetHeight- ( parseInt(this.currentStyle.marginTop
+		, 10) ||   0 ) -( parseInt(this.currentStyle.marginBottom, 10) ||   0
+		) ) )
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+
+.clearfix {
+	display: inline-block
+}
+
+* html .clearfix {
+	zoom: 1
+}
+
+.clearfix {
+	display: block
+}
+
+.loading {
+	background: url(//css.gomein.net.cn/images/loadingv3.gif) no-repeat scroll 50% 50%;
+	height: 32px;
+	width: 32px;
+	display: block;
+	margin: 0 auto
+}
+
+input,button,select,textarea {
+	outline: 0
+}
+
+.search-btn,.telnum i,.ico,.service i,.i-topcart,.i-errer,.i16,.backtop b,.sideservice b,.category-title b,.category-title i,.i-cart,.i-mygome,.clicks-btnprv,.clicks-btnnext
+	{
+	background: url(//css.gomein.net.cn/images/header-ui.png) no-repeat 0 0;
+	_background: url(//css.gomein.net.cn/images/header-ui.gif) no-repeat 0 0
+}
+
+.i-discount {
+	background: url(//css.gomein.net.cn/images/index-ui.png) no-repeat;
+	_background: url(//css.gomein.net.cn/images/index-ui.gif) no-repeat
+}
+
+.i16 {
+	width: 16px;
+	height: 16px;
+	float: left;
+	display: inline;
+	background-position: -220px -100px;
+	margin-right: 5px
+}
+
+.b-ticket {
+	background-position: -310px -99px
+}
+
+.r-ticket {
+	background-position: -340px -99px
+}
+
+.i-folder {
+	background-position: -250px -130px
+}
+
+.i-full {
+	background-position: -250px -100px
+}
+
+.i-special {
+	background-position: -280px -100px
+}
+
+.i-pbox {
+	background-position: -220px -130px
+}
+
+.i-down {
+	background-position: -370px -100px
+}
+
+.i-discount {
+	background-position: -60px 0;
+	position: absolute;
+	width: 54px;
+	height: 54px;
+	top: 0;
+	left: 0;
+	color: #FFF;
+	font-size: 22px;
+	font-family: 'Microsoft YaHei';
+	text-align: center;
+	line-height: 1
+}
+
+.i-discount span {
+	font-size: 12px;
+	display: block;
+	margin: 8px 0 2px -5px
+}
+
+.i-onlytext {
+	line-height: 54px;
+	font-size: 20px
+}
+
+.i-fourtext {
+	line-height: 20px;
+	font-size: 17px;
+	padding: 5px;
+	width: 44px;
+	height: 44px
+}
+
+.i-b-vouchers {
+	background-position: -100px -150px;
+	line-height: 54px;
+	font-size: 20px
+}
+
+.i-hotsale {
+	background-position: -200px -151px;
+	padding: 30px 0 0 4px;
+	height: 34px;
+	font-size: 18px;
+	text-align: left
+}
+
+.i-drop {
+	background-position: 0 -150px;
+	width: 61px;
+	font-size: 12px
+}
+
+.i-drop span {
+	margin: 2px 0 2px -19px
+}
+
+.i-drop i {
+	font-size: 10px
+}
+
+.i-reduction,.i-percent {
+	background-position: 0 -220px;
+	width: 40px;
+	height: 40px;
+	text-indent: -999px;
+	_left: -20px
+}
+
+.i-percent {
+	background-position: -50px -220px
+}
+
+.i-energy {
+	background-position: -110px -220px;
+	width: 58px;
+	height: 58px
+}
+
+.i-energy span {
+	margin: 28px 3px 0 -6px;
+	font-size: 18px;
+	color: #ffc10b
+}
+
+.i-triangle {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 4px dashed transparent;
+	border-color: #333 transparent transparent transparent;
+	border-bottom: 0;
+	border-top-style: solid
+}
+
+.wbox {
+	width: 1210px;
+	margin: 0 auto;
+	clear: both;
+	margin-bottom: 10px
+}
+
+.wbox:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+
+.wbox {
+	display: inline-block
+}
+
+* html .wbox {
+	zoom: 1
+}
+
+.wbox {
+	display: block
+}
+
+.pt10 {
+	padding-top: 10px
+}
+
+.mb1 {
+	margin-bottom: 1px
+}
+
+.mb5 {
+	margin-bottom: 5px
+}
+
+.mb10 {
+	margin-bottom: 10px
+}
+
+.mr50 {
+	margin-right: 50px
+}
+
+.border {
+	border: 1px solid #e0e0e0
+}
+
+.module {
+	border: 1px solid #e0e0e0
+}
+
+.yuan {
+	font-family:arial,verdana,sans-serif
+}
+
+.commontitle {
+	background-color: #EEE;
+	border-bottom: 1px solid #e0e0e0;
+	font: 700 14px/ 30px 'Microsoft YaHei';
+	color: #333;
+	height: 30px;
+	padding: 0 10px;
+	position: relative
+}
+
+ @charset "utf-8"; 
+
+.commonbtn,.commonbtn span,.commonbtn strong {
+	background: url(//css.gomein.net.cn/images/button.gif) repeat-x 0 -200px;
+	display: inline-block;
+	color: #FFF;
+	line-height: 24px;
+	font-size: 14px
+}
+
+.commonbtn {
+	padding-left: 10px;
+	border: 1px solid #c5180b
+}
+
+.commonbtn span {
+	padding-right: 10px;
+	display: block;
+}
+
+.commonbtn strong {
+	padding: 0 2px;
+	line-height: 25px;
+	display: block;
+}
+
+a:hover.commonbtn {
+	text-decoration: none;
+	background-position: 0 -240px;
+	color: #FFF
+}
+
+a:hover.commonbtn span {
+	background-position: right -320px
+}
+
+a:hover.commonbtn strong {
+	background-position: right -280px
+}
+
+.bigbtn {
+	font: 700 20px/ 36px 'Microsoft YaHei';
+	text-shadow: 1px 1px 1px rgba(33, 33, 33, 1);
+	background-position: 0 0
+}
+
+.bigbtn span,.bigbtn strong {
+	background-position: 0 0;
+	line-height: 36px;
+	font-size: 20px
+}
+
+a:hover.commonbtn.bigbtn {
+	text-decoration: none;
+	background-position: 0 -100px
+}
+
+a:hover.commonbtn.bigbtn span {
+	background-position: right -150px
+}
+
+a:hover.commonbtn.bigbtn strong {
+	background-position: right -50px
+}
+
+.midbtn {
+	font: 700 14px 'Microsoft YaHei';
+	text-shadow: 1px 1px 1px rgba(33, 33, 33, 1);
+	background-position: 0 -644px
+}
+
+.midbtn span,.midbtn strong {
+	background-position: 0 -644px;
+	line-height: 29px
+}
+
+a:hover.commonbtn.midbtn {
+	text-decoration: none;
+	background-position: 0 -644px
+}
+
+a:hover.commonbtn.midbtn span {
+	background-position: right -644px
+}
+
+a:hover.commonbtn.midbtn strong {
+	background-position: right -644px
+}
+
+.minor {
+	background-position: 0 -780px;
+	border: 1px solid #f45700
+}
+
+.minor span,.minor strong {
+	background-position: 0 -780px;
+	line-height: 25px;
+	font-weight: 700
+}
+
+.minor strong {
+	line-height: 26px
+}
+
+a:hover.commonbtn.minor {
+	text-decoration: none;
+	background-position: 0 -830px
+}
+
+a:hover.commonbtn.minor span {
+	background-position: right -901px
+}
+
+a:hover.commonbtn.minor strong {
+	background-position: right -864px
+}
+
+.midminor {
+	background-position: 0 -365px;
+	border: 1px solid #f45700;
+	font: 700 16px 'Microsoft YaHei';
+	text-shadow: 1px 1px 1px rgba(33, 33, 33, 1)
+}
+
+.midminor span,.midminor strong {
+	background-position: 0 -365px;
+	line-height: 36px;
+	font-weight: 700;
+	font-size: 16px
+}
+
+a:hover.commonbtn.midminor {
+	text-decoration: none;
+	background-position: 0 -424px
+}
+
+a:hover.commonbtn.midminor span {
+	background-position: right -485px
+}
+
+a:hover.commonbtn.midminor strong {
+	background-position: right -550px
+}
+
+.normalbtn {
+	background-position: 0 -608px;
+	border: 1px solid #bcbcbc
+}
+
+.normalbtn span,.normalbtn strong {
+	background-position: 0 -608px;
+	line-height: 25px;
+	font-weight: 400;
+	color: #333;
+	font-size: 12px
+}
+
+.normalbtn strong {
+	line-height: 26px
+}
+
+a:hover.commonbtn.normalbtn {
+	text-decoration: none;
+	background-position: 0 -599px
+}
+
+a:hover.commonbtn.normalbtn span {
+	background-position: right -599px
+}
+
+a:hover.commonbtn.normalbtn strong {
+	background-position: right -599px;
+	color: #F00
+}
+
+.minihigh {
+	background-position: 0 -940px;
+	background-repeat: no-repeat;
+	border: 1px solid #f45700;
+	border: 0 none;
+	line-height: 20px
+}
+
+.minihigh span {
+	background-position: right -1000px;
+	line-height: 20px;
+	background-repeat: no-repeat
+}
+
+.minihigh strong {
+	background-position: right -970px;
+	line-height: 20px;
+	font-weight: 700
+}
+
+a:hover.commonbtn.minihigh {
+	text-decoration: none;
+	background-position: 0 -940px
+}
+
+a:hover.commonbtn.minihigh span {
+	background-position: right -1000px
+}
+
+a:hover.commonbtn.minihigh strong {
+	background-position: right -970px
+}
+
+ @CHARSET "UTF-8"; 
+
+#topnav,.topmenu li,.ftrline,.promisebox li,.select-segments,.select-segments b,.gocart,.btnsmall,.backtop a
+	{
+	background: url(//css.gomein.net.cn/images/index-ui-x.gif) repeat-x 0 0
+}
+
+.categorylist li,.carousel-btn a,.tabx2,.tabbg,.adsc-btn a,.adsc-btn b,.floor-menu a,.alist,.listx1 li,.mainheader,.gotoshopcart,.ftrhelp a,.ftrbg,.postlist a
+	{
+	background: url(//css.gomein.net.cn/images/index-ui-x.gif) repeat-x
+}
+
+.shopcartbox .cartlinkbox {
+	background: url(//css.gomein.net.cn/images/index-ui.png) no-repeat;
+	_background: url(//css.gomein.net.cn/images/index-ui.gif) no-repeat
+}
+
+#topnav {
+	height: 30px;
+	line-height: 29px;
+	background-position: 0 0;
+	background-color: #eee;
+	position: relative;
+	z-index: 9996
+}
+
+#topnav .wbox {
+	margin-bottom: 0
+}
+
+.login-top,.gome-logo,.topsearch {
+	float: left;
+	display: inline
+}
+
+.login-top a.color-b {
+	color: #06c;
+	margin: 0 5px
+}
+
+.topmenu {
+	float: right;
+	display: inline;
+	margin-right: -1px
+}
+
+.login-top a {
+	color: #666;
+	display: inline-block;
+	margin-left: 8px
+}
+
+.topmenu li {
+	float: left;
+	display: inline;
+	background-repeat: no-repeat;
+	background-position: right -131px;
+	margin-left: -1px;
+	vertical-align: middle
+}
+
+.topmenu li.last {
+	background: 0
+}
+
+.normal {
+	padding: 0 8px
+}
+
+.menulink {
+	float: left;
+	display: inline;
+	padding: 0 24px 0 8px;
+	margin: 3px 0 0 0;
+	_margin: 2px 0 0 0;
+	height: 24px;
+	line-height: 24px;
+	position: relative;
+	z-index: 9997
+}
+
+.menulink span {
+	font-weight: 700
+}
+
+.menulink b {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 4px dashed transparent;
+	border-color: #333 transparent transparent transparent;
+	border-bottom: 0;
+	border-top-style: solid;
+	top: 9px;
+	right: 9px;
+	overflow: hidden
+}
+
+.hover .menulink b {
+	width: 0;
+	height: 0;
+	border: 4px dashed transparent; *
+	border: 5px dashed transparent;
+	border-color: transparent transparent #333 transparent;
+	border-top: 0;
+	border-bottom-style: solid;
+	overflow: hidden; *
+	top: 6px;
+	right: 8px
+}
+
+.menulink.shopcart {
+	padding-left: 33px
+}
+
+.i-topcart {
+	width: 17px;
+	height: 13px;
+	position: absolute;
+	top: 5px;
+	left: 7px;
+	background-position: -370px -70px
+}
+
+.menuhide {
+	position: absolute;
+	background: #fff;
+	border: 1px solid #d8d8d8;
+	top: 27px;
+	_top: 25px;
+	right: 0;
+	display: none;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4)
+}
+
+.menuhide {
+	padding: 0 8px 10px;
+	width: 217px;
+	line-height: 22px
+}
+
+.menuhide a{margin:0 8px;white-space:nowrap}
+
+.menuhide li {
+	background: 0
+}
+
+.hover .menulink {
+	border: 1px solid #d8d8d8;
+	border-bottom: 1px solid #fff;
+	margin: 2px 0 0;
+	height: 24px;
+	line-height: 24px;
+	_height: 22px;
+	_line-height: 22px;
+	padding: 0 23px 0 7px;
+	background: #FFF
+}
+
+.hover .menulink.shopcart {
+	padding: 0 23px 0 32px
+}
+
+.hover .menulink.shopcart .i-topcart {
+	_top: 4px;
+	left: 6px;
+	background-position: -370px -40px
+}
+
+.hover .menuhide {
+	display: block
+}
+
+.telnum {
+	border-top: 1px solid #e0e0e0;
+	position: relative;
+	padding-left: 25px;
+	zoom: 1;
+	padding-top: 5px
+}
+
+.telnum i {
+	background-position: -300px 0;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 8px;
+	top: 11px
+}
+
+.telnum strong {
+	color: #C00;
+	font-weight: 700
+}
+
+.topad {
+	text-align: center;
+	clear: both
+}
+
+.topad img,.topad a {
+	display: block;
+	margin: 0 auto
+}
+
+.topad .wbox {
+	margin-bottom: 0
+}
+
+a.close-topad {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-family: 'Microsoft YaHei';
+	color: #999
+}
+
+a:hover.close-topad {
+	border-radius: 10px;
+	background-color: #7c1c1e;
+	color: #FFF;
+	text-decoration: none
+}
+
+.categorylist li,.carousel-btn a,.tabx2,.tabbg,.adsc-btn a,.adsc-btn b,.floor-menu a,.alist,.listx1 li,.mainheader
+	{
+	background: url(//css.gomein.net.cn/images/index-ui-x.gif) repeat-x
+}
+
+.mainheader {
+	position: relative;
+	z-index: 9990;
+	height: 132px;
+	background-position: 0 -1730px;
+	margin-bottom: 7px
+}
+
+.mainheader .wbox {
+	margin-bottom: 0
+}
+
+.headlayer {
+	padding: 15px 0 14px 0;
+	position: relative
+}
+
+.gome-logo {
+	width: 458px
+}
+
+.gome-logo img {
+	display: block
+}
+
+.gome-logoico,.logogif {
+	float: left;
+	display: inline
+}
+
+.gome-logoico {
+	padding: 0 10px 0 0;
+	margin: 4px 10px 0 0;
+	border-right: #e0e0e0 1px solid
+}
+
+.logogif {
+	width: 110px;
+	height: 60px
+}
+
+.topsearch {
+	margin: 5px 0 0 0;
+	width: 436px;
+	position: relative;
+	z-index: 999
+}
+
+.searchbox {
+	border: 2px solid #bebebe;
+	position: relative;
+	font-size: 14px;
+	height: 32px
+}
+
+.search-btn {
+	width: 80px;
+	height: 32px;
+	line-height: 32px;
+	background-position: 0 0;
+	border: none 0;
+	cursor: pointer;
+	text-indent: -9999px;
+	float: right;
+	display: inline
+}
+
+button:hover.search-btn,.search-btn.hover {
+	background-position: 0 -90px
+}
+
+.overtips {
+	position: absolute;
+	top: 0;
+	left: 5px;
+	line-height: 32px;
+	height: 32px;
+	overflow: hidden;
+	color: #666;
+	width: 80%
+}
+
+.search-input {
+	border: 0 none;
+	width: 342px;
+	padding: 5px;
+	line-height: 18px; *
+	line-height: 15px;
+	float: left;
+	margin-top: 3px;
+	font-size: 14px
+}
+
+.hotkeyword {
+	margin: 6px 0 0;
+	color: #666;
+	overflow: hidden;
+	line-height: 14px;
+	height: 14px
+}
+
+.hotkeyword a {
+	display: inline-block;
+	margin-right: 13px;
+	line-height: 14px;
+	color: #666
+}
+
+.hotkeyword a.highlight {
+	color: #F00
+}
+
+.searchtips {
+	position: absolute;
+	top: 34px;
+	left: 2px;
+	border: 1px solid #e0e0e0;
+	background: #FFF;
+	width: 350px
+}
+
+.searchabout {
+	width: 100%;
+	line-height: 18px
+}
+
+.searchabout li.first {
+	border-bottom: 1px solid #e0e0e0
+}
+
+.searchabout li {
+	float: left;
+	width: 100%
+}
+
+.searchabout li a {
+	clear: both;
+	display: block;
+	padding: 0 5px;
+	line-height: 22px;
+	overflow: hidden;
+	_zoom: 1
+}
+
+.searchabout li p a {
+	clear: both;
+	padding-left: 2em
+}
+
+.searchabout li strong,.searchabout li .highlight {
+	font-weight: 700
+}
+
+.searchabout li a:hover,.searchabout li a.hover {
+	background: #f5f5f5;
+	text-decoration: none
+}
+
+.searchabout li a:hover .akeyword,.searchabout li a.akeyword.hover {
+	color: #F00
+}
+
+.mainnavbox {
+	height: 42px
+}
+
+.mainnavbox a {
+	text-decoration: none
+}
+
+.mainnavbox .wbox {
+	margin-bottom: 0
+}
+
+.mainnav {
+	float: left;
+	display: inline;
+	margin: 5px 0 0 0
+}
+
+.mainnav li {
+	float: left;
+	display: inline;
+	height: 30px;
+	line-height: 30px;
+	font-family: Microsoft YaHei;
+	font-weight: 700;
+	font-size: 14px
+}
+
+.cor-lt,.cor-rt,.cor-lb,.cor-rb {
+	display: none;
+	position: absolute;
+	background: #FFF;
+	width: 1px;
+	height: 1px;
+	font-family: serif;
+	font-size: 0;
+	line-height: 0
+}
+
+.cor-lt {
+	top: 0;
+	_top: -1px;
+	left: 0
+}
+
+.cor-rt {
+	top: 0;
+	_top: -1px;
+	right: 0
+}
+
+.cor-lb {
+	bottom: 0;
+	left: 0
+}
+
+.cor-rb {
+	bottom: 0;
+	right: 0
+}
+
+.mainnav li.cur b {
+	display: none
+}
+
+.mainnav li a {
+	color: #333;
+	margin: 0 11px;
+	display: block
+}
+
+.mainnav li a:hover {
+	color: #C00;
+	text-decoration: none;
+	border-bottom: 2px solid #dd201e
+}
+
+.mainnav li.cur a {
+	color: #C00;
+	border-bottom: 2px solid #dd201e
+}
+
+.listnav {
+	position: absolute;
+	background-color: #EEE;
+	width: 210px;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+	min-height: 390px;
+	_height: 390px
+}
+
+.listnav.js-categoryshow {
+	min-height: auto;
+	height: auto;
+}
+
+.sidecategory {
+	float: left;
+	display: inline;
+	width: 210px;
+	position: relative;
+	z-index: 999
+}
+
+.category-title {
+	height: 39px;
+	background-color: #dd201e;
+	color: #FFF;
+	/*font: 400 15px/ 39px 'Microsoft YaHei';*/
+	font-weight:400;
+	font-size:15px;
+	line-height:39px;
+	font-family:'Microsoft YaHei';
+	padding: 0 0 0 10px;
+	position: relative
+}
+
+.category-title a,.category-title a:hover {
+	color: #FFF;
+	display: block;
+	text-decoration: none
+}
+
+.category-title b {
+	position: absolute;
+	width: 6px;
+	height: 39px;
+	overflow: hidden;
+	background-position: 0 -170px;
+	left: -6px;
+	top: 0
+}
+
+.category-title i {
+	position: absolute;
+	width: 21px;
+	height: 21px;
+	overflow: hidden;
+	background-position: -22px -170px;
+	right: 10px;
+	top: 10px
+}
+
+.cur .category-title i {
+	background-position: -50px -170px
+}
+
+.categorylist {
+	position: relative;
+	z-index: 1
+}
+
+.categorylist li {
+	height: 32px;
+	line-height: 32px;
+	background-position: 190px -475px;
+	background-repeat: no-repeat
+}
+
+.categorylist li h3 {
+	height: 32px;
+	line-height: 32px;
+	padding: 0 0 0 20px;
+	position: relative;
+	z-index: 667;
+	border-bottom: 1px solid #f6f6f6;
+	word-break: break-all;
+	overflow: hidden
+}
+
+.gpoint {
+	background-color: #C00;
+	width: 3px;
+	line-height: 3px;
+	height: 3px;
+	overflow: hidden;
+	position: absolute;
+	top: 15px;
+	left: 10px
+}
+
+.categorylist li h3 a {
+	font-size: 14px;
+	position: relative
+}
+
+.categorylist li h3 a:hover {
+	text-decoration: underline;
+	color: #C00
+}
+
+.categorylist li.first h3,.categorylist li.snavl1 h3 {
+}
+
+.categorylist li.last h3,.categorylist li.snavl10 h3 {
+	border-bottom: 0 none
+}
+
+.categorylist li.hover {
+	background: #dedede; *
+	margin-bottom: -3px
+}
+
+.categorylist li.hover h3 {
+	background-color: #FFF;
+	margin-right: -1px;
+	font-weight: 700
+}
+
+.categorylist li.hover h3 a.sidelink {
+	padding-left: 0
+}
+
+.fullcategory {
+	background: url(//css.gomein.net.cn/images/index-ui-yn.gif) repeat-y
+}
+
+.fullcategory {
+	position: absolute;
+	z-index: 666;
+	width: 850px;
+	background-color:#f8f8f8;
+	background-position: 640px 0;
+	left: 210px;
+	top: 0;
+	min-height:415px;
+	_height: 415px;
+	display:none;
+	border-bottom:1px solid #eeeeee;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3)
+}
+
+.hover .fullcategory {
+	display: block
+}
+
+.categorylist li .sidelink {
+	float: right;
+	display: inline;
+	margin-right: 25px;
+	font-size: 12px;
+	padding: 0;
+}
+
+.categorylist li.hover h3 b {
+	background-position: 0 0
+}
+
+.category {
+	float: left;
+	display: inline;
+	width: 530px;
+	overflow: hidden;
+	margin-bottom: 0px;
+	background:#fff;
+}
+/*分类增加部分-活动促销*/
+.saleact{float:right;display:inline;width:195px;background:#f2f2f2;line-height: 24px;height: 100%}
+.saleact h4{color:#f00;font-weight:700;padding:5px 0 10px;border-bottom:1px dotted #B2B2B2;margin-right:15px;}
+
+
+/*分类增加部分-活动促销 END*/
+.relatedads {
+	float: left;
+	display: inline;
+	width: 90px;
+	line-height: 24px;
+	padding: 5px 0;
+	margin-left:15px;
+}
+
+.category dl {
+	padding: 0 15px;
+	min-height:415px;
+	_height:415px;
+}
+
+.category dt {
+	width: 85px
+}
+
+.category dt a,.category dt {
+	color: #333;
+	font-weight: 700;
+	font-size: 12px
+}
+
+.category dt a:hover {
+	color: #C00;
+	text-decoration: underline
+}
+
+.category dd {
+	border-bottom: 1px dotted #b2b2b2;
+	padding-left: 85px;
+	margin-top: -30px;
+	margin-bottom: -1px;
+	line-height: 14px;
+	padding-bottom: 10px
+}
+
+.category dd a {
+	font-size: 12px;
+	display: inline-block;
+	border-left: 1px solid #b2b2b2;
+	margin: 4px 0;
+	padding: 0 10px
+}
+
+.relatedads h4 {
+	color: #f00;
+	font-weight: 700;
+	padding:5px 0 10px;
+	border-bottom:1px dotted #B2B2B2;
+	margin-right:10px;
+}
+
+.relatedads a {
+	color: #333
+}
+
+.category dd a:hover,.relatedads a:hover,.promotions a:hover {
+	text-decoration: underline;
+	color: #F00
+}
+
+.relatedads .brand {
+	padding:5px 0;
+	margin-right: 4px
+}
+
+.brand a {display:block;}
+
+.brand a img {
+	border: 1px solid #fcf3ea
+}
+
+.brand a:hover img {
+	border: 1px solid #F00
+}
+
+.promotions a {
+	display: block;
+	width: 99%;
+	overflow: hidden;
+	height: 24px;
+	word-wrap: break-word;
+	word-break: break-all
+}
+
+.mygome-side {
+	float: right;
+	display: inline;
+	margin: 6px 0 0 0
+}
+
+.hd-mygome .menuhide {
+	width: 312px;
+	right: -138px;
+	padding:0;
+}
+
+b.r-triangle {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 4px dashed transparent;
+	border-color: transparent transparent transparent #333;
+	border-right: 0;
+	border-left-style: solid;
+	top: 8px;
+	right: 10px;
+	overflow: hidden
+}
+
+.hover .menulink b.r-triangle {
+	width: 0;
+	height: 0;
+	border: 4px dashed transparent; *
+	border: 4px dashed transparent;
+	border-color: transparent transparent transparent #333;
+	border-right: 0;
+	border-left-style: solid;
+	overflow: hidden; *
+	top: 8px;
+	right: 9px
+}
+
+.mygome-side .topmenu a:hover.menulink {
+	text-decoration: none
+}
+
+.sidemygome {
+	height: 36px;
+	line-height: 36px;
+	position: relative;
+	z-index: 998;
+	margin-bottom: 8px
+}
+
+.mygomeinfo {
+	margin:0 10px;
+}
+
+.mygomeinfo li {
+	border-bottom: 1px dotted #F5DCBD;
+	float: left;
+	display:inline;
+	width: 100%;
+	height: 40px;
+	line-height: 40px
+}
+
+.mygomeinfo li.first {
+	border-top: 0 none
+}
+
+.mygomeinfo li.last {
+	border-bottom: 0 none
+}
+
+.myinfo {
+	width: 230px
+}
+
+.myinfo a {
+	float: left;
+	display: inline;
+	width: 49%;
+	color: #06c
+}
+
+.myinfo a:hover {
+	color: #06c
+}
+
+.shopcartbox .cartlinkbox {
+	background-position: 0 -290px;
+	display: inline-block;
+	padding: 0 0 0 10px;
+	margin: 3px 1px 0 0
+}
+
+.cartlinkbox .menulink {
+	margin-top: 0;
+	border: 1px solid #f2f2f2;
+	border-top: 1px solid #fbfbfb
+}
+
+.shopcartbox .cartlink {
+	padding: 0 24px 0 55px
+}
+
+.hover .cartlinkbox .menulink {
+	border-color: #d8d8d8 #D8D8D8 #FFf #d8d8d8;
+	_line-height: 24px
+}
+
+.hover .cartlinkbox .menulink b {
+	top: 8px
+}
+
+.i-mygome {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-position: -100px -140px;
+	top: 3px;
+	left: 8px
+}
+
+.hover .i-mygome {
+	_top: 2px;
+	left: 7px;
+	_left: 8px
+}
+
+.i-cart {
+	position: absolute;
+	width: 30px;
+	height: 20px;
+	background-position: -100px -170px;
+	top: 3px;
+	left: 15px
+}
+
+.shopcartbox .menuhide {
+	width: 350px;
+	top: 28px;
+	right: -108px;
+	padding: 0
+}
+
+.gotoshopcart {
+	background-position: 0 -1880px;
+	color: #FFF;
+	font-weight: 700;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle
+}
+
+a:hover.gotoshopcart {
+	color: #FFF
+}
+
+.gotoshopcart b.r-triangle {
+	border-left-color: #FFF
+}
+
+.service {
+	padding: 0 8px 0 25px
+}
+
+.service i {
+	background-position: -280px -23px;
+	width: 12px;
+	height: 17px;
+	position: absolute;
+	left: 8px;
+	top: 5px
+}
+
+.top-map .menuhide {
+	width: 225px;
+	padding: 0
+}
+
+.top-mapbox {
+	padding: 5px
+}
+
+.top-mapbox a {
+	display: inline-block;
+	margin: 0 8px
+}
+
+.cartlist img,.cartlist li h3,.cartlist li a strong {
+	float: left;
+	display: inline
+}
+
+.noshop {
+	text-align: center;
+	line-height: 30px
+}
+
+.cart-content h2 {
+	color: #000;
+	font-weight: 700;
+	padding: 0 10px
+}
+
+.errerboxft {
+	background-color: #fccac1;
+	padding: 10px 0 10px 10px;
+	line-height: 18px;
+	color: #666
+}
+
+.i-errer {
+	background-position: -150px -90px;
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px
+}
+
+.errerboxft strong {
+	font-weight: 700
+}
+
+.cartlist li:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+
+.cartlist li {
+	display: inline-block
+}
+
+* html .cartlist li {
+	zoom: 1
+}
+
+.cartlist li {
+	display: block
+}
+
+.cartlist li {
+	padding: 5px 0 5px 0;
+	clear: both;
+	float: left;
+	margin: 0;
+	border-bottom: 1px dotted #e0e0e0;
+	width: 100%;
+	overflow: hidden;
+	margin: 0
+}
+
+.cartlist li div,.cartlist li .group-title,.cartlist li ul {
+	padding: 0 10px
+}
+
+.cartlist li.hover {
+	background: #f5f5f5
+}
+
+.cartlist li h3 {
+	width: 150px; height: 48px; line-height: 16px;overflow:hidden;word-break:break-all;
+}
+
+.cartlist img {
+	border: 1px solid #e0e0e0;
+	margin-right: 8px
+}
+
+.cartlist li strong {
+	float: right;
+	color: #c00;
+	font-weight: 700;
+	line-height: 16px
+}
+
+.cartlist li strong i {
+	color: #999
+}
+
+.delcartbox {
+	float: right;
+	text-align: right
+}
+
+.cartlist li .delcartbox strong {
+	display: block;
+	float: none
+}
+
+a.delcart {
+	color: #06c;
+	font-weight: 400;
+	display: block;
+	line-height: 16px;
+	float: none
+}
+
+a:hover.delcart {
+	color: #06c
+}
+
+.cxlist p {
+	line-height: 16px;
+	padding: 5px 0 0 0
+}
+
+.giftlist a {
+	display: block;
+	color: #06c;
+	line-height: 16px;
+	height: 16px
+}
+
+.giftlist a:hover {
+	color: #06c
+}
+
+h2.group-title {
+	padding: 0
+}
+
+.cartlist.cartgroup {
+	padding-top: 10px
+}
+
+.cartlist.cartgroup li {
+	border: 0 none;
+	padding: 5px 0 5px 0
+}
+
+.cartlist.cartgroup li strong {
+	font-weight: 400
+}
+
+.cartfooter {
+	background: #f3f3f3;
+	padding: 10px;
+	text-align: right
+}
+
+.cartfooter h4 {
+	color: #000;
+	padding-bottom: 5px
+}
+
+.cartfooter i,.cartfooter strong {
+	color: #c00
+}
+
+.cartfooter strong {
+	font-weight: 700;
+	font-size: 18px
+}
+
+a.gocart,a.btnsmall {
+	padding: 5px 13px;
+	display: inline-block;
+	background-position: 0 -1260px;
+	line-height: 15px;
+	border: 1px solid #f60;
+	color: #FFF;
+	font-weight: 700
+}
+
+a.gocart,a:hover.gocart,.btnsmall,a:hover.btnsmall {
+	color: #FFF;
+	text-decoration: none
+}
+
+.btnsmall {
+	padding: 4px 13px;
+	font-weight: 400
+}
+
+.shopnum {
+	color: #F40;
+	font-weight: 700;
+	display: inline-block;
+	text-align:center;
+	width:21px;
+}
+
+.cartlist a:hover h3,.cartlist a:hover {
+	color: #f00;
+	text-decoration: underline
+}
+
+.adnavside {
+	position: absolute;
+	right: 0px;
+	bottom: -5px;
+	width: 260px;
+	height: 80px;
+	overflow: hidden
+}
+
+.mobile-client {
+	position: absolute;
+	right: 10px;
+	top: -19px;
+	background: url(//css.gomein.net.cn/images/header-ui.png) no-repeat -130px 0;
+	width: 128px;
+	height: 43px;
+	text-indent: -9999px
+}
+
+.hd-clickscroll {
+	width: 3000px;
+	position: absolute;
+	top: 0
+}
+
+.hd-clickscroll li {
+	float: left;
+	display: inline;
+	width: 260px;
+	height: 80px
+}
+
+.clickscrollbtn {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	line-height: 1
+}
+
+.clickscrollbtn span {
+	float: left;
+	display: inline;
+	color: #999
+}
+
+.clicks-btnprv,.clicks-btnnext {
+	width: 13px;
+	height: 13px;
+	overflow: hidden;
+	text-indent: -999px;
+	background-position: -180px -140px;
+	float: left;
+	display: inline;
+	margin: 0 5px;
+	cursor: pointer
+}
+
+.clicks-btnnext {
+	background-position: -200px -140px
+}
+
+.clicks-btnprv.cur {
+	background-position: -140px -140px
+}
+
+.clicks-btnnext.cur {
+	background-position: -160px -140px
+}
+
+span.curnum {
+	color: #333
+}
+
+.clicks-btnprv.nogo,.clicks-btnnext.nogo {
+	cursor: default
+}
+
+#ftr {
+	padding-top: 10px; *
+	padding-bottom: 10px
+}
+
+.ftrbg {
+	border-top: 1px solid #d2d7dd;
+	height: 6px;
+	line-height: 6px;
+	background-position: 0 -1970px
+}
+
+.ftrline {
+	background-position: 0 -260px;
+	width: 100%;
+	height: 6px
+}
+
+.promise {
+	background: #f3f3f3;
+	height: 46px;
+	line-height: 44px;
+	position: relative
+}
+
+.promisebox {
+	border: 1px solid #e0e0e0
+}
+
+.promisebox li {
+	float: left;
+	display: inline;
+	background-position: right -380px;
+	background-repeat: no-repeat;
+	width: 33%;
+	color: #c00;
+	font: 700 20px/ 44px 'Microsoft YaHei';
+	text-align: center
+}
+
+.promisebox li span {
+	display: inline-block;
+	position: relative;
+	padding-left: 40px
+}
+
+.ico {
+	height: 30px;
+	width: 30px;
+	background-position: -320px 0;
+	position: absolute
+}
+
+.promisebox li span .ico {
+	top: 11px;
+	left: 0
+}
+
+.promisebox li.last {
+	background: 0
+}
+
+.heart {
+	background-position: -360px 0
+}
+
+.freeshipping {
+	background-position: -310px -50px
+}
+
+.ftrhelp {
+	padding: 10px 0 13px 40px
+}
+
+.ftrhelp li {
+	float: left;
+	display: inline;
+	width: 14.2%;
+	line-height: 20px
+}
+
+.ftrhelp li h4 {
+	font: 700 16px/ 24px 'Microsoft YaHei';
+	color: #999;
+	position: relative;
+	margin: 0 30px 5px 38px;
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 5px
+}
+
+.ftrhelp li a {
+	display: block;
+	margin-left: 40px
+}
+
+.ftrhelp li h4 .ico {
+	top: 3px; *
+	top: 0;
+	_top: 3px;
+	left: -30px
+}
+
+.ftrhelp a {
+	color: #666;
+	background-repeat: no-repeat;
+	background-position: 0 -1932px;
+	padding-left: 8px
+}
+
+.guide {
+	background-position: 0 -50px
+}
+
+.payment {
+	background-position: -39px -50px
+}
+
+.process {
+	background-position: -80px -50px
+}
+
+.member {
+	background-position: -130px -50px
+}
+
+.after-sales {
+	background-position: -180px -50px
+}
+
+.special-service {
+	background-position: -215px -50px
+}
+
+.gomegroup {
+	background-position: -260px -50px
+}
+
+.segments {
+	text-align: center;
+	margin-bottom: 10px;
+	padding-top: 20px;
+	position: relative
+}
+
+.copyright {
+	text-align: center;
+	margin-bottom: 22px
+}
+
+.credit {
+	text-align: center
+}
+
+.credit img {
+	margin-right: 20px
+}
+
+.select-segments {
+	background-position: 0 -450px;
+	height: 15px;
+	line-height: 15px;
+	border: 1px solid #CCC;
+	padding: 0 15px 0 5px;
+	color: #06c;
+	font-size: 12px;
+	display: inline-block;
+	cursor: pointer;
+	position: relative
+}
+
+.select-segments b {
+	background-position: right -170px;
+	position: absolute;
+	width: 7px;
+	height: 4px;
+	top: 5px;
+	right: 5px
+}
+
+.select-segments.hover b {
+	background-position: right -220px
+}
+
+.segmentslist {
+	position: absolute;
+	width: 350px;
+	top: -221px;
+	right: 235px;
+	border: 1px solid #ccc;
+	padding: 10px 20px;
+	background: #FFF;
+	line-height: 20px
+}
+
+.segmentslist a {
+	color: #333
+}
+
+.segmentslist li {
+	float: left;
+	width: 24%
+}
+
+/*头部修改*/
+.vphone{width:12px;height:15px;background:url(//css.gomein.net.cn/images/header-ui.png) no-repeat -298px -128px;float:left;display:inline;margin:7px 5px 0 0;_margin-right:3px;}
+.sjrz{margin-left:10px;}
+.dlzc{margin-right:10px;line-height:30px;display:inline-block;}
+.menuhide.pt5{padding-top:5px;}
+.mginfo{width:100px;display:inline-block;line-height:40px;}
+.mginfo a{color:#0066cc;}
+.mygomeinfo li.first.firstfix{padding-top:7px;height:33px;line-height:33px;}
+:root #csCheckout{padding-left:12px\9;}
+/*头部修改-窄屏分类*/
+.w990 .fullcategory{background-position: 550px 0;width: 760px;}
+.w990 .category{width:440px}
+.w990 .adnavside{width:200px;}
+.w990 .hd-clickscroll li{width:200px;}
+.w990 .hd-clickscroll li img{width:200px;height:80px;}
+
+
+/*返回顶部*/
+.backtopbox {width: 27px;height: 225px; right: 0; bottom: 10px; background:url(//css.gomein.net.cn/images/float-box.gif) no-repeat 0 0; position: relative; z-index: 999999; position: fixed; _position: absolute; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||5)-(parseInt(this.currentStyle.marginBottom, 10)||5)))
+}
+html { _background-image: url(about:blank); _background-attachment: fixed }
+/*.backtop { padding: 1px; border-top: 1px solid #E0E0E0; border-bottom: 1px solid #E0E0E0 }
+.backtop a { display: block; background-color: #f2f1f3; padding: 4px 0; background-position: 0 -1320px }
+.backtop b, .sideservice b { background-position: -50px -140px; width: 9px; height: 13px; display: block; margin: 0 auto 4px auto }
+.backtop a:hover b { background-position: -80px -140px }
+.sideservice a { display: block; padding: 4px 0; line-height: 14px }
+.sideservice b { width: 12px; height: 17px; background-position: -280px -23px }*/
+.backtopbox a{display: block;width: 27px;height: 89px;}
+a.usercheck:hover{background:url(//css.gomein.net.cn/images/float-box.gif) no-repeat -33px 0}
+a.backtop{height:45px;}
+
+.w990 .wbox { width: 990px 
+}
+
+.w990 .gome-logo {
+	width: 370px
+}
+
+.w990 .topsearch {
+	width: 380px
+}
+
+.w990 .search-input {
+	width: 286px
+}
+
+.w990 .searchtips {
+	width: 295px
+}
+
+.w990 .segmentslist {
+	right: 135px
+}
+
+.location {
+	font-family: "宋体";
+	line-height: 18px;
+	margin: 0 auto;
+	overflow: hidden;
+	border-bottom: 1px solid #E0E0E0;
+	padding-bottom: 5px;
+	color:#000;
+}

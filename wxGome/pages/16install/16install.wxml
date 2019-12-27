@@ -1,0 +1,65 @@
+<!--pages/orderTracking/orderTracking.wxml-->
+<view class="page_top_line"></view>
+<view class="tracking_msg_box">
+  <view class="product_msg">
+    <block wx:if="{{imgUrl!=null&&imgUrl!='null'&&imgUrl!=''}}">
+      <image src="{{protocol}}{{imgUrl}}"></image>
+    </block>
+    <block wx:else>
+      <image src="../../images/default2.jpg"></image>
+    </block>
+    <text>{{number}} 件商品</text>
+  </view>
+  <view class="tracking_msg">
+    <view class="textFlex" wx:if="{{orderInstallHistory.installNumber}}">
+      <text class="grey">安装单号：</text>
+      <text class="black">{{orderInstallHistory.installNumber}}</text>
+      <view class="copy" data-msg="{{orderInstallHistory.installNumber}}" bindtap='copy'>复制</view>
+    </view>
+    <view class="textFlex" wx:if="{{orderInstallHistory.installCompany}}">
+      <text class="grey">安装公司：</text>
+      <text class="black">{{orderInstallHistory.installCompany}}</text>
+    </view>
+    <view class="textFlex" wx:if="{{orderInstallHistory.installTel}}">
+      <text class="grey">安装电话：</text>
+      <text class="black blue" data-phone="{{orderInstallHistory.installTel}}" bindtap='callphone'>{{orderInstallHistory.installTel}}</text>
+    </view>
+  </view>
+</view>
+<view class='personnel_info' wx:if="{{orderInstallHistory.installStaffName && orderInstallHistory.installStaffTelephone}}">
+  <view class='msg_info'>
+    <image wx:if="{{courierImg}}" src='{{courierImg}}'></image>
+    <image wx:else src='../../images/courier-ico.png'></image>
+    <text>{{orderInstallHistory.installStaffName}}</text>
+    <!-- <span class='icon'>厂家安装</span>
+      <span class='icon'>国美安装</span> -->
+  </view>
+  <view class='contact'>
+    <view class='blue' data-phone="{{orderInstallHistory.installStaffTelephone}}" bindtap='callphone'>联系</view>
+    <view class='sapn-line'></view>
+    <view wx:if="{{orderInstallHistory.installStaffCode&&isAppraise=='NOTDONE'}}" class='evaluate_text' bindtap='installEvaluate'>给予评价</view>
+    <view wx:if="{{orderInstallHistory.installStaffCode&&isAppraise=='DONE'}}" class='evaluate_text' bindtap='installEvaluate'>查看评价</view>
+    <image class="arrow" src="../../images/arrowright.png" mode="aspectFit"></image>
+  </view>
+</view>
+<view class="tracking_box">
+  <view class="line"></view>
+  <view class="tracking_list" wx:for="{{orderHistoryModelsList}}" wx:for-index="idx" wx:for-item="orderHistoryModels" wx:key="idx">
+    <view wx:if="{{idx==0}}" class="tracking_item tracking_item_green">
+      <icon class="icon_track"></icon>
+      <text class="address">{{orderHistoryModels.orderHistoryInfo}}</text>
+      <text class="time">{{orderHistoryModels.orderHistoryTime}}</text>
+    </view>
+    <view wx:elif="{{idx==orderHistoryModelsList.length-1}}" class="tracking_item grey">
+      <icon class="icon_track"></icon>
+      <view class="white_line"></view>
+      <text class="address">{{orderHistoryModels.orderHistoryInfo}}</text>
+      <text class="time">{{orderHistoryModels.orderHistoryTime}}</text>
+    </view>
+    <view wx:else class="tracking_item grey">
+      <icon class="icon_track"></icon>
+      <text class="address">{{orderHistoryModels.orderHistoryInfo}}</text>
+      <text class="time">{{orderHistoryModels.orderHistoryTime}}</text>
+    </view>
+  </view>
+</view>

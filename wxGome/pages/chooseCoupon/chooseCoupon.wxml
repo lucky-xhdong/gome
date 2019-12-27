@@ -1,0 +1,81 @@
+<view class="choose-coupon-container">
+  <view class="weui-tab">
+
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="{{index}}">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="bindNavbar">
+          <view class="weui-navbar__title">{{item.title}}({{item.len}})</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px;"></view>
+    </view>
+
+    
+
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content"  hidden="{{activeIndex != wrapIdx}}"  wx:for="{{listData}}" wx:for-item="wrapData" wx:for-index="wrapIdx" wx:key="{{wrapIdx}}">
+         
+        <navigator class='use-explain-skip-wrap' url="/pages/useCouponInstructions/useCouponInstructions" hover-class="navigator-hover">
+          <view class="use-explain-wrap" wx:if="{{activeIndex == 0 && wrapData.length>0}}">
+            <view class="coupon-tip">
+              {{usedCouponRxplain}}共抵用 <text>￥{{reduceAmount ? reduceAmount : (reduceAmount + '.00')}}</text>
+            </view>
+
+            <view class="use-explain">
+              <text class="txt">使用说明</text>
+              <image class="arrow-right" src="../../images/jiaotou-right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <scroll-view class="{{activeIndex == 0 && wrapData.length>0 ? '' : 'no-available-coupons-wrap'}}" style="height:{{scrollHeight}}px; padding-top: {{(activeIndex == 0 && wrapData.length>0) ? (scrollPaddingTop + 'px') : '84rpx'}};" scroll-y="true" scroll-top="{{scrollTop}}">
+          <view class="choose-content-wrap {{wrapIdx == 1 ? 'not-available-coupons' : 'available-coupons'}}" wx:if="{{wrapData.length>0}}">
+            
+            <block wx:for="{{wrapData}}" wx:for-item="list" wx:key="{{list.type}}">
+                <view class="coupon-list-wrap {{item.type}}" wx:for="{{list.items}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="bindSelectedCoupon" data-is-used="{{wrapIdx == 0 ? true : false}}">
+
+                  <view class="coupon-box {{!item.available ? 'no-available-coupon': ''}}">
+
+                    <view class="price-box" wx:if="{{item.couponUnitPrice}}">
+                      <view class="price {{item.couponUnitPrice>999 ? 'small' : ''}}"><text>￥</text>{{ item.couponUnitPrice }}</view>
+                      <text class="txt" wx:if="{{item.couponApplyDetailInfoVO && item.couponApplyDetailInfoVO.limitedAmount}}">满{{ item.couponApplyDetailInfoVO.limitedAmount }}可用</text>
+                    </view>
+
+                    <view class="coupon-detail-box">
+                      <view class="detail-txt">{{ item.desc }}</view>
+                      <view class="label">{{item.label}}</view>
+                      <view class="validity">{{ item.validity }}</view>
+
+                      <view class="select-box" wx:if="{{wrapIdx != 1}}">
+                        <block wx:if="{{!item.available}}">
+                            <image src="../../images/cart-uncheck.png"></image>
+                        </block>
+                        <block wx:else>
+                          <image src="../../images/cart-checked.png" wx:if="{{item.checked}}"></image>
+                          <image src="../../images/cart-check.png" wx:else></image>
+                        </block>
+                      </view>
+                    </view>
+
+                    
+                  </view>
+                  <view class="coupon-des" wx:if="{{!item.available && item.codeDesc}}">{{item.codeDesc}}</view>
+
+                </view>
+                
+            </block>
+          </view>
+          
+          <view class="no-coupon" wx:else>
+              <image src="../../images/no-data.png"></image>
+              <view class="des">暂无{{activeIndex == 0 ? '可用' : '不可用'}}优惠券</view>
+          </view>
+
+        </scroll-view>
+        <view class="confirm" bindtap="bindConfirm" wx:if="{{activeIndex == 0 && wrapData.length>0 }}">确定</view>
+      </view> 
+    </view>
+  </view> 
+</view>
+<view class="loadingInt" hidden="{{!loading}}">
+  <image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>

@@ -1,0 +1,180 @@
+.container {
+  position: relative;
+  width: 750rpx;
+  padding-bottom: 90rpx;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 750rpx;
+}
+
+.item {
+  background: #fff;
+  width: 690rpx;
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.prod {
+  width: 690rpx;
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.prod-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* 多行评论框 */
+
+.text-box {
+  width: 690rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #dde0e4;
+}
+
+.apprise-text-hover {
+  font-size: 22rpx;
+  color: #b3b8bd;
+}
+
+.apprise-text {
+  width: 658rpx;
+  height: 160rpx;
+  padding: 20rpx;
+}
+
+.text-num-box {
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.text-num {
+  width: 80rpx;
+  font-size: 20rpx;
+  line-height: 26rpx;
+  text-align: center;
+  color: #fff;
+  background: #b1b7bd;
+  border-radius: 15rpx;
+}
+
+.apprise-tips {
+  width: 690rpx;
+  font-size: 24rpx;
+  padding: 20rpx 0;
+  line-height: 30rpx;
+  color: #b3b8bd;
+}
+
+/* 上传 */
+
+.upload-imgs {
+  width: 690rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+
+/* 上传图片 */
+
+.img-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.img-item {
+  width: 122rpx;
+  height: 122rpx;
+  padding-right: 20rpx;
+  position: relative;
+}
+
+.img-prod {
+  width: 122rpx;
+  height: 122rpx;
+}
+
+.img-del {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 15rpx;
+  top: -15rpx;
+}
+
+.add-img {
+  width: 122rpx;
+  height: 122rpx;
+}
+
+/* 服务评价 */
+
+.service-box {
+  position: relative;
+  width: 750rpx;
+  background: #fff;
+}
+
+.service-list {
+  width: 720rpx;
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-item {
+  width: 690rpx;
+  padding-right: 30rpx;
+  line-height: 78rpx;
+  border-bottom: 1rpx solid #dcddde;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 提交按钮 */
+
+.confirm-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  line-height: 90rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  background-image: linear-gradient(-90deg, #fa1e8c 0%, #fc1e61 100%);
+}
+
+.star-box {
+  padding-left: 20rpx;
+  width: 264rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.star-img {
+  width: 40rpx;
+  height: 40rpx;
+}

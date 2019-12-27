@@ -1,0 +1,107 @@
+.cancelDelivery_list {
+  margin:10px auto;
+  transition: .2s;
+  flex-direction: column;
+  .cd-list__form {
+    position: relative;
+    padding:20px 10px 10px;
+    margin-bottom: 20px;
+    border: solid 1px $border-color;
+    .globel-d-header {
+      margin-bottom: 10px;
+    }
+    .input-group {
+      .el-form-item {
+        .el-form-item__label {
+          width:110px;
+          font-family: $font-family;
+        }
+        .el-form-item__content {
+          .el-input, .el-select {
+            width: 292px;
+          }
+          .input-mini {
+            width:135px;
+            .el-input__inner {
+              padding-right:10px;
+            }
+            .el-input__suffix {
+              right:0;
+            }
+          }
+          .el-form__time_error {
+            position: absolute;
+            top: 25px;
+            color: $font-color7;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .errorTip {
+      margin-bottom: 18px;
+      font-family: $font-family;
+      text-align: center;
+      color: $font-color2;
+    }
+    .form-tip {
+      text-align: right;
+      color: $font-color5;
+      .red {
+        color: $font-color2;
+      }
+    }
+  }
+  .cd-list__table {
+    min-height: 760px;
+    border: solid 1px $border-color;
+    .el-table__header-wrapper,
+    .el-table__body-wrapper,
+    .el-table__fixed-header-wrapper,
+    .el-table__fixed-body-wrapper {
+      thead {
+        tr {
+          th {
+            background-color: $background-color;
+            font-family: $font-family;
+            text-align: center;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-family: $font-family;
+            text-align: center;
+          }
+        }
+      }
+    }
+    .el-table__body-wrapper {
+      .el-table__empty-text {
+        font-family: $font-family;
+      }
+      .btn-normal {
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        font-family: $font-family;
+        color: $font-color4;
+        padding:0 10px;
+        &:hover {
+          color: $font-color-hover;
+        }
+      }
+    }
+    .el-pagination {
+      text-align: right;
+      margin:20px 0;
+    }
+  }
+  .btn-group {
+    text-align: center;
+    .el-button {
+      margin:0 50px;
+    }
+  }
+}

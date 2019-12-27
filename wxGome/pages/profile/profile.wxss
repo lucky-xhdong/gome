@@ -1,0 +1,175 @@
+/* pages/profile/profile.wxss */
+
+.cont {
+    width: 590rpx;
+    padding: 0 80rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 300rpx;
+    height: 300rpx;
+    margin-top: 100rpx;
+    margin-bottom: 80rpx;
+}
+
+.login-btn {
+    background-image: linear-gradient(-90deg, #fa1e8c 0%, #fc1e56 100%);
+    width: 590rpx;
+    line-height: 88rpx;
+    border-radius: 55rpx;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.red {
+    color: #e4393c;
+}
+
+.font32 {
+    font-size: 32rpx;
+}
+
+.order_list .fl-num {
+    font-size: 30rpx;
+    color: #1b84f5;
+}
+
+.order_list .fl-time {
+    font-size: 24rpx;
+    color: #919599;
+}
+
+.arrowright .red {
+    color: #e4393c;
+    font-size: 26rpx;
+}
+
+.user_decription {
+    width: 100%;
+    height: 200rpx;
+    background: #ff4c4c;
+}
+
+.username_msg {
+    width: 162rpx;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+
+.userimage {
+    width: 92rpx;
+    height: 92rpx;
+    border: 4rpx solid #b64040;
+    border-radius: 50%;
+    float: left;
+    margin: 48rpx 40rpx 0 30rpx;
+}
+
+.username_box {
+    float: left;
+    width: 556rpx;
+    margin: 56rpx 0 0 0;
+    color: #fff;
+    height: 130rpx;
+    font: 24rpx/40rpx 'Microsoft Yahei';
+}
+
+.username_box text {
+    display: block;
+    overflow: hidden;
+}
+
+.username {
+    font: 32rpx/40rpx 'Microsoft Yahei';
+    margin-bottom: 10rpx;
+    max-width: 280rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order_list {
+    width: 100%;
+    display: block;
+    height: 120rpx;
+    line-height: 120rpx;
+    overflow: hidden;
+    background: #fff;
+}
+
+.order_list text {
+    color: #333;
+}
+
+.icon {
+    width: 34rpx;
+    height: 34rpx;
+    margin: 43rpx 32rpx;
+}
+
+.arrowright {
+    margin-right: 20rpx;
+}
+
+.arrowright .more {
+    width: 14rpx;
+    height: 26rpx;
+    padding-left: 18rpx;
+    position: relative;
+    top: 5rpx;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.userInfo .grade {
+    width: 124rpx;
+    height: 50rpx;
+    background: #ee3b3b;
+    border-radius: 24rpx;
+    margin-left: 22rpx;
+    line-height: 50rpx;
+}
+
+.grade .grade-level {
+    width: 42rpx;
+    height: 42rpx;
+    margin: 4rpx;
+    background: #ff5757;
+    border-radius: 50%;
+    line-height: 42rpx;
+    text-align: center;
+}
+
+.userInfo .pay-me {
+    margin-left: 22rpx;
+    padding: 3rpx 14rpx;
+    height: 31rpx;
+    text-align: center;
+    line-height: 31rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 18rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: right;
+    border: 2rpx solid #FFFFFF;
+    border-radius: 29.36rpx;
+}

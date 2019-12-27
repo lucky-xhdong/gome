@@ -1,0 +1,6 @@
+<view class="fanli-box">
+  <view class="explain" wx:for="{{explain}}" wx:key="this">
+    <view class="tit">{{item.title}}</view>
+    <view class="content">{{item.content}}</view>
+  </view>
+</view>

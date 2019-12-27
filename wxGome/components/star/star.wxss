@@ -1,0 +1,17 @@
+.star-box {
+  padding-left: 20rpx;
+  width: 264rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.star-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+

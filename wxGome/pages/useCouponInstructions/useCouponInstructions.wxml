@@ -1,0 +1,12 @@
+<view class="use-coupon-instructions-box">
+  <view class="top-border"></view> 
+  <view class="use-coupon-instructions">
+    <view class="list" wx:for="{{couponInstruction}}" wx:key="{{list.type}}" wx:for-item="list">
+      <view class="title">{{list.title}}</view>
+      <view class="txt" wx:for="{{list.content}}" wx:key="index"> 
+        {{item}}
+      </view>
+    </view>
+
+  </view>
+</view>

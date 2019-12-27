@@ -1,0 +1,20 @@
+<view class="img-box">
+  <block wx:if="{{showState==1}}">
+    <view class='img-list' wx:if="{{list.length>0}}">
+      <view class='img-item' wx:for="{{list}}" wx:key="*this">
+        <!-- <image class='img-prod' src='../../images/default1.jpg'></image> -->
+        <image class='img-prod' src='{{item}}' bindtap='previewImgEvent' data-url="{{item}}"></image>
+        <image class='img-del' src='../../images/del-img.png' data-index="{{index}}" bindtap='delPhotoEvent'></image>
+      </view>
+
+    </view>
+    <image class="add-img" src='../../images/add-img.png' bindtap='addPhotoEvnet' wx:if="{{show}}"></image>
+  </block>
+  <block wx:else>
+    <view class='img-list' wx:if="{{list.length>0}}">
+      <view class='img-item' wx:for="{{list}}" wx:key="*this">
+        <image class='img-prod' src='{{item}}' data-url="{{item}}" bindtap='previewImgEvent'></image>
+      </view>
+    </view>
+  </block>
+</view>

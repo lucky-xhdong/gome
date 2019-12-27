@@ -1,0 +1,47 @@
+<view class='container' style='height:{{height}}' scroll-y>
+  <view class='apprise'>
+    <view class='tit'>
+      <view class='prod'>
+        <image class='prod-img' src='{{info.skuImageUrl}}'></image>
+        <view class='star-box'>
+          <block wx:for="{{stars}}" wx:key="*this" wx:for-index="starIdx">
+            <!-- <image class='star-img' src='{{(score > item) ? selectedSrc :normalSrc}}' data-score="{{item + 1}}" data-idx="{{starIdx}}" bindtap='selectStar'></image> -->
+                <image class='star-img' src='{{(score > item) ? selectedSrc :normalSrc}}' data-score="{{item + 1}}" data-idx="{{starIdx}}" ></image>
+          </block>
+        </view>
+      </view>
+      <!-- <view class='prod-tit'>仅支持改为好评</view> -->
+    </view>
+    <view class='span'></view>
+    <view class='info-box'>
+      <view class='time'>{{info.postTime}}</view>
+      <view class='info'>{{info.summary}}</view>
+      <view class='img-box' wx:if="{{info.showPicture.pictures.length>0}}">
+        <view class='img-list'>
+          <view class='img-item' wx:for="{{info.showPicture.pictures}}" wx:key="*this" wx:for-index="idx">
+            <image class='img-prod' src='{{protocol}}{{item}}' bindtap='previewImgEvent' data-url="{{protocol}}{{item}}"  data-types="0"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='text-box'>
+        <textarea class='apprise-text' placeholder="补充一下您的使用感受吧！" placeholder-class="apprise-text-hover" value="{{apprise}}" maxlength='200' bindinput='getAppriseText' bindblur="getAppriseTextBlur" />
+        <view class='text-num-box'>
+          <view class='text-num'>{{appriseNum}}/200</view>
+        </view>
+      </view>
+      <view class='apprise-tips' wx:if="{{(info.showPicture=='N' || info.showPicture=='' ||info.showPicture==null) && info.jifen!='' && info.jifen !=0 }}">没图没真相，给小伙伴晒一晒，晒单通过得{{info.jifen}}美豆</view>
+      <view class='img-box' wx:if="{{info.showPicture=='N' || info.showPicture=='' ||info.showPicture==null  }}">
+        <view class='img-list'>
+          <view class='img-item' wx:for="{{pics}}" wx:key="*this" wx:for-index="idx">
+            <image class='img-prod' src='{{item}}' bindtap='previewImgEvent' data-url="{{item}}" data-types="1"></image>
+            <image class='img-del' src='../../images/del-img.png' data-index="{{index}}" bindtap='delPhotoEvent'></image>
+          </view>
+        </view>
+        <image class="add-img" src='../../images/add-img.png' bindtap='addPhotoEvnet' wx:if="{{show}}"></image>
+      </view>
+    </view>
+
+  </view>
+  <view class='confirm-btn' bindtap='confirmEvent'>提交</view>
+</view>

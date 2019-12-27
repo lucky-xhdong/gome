@@ -1,0 +1,165 @@
+.salesOrganization_list {
+  margin:10px auto;
+  transition: .2s;
+  flex-direction: column;
+  .so-list__form {
+    position: relative;
+    padding:20px 10px 10px;
+    margin-bottom: 20px;
+    border: solid 1px $border-color;
+    .input-group {
+      .el-form-item {
+        margin-right:0;
+        .el-form-item__label {
+          width:136px;
+          font-family: $font-family;
+        }
+        .el-form-item__content {
+          .departmentLists {
+            max-width: 800px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            span {
+              font-family: "Microsoft YaHei";
+              color: #606266;
+              &:first-child {
+                margin-left: -14px;
+              }
+            }
+          }
+          .btn-column-set {
+            //position: absolute;
+            //right: 0;
+            //top: 0;
+          }
+          .el-input, .el-select {
+            width: 290px;
+          }
+          .el-date-editor {
+            width:140px;
+          }
+          .input-mini {
+            .el-input__inner {
+              padding-right:10px;
+            }
+            .el-input__suffix {
+              right:0;
+            }
+          }
+          .el-form__time_error {
+            position: absolute;
+            top: 25px;
+            color: $font-color7;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .errorTip {
+      margin-bottom: 18px;
+      font-family: $font-family;
+      text-align: center;
+      color: $font-color2;
+    }
+  }
+  .el-pagination {
+    margin:30px 0;
+    text-align: right;
+  }
+  .btn-group {
+    text-align: center;
+    .el-button {
+      margin:0 50px;
+    }
+  }
+  .form-tip {
+    text-align: right;
+    color: $font-color5;
+    .red {
+      color: $font-color2;
+    }
+  }
+}
+.sr-total-wrapper {
+  margin-bottom:15px;
+  .sales-money{
+    text-align: center;
+    span.txt {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    span.red {
+      color: $font-color2;
+    }
+  }
+  .sales-time {
+    .btn-column-set {
+      float: right;
+    }
+  }
+  .sales-time, .sales-money {
+    padding:0 10px;
+
+    .txt {
+      font-size: 14px;
+      line-height:30px;
+      color: $font-color1;
+      margin-right:20px;
+      &:before {
+        content: attr(data-before);
+      }
+    }
+    .btn-download {
+      display: inline-block;
+      line-height: 1;
+      background: #fff;
+      border: 1px solid #dcdfe6;
+      color: #606266;
+      text-align: center;
+      padding: 7px 15px;
+      font-size: 12px;
+      border-radius: 3px;
+      margin-left: 10px;
+      &:hover {
+        text-decoration: none;
+        color: #409EFF;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+      }
+    }
+  }
+}
+.sr-progress {
+  margin-bottom: 20px;
+}
+div.el-dialog{
+  width: 500px;
+  .el-dialog__body {
+    .el-checkall-wrapper {
+      padding-bottom: 5px;
+      border-bottom: 1px solid #eee;
+    }
+    .el-checkbox-group {
+      padding: 5px 0;
+    }
+    .el-checkbox {
+      width: 200px;
+      margin-left: 30px;
+    }
+    .el-input-tree {
+      margin-bottom: 15px;
+    }
+
+    .el-dialog__tree {
+      height: 300px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      .el-checkbox {
+        width: auto;
+      }
+    }
+  }
+}
+

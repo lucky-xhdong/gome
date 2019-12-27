@@ -1,0 +1,341 @@
+
+/* ==== 公共样式 ==== */
+
+page {
+	background: #f2f2f2;
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	font-family: 'Microsoft YaHei';
+}
+
+.mainCon {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0; 
+	transition: 0.8s;
+}
+.mainConMove {
+	-webkit-transform: scale(0.9);
+	        transform: scale(0.9);
+}
+
+/* ==== 限时达 ==== */
+.timeMask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	-webkit-transform: translateY(100%);
+	        transform: translateY(100%);
+}
+.timeMaskShow { 
+	animation: mask1 0.8s both; 
+}
+.timeMaskHide { 
+	animation: mask2 0.8s both;
+}
+.timeMaskCon {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+	width: 100%;
+	/*height: 200rpx;*/
+	transition: 0.8s;
+	background-color: #fff;
+
+	-webkit-transform: translateY(100%);
+	        transform: translateY(100%);
+}
+.timeMaskConShow {
+	-webkit-transform: translateY(0);
+	        transform: translateY(0);
+}
+.timeMaskCon text {
+	display: block;
+	width: 100rpx;
+	height: 100rpx;
+	background: #fff;
+}
+.timeMaskCon .timepicker{
+	background: #fff;width: 100%;
+}
+
+@keyframes mask1 {
+	0% {
+		background-color: rgba(0,0,0,0);
+		transform: translateY(0);
+	}
+
+    100% {
+    	background-color: rgba(0,0,0,0.8);
+    	transform: translateY(0);
+    }
+}
+@keyframes mask2 {
+	0% {
+		background-color: rgba(0,0,0,0.8);
+		transform: translateY(0);
+	}
+  	99% {
+  		background-color: rgba(0,0,0,0);
+  		transform: translateY(0);
+  	}
+    100% {
+    	background-color: rgba(0,0,0,0);
+    	transform: translateY(100%);
+    }
+}
+
+
+
+
+view {line-height: 0;}
+text {font: 24rpx/24rpx 'Microsoft YaHei';}
+.margin-b-20 {margin-bottom: 20rpx;}
+.deliverTitle {
+	height: 58rpx;
+}
+.deliverTitle text {
+	line-height: 58rpx;
+	color: #999;
+	font-weight: bold;
+}
+scroll-view {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 96rpx;
+}
+.bottom0{
+	bottom: 0;
+}
+/* ==== 配送时间 ==== */
+.deliveryTimeWrap {
+	border-top: 1px solid #e3e3e3;
+	padding:20rpx 20rpx 0;
+	background-color:#fff;
+}
+.deliveryTimeWrapMore {
+	padding:20rpx 20rpx 0;
+	background: none;
+	border-top: none;
+}
+.deliveryTimeWrap .allItems{
+	border-bottom: 1rpx solid #e3e3e3;
+	border-top: 1rpx solid #e3e3e3;
+	margin-bottom: 20rpx;
+	padding: 20rpx;
+	background-color: #fff;
+}
+.deliveryTimeWrap .productImgWrap{
+	width: 100%;
+	height: 100rpx;
+	overflow: hidden;
+}
+.deliveryTimeWrap .productImgWrap .productImgBox{
+	width: 420rpx;
+	height: 100rpx;
+	overflow: hidden;
+	float: left;
+}
+.deliveryTimeWrap .productImgList{
+	display: inline-block;
+}
+.deliveryTimeWrap .productImgList .productImg {
+	width: 100rpx;
+	height: 100rpx;
+	background: url(http://css.gomein.net.cn/gmpro/1.0.0/minapp/img/default1.jpg) no-repeat;
+	background-size: cover;
+	display: inline-block;
+	margin-right:5rpx;
+}
+.deliveryTimeWrap .productPoints{
+	display:inline-block;
+	height:55px;
+	width:55rpx;
+	vertical-align:top;
+	font-size:60rpx;
+	padding-left:20rpx;
+	line-height:55rpx;
+	float: left;
+}
+.deliveryTimeWrap .productImgList .productImg image{
+	width: 100rpx;
+	height: 100rpx;
+	display: block;
+}
+
+.delivery {
+	padding: 20rpx 0;
+}
+.delivery text {
+	line-height: 36rpx;
+	color: #333;
+}
+.delivery text.num {
+	color: #197fe7;
+}
+.limitTime {
+	padding: 10rpx 0;
+	display: flex;
+}
+.limitTime .active_tracking {
+	width: 38rpx;
+	height: 38rpx;
+}
+.limitTime .time {
+	flex: 1;
+	padding: 0 30rpx;
+	box-sizing: border-box;
+	line-height: 38rpx;
+	color: #333;
+}
+.limitTime .calendar_icon {
+	width: 38rpx;
+	height: 38rpx;
+}
+
+/* ==== 送货前电话确认 ==== */
+.deliveryPhome {
+	
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+	background-color: #fff;
+
+	display: flex;
+	height: 100rpx;
+	line-height: 100rpx;
+}
+.deliveryPhome text {
+	flex: 1;
+	color: #333;
+	line-height: 100rpx;
+}
+.deliveryPhome image {
+	margin-top: 27rpx;
+	width: 46rpx;
+	height: 46rpx;
+}
+.deliveryTimeWrap .checkedWrap {
+	margin-top: 20rpx;
+}
+.deliveryTimeWrap .deliversubTitle {
+	height:58rpx;
+	line-height:58rpx;
+	color: #888;
+	font-size: 24rpx;
+}
+
+/* ==== 配送方式 ==== */
+.deliveryWayWrap {
+	padding: 20rpx 20rpx 0;
+	background-color: #fff;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.deliveryWayWrap .productImg {
+	width: 100rpx;
+	height: 100rpx;
+	background: url(http://css.gomein.net.cn/gmpro/1.0.0/minapp/img/default1.jpg) no-repeat;
+	background-size: cover;
+}
+.deliveryWayWrap .productImgList {
+	width: 100rpx;
+	height: 100rpx;
+}
+
+ .ttIscheck text{margin-left: 20rpx;}
+.deliveryWayWrap .productImg image {
+	width: 100%;
+	height: 100%;
+}
+.deliveryWayWrap .checkedWrap {
+	margin-top: 30rpx;
+}
+.deliveryWayWrap .tip {
+	padding-bottom: 20rpx;
+}
+.deliveryWayWrap .tip text{
+	line-height: 30rpx;
+	font-size: 20rpx;
+	color: #999;
+}
+
+/* ==== 备注 ==== */
+.remark {
+	background-color: #fff;
+	padding: 30rpx 20rpx;
+}
+.remark text {
+	line-height: 24rpx;
+	color: #333;
+}
+.remark input {
+	margin-top: 20rpx;
+	display: block;
+	border: 1px solid #d2d2d2;
+	box-sizing: border-box;
+	padding: 0 10rpx;
+	height: 58rpx;
+	font: 22rpx/58rpx 'Microsoft YaHei';
+	border-radius: 2rpx;
+}
+
+
+/* ==== 确定按钮 ==== */
+.confirmBtn {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+  left: 0;
+  border: 1rpx solid #e6e6e6;
+  background: #fff;
+  padding: 15rpx 0;
+}
+
+
+.confirmBtn button {
+	width: 708rpx;
+  height: 80rpx;
+  background-color: #ff5757;
+  border: 1rpx solid #ff5757;
+  color: #fff;
+  text-align: center;
+  font: 500 32rpx/80rpx "Microsoft YaHei";
+  border-radius: 10rpx;
+    margin: 0 auto;
+  z-index: 99;
+}
+
+.deliveryTime image,.checkImg{
+	width: 38rpx;
+	height: 38rpx;
+	vertical-align: middle;
+}
+
+.deliveryTime radio{display: none;}
+.mask{/*ackground: #000;opacity: 0.5;*/background-color: rgba(0,0,0,0.8);width: 100%;height: 100%;position: fixed;top:0;left: 0;z-index:999;display: block;}
+/*.timepicker{position: fixed;bottom: 0;left: 0;background: #fff;width: 100%;z-index: 99999;padding:30rpx 0;}*/
+.timepicker .head{background: #eeecec;border-bottom: 1px solid #ccc;}
+.timepicker .flex-wrp{display:flex;}
+.timepicker .flex-wrp view{text-align: center;flex: 1;height: 56rpx;line-height: 56rpx;font-size: 24rpx;}
+/*.timepicker .flex-wrp view text,.timepicker .flex-wrp view image{vertical-align: middle;}*/
+
+.isChecked text{
+	color: #666;
+	line-height: 64rpx;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+
+
+

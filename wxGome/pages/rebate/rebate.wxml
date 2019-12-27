@@ -1,0 +1,52 @@
+<scroll-view class="rebate" scroll-y="true" style="height:{{height}}" enable-back-to-top="true" bindscrolltolower="loadMore">
+    <view class="rebate-content">
+        <view class="rebate-nav">
+            <view class="nav-items {{currentTab==2 ? 'on' :''}}" bindtap="toInterAccount" hover="true" hover-class="nav-items-hover" data-current="2">待入账</view>
+            <view class="nav-items {{currentTab==1 ? 'on' :''}}" bindtap="toInterAccount" hover="true" hover-class="nav-items-hover" data-current="1">已入账</view>
+            <view class="nav-items {{currentTab==3 ? 'on' :''}}" bindtap="toInterAccount" hover="true" hover-class="nav-items-hover" data-current="3">已失效</view>
+        </view>
+        <view class="rebate-items">
+            <!--待入账  -->
+            <view class="items-info">
+                <view class="items-info-box" wx:if="{{interList.length > 0}}">
+                    <view class="items-content" wx:for="{{interList}}" wx:key="interListId">
+                    <view  wx:if="{{item.rebateType==1}}">
+                            <view class="inter-tit">
+                                <view class="inter-price"><text>{{item.amount}}</text>国美币</view>
+                                <view class="inter-time" wx:if="{{currentTab==1}}"><text>到账时间：</text>{{item.rebateTime}}</view>
+                                <view class="inter-time" wx:elif="{{currentTab==3}}">
+                                    <text class="invalid" wx:if="{{item.invalidReasonType==1}}">失效原因：订单取消</text>
+                                    <text class="invalid" wx:elif="{{item.invalidReasonType==2}}">失效原因：订单退货</text>
+                                    <text class="invalid" wx:elif="{{item.invalidReasonType==3}}">失效原因：订单换货</text>
+                                    <text class="invalid" wx:elif="{{item.invalidReasonType==4}}">失效原因：订单拒收</text>
+                                    <text class="invalid" wx:else>失效原因：订单取消</text>
+                                </view>
+                                <view class="inter-time" wx:else hidden="true"></view>
+                            </view>
+                            <view class="inter-content">
+                                <image src="{{item.skuInfo.item.mainImage}}"></image>
+                                <view class="inter-info">
+                                    <view class="inter-info-desc">{{item.skuInfo.item.name}}</view>
+                                    <view class="inter-user" wx:if="{{item.rebateType==1}}">您购买了该商品</view>
+                                    <!-- <view class="inter-user" wx:else>"{{item.user.nickname}}"购买了您分享的商品</view> -->
+                                    <view class="inter-info-time"><text>下单时间：</text>{{item.purchaseTime}}</view>
+                                </view>
+                            </view>
+                            <view class="tips">
+                                <image wx:if="{{item.rebateType==1}}" src="/images/buy-tip.png"></image>
+                                <!-- <image wx:elif="{{item.rebateType==2}}" src="/images/share-tip.png"></image> -->
+                                <image wx:else hidden="true"></image>
+                            </view>
+                    </view>
+                    </view>
+                    <view class="over" wx:if="{{isShow}}">下拉加载更多哦~</view>
+                    <view class="over" wx:else>没有更多内容了~</view>
+                </view>
+                <view class="items-info-no" hidden="{{infoNo}}" wx:else>
+                    <image src="/images/no-rebate.png"></image>
+                    <view class="no-content">抱歉，您还没有相关返利记录~</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

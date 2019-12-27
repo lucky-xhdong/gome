@@ -1,0 +1,111 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/collectorCms/collectorCms",
+    "pages/collectorTicket/collectorTicket",
+    "pages/getTicket/getTicket",
+    "pages/cart/cart",
+    "pages/profile/profile",
+    "pages/oldUserAccount/oldUserAccount",
+    "pages/loginEmpower/loginEmpower",
+    "pages/packageInfo/packageInfo",
+    "pages/activePage/activePage",
+    "pages/list/list",
+    "pages/prod/prod",
+    "pages/myMeidou/myMeidou",
+    "pages/groupProd/groupProd",
+    "pages/appraise/appraise",
+    "pages/shopList/shopList",
+    "pages/shopProd/shopProd",
+    "pages/shopAddress/shopAddress",
+    "pages/paySuccess/paySuccess",
+    "pages/chooseCoupon/chooseCoupon",
+    "pages/commodityList/commodityList",
+    "pages/delivery/delivery",
+    "pages/address/address",
+    "pages/getcoupon/getcoupon",
+    "pages/newAddress/newAddress",
+    "pages/editAddress/editAddress",
+    "pages/getAddress/getAddress",
+    "pages/invoice/invoice",
+    "pages/coupon/coupon",
+    "pages/order/order",
+    "pages/confirmOrder/confirmOrder",
+    "pages/orderTracking/orderTracking",
+    "pages/orderdetails/orderdetails",
+    "pages/productList/productList",
+    "pages/rebate/rebate",
+    "pages/rebateExplain/rebateExplain",
+    "pages/goodClassify/goodClassify",
+    "pages/filter/filter",
+    "pages/filterClassify/filterClassify",
+    "pages/filterBrand/filterBrand",
+    "pages/filterBlue/filterBlue",
+    "pages/listBlue/listBlue",
+    "pages/filterBrandBlue/filterBrandBlue",
+    "pages/filterClassifyBlue/filterClassifyBlue",
+    "pages/accountGuide/accountGuide",
+    "pages/login/login",
+    "pages/platform-privacy/platform-privacy",
+    "pages/platform-service/platform-service",
+    "pages/meifubao-agreement/meifubao-agreement",
+    "pages/active/active",
+    "pages/16order/16order",
+    "pages/16selfAppraise/16selfAppraise",
+    "pages/16orderDetails/16orderDetails",
+    "pages/16apprise/16apprise",
+    "pages/16addApprise/16addApprise",
+    "pages/16install/16install",
+    "pages/16impression/16impression",
+    "pages/16logistics/16logistics",
+    "pages/useCouponInstructions/useCouponInstructions"
+  ],
+  "window": {
+    "backgroundTextStyle": "weight",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "国美",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#e3101e",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/rhome.png"
+      },
+      {
+        "pagePath": "pages/shopList/shopList",
+        "text": "附近门店",
+        "iconPath": "images/nearstore.png",
+        "selectedIconPath": "images/rnearstore.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/cartt.png",
+        "selectedIconPath": "images/rcartt.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/rorder.png"
+      }
+    ]
+  },
+  "debug": true,
+  "plugins": {
+    "captcha": {
+      "version": "1.0.0",
+      "provider": "wxbf8483dfc5ac6817"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxe25ab88328c0cdca"
+  ]
+}

@@ -1,0 +1,77 @@
+<template name="appraseContentTem">
+  <view class="loadingInt" wx:if="{{curAppraiseData.isFirstLoad}}">
+    <image mode="aspectFit" src="../../images/loading.gif"></image>
+  </view>
+
+  <view class="appraise-content-wrap" wx:if="{{curAppraiseData.appraiseData && curAppraiseData.appraiseData.length>0}}">
+    <view class="appraiseItem-wrap" wx:for="{{curAppraiseData.appraiseData}}" wx:for-item="appraiseItem" wx:key="{{appraiseItem.id}}">
+      <view class="portrait-wrap">
+        <image wx:if="{{appraiseItem.skuImageUrl}}" class="portrait" src="{{protocol}}{{appraiseItem.skuImageUrl}}"></image>
+        <view class="stars-wrap">
+          <star id="star"
+            type="3" 
+            score="{{appraiseItem.score}}"
+            star-box="star-box" star-img="star-img">
+          </star>
+        </view>
+        <view class="add-appraise-btn" data-appriseid="{{appraiseItem.id}}" wx:if="{{appraiseItem.addAppraiseButton}}" bindtap="bindSkipAddAppraise">追加评论</view>
+      </view>
+    
+      <view class="appraise-content">
+        <view class="date-wrap">
+          <text class="date">{{appraiseItem.postTime}}</text>
+        </view>
+        <text class="content">{{appraiseItem.summary}}</text>
+        <view class="has-image-appraise" wx:if="{{appraiseItem.picShowFirstAppraise && appraiseItem.showPicture && appraiseItem.showPicture.pictures.length>0}}">
+          <block wx:for="{{appraiseItem.showPicture.pictures}}" wx:for-item="pictureItem" wx:key="{{pictureItem}}">
+            <view wx:if="{{index<5}}">
+              <image src="{{protocol}}{{pictureItem}}" data-src="{{protocol}}{{pictureItem}}" data-imagelists="{{appraiseItem.showPicture.pictures}}" bindtap="bindPreviewImage"></image>
+            </view>
+          </block>
+          
+          <block wx:if="{{appraiseItem.showPicture.pictures.length<5}}">
+              <view wx:for="{{5-appraiseItem.showPicture.pictures.length}}" wx:for-item="noPictureItem" wx:key="{{noPictureItem}}">
+              </view>
+          </block>
+        </view>
+    
+        <view class="service-reply-wrap" wx:if="{{appraiseItem.serviceReply && appraiseItem.serviceReply.content}}">
+          <text>{{appraiseItem.serviceReply.merchant || '国美回复'}}：{{appraiseItem.serviceReply.content}}</text>
+        </view>
+      </view>
+    
+      <view class="additional-review-wrap" wx:if="{{appraiseItem.additional}}">
+        <view class="date-wrap"><text class="add-btn">追评</text><text class="date">{{appraiseItem.additional.postTime}}</text></view>
+        <text class="content">{{appraiseItem.additional.content}}</text>  
+    
+        <view class="has-image-appraise" wx:if="{{!appraiseItem.picShowFirstAppraise && appraiseItem.showPicture && appraiseItem.showPicture.pictures.length>0}}">
+          <block wx:for="{{appraiseItem.showPicture.pictures}}" wx:for-item="pictureItem" wx:key="{{pictureItem}}">
+            <view wx:if="{{index<5}}">
+              <image src="{{protocol}}{{pictureItem}}" data-src="{{protocol}}{{pictureItem}}" data-imagelists="{{appraiseItem.showPicture.pictures}}" bindtap="bindPreviewImage"></image>
+            </view>
+          </block>
+          
+          <block wx:if="{{appraiseItem.showPicture.pictures.length<5}}">
+              <view wx:for="{{5-appraiseItem.showPicture.pictures.length}}" wx:for-item="noPictureItem" wx:key="{{noPictureItem}}">
+              </view>
+          </block>
+        </view>
+    
+        <view class="service-reply-wrap" wx:if="{{appraiseItem.additional.reply}}">
+            <text>国美回复：{{appraiseItem.additional.reply}}</text>
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <block wx:else>
+    <view class="no-appraise">
+        暂无评价，欢迎您购买之后留下宝贵的评价
+    </view>
+  </block>
+
+  <view class="scrollLoad" hidden="{{!curAppraiseData.curLoading}}"><image src="../../images/loading.gif"></image></view>
+
+  <view class="loadMore" wx:if="{{curAppraiseData.loadMore && curAppraiseData.appraiseData.length>=5}}">没有更多评价了~</view>
+
+</template>

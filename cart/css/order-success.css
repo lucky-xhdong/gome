@@ -1,0 +1,173 @@
+.order-success{}
+.oc_Warp{
+    width: 990px;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #5e5e5e;
+    font-family: simsun;
+    background: #f3fded;
+    border: 1px solid #68b64c;
+    padding-bottom: 30px;
+}
+.oc_btn{
+    display:inline-block;
+    vertical-align:middle;
+    height:28px;
+    line-height:28px;
+    padding:0 25px;
+    border:1px solid #dedede;
+    overflow:hidden;
+    color:#333;
+    background:#FFF;
+    
+}
+.oc_btn:hover{
+    color:#333;
+    text-decoration:none;
+    border-color:#CCC;
+}
+.oc_btn:active{
+    color:#333;
+    text-decoration:none;
+    border-color:#CCC;
+    background:#F8F8F8;
+}
+.oc_red{color: #c00}
+.oc_blue{color:#069;}
+.oc_gray_a5{color:#a5a5a5;}
+/*oc_orderType*/
+.oc_orderType{
+    border-top: 1px solid #E4E4E4;
+    padding: 30px 0 0 160px;
+    margin-bottom: 5px;
+}
+.oc_orderType .status{
+    vertical-align: middle;
+    overflow: hidden;
+    margin: 0 10px 0 -64px;
+}
+.oc_orderType h3{
+    display: inline-block;
+    vertical-align: middle;
+    font:700 17px/44px "micrsoft yahei" 
+}
+.oc_orderType h4{
+    font:700 14px/46px "micrsoft yahei" 
+}
+/*oc_cashOnDelivery*/
+.oc_cashOnDelivery{
+    padding-left: 160px;
+    line-height: 32px;
+    margin-bottom: 30px;
+}
+.oc_cashOnDelivery .delivery{
+    padding-left: 85px;
+}
+.delivery dt{
+    float: left;
+    width: 85px;
+    margin-left: -85px;
+    font:700 12px/32px "micrsoft yahei" 
+}
+.delivery .col_105{
+    width: 105px;
+    vertical-align: middle;
+}
+.delivery .col_300{
+    width: 300px;
+    vertical-align: middle;
+}
+/*oc_cashInStore*/
+.oc_cashInStore{
+    padding-left: 160px;
+    line-height: 28px;
+    margin-bottom: 15px;
+}
+
+/*oc_electricApplianceService*/
+.oc_electricApplianceService{
+    padding-left: 160px;
+    line-height: 28px;
+    margin-bottom: 7px;
+}
+.oc_electricApplianceService dt{
+    font-weight: 700;
+    margin-bottom: 5px;  
+}
+/*oc_cashInBank*/
+.oc_cashInBank{
+    padding-left: 160px;
+    line-height:28px;
+}
+.oc_cashInBank-info{
+    width: 578px;
+    border: 1px solid #DEDEDE;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.oc_cashInBank-info td{
+    border: 1px solid #DEDEDE;
+    background-color: #fffaf6;
+    text-align: center;
+}
+.oc_cashInBank-attention dt{
+    margin-bottom: 5px;
+    color: #fd8024;
+}
+.oc_cashInBank-attention{
+    margin-bottom: 10px;
+}
+/*oc_cashInBank*/
+.oc_cashInPost{
+    padding-left: 160px;
+    line-height:28px;
+}
+.oc_cashInPost-info{
+    width: 348px;
+    border: 1px solid #DEDEDE;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.oc_cashInPost-info td{
+    border: 1px solid #DEDEDE;
+    background-color: #fffaf6;
+    text-align: center;
+}
+.oc_cashInPost-attention dt{
+    margin-bottom: 5px;
+    color: #fd8024;
+}
+.oc_cashInPost-attention{
+    margin-bottom: 10px;
+}
+/*oc_rebateInfos*/
+.oc_rebateInfos{
+    padding-left: 160px;
+    line-height: 28px;
+    margin-bottom: 9px;
+}
+.oc_rebateInfos dt{
+    font-weight: 700;
+    margin-bottom: 5px; 
+}
+/*oc_waring*/
+.oc_waring{
+    padding-left: 160px;
+}
+/*oc_hrefs*/
+.oc_hrefs{
+    padding-left: 160px;
+    margin-bottom: 20px;
+}
+.oc_hrefs .oc_btn{
+    margin-right: 14px;
+}
+/*********头部标题修改为图片**************/
+#head-title{
+    margin-left: 0;
+}
+.head-title-odersuccess{
+    background: url(i/tjcg.png) no-repeat 0px 32px;
+    width: 170px;
+    text-indent:-999px;
+}

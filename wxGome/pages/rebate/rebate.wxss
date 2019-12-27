@@ -1,0 +1,219 @@
+page{
+    position: relative;
+    height: 100%;
+}
+.rebate {
+   position: relative;
+
+}
+
+.tit-top {
+  width: 750rpx;
+  padding: 50rpx 0;
+  background-color: #ff4c4c;
+  color: #fff;
+  text-align: center;
+}
+
+.top-tip {
+  font: 400 24rpx/40rpx "Microsoft YaHei";
+}
+
+.rebate-money {
+  font: 400 69rpx/80rpx "Microsoft YaHei";
+  text-align: center;
+  position: relative;
+}
+
+.money-info {
+  display: inline-block;
+  text-align: center;
+  padding-left: 10rpx;
+  position: relative;
+}
+
+.money-tip {
+  font: 400 42rpx/80rpx "Arial";
+  left: -10rpx;
+  position: absolute;
+}
+
+/*已入账和已失效金额  */
+
+.tit-bottom {
+  background-color: #ee3b3b;
+  color: #fff;
+  padding: 25rpx 0;
+  overflow: hidden;
+}
+
+.rebate-detail {
+  float: left;
+  width: 374.5rpx;
+  font: 400 24rpx/40rpx "Microsoft YaHei";
+  text-align: center;
+}
+
+.detail-money {
+  font: 400 36rpx/40rpx "Arial";
+}
+
+.tit-tip {
+  float: left;
+  width: 1rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.rebate-content {
+  width: 750rpx;
+  background-color: #fff;
+}
+
+/*导航栏  */
+
+.rebate-nav {
+  width: 750rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  overflow: hidden;
+}
+
+.nav-items {
+  float: left;
+  width: 250rpx;
+  height: 80rpx;
+  font: 400 30rpx/80rpx "Microsoft YaHei";
+  color: #333;
+  text-align: center;
+}
+
+.nav-items-hover, .on {
+  color: #ff4c4c;
+  height: 100%;
+  border-bottom: 4rpx solid #ff4c4c;
+}
+
+.rebate-items {
+  background-color: #f8f8f8;
+}
+
+.rebate-items .items-info {
+  width: 712rpx;
+  padding: 0 19rpx;
+  overflow: hidden;
+
+}
+
+/*待入账  */
+
+.items-content>view {
+  border: 1rpx solid #e6e6e6;
+  padding: 0 20rpx;
+  background: #fff;
+  margin-top: 25rpx ;
+  position: relative;
+}
+
+.inter-tit {
+  position: relative;
+  border-bottom: 1rpx solid #ddd;
+   padding: 20rpx 0; 
+  overflow: hidden;
+}
+
+.inter-price {
+  float: left;
+  width: 300rpx;
+  text-align: left;
+  color: #999;
+  font: 400 24rpx/50rpx "Microsoft YaHei";
+}
+
+.inter-price>text {
+  display: inline-block;
+  padding-right: 10rpx;
+  color: #e3101e;
+  font: 400 36rpx/50rpx "Arial";
+}
+
+.inter-time {
+  float: left;
+  color: #999;
+  width: 360rpx;
+  font: 400 24rpx/50rpx "Arial";
+  text-align: right;
+}
+
+.inter-time>text {
+  display: inline-block;
+  font: 400 24rpx "Microsoft YaHei";
+}
+
+.inter-content {
+  position: relative;
+  width: 670rpx;
+  padding: 20rpx 0;
+  overflow: hidden;
+}
+
+.inter-content>image {
+  width: 210rpx;
+  height: 210rpx;
+  float: left;
+}
+
+.inter-info {
+  width: 440rpx;
+  padding-left: 20rpx;
+  float: left;
+}
+
+.inter-info-desc {
+  display: -webkit-box;
+  color: #333;
+  font: 400 30rpx/50rpx "Microsoft YaHei";
+  height: 100rpx;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+.inter-user{
+  color: #ff7f23;
+    font: 400 24rpx/50rpx "Microsoft YaHei";
+}
+.inter-info-time{
+  font: 400 24rpx/50rpx "Microsoft YaHei";
+  color: #a5a5a5;
+}
+.tips{
+  position: absolute;
+  height: 100rpx;
+  width: 100rpx;
+  right:-5rpx;
+  bottom: -5rpx;
+}
+.tips>image{
+  width: 100rpx;
+  height: 100rpx;
+}
+/*没有返利记录 */
+.items-info-no{
+  background: #f8f8f8;
+  width: 750rpx;
+
+}
+.items-info-no>image{
+  width: 230rpx;
+  height: 230rpx;
+  margin-top: 200rpx;
+  margin-left: 241rpx;
+}
+
+.no-content,.over{
+  color: #a5a5a5;
+   font: 400 26rpx/80rpx "Microsoft YaHei";
+  text-align: center
+}

@@ -1,0 +1,195 @@
+.payment-b-ad{
+	width: 990px;
+	height: 80px;
+	overflow: hidden;
+	position: relative;
+}
+
+
+.payment-success{
+	width: 990px;
+	margin: 0 auto;
+	border-top: solid 2px #2a8c01;
+	background-color: #f7fff3;
+	min-height: 350px;
+
+}
+.payment-left{
+	width: 810px;
+	float: left;
+	position: relative;
+}
+.payment-r-ad{
+	width: 180px;
+	float: left;
+	height: 100%;
+	height: 350px;
+	overflow: hidden;
+}
+.payment-icon{
+	float: left;
+}
+.payment-title{
+	width: 500px;
+	height: 50px;
+	margin: 40px 0 0 40px;
+}
+.payment-title-txt{
+	padding: 10px 0 0 60px;
+	color: #2a8c01;
+	font-size: 18px;
+	font-family: "Microsoft YaHei";
+}
+.order-msg{
+	width: 710px;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 20px 0 20px 90px;
+	float: left;
+}
+.order-handle{
+	padding: 0px 0 6px 64px;
+	float: left;
+}
+/* .split-linetb{border-top:1px solid #ccc;border-bottom:1px solid #ccc;} */
+.order-handle .btn{
+	color: #333333;
+	background: #fff;
+	border: 1px solid #dedede;
+	width: 100px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	line-height: 30px;
+}
+.two-dimension-code{
+	width: 100px;
+	height: 130px;
+	float: left;
+/* 	background: #F3F3F3; */
+	position: absolute;
+	right: 75px;
+	top: -61px;
+}
+
+.payment-down{
+	margin: 40px 0 0 130px;
+}
+.payment-down b{
+	color: #F85103;
+	font-family: "Microsoft YaHei";
+	font-size: 22px;
+	font-weight: 500;
+	margin: -38px 0 0 60px;
+	display: block;
+}
+
+.payment-ticket{
+	margin: 40px 0 0 130px;
+
+}
+.payment-ticket b{
+	color: #F85103;
+	font-family: "Microsoft YaHei";
+	font-size: 22px;
+	font-weight: 500;
+	margin: -38px 0 0 60px;
+	display: block;
+}
+.payment-error{
+	padding: 70px 0 50px 130px;
+}
+.payment-error b{
+	font-size: 18px;
+	display: block;
+	font-family: "Microsoft YaHei";
+	margin: -42px 0 0 60px;
+}
+.payment-error p a{
+	color: #006699;
+	cursor: pointer;
+}
+.payment-error p{
+	margin: 0px 0 0 60px;
+}
+
+.mr30{
+	margin-right: 30px;
+}
+.ml10{
+	margin-left: 10px; 
+}
+
+/*******steps*******/
+.payment-steps .ready, .payment-steps .process{
+	float: left;
+	position: relative;
+}
+.payment-steps .ready{
+	width: 49px;
+}
+.payment-steps .process{
+	width: 70px;
+	height: 2px;
+	background: #CCC;
+	margin: 5px 0 0 -28px;
+
+}
+.payment-steps .process-green{
+	background: green;
+}
+.payment-steps{
+	min-width: 750px;
+	margin: 10px 0 0 59px;
+	position: relative;
+	height: 90px;
+}
+.payment-steps .step-txt{
+	position: relative;
+	top: 20px;
+	left: -8px;
+}
+.payment-steps:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.payment-steps .c-i{
+	margin-left: 3px;
+}
+.order-handle .download-txt{
+	color: #069;   
+	display: inline;
+	line-height: 30px;
+}
+.payment-final{
+	margin: 40px 0 0 130px;
+
+}
+.payment-final b{
+	color: #F85103;
+	font-family: "Microsoft YaHei";
+	font-size: 22px;
+	font-weight: 500;
+	margin: -38px 0 0 60px;
+	display: block;
+}
+.payment-dialog{position: relative;}
+.payment-dialog-img{
+	display: block;
+	width: 480px;
+	height: 480px;
+	background: url(i/payment-success.png) 0 0 no-repeat;
+}
+.payment-close{
+	position: absolute;
+	right:25px;
+	top:25px;
+	display: block;
+	width: 30px;
+	height:31px;
+	background: url(i/payment-close.png) 0 0 no-repeat;
+	cursor: pointer;
+}

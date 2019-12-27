@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "评价晒单",
+  "usingComponents": {
+    "star": "/components/star/star",
+    "uploadImg": "/components/uploadImg/uploadImg"
+  }
+}

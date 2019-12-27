@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2015-11-27 Fri 08:07 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>front-server</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="秦振龙" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">front-server</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline2">1. 描述</a>
+<ul>
+<li><a href="#orgheadline1">1.1. 功能</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">2. 初始化</a>
+<ul>
+<li><a href="#orgheadline3">2.1. 推荐用法</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">3. 配置文件</a>
+<ul>
+<li><a href="#orgheadline5">3.1. g-cart-server.json</a></li>
+<li><a href="#orgheadline6">3.2. config 说明</a></li>
+<li><a href="#orgheadline7">3.3. project.routes 说明</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> 描述</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+基于 node 的前端服务器
+</p>
+</div>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 功能</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>支持 window osx linux</li>
+<li>java 渲染 jsp</li>
+<li>java 渲染 freemark</li>
+<li>多种形式 url=&gt;json 映射</li>
+<li>支持 js css url 合并</li>
+<li>接口映射到服务器-todo</li>
+<li>内嵌模版可打包到前端 js 不需要引入模版引擎源码</li>
+<li>sprite 支持</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">2</span> 初始化</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> 推荐用法</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>win上</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone https://git.oschina.net/diqye/g-cart-server.git C:\gm\g-cart-server
+<span style="color: #1f71ab;">cd</span> your-project
+&#37197;&#32622;&#25991;&#20214; &#21487;&#20174;c:\gm\g-cart-server&#37324;&#22797;&#21046;g-cart-server.json&#21040;&#26412;&#30446;&#24405;&#25913;&#20889;
+node c:\gm\g-cart-server\server.js
+ 
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+</pre>
+</div>
+<ul class="org-ul">
+<li>osx or linux上</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone https://git.oschina.net/diqye/g-cart-server.git ~\gm\g-cart-server
+chmod <span style="color: #a45bad;">777</span> ~/gm/g-cart-server/lib/xxxxxx/start.sh
+<span style="color: #1f71ab;">cd</span> your-project
+&#37197;&#32622;&#25991;&#20214; &#21487;&#20174;~\gm\g-cart-server&#37324;&#22797;&#21046;g-cart-server.json&#21040;&#26412;&#30446;&#24405;&#25913;&#20889;
+node ~\gm\g-cart-server\server.js
+ 
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">3</span> 配置文件</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">3.1</span> g-cart-server.json</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #2f96dc;">{</span>
+    <span style="color: #2d9574;">"jettry"</span>: <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2d9574;">"root"</span>: <span style="color: #2d9574;">"E:/workspaces/front-cart"</span>,
+        <span style="color: #2d9574;">"port"</span>: <span style="color: #a45bad;">7776</span>
+    <span style="color: #bc6ec5;">}</span>,
+    <span style="color: #2d9574;">"node"</span>: <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2d9574;">"port"</span>: <span style="color: #a45bad;">8080</span>
+    <span style="color: #bc6ec5;">}</span>,
+    <span style="color: #2d9574;">"statics"</span>: <span style="color: #bc6ec5;">[</span>
+        <span style="color: #2d9574;">"E:/workspaces/dev/Storefront/storedocroot.war"</span>
+    <span style="color: #bc6ec5;">]</span>,
+    <span style="color: #2d9574;">"project"</span>: <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2d9574;">"request"</span>: <span style="color: #2d9574;">[</span>
+            <span style="color: #2d9574;">"/request.json"</span>
+        <span style="color: #2d9574;">]</span>,
+        <span style="color: #2d9574;">"routes"</span>: <span style="color: #2d9574;">[</span>
+          <span style="color: #2d9574;">"./routes/cart-routes.json"</span>,
+          <span style="color: #2d9574;">"./routes/order-success.json"</span>,
+          <span style="color: #2d9574;">"./routes/shopping-routes.json"</span>,
+            <span style="color: #67b11d;">[</span>
+                <span style="color: #2d9574;">"/help"</span>,
+                <span style="color: #2d9574;">"{cwd}/help/help.html"</span>
+            <span style="color: #67b11d;">]</span>,<span style="color: #67b11d;">[</span>
+                <span style="color: #2d9574;">"/"</span>,
+                <span style="color: #2d9574;">"{config.jettry.root}/README.html"</span>
+            <span style="color: #67b11d;">]</span>,<span style="color: #67b11d;">[</span>
+                <span style="color: #2d9574;">"/:site/:page"</span>,
+                <span style="color: #2d9574;">"/{params.site}/{params.page}.ftl"</span>,
+                <span style="color: #2d9574;">"/data/{params.site}/{params.page}.json"</span>
+            <span style="color: #67b11d;">]</span>,<span style="color: #67b11d;">[</span>
+                <span style="color: #2d9574;">"/icon"</span>,
+                <span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/html/icons/index.html"</span>
+            <span style="color: #67b11d;">]</span>,<span style="color: #67b11d;">[</span>
+                <span style="color: #2d9574;">"/api/:type/:method"</span>,
+                <span style="color: #2d9574;">"/data/{params.type}/{params.method}.json"</span>
+            <span style="color: #67b11d;">]</span>
+        <span style="color: #2d9574;">]</span>,
+        <span style="color: #2d9574;">"tplTofn"</span>:<span style="color: #2d9574;">{</span>
+            <span style="color: #2d9574;">"src"</span>:<span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/template"</span>,
+            <span style="color: #2d9574;">"dist"</span>:<span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/templatefn"</span>,
+            <span style="color: #2d9574;">"/cart.js"</span>:<span style="color: #67b11d;">[</span>
+                <span style="color: #2d9574;">"/common.tpl"</span>,
+                <span style="color: #2d9574;">"/cart"</span>
+            <span style="color: #67b11d;">]</span>
+        <span style="color: #2d9574;">}</span>,
+        <span style="color: #2d9574;">"sprite"</span>:<span style="color: #2d9574;">{</span>
+            <span style="color: #2d9574;">"src"</span>:<span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/css/i/sprite"</span>,
+            <span style="color: #2d9574;">"dist"</span>:<span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/css/i/sprite.png"</span>,
+            <span style="color: #2d9574;">"selector"</span>:<span style="color: #2d9574;">".c-i"</span>,
+             <span style="color: #2d9574;">"html"</span>:<span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/html/icons/index.html"</span>,
+            <span style="color: #2d9574;">"css"</span>:<span style="color: #2d9574;">"{config.statics.0}/xxx/1.0.0/css/i/sprite.css"</span>
+        <span style="color: #2d9574;">}</span>
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #2f96dc;">}</span>
+ 
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">3.2</span> config 说明</h3>
+<div class="outline-text-3" id="text-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">path</th>
+<th scope="col" class="org-left">desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">jettry.root</td>
+<td class="org-left">jsp root path</td>
+</tr>
+
+<tr>
+<td class="org-left">project.statics</td>
+<td class="org-left">js css image path</td>
+</tr>
+
+<tr>
+<td class="org-left">project.request</td>
+<td class="org-left">jsp or freemark request data</td>
+</tr>
+
+<tr>
+<td class="org-left">project.routes</td>
+<td class="org-left">route mapping</td>
+</tr>
+
+<tr>
+<td class="org-left">project.sprite</td>
+<td class="org-left">auto sprite</td>
+</tr>
+
+<tr>
+<td class="org-left">project.tplTofn</td>
+<td class="org-left">auto tpl</td>
+</tr>
+</tbody>
+</table>
+<p>
+配置文件默认是在当前目录 可以分离出来 但需要自己写脚本 node xxxxx/server.js 放到分离的目录
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">3.3</span> project.routes 说明</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>routes 中可以引入另外文件的 routes 路径以~.~开头（当前 config.json 的路径)</li>
+<li>配置的路由规则相同 先进入前面的路由 如果文件未找到会接着往下走 直到 404</li>
+<li><p>
+peoject.routes 中可以引用的变量
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">name</th>
+<th scope="col" class="org-left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>cwd</code></td>
+<td class="org-left">server 运行的目录</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>config</code></td>
+<td class="org-left">config.json 文件数据结构</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>params</code></td>
+<td class="org-left">url 中的匹配项</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>query</code></td>
+<td class="org-left">querystirng</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: 秦振龙</p>
+<p class="date">Created: 2015-11-27 Fri 08:07</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

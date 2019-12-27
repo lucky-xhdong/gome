@@ -1,0 +1,949 @@
+.fl {
+    float: left;
+}
+
+.pr {
+    position: relative;
+}
+
+a.redlink {
+    background: #e3101e;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+a.redlink:hover {
+    background: #d00;
+    color: #fff;
+}
+
+a.redlink:active {
+    background: #c00;
+    color: #fff;
+}
+
+/* 弹出层模块 */
+.dialog {
+    position: relative;
+    z-index: 10000;
+}
+
+.dialogBox {
+    width: 450px;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0px 0px 20px #999;
+    padding-bottom:30px;
+    z-index: 1;
+    top: -150px;
+    left: 0;
+    *border: 1px solid #999;
+    display: none;
+}
+
+.dialogBox.Wish {
+    width: auto;
+    height: auto;
+}
+
+.dialogBox.FQ {
+    width: 480px;
+    height: 315px;
+    _left: -330px;
+}
+.dialogError {
+    margin: 40px auto 0;
+    width: 370px;
+    height: 45px;
+}
+.errorBox {
+    line-height: 40px;
+    height: 40px;
+    display: inline-block;
+    float: left;
+    color: #5e5e5e;
+    overflow: hidden;
+}
+.dialogBox.TZ {
+    height: 295px;
+}
+
+.dialogBox.Er {
+    height: 95px;
+}
+
+.dialogBox .close {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+}
+
+.dialogBox .close a {
+    color: #e7b8bc;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "simsun";
+}
+
+.dialogBox .close a:hover {
+    color: #5a5a5a;
+    text-decoration: none;
+}
+
+.close-error-box, .nTclose, .cart .nTclose, .order .nTclose {
+    background-position: -114px -83px;
+    display: block;
+    float: right;
+    height: 21px;
+    overflow: hidden;
+    text-indent: -1000px;
+    width: 19px;
+}
+
+.cart .nTclose, .order .nTclose {
+    background-position: -114px -83px;
+}
+
+.cart .nTclose:hover, .order .nTclose:hover {
+    background-position: -114px -103px
+}
+
+.dialogInner {
+    display: none;
+}
+.dialogBox.wp ul li {
+    padding:0 52px;
+}
+/* 弹出层模块：降价通知、到货通知 */
+.dialogTZ {
+    color: #5e5e5e;
+}
+
+.dialogTZ .txt {
+    height: 22px;
+    color: #c00;
+    font: bold 12px/22px 'Microsoft YaHei';
+    color: #5e5e5e;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.dialogTZ .txt i {
+    color: #5e5e5e;
+    font: bold 12px/22px 'Microsoft YaHei';
+}
+.dialogTZ .price-box {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+}
+.dialogTZ .price-box i {
+    position: absolute;
+    font-style: normal;
+    left: 6px;
+    top: 2px;
+    font-size: 16px;
+    color: #ae111d;
+}
+.dialogTZ .price-box input {
+    width: 54px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0 4px 0 18px;
+}
+.dialogTZ .inp {
+    margin-top: 10px;
+}
+
+.dialogTZ .inp input {
+    width: 226px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0 6px;
+}
+
+.dialogTZ .inp span {
+    color: #c00;
+    padding-left: 68px;
+    display: none;
+}
+
+.dialogTZ .inp i {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    background-position: -113px -72px;
+    overflow: hidden;
+}
+
+.dialogTZ .add, .dialogTZ .smt {
+    margin-top: 20px;
+    padding-left: 70px;
+}
+
+.dialogTZ .add input {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.dialogBox.wp .add {
+    padding-left: 121px;
+}
+.dialogTZ .smt {
+    margin-top: 10px;
+}
+.dialogBox.wp .smt a, .dialogBox.wp .smt a:visited {
+    background-color: #f8f8f8;
+    color: #5e5e5e;
+    border: 1px solid #e6e6e6;
+    margin-left: 69px;
+    padding: 0 10px;
+    line-height: 22px;
+    height: 22px;
+}
+
+.dialogBox.wp .price-box .error {
+    display: block;
+}
+.noticOk {
+    width: 150px;
+    height: 50px;
+    font: bold 18px/40px 'microsoft yahei';
+    margin: 100px auto 50px;
+    color: #2A8C01;
+}
+
+.dialogTZ .sicon {
+    position: absolute;
+    width: 44px;
+    height: 61px;
+    right: 50px;
+    top: -8px;
+}
+
+.dialogTZ .tit {
+    background-color: #ae111d;
+    color: #fff;
+    height:22px;
+    padding: 10px !important;
+    font: 700 14px/22px SimSun;
+}
+
+/*提心愿 start*/
+
+/*心愿单*/
+#showWishWrap {
+    height: 40px;
+    border: 1px solid #fff;
+    display: inline-block;
+    width: 119px;
+    position: relative;
+    float: left;
+    color: #5e5e5e;
+    margin-bottom: 10px;
+}
+
+#wishHover {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: -64px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    width: 256px;
+    z-index: 10;
+}
+
+.wish_wrap {
+    margin: 24px 30px;
+    width: 448px;
+}
+
+.closeBTN {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-decoration: none;
+    color: #999999;
+    font-family: simsun;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.closeBTN:hover {
+    text-decoration: none;
+}
+
+.wish_share {
+    position: relative;
+}
+
+.wish_share a {
+    display: inline-block;
+}
+
+.do {
+    display: none;
+}
+
+.w990 #wish_wrap {
+    left: 730px;
+}
+
+#wish_wrap input, #wish_wrap textarea {
+    outline: none;
+}
+
+.wish_header {
+    font: 14px/26px '微软雅黑';
+    font-weight: 700;
+    color: #EC4F21;
+}
+
+.wish_title {
+    font: 12px/22px 700;
+    font-weight: 700;
+    color: #A5A5A5;
+    margin-top: 18px;
+}
+
+.wish_form {
+    margin-top: 14px;
+}
+
+.must_flag {
+    color: #c00;
+    padding: 0 2px;
+}
+
+.item_title {
+    color: #5e5e5e;
+    width: 84px;
+    text-align: right;
+}
+
+.item_boder {
+    width: 200px;
+    margin-right: 10px;
+    padding-left: 2px;
+}
+
+.verify_info, .item_boder, .item_title {
+    line-height: 26px;
+    height: 26px;
+    float: left;
+}
+
+.item_v_boder {
+    width: 80px;
+}
+
+.wish_text_e {
+    color: #c00;
+    margin-top: 2px;
+    visibility: hidden;
+}
+
+.submit_wish {
+    cursor: pointer;
+    color: #fff;
+    background: #c00;
+    padding: 6px 20px;
+    *padding: 5px 10px;
+    _padding: 5px 10px;
+    border: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    font-weight: bolder;
+}
+.submit_wish_text {
+    color: #A5A5A5;
+    line-height: 16px;
+    padding-left: 5px;
+}
+
+.v_send {
+    color: #178E22;
+    display: none;
+}
+
+.verify_r .v_send {
+    display: block;
+}
+
+.wish_verifyNum {
+    border: 0;
+    outline: none;
+    width: 80px;
+}
+
+
+.bds_tsina:hover {
+    text-decoration: none;
+}
+
+.copy_link {
+    margin: 7px 6px 6px 0;
+    color: #a5a5a5;
+    float: left;
+    text-decoration: none;
+}
+
+.copy_link i {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 1px;
+    margin-top: 2px;
+    background: url(i/copy.png?__sprite) no-repeat;
+}
+
+#wish_share .copy_link span, #wish_share .weixin_saoyisao span {
+    vertical-align: top;
+    color: #a5a5a5;
+}
+
+.copy_link, .weixin_saoyisao {
+    cursor: pointer;
+}
+
+.weixin_saoyisao {
+    margin: 7px 6px 6px 10px;
+    display: inline-block;
+    color: #a5a5a5;
+    text-decoration: none;
+}
+
+.weixin_saoyisao i {
+    background: url(i/saosao.png?__sprite) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 1px;
+    margin-right:2px;
+}
+
+.bdsharebuttonbox {
+    float: left;
+    margin-top: 2px;
+    *margin-top: 4px;
+    _margin-top: -2px;
+    margin-left: 10px;
+}
+
+.wish_text_error textarea {
+    border: 1px solid #c00;
+}
+
+.wish_text_error .wish_text_e {
+    visibility: visible;
+}
+
+.wish_text_error .wish_text {
+    border: 1px solid #c00;
+}
+
+.weixin_text {
+    color: #5e5e5e;
+    margin: 0 70px 0 50px;
+    line-height: 20px;
+    width: 326px;
+}
+
+.wish_verify_btn {
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    width: 88px;
+    text-align: center;
+    color: #5e5e5e;
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#btnLink #wish_verify_btn {
+    color: #5e5e5e;
+}
+
+#btnLink #wish_verify_btn.wish_verify_btn_disabled {
+    color: #ccc;
+    border: 1px solid #e7e7e7;
+}
+
+.wish_text_presentation {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    color: #ccc;
+}
+
+.wish_text {
+    height: 74px;
+    width: 350px;
+    line-height: 18px;
+    resize: none;
+    border: 1px solid #CCC;
+    font-family: New song;
+    font-size: 12px;
+}
+
+.wish_form .item {
+    margin-top: 10px;
+    overflow: hidden;
+    clear: both;
+}
+
+#wish_wrap input, #wish_wrap textarea {
+    outline: 0;
+}
+
+.wish_mobilePhoneNumber {
+    outline: 0;
+    width: 198px;
+    border: 0;
+}
+
+._ie6_input {
+    _height: 26px;
+    _line-height: 26px;
+    _margin-left: -28px;
+    _position: relative;
+    _top: 1px;
+    _margin-top: 4px;
+}
+
+.v_border {
+    border: 1px solid #ccc;
+}
+
+.v_r, .v_e {
+    display: none;
+}
+
+.verify_double {
+    display: none;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.wish_share {
+    position: relative;
+}
+
+.fleft {
+    float: left;
+}
+
+.copy_link {
+    margin: 7px 6px 6px 0;
+    color: #a5a5a5;
+    float: left;
+    text-decoration: none;
+}
+
+.weixin_saoyisao {
+    margin: 7px 6px 6px 10px;
+    display: inline-block;
+    color: #a5a5a5;
+    text-decoration: none;
+}
+
+#wish_share .copy_link span, #wish_share .weixin_saoyisao span {
+    vertical-align: top;
+    color: #a5a5a5;
+}
+
+#wish_share .copy_link i, #wish_share .weixin_saoyisao i {
+    vertical-align: top;
+}
+
+
+.qrcode_img {
+    display: block;
+    margin:10px auto;
+}
+
+.c5e {
+    color: #5e5e5e;
+}
+
+#send_wish_success {
+    margin: 40px 0 40px 30px;
+    position: relative;
+    display: none;
+}
+
+.send_wish_error {
+    margin: 40px 0 40px 30px;
+    position: relative;
+    display: none;
+}
+
+.wish_share_wrap {
+    margin: 20px 0 20px 30px;
+    position: relative;
+}
+
+.send_wish_success_flag {
+    float: left;
+    margin-right: 10px;
+    width: 41px;
+    height: 43px;
+    background-position: -72px -35px;
+}
+
+.send_wish_success_text {
+    color: #178E22;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+    font-family: 'Microsoft YaHei';
+}
+
+.c333 {
+    color: #333;
+}
+
+.tichu_wish, .try_again {
+    color: #1F64C7;
+    cursor: pointer;
+}
+
+.send_wish_error_flag {
+    float: left;
+    margin-right: 10px;
+    width: 41px;
+    height: 43px;
+   background: url(i/warn.png?__sprite) no-repeat;
+}
+
+.send_wish_error_text {
+    color: #c00;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+    font-family: 'Microsoft YaHei';
+}
+
+#copy_link_success {
+    display: none;
+    position: absolute;
+    margin: 10px;
+    border: 1px solid #F2DBB9;
+    height: 30px;
+    line-height: 30px;
+    width: 135px;
+    background: #FFFCF2;
+    color: #5e5e5e;
+    font-size: 12px;
+    text-align: center;
+    left: -30px;
+    bottom: 20px;
+    _bottom: 20px;
+}
+
+.c_l_s {
+    height: 9px;
+    width: 6px;
+    background: #FFFCF2 -251px -19px;
+    position: absolute;
+    left: 67px;
+    top: 29px;
+    overflow: hidden;
+}
+
+/*提心愿 end*/
+
+/*收藏 start*/
+.dialogAdd {
+    width: 410px;
+    margin: 0 auto;
+    _overflow: hidden;
+}
+
+.dialogAdd .up {
+    margin: 30px 0 0 30px;
+    overflow: hidden;
+    position: relative;
+    _float: left;
+}
+
+.prdmain li li {
+    padding-left: 0;
+}
+
+.dialogAdd .left, .dialogAdd .right {
+    float: left;
+    width: 42px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.dgIcon {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+    background: url(i/iconsuccess.png?__sprite) no-repeat;
+}
+.dgIcon.error {
+    background: url(i/iconerror.png?__sprite) no-repeat;
+}
+.dgIcon.warn {
+    background: url(i/warn.png?__sprite) no-repeat;
+}
+.dialogAdd .right {
+    width: 310px;
+    height: 90px;
+    overflow: hidden;
+    line-height: 20px;
+    color: #5e5e5e;
+}
+
+.dialogAdd .dgMsg {
+    font-weight: 700;
+    color: #000;
+}
+
+.dialogAdd .dgLnk {
+    margin-top: 16px;
+}
+
+.dialogAdd .dgLnk a {
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 25px;
+}
+
+.dialogAdd .dgLnk a.redlink {
+    padding: 2px 10px;
+    font-family: simsun;
+    font-weight: 700;
+}
+
+.dialogAdd .dgLnk a.stages {
+    width: 68px;
+    height: 28px;
+    text-align: center;
+    font: 400 12px/28px simsun;
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    color: #5e5e5e;
+    cursor: pointer;
+}
+
+.dialogAdd .dgLnk a.arrange {
+    color: #069;
+    font-family: simsun;
+}
+
+.dialogAdd .collect_dingyue {
+    border-top: 2px #ccc solid;
+    margin-top: 10px;
+}
+
+.dialogAdd .txt {
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+
+.price-area {
+    display: none;
+    width: 100%;
+}
+
+.pdtl-red {
+    color: #c00;
+}
+
+.dialogAdd .price-box {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+}
+
+.dialogAdd .price-box i {
+    position: absolute;
+    font-style: normal;
+    left: 6px;
+    top: 2px;
+    font-size: 16px;
+    color: #ae111d;
+}
+
+.dialogAdd .price-box i {
+    width: auto;
+}
+
+.dialogAdd .price-box input {
+    width: 54px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0 4px 0 18px;
+}
+
+.dialogAdd #error-price {
+    color: #c00;
+    padding: 0 10px;
+    display: block;
+    display: none;
+    margin-left: 65px;
+    margin-top: 6px;
+}
+
+.dialogAdd .inp {
+    margin-top: 10px;
+}
+
+.dialogAdd .inp input {
+    width: 180px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0 6px;
+}
+
+.dialogAdd .inp .pdtl-red {
+    font-size: 18px;
+    height: 18px;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 4px;
+}
+
+.dialogAdd .inp .error {
+    margin-left: 72px;
+}
+
+.dialogAdd .smt {
+    margin: 0 auto;
+}
+
+.dialogAdd .redlinks {
+    float: left;
+    background-color: #f8f8f8;
+    color: #5e5e5e;
+    border: 1px solid #e6e6e6;
+    margin-left: 71px;
+    padding: 0 10px;
+    margin-top: 10px;
+    line-height: 22px;
+    height: 22px;
+    text-decoration: none;
+}
+
+.dialogAdd .dn1 {
+    border-top: 1px solid #e6e6e6;
+    margin-top: 15px;
+    float: left;
+}
+
+.dialogAdd .dn1 .tit {
+    height: 25px;
+    line-height: 30px;
+    color: #5e5e5e;
+    overflow: hidden;
+}
+
+.dialogAdd #buyMbox {
+    height: 150px;
+    overflow: hidden;
+}
+
+.dialogAdd .dn1 .item {
+    margin:0;
+    zoom: 1;
+}
+
+.dialogAdd .item li {
+    width: 94px;
+    height: 150px;
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.prdcart a {
+    overflow: hidden;
+    text-align: center;
+    float: left;
+}
+
+.dialogAdd .item a.lnk {
+    height: 40px;
+    width: 80px;
+    text-align: left;
+    line-height: 20px;
+    margin: 0 auto;
+    color: #a5a5a5;
+    word-break: break-all;
+    overflow: hidden;
+    display: block;
+}
+
+.dialogAdd .item a.lnk:hover {
+    color: #c00;
+}
+
+.dialogAdd .item span {
+    display: block;
+    color: #c00;
+}
+.andBuy-btnout.collect-andBuy-btnout b, .andBuy-btnout.collect-andBuy-btnout s {
+    height: 21px;
+}
+.andBuy-btnout.collect-andBuy-btnout b {
+    background: url(i/bmleftarrow.png?__sprite) no-repeat;
+    left: 0;
+}
+
+.andBuy-btnout.collect-andBuy-btnout s {
+    background: url(i/bmrightarrow.png?__sprite) no-repeat;
+    right: 0;
+}
+
+.andBuy-btnout.collect-andBuy-btnout a:hover b {
+    background: url(i/bmleftarrow1.png?__sprite) no-repeat;
+}
+.andBuy-btnout.collect-andBuy-btnout a:hover s {
+    background: url(i/bmrightarrow1.png?__sprite) no-repeat;
+}
+
+.andBuy-btnout.collect-andBuy-btnout a.disable:hover b {
+    background: url(i/bmleftarrow.png?__sprite) no-repeat;
+    cursor:default;
+}
+.andBuy-btnout.collect-andBuy-btnout a.disable:hover s {
+    background: url(i/bmrightarrow.png?__sprite) no-repeat;
+    cursor:default;
+}
+/*收藏 end*/

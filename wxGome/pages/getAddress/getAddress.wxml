@@ -1,0 +1,53 @@
+
+<!-- <loading hidden="{{!loading}}">加载中...</loading> -->
+<view class="loadingInt" hidden="{{ !loading }}">
+	<image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>
+<view class="newAddrItem">
+
+    <view class="receiver item">
+        <view class="name section__title">省：</view>
+        <picker class="nameInput" bindchange="bindPickerProvince" value="{{provinceIndex}}" range="{{province}}">
+            <view class="picker">
+                {{provinceJson[provinceIndex].label}}
+            </view>
+        </picker>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">市：</view>
+        <block wx:if="{{cityFlag}}">
+            <picker class="nameInput" bindchange="bindPickerCity" value="{{cityIndex}}" range="{{city}}">
+                <view class="picker">
+                    {{cityJson[cityIndex].label}}
+                </view>
+            </picker>
+        </block>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">区/县：</view>
+        <block wx:if="{{countryFlag}}">
+            <picker class="nameInput" bindchange="bindPickerCountry" value="{{countryIndex}}" range="{{country}}">
+                <view class="picker">
+                    {{countryJson[countryIndex].label}}
+                </view>
+            </picker>
+        </block>
+    </view>
+
+    <view class="receiver item">
+        <view class="name section__title">乡镇：</view>
+        <block wx:if="{{streetFlag}}">
+            <picker class="nameInput" bindchange="bindPickerStreet" value="{{streetIndex}}" range="{{street}}">
+                <view class="picker">
+                    {{streetJson[streetIndex].label}}
+                </view>
+            </picker>
+        </block>
+    </view>
+    <view class="tips">详细地址需填写楼栋楼层号或房间信息以免发生配送错误</view>
+    <view class="receiver confirm">
+        <button bindtap="confirmCheck">确认</button>
+    </view>
+</view>

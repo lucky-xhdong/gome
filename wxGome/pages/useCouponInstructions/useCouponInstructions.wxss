@@ -1,0 +1,40 @@
+page, .use-coupon-instructions-box {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  font-family: PingFangSC-Regular,Helvetica Neue,Helvetica,sans-serif;
+  background: #f5f5f5;
+}
+
+.use-coupon-instructions-box .top-border {
+  border-top: 1px solid #ddd;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.use-coupon-instructions-box .use-coupon-instructions {
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 1px;
+  overflow-y: auto;
+}
+.use-coupon-instructions-box .use-coupon-instructions .list {
+  padding-left: 29rpx;
+  padding-right: 34rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+  padding: 30rpx 35rpx 34rpx 29rpx;
+}
+.use-coupon-instructions-box .use-coupon-instructions .title {
+  line-height: 45rpx;
+  font-size: 32rpx;
+  color: #262C32;
+  padding-bottom: 14rpx;  
+}
+.use-coupon-instructions-box .use-coupon-instructions .txt {
+  font-size: 26rpx;
+  color: #7A7F85; 
+  line-height: 38rpx;
+}

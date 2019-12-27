@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "Ta的印象",
+    "usingComponents": {
+        "star": "/components/star/star"
+    }
+}

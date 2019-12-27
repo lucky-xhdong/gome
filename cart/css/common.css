@@ -1,0 +1,150 @@
+/**清公共样式**/
+*{ padding:0; margin:0; list-style:none;}
+ul,li{list-style-type:none;}
+input{border:0px;}
+em,u{ font-style:normal;}
+/**图片和bock元素**/
+.i-block{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  overflow: hidden;
+}
+.c-i{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	overflow: hidden;
+    background-image: url(i/sprite.png?v=0.4.5) !important;
+}
+/*截断文本 超出部分用省略号*/
+.text-overflow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-center{ text-align:center; } 
+.text-left{ text-align:left; } 
+.text-right{ text-align:right; }
+.show{ display:block;} 
+.hide{ display:none;} 
+.fr{float:right}
+.fl{float:left}
+.pabs{ position:absolute;}
+.pr{ position:relative;}
+.clearfix::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden; 
+}
+.clearfix {
+    display: block;
+    *zoom: 1;
+}
+.w96{ width:96px;}
+.fontred{ color:#e3101e;}
+ .mt10{ margin-top:10px;}
+ .mt2{ margin-top:2px;}
+ .ml15{ margin-left:15px;}
+ .mr5{ margin-right:5px;}
+/***lay01_input按钮***/
+.btn_radio,.btn_radio_chose,.checkbox{ display:none;}
+/****lay02_Square按钮****/
+.btn_Square{ display:inline-block; text-decoration:none;color:#333333; text-align:center; line-height:16px; height:16px; padding:5px 0;}
+.btn_Square.dis{ color:#ccc; background:#f8f8f8;}
+.btn_Square_out a:hover{ text-decoration:none; color:#333;}
+.btn_Square_out .wd146{ width:106px;height:16px; padding:5px 20px;}
+.btn_Square_out .bd{ border:2px solid #e3101e;} 
+.btn_Square_out .bd1{ border:1px solid #ccc;}
+.btn_Square_out .bd1:hover{ border:2px solid #e3101e; padding:4px 19px;}
+.btn_Square.dis:hover{ border:1px solid #ccc; padding:5px 20px; }
+.btn_Square.dis:hover span.name{ color:#dcdcdc ; }
+.btn_Square_out .chose_icon{ right:0; bottom:0;}
+/**lay05_checkbox按钮**/
+.calendar_out{ width:90px;}
+.calendar_text{ padding-left:33px;}
+.c_wd90{ width:90px; height:30px; line-height:30px;}
+.c_bd{ border:1px solid #ccc;}
+.c_icon{ left:5px; top:5px;}
+/**lay06_sub**/
+.sub_btn{ text-decoration:none; color:#fff; font-size:16px;}
+.sub_btn:hover{ background:#ff5757;}
+.sub_btn:active{ background:#e3101e;}
+.s_wd{ width:130px; height:50px; line-height:50px;}
+.s_color{background:#e3101e;}
+.zi10{z-index: 10}
+.zi100{z-index: 100}
+.zi1000{z-index: 1000}
+.jt{
+  font-family: SimSun;
+}
+.box-sd1{
+    box-shadow: 0 0 23px 1px #ccc;
+}
+.ie678 .box-sd1{
+  border: 1px solid #ccc
+}
+.ie678 .box-sd2{
+  border: 4px solid #adadad;
+}
+.box-sd2{
+    box-shadow: 0 0 23px 0px #000;
+}
+#gome-foot{zoom:1;}
+.errorCode{
+    bottom:4px;
+    right:8px;
+    color:rgb(220, 220, 221);
+    position:absolute;
+    font-size:12px;
+}
+.cff5757{color: #ff5757;}
+.c449c57{color: #449c57;}
+.support-server i{
+  margin-right: 5px;
+  float: left;
+}
+.support-server span{
+  float: left;
+  line-height: 16px;
+}
+.white-arrow{
+    font-size: 30px;
+    overflow: hidden;
+    position: absolute;
+    height: 20px;
+    color: #fff;
+}
+.ie678 .white-arrow{display: none;}
+.text-overflow-ellipsis203{
+    max-width: 208px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.text-overflow-ellipsis370{
+    max-width: 370px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.border-radius-icon{
+    border-radius: 5px;
+}
+.vertical-align-sub{
+    vertical-align: sub
+}
+
+.c-i.seven_no:hover,.c-i.attention:hover,.c-i.seven:hover,
+.js-popup-child:hover
+{
+    cursor:pointer
+}
+.c-i.seven_no,.c-i.attention,.c-i.seven,.c-i.mdzt,.icon-zhuang{
+    border-radius: 5px;
+}
+.meidian {
+    cursor: pointer;
+}

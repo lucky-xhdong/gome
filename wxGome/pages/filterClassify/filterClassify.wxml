@@ -1,0 +1,22 @@
+<view class="border-roof"></view>
+<scroll-view scroll-y="true">
+	<view class="filter-wrapper">
+		<view class="" wx:for="{{classify}}"  wx:for-item="classify" wx:for-index="l1Idx" wx:key="*this">
+			<view class="title-wrapper border-b-e" wx-if="{{classify.id != 'ALL'}}" bindtap="_FirstClassifyEvt" data-one-idx="{{l1Idx}}">
+				<view class="txt ellip">{{classify.name}}</view>
+				<image wx:if="{{classify.selected}}" mode="aspectFit" src="../../images/jiantou-up.png"></image>
+				<image wx:else mode="aspectFit" src="../../images/jiantou-down.png"></image>
+			</view>
+			<view class="specific-wrapper" hidden="{{!classify.selected}}">
+				<view class="item-style border-b-e  {{item.id != 'ALL' ? 'no-all' : 'all'}} {{item.selected ? 'selected' : ''}}" wx:for="{{classify.items}}"  wx:for-item="item" wx:for-index="l2Idx" wx:key="*this" bindtap="_selectedClassifyEvt" data-one-idx="{{l1Idx}}" data-two-idx="{{l2Idx}}" >
+					<view class="txt ellip">{{item.name}}</view>
+					<image wx:if="{{item.selected}}" mode="aspectFit" src="../../images/checked.png"></image>
+					<image wx:else mode="aspectFit" src="../../images/no-checked.png"></image>
+				</view>
+			</view>
+		</view>
+		
+	</view>
+	
+</scroll-view>
+

@@ -1,0 +1,162 @@
+.applyService_list {
+  margin:10px auto;
+  transition: .2s;
+  flex-direction: column;
+  .as-list__form {
+    position: relative;
+    padding:20px 10px 10px;
+    margin-bottom: 20px;
+    border: solid 1px $border-color;
+    .input-group {
+      .el-form-item {
+        margin-right:0;
+        &.el-form-item__item {
+          margin-bottom:0;
+        }
+        .el-form-item__label {
+          width:136px;
+          font-family: $font-family;
+        }
+        .el-form-item__content {
+          .el-input, .el-select {
+            width: 300px;
+          }
+          .el-date-editor {
+            width:145px;
+          }
+          .employeeNameError, .memberNameError {
+            font-size: 12px;
+            color: $font-color7;
+            margin-top:-7px;
+          }
+          .input-mini {
+            .el-input {
+              width:145px;
+              &:first-child {
+                padding-right:5px;
+              }
+              &.error {
+                input {
+                  border-color: $font-color7;
+                }
+              }
+            }
+            .el-input__suffix {
+              right:10px;
+              cursor: pointer;
+            }
+          }
+          .el-form__time_error {
+            position: absolute;
+            top: 25px;
+            color: $font-color7;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .errorTip {
+      margin-bottom: 18px;
+      font-family: $font-family;
+      text-align: center;
+      color: $font-color2;
+    }
+  }
+  .el-pagination {
+    margin:30px 0;
+    text-align: right;
+  }
+  .btn-group {
+    text-align: center;
+    .el-button {
+      margin:0 50px;
+    }
+  }
+  .form-tip {
+    text-align: right;
+    color: $font-color5;
+    .red {
+      color: $font-color2;
+    }
+  }
+}
+
+.applyServiceYanbao_list {
+  margin:0 auto;
+  transition: .2s;
+  flex-direction: column;
+  .asyb-list__form {
+    position: relative;
+    padding:20px 10px 10px;
+    margin-bottom: 20px;
+    border: solid 1px $border-color;
+    .input-group {
+      .el-form-item {
+        margin-right:0;
+        .el-form-item__label {
+          width:136px;
+          font-family: $font-family;
+        }
+        .el-form-item__content {
+          .el-input, .el-select {
+            width: 300px;
+            &.error {
+              .el-input__inner {
+                border-color: $font-color7;
+              }
+            }
+          }
+          .employeeNameError, .memberNameError {
+            font-size: 12px;
+            color: $font-color7;
+            margin-top:-7px;
+          }
+          .input-mini {
+            .el-input {
+              width:145px;
+              &:first-child {
+                padding-right:5px;
+              }
+            }
+            .el-input__suffix {
+              right:10px;
+              cursor: pointer;
+            }
+          }
+          .el-date-editor {
+            width:145px;
+          }
+          .el-form__time_error {
+            position: absolute;
+            top: 25px;
+            color: $font-color7;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .errorTip {
+      margin-bottom: 18px;
+      font-family: $font-family;
+      text-align: center;
+      color: $font-color2;
+    }
+  }
+  .el-pagination {
+    margin:30px 0;
+    text-align: right;
+  }
+  .btn-group {
+    text-align: center;
+    .el-button {
+      margin:0 50px;
+    }
+  }
+  .form-tip {
+    margin-bottom: 20px;
+    color: $font-color5;
+    .red {
+      color: $font-color2;
+    }
+  }
+}

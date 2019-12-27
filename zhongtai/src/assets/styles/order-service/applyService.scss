@@ -1,0 +1,427 @@
+.applyService {
+  margin:0 auto;
+  .as-processing {
+    position: absolute;
+    right: 320px;
+    left: 20px;
+    padding:0;
+    margin-right: 20px;
+    margin-bottom:20px;
+    font-family: $font-family;
+    border:1px solid $border-color;
+    .as-processing__tip {
+      font-size: 14px;
+      color: $font-color1;
+      padding:5px 10px;
+      margin:20px 20px 10px;
+      background-color: $background-color;
+    }
+    .as-processing__form {
+      .as-processing__caption, .as-processing__caption1 {
+        &:before {
+          content: attr(data-before);
+          display: block;
+          height: 36px;
+          line-height: 36px;
+          font-size: 14px;
+          padding:0 20px;
+          margin:10px 20px;
+          font-family: $font-family;
+          font-weight: bold;
+          color: $font-color1;
+          background-color: $background-color;
+        }
+        .form_span {
+          color: $font-color1;
+        }
+      }
+      .as-processing__caption {
+        &:before {
+          font-weight: bold;
+          background-color: $background-color;
+        }
+      }
+      .as-processing__caption1 {
+        &:before {
+          background-color: $background-color6;
+        }
+      }
+      .as-processing__title {
+        height: 36px;
+        line-height: 36px;
+        padding:0 20px;
+        margin:10px 20px;
+        font-size: 14px;
+        font-family: $font-family;
+        color: $font-color1;
+        background-color: $background-color6;
+      }
+      .el-form-item {
+        margin-bottom: 15px;
+        &.label__hidden {
+          .el-form-item__label {
+            font-size: 0;
+            width: auto;
+          }
+        }
+        .el-form-item__content {
+          .cityinput {
+            margin-bottom: 5px;
+            margin-left: 5px;
+          }
+          .el-input {
+            width: 400px;
+            .el-input__inner {
+              font-family: $font-family;
+            }
+          }
+          .el-form-item__error {
+            left: 200px;
+          }
+          .form__input-mini {
+            .el-input {
+              width: 97px;
+              margin-bottom:10px;
+            }
+          }
+          .form__span {
+            color: $font-color1;
+          }
+          .form__input-wrap {
+            margin-left: 199px;
+          }
+          .form-returnMethod__em {
+            display: block;
+            margin-left: 195px;
+            font-size: 12px;
+            color: #f56c6c;
+          }
+          .form__em {
+            color: $font-color2;
+            margin:0 10px;
+          }
+        }
+      }
+      .as__promotions {
+        &:before {
+          content: attr(data-before);
+          display: block;
+          height: 36px;
+          line-height: 36px;
+          padding:0 20px;
+          margin:10px 20px;
+          font-family: $font-family;
+          font-weight: bold;
+          color: $font-color1;
+          background-color: $background-color;
+        }
+      }
+      .as-info {
+        .el-form-item__label {
+          width: 200px;
+        }
+      }
+
+      .as__beans {
+        .el-form-item__label {
+          width: 200px;
+        }
+        .el-form-item__content {
+          .form__span {
+            margin-right:196px;
+          }
+          .as__bean__price {
+            color: $font-color1;
+            margin-left: 118px;
+          }
+        }
+      }
+
+      .as__coupons {
+        .el-form-item__label {
+          width: 200px;
+        }
+        .el-form-item__content {
+          margin-left: 118px;
+          .form__span {
+            display: inline-block;
+            min-width: 280px;
+            margin-right: 50px;
+          }
+        }
+        .as__txt {
+          &:before {
+            content: attr(data-before);
+            display: inline-block;
+            vertical-align: middle;
+            width:120px;
+            color: $font-color1;
+          }
+          .as__em {
+            color: $font-color2;
+            font-size: 14px;
+          }
+        }
+      }
+      .as__price {
+        .el-form-item__label {
+          width: 200px;
+        }
+        .el-form-item__content {
+          margin-left: 118px;
+        }
+        .as__em {
+          color: $font-color2;
+          font-size: 14px;
+        }
+      }
+      .as__deduct-money, .as__refund-money {
+        margin:5px 15px;
+      }
+      .as__promotions_table {
+        margin:10px 30px;
+        ._table {
+          border:1px solid $background-color5;
+          font-size: 14px;
+          thead {
+            border-bottom:1px solid $background-color5;
+            tr {
+              th {
+                text-align: center;
+                padding:5px;
+                line-height:40px;
+                border-left:1px solid $background-color5;
+                background-color: $background-color7;
+                color: $font-color5;
+              }
+            }
+          }
+          tbody {
+            tr {
+              td {
+                text-align: center;
+                border-left:1px solid $background-color5;
+                color: $font-color5;
+                padding:5px;
+                line-height:30px;
+                .cell {
+                  max-height: 44px;
+                  overflow: hidden;
+                }
+              }
+            }
+          }
+        }
+        table {
+          width:100%;
+          thead {
+            tr {
+              th {
+                text-align: center;
+                background-color: $background-color7;
+              }
+            }
+          }
+          tbody {
+            tr {
+              td {
+                text-align: center;
+                .cell {
+                  max-height: 44px;
+                  overflow: hidden;
+                }
+              }
+            }
+          }
+        }
+      }
+      .as-discription {
+        .el-form-item__label {
+          width: 200px;
+        }
+        .el-form-item__content {
+          display: flex;
+          padding-right: 20px;
+          .el-textarea {
+            .el-textarea__inner {
+              height: 100px;
+            }
+          }
+          .el-form-item__error {
+            left: 0;
+          }
+        }
+      }
+      .as-upload_image {
+        ul {
+          li {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            overflow: hidden;
+            width: 146px;
+            height: 146px;
+            position: relative;
+            border-radius: 6px;
+            .el-upload__thumbnail {
+              width: 146px;
+              height: 146px;
+            }
+            .el-upload__delete {
+              position: absolute;
+              cursor: pointer;
+              width: 20px;
+              height: 20px;
+              left:50%;
+              top:50%;
+              opacity: 0;
+              margin-left: -10px;
+              margin-top: -10px;
+              z-index: 11;
+              .el-icon-delete {
+                font-size: 20px;
+                color: $font-color3;
+              }
+            }
+            .el-upload__mask {
+              opacity: 0;
+              position: absolute;
+              width: 146px;
+              height: 146px;
+              left: 0;
+              top: 0;
+              cursor: default;
+              text-align: center;
+              color: #fff;
+              font-size: 20px;
+              background-color: rgba(0,0,0,.5);
+              -webkit-transition: opacity .3s;
+              transition: opacity .3s;
+            }
+            &:hover {
+              .el-upload__delete, .el-upload__mask {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+      }
+      .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 128px;
+        height: 128px;
+        line-height: 128px;
+        text-align: center;
+      }
+      .avatar {
+        width: 128px;
+        height: 128px;
+        display: block;
+      }
+    }
+    .as-success-tip {
+      padding: 15px 20px;
+      .txt {
+        color: $font-color2;
+      }
+    }
+    .form__popover__tips {
+      width: 20px;
+      height: 20px;
+      padding:0;
+      text-align: center;
+      line-height: 20px;;
+      border-radius: 50%;
+    }
+    .btn-group {
+      padding:20px 0;
+      text-align: center;
+    }
+  }
+}
+.rea__ogistics {
+  .exchanger__info {
+    .exchanger__timeslot {
+      display: inline-block;
+      .start, .end {
+        color: $font-color1;
+        padding:0 4px;
+      }
+    }
+  }
+}
+.el-dialog {
+  font-family: $font-family;
+  .el-dialog__body_module1, .el-dialog__body_module2 {
+    .dialog_span {
+      display: block;
+      text-align: right;
+      overflow: hidden;
+      line-height:30px;
+      padding:0 10px;
+      &:before {
+        content: attr(data-before);
+        float: left;
+        color: $font-color1;
+      }
+      &.dialog_em {
+        color: $font-color2;
+      }
+    }
+  }
+  .el-dialog__body_module1 {
+    border-bottom:1px solid $background-color5;
+    padding-bottom:10px;
+    margin-bottom:10px;
+  }
+  .el-dialog__body_bean {
+    .dialog_span {
+      display: block;
+      overflow: hidden;
+      line-height:30px;
+      padding:0 10px;
+      &:before {
+        content: attr(data-before);
+        float: left;
+        color: $font-color1;
+      }
+      &.dialog_em {
+        &:before {
+          color: $font-color2;
+        }
+        color: $font-color2;
+      }
+    }
+    .dialog_p {
+      line-height:30px;
+      padding:0 10px;
+      .dialog_em {
+        color: $font-color2;
+      }
+    }
+  }
+}
+.el-popover {
+  p {
+    a {
+      color: $font-color4;
+    }
+  }
+}
+.disabled .el-upload--picture-card {
+  display: none;
+}
+//.rea__ogistics, .rea__mail {
+//  display: none;
+//}

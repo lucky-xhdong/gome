@@ -1,0 +1,144 @@
+
+.prod-tit {
+  width: 750rpx;
+  padding: 20rpx 0;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  overflow: hidden;
+}
+
+.tit-left {
+  float: left;
+  width: 480rpx;
+  padding: 30rpx 25rpx;
+}
+
+.tit-name {
+  font: 500 28rpx/50rpx "Microsoft YaHei";
+  color: #333;
+}
+
+.tit-adress {
+  font: 500 24rpx/40rpx "Microsoft YaHei";
+  color: #888;
+}
+
+.phone-tit {
+  font: 500 24rpx/50rpx "Microsoft YaHei";
+  color: #888;
+}
+
+.phone-tap {
+  color: #4d97eb;
+  font-family: "Arial";
+}
+
+.cont-right {
+  float: left;
+  width: 170rpx;
+  padding: 30rpx 25rpx;
+}
+
+.cont-right image {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 50rpx;
+}
+
+.right-shop {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #4d97eb;
+  font: 500 26rpx/50rpx "Microsoft YaHei";
+}
+
+/*商品列表*/
+
+.prod-content {
+  width: 750rpx;
+  background: #fff;
+}
+
+.prod-cont {
+  width: 710rpx;
+  padding: 0 20rpx;
+  overflow: hidden;
+}
+
+.prod-img {
+  float: left;
+  padding: 20rpx  15rpx 20rpx 0;
+   display: block;
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.prod-img image {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.prod-desc {
+  float: left;
+  width: 485rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.desc-tit {
+  width: 100%;
+  height: 80rpx;
+  overflow: hidden;
+  font: 400 26rpx/40rpx "Microsoft YaHei";
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #333;
+}
+.desc-tit>text {
+display:inline-block;
+border:1px solid #e3101e;
+padding:0 5rpx;
+margin-right:5rpx;
+font-size:22rpx;
+line-height:30rpx;
+border-radius:5rpx;
+color:#e3101e;
+text-align:center;
+}
+.desc-price{
+   font: 400 30rpx/50rpx "Microsoft YaHei";
+  color: #ff5c5c;
+}
+.desc-apprice{
+   font: 400 28rpx/60rpx "Microsoft YaHei";
+  color: #a5a5a5;
+}
+
+/*没有商品  */
+.prod-no{
+  width: 750rpx;
+  padding-top: 180rpx;
+}
+.prod-no image{
+  width: 180rpx;
+  height: 180rpx;
+  margin-left: 285rpx;
+}
+.no-tap{
+  color: #a5a5a5;
+  padding-top: 50rpx;
+  font: 400 32rpx "Microsoft YaHei";
+  text-align: center;
+}
+
+/*加载中  */
+.tips{
+  width: 710rpx;
+  padding: 20rpx;
+  color: #a5a5a5;
+  font: 400 26rpx/50rpx "Microsoft YaHei";
+  text-align: center;
+}

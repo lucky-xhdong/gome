@@ -1,0 +1,159 @@
+<import src="../../wetoast/wetoast.wxml" />
+<view>
+  <view class="productInfo" wx:for="{{dsgs}}" wx:for-item="shopdetail" wx:key="*this">
+    <view class="inforItem">
+      <view class="shopname {{shopdetail.profile.reduce>0||shopdetail.profile.couponNum>0||shopdetail.profile.zpCount>0 ? 'shopnameOn':'shopnameOff'}}">
+        <view class="shopnameBox">
+          <image src="../../images/gome.png" wx:if="{{shopdetail.shopId == 'GOME'}}"></image>
+          <image src="../../images/shop1.png" wx:else></image>
+        </view>
+        <view class="name">{{shopdetail.shopName}}</view>
+        <view class="inforAttr" wx:if="{{shopdetail.profile.reduce>0||shopdetail.profile.couponNum>0||shopdetail.profile.zpCount>0}}">
+          <text wx:if="{{shopdetail.profile.reduce>0}}">已节省¥{{shopdetail.profile.reduce}}  </text>
+          <text wx:if="{{shopdetail.profile.couponNum>0}}">返优惠券×{{shopdetail.profile.couponNum}}  </text>
+          <text wx:if="{{shopdetail.profile.zpCount>0}}"> 赠品×{{shopdetail.profile.zpCount}}</text>
+        </view>
+      </view>
+      <view wx:for="{{shopdetail.groups}}" wx:for-item="allItem" wx:key="*this" class="detailBox {{shopdetail.groups.length==index+1?'last':''}}">
+        <view class="tz" wx:for="{{allItem.profile.types}}" wx:for-item="typeItem" wx:key="*this">
+          <view wx:if="{{typeItem == 'TZ'}}">
+            <text class="tzState" wx:if="{{allItem.commerceItemsGroup[0].vState=='OUT_STOCK'}}">无货</text>
+            <text class="tzState" wx:if="{{allItem.commerceItemsGroup[0].vState=='OFF_SHELVES'}}">已下架</text>
+            <text class="promot">{{icres[typeItem]}}</text>
+            <text class="tzname">{{allItem.commerceItemsGroup[0].vProductName}}</text>
+          </view>
+          <!--<view  wx:if="{{typeItem == 'DPG'}}">
+						<text class="dap">[搭配]已优惠¥{{allItem.profile.postC}}元</text>
+					</view>-->
+          <!--<view  wx:if="{{typeItem == 'POP_MJ'}}">
+						<text class="promot">{{icres[typeItem]}}</text><text>已减¥{{allItem.profile.postC}}元</text>
+					</view>
+					<view  wx:if="{{typeItem =='POP_MZH'}}">
+						<text class="promot">{{icres[typeItem]}}</text><text>已减¥{{allItem.profile.postC}}元</text>
+					</view>
+					<view  wx:if="{{typeItem =='POP_GWQ'}}">
+						<text class="promot">{{icres[typeItem]}}</text><text>已减¥{{allItem.profile.postC}}元</text>
+					</view>	
+					<view  wx:if="{{typeItem =='POP_MZE'}}">
+						<text class="promot">{{icres[typeItem]}}</text>
+						<text wx:for="{{allItem.profile.gifts}}" wx:for-item="giftItem" wx:key="*this">
+							<text>[赠品]×{{giftItem.quantity}}件</text>
+						</text>
+					</view>
+					<view  wx:if="{{typeItem =='POP_MF'}}">
+						<text class="promot">{{icres[typeItem]}}</text>
+						<text wx:for="{{allItem.profile.coupons}}" wx:for-item="couponItem" wx:key="*this">
+							<text wx:if="couponItem.ct=='SHOP'">
+								<text>返优惠券×{{couponItem.quantity}}张</text>
+							</text>
+						</text>
+					</view>-->
+        </view>
+        <view class="imgInfo" wx:for="{{allItem.commerceItemsGroup}}" wx:for-item="comGroup" wx:key="*this">
+          <view class="detail">
+            <view class="detailImg">
+              <image class="proimage" mode="aspectFit" src="https:{{comGroup.itemImageURL }}"></image>
+              <view wx:if="{{comGroup.state=='NO_GOODS'}}">
+                <text class="off">无货</text>
+              </view>
+              <view wx:if="{{comGroup.state=='OFF'}}">
+                <text class="off">已下架</text>
+              </view>
+              <view wx:if="{{comGroup.state=='INVENTORY_TENSION'}}">
+                <text class="tension">库存紧张</text>
+              </view>
+              <view wx:if="{{comGroup.state=='IN_STOCK' && comGroup.onRoad==true}}">
+                <text class="tension">在途</text>
+              </view>
+              <view wx:else></view>
+
+            </view>
+
+            <view class="productList">
+              <view style="padding: 18rpx 0;" wx:if="{{comGroup.commerceitemVOFlag=='SUB'}}">
+                <span class="productDesign">搭配购</span>
+                {{comGroup.itemName }}
+              </view>
+              <view style="padding: 18rpx 0;" wx:else>
+                <text class="productDetail">{{comGroup.itemName }}</text>
+              </view>
+              <view class="proAttrAll">
+                <text class="proAttr" wx:for="{{comGroup.salesPropertyVOs}}" wx:for-item="salesPropertyVOs" wx:key="*this">
+									<text style="display:inline-block" wx:if="{{salesPropertyVOs == comGroup.salesPropertyVOs[comGroup.salesPropertyVOs.length-1]}}">{{salesPropertyVOs.labelVal}}</text>
+                <text wx:else>{{salesPropertyVOs.labelVal}};</text>
+                </text>
+              </view>
+              <view class="meistore" wx:if="{{comGroup.meidianId}}">
+                <em></em>美店：{{meiName[comGroup.meidianId]}}</view>
+              <view class="other">
+                <text class="col-red1">¥<text class="proSprice">{{ comGroup.salePrice }}</text></text>
+                <view class="priceType member" wx:if="{{comGroup.priceType=='MEMBER'}}">
+                  <image src="../../images/b-title-hui.png" mode="aspectFit"></image>
+                  <text>会员价</text>
+                </view>
+                <view class="priceType" wx:if="{{comGroup.priceType=='INTERNAL_PURCHASE'}}">
+                  <text>内购价</text>
+                </view>
+                <view class="priceType" wx:if="{{comGroup.priceType=='PALM'}}">
+                  <image src="../../images/b-title-phone.png" mode="aspectFit"></image>
+                  <text>掌上专享</text>
+                </view>
+                <text class="col-b1">×{{ comGroup.quantity }}</text>
+              </view>
+              <block wx:for="{{comGroup.serviceTagFlag}}" wx:for-item="serviceItem" wx:key="*this">
+                <view class="tuihuo" wx:if="{{serviceItem=='i7Y'}}">
+                  <image src="../../images/seven.png"></image>
+                  <text>支持7天无理由退货</text>
+                </view>
+                <view class="tuihuo" wx:if="{{serviceItem=='i7N'}}">
+                  <image src="../../images/not7.png"></image>
+                  <text>不支持7天无理由退货</text>
+                </view>
+                <view class="tuihuo" wx:if="{{serviceItem=='i15Y'}}">
+                  <image src="../../images/five.png"></image>
+                  <text>支持15天无理由退货</text>
+                </view>
+              </block>
+              <!--搭配购区分显示-->
+              <view class="tz" wx:for="{{allItem.profile.types}}" wx:for-item="typeItem" wx:key="*this">
+                <view wx:if="{{typeItem == 'DPG'&& comGroup.commerceitemVOFlag=='MAIN'}}">
+                  <text class="dap">[搭配]已优惠¥{{allItem.profile.postC}}</text>
+                </view>
+              </view>
+
+              <block wx:for="{{comGroup.incre}}" wx:for-item="increItem" wx:key="*this">
+                <view wx:if="{{increItem.serviceType == '0'}}">
+                  <view class="dpzp" wx:if="{{increItem.warrantyType == 'SPECIAL'}}">[延保]特惠延长保修{{increItem.numOfYear}}年 ¥{{increItem.price}}×{{increItem.quantity}}</view>
+                  <view class="dpzp" wx:else>[延保]延长保修{{increItem.numOfYear}}年 ¥{{increItem.price}}×{{increItem.quantity}}</view>
+                </view>
+
+                <view wx:if="{{increItem.serviceType == '1'}}">
+                  <view class="dpzp" wx:if="{{increItem.warrantyType == 'SPECIAL'}}">[屏碎保]特惠屏碎保{{increItem.numOfYear}}年 ¥{{increItem.price}}×{{increItem.quantity}}</view>
+                  <view class="dpzp" wx:else>[屏碎保]屏碎保{{increItem.numOfYear}}年 ¥{{increItem.price}}×{{increItem.quantity}}</view>
+                </view>
+
+                <view wx:if="{{increItem.serviceType == '2'}}">
+                  <view class="dpzp" wx:if="{{increItem.warrantyType == 'SPECIAL'}}">[意外保]特惠意外保{{increItem.numOfYear}}年 ¥{{increItem.price}}×{{increItem.quantity}}</view>
+                  <view class="dpzp" wx:else>[意外保]意外保{{increItem.numOfYear}}年 ¥{{increItem.price}}×{{increItem.quantity}}</view>
+                </view>
+
+              </block>
+
+            </view>
+            <view class='dpzp gift' wx:if="{{comGroup.gifts.length>0}}">
+              <view class='gift-tit'>[赠品]</view>
+              <view class='gift-list'>
+               <view class=" gift-item" wx:for="{{comGroup.gifts}}" wx:for-item="giftItem" wx:key="*this">
+                <view class='gift-item-desc'>{{giftItem.itemName}}</view>
+                <view>×{{giftItem.quantity}}</view>
+              </view>
+              </view>
+             
+            </view>
+          </view>
+        </view>
+        <!--<view class="tzPrice" wx:if="{{allItem.profile.type == 'TZ'}}">套装价格{{allItem.profile.tzSubAmount}}</view>-->
+      </view>
+    </view>
+  </view>
+</view>

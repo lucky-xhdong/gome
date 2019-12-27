@@ -1,0 +1,30 @@
+page{
+  background: #fff;
+}
+.container{
+  background: #fff;
+  width: 750rpx;
+  min-height: 750rpx;
+}
+.cont{
+  width: 590rpx;
+  padding:0 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo{
+  width: 300rpx;
+  height: 140rpx;
+  margin: 170rpx auto;
+}
+
+.login-btn {
+  background-image: linear-gradient(-90deg, #fa1e8c 0%, #fc1e56 100%);
+  width: 590rpx;
+  line-height: 88rpx;
+  border-radius: 55rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+}

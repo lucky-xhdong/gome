@@ -1,0 +1,30 @@
+<view class="img-box">
+	<navigator url="../list/list" hover-class="none" open-type="redirect">
+		<view class="search-btn">
+    		<icon type="search" size="13" color='#a5a5a5' /> 搜索国美商品
+    	</view>
+	</navigator>
+	<view class="QR_button" bindtap="codeClick"><image src="/images/QR_CODE.png"></image></view>
+</view>
+<view class="body">
+	<scroll-view class="item-tab-box" scroll-y="true" style="height:{{scrollHeight}}px" scroll-top="{{scrollTop}}">
+		<view class="tab-list">
+			<view class="tab {{index == tabIndex ? 'tab-active' : ''}}" bindtap="tabClick" id="{{index}}" wx:for="{{tabList}}" wx:key="listId">
+				<view class="goodsTypeName">{{item.goodsTypeName}}</view>
+			</view>
+		</view>
+	</scroll-view>
+	<scroll-view class="item-list-box" scroll-y="true" style="height:{{scrollHeight}}px" scroll-top="{{scrollTop}}">
+		<view class="item-list">
+			<view class="item-list-i" wx:for="{{itemList.secondLevelCategories}}" wx:key="itemItem" wx:for-item="itemItem">
+				<view class="item-header">{{itemItem.goodsTypeName}}</view>
+				<view class="item-content">
+					<navigator class="item" wx:for="{{itemItem.goodsTypeList}}" wx:key="itemListId" url="../list/list?goodsTypeId={{item.goodsTypeId}}&questionCookie={{item.goodsTypeName}}">
+						<view class="item-img"><image mode="aspectFit" src="https:{{item.goodsTypeImgUrl}}"></image></view>
+						<view class="item-text">{{item.goodsTypeName}}</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>

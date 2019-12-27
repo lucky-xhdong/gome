@@ -1,0 +1,89 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='page_bg' style='background:{{pageData.pageInfo.pageBackColor}}'>
+      <view class='hd_box' >
+        <block wx:for="{{pageData.templetList}}" wx:key="*this" wx:for-item="templet">
+          <image wx:if="{{templet.templetCode=='floorPhotoTemplet'}}" class='hd_image' src="{{templet.floorPhotoTemplet.imgList[0].imageUrl}}"></image>
+          <view class='title_box' wx:if="{{templet.templetCode=='textMarkTemplet'}}">
+            <text class='title'>{{templet.textMarkTemplet.textMarkList[0].text}}</text>
+            <text class='desc'>{{templet.textMarkTemplet.textMarkList[1].text}}</text>
+          </view>
+        </block>
+      </view>
+      <block wx:for="{{pageData.templetList}}" wx:key="*this" wx:for-item="templet">
+        <view class='list_wrap' wx:if="{{templet.templetCode =='goodsTemplet'}}">
+          <view class='flex_wrap'>
+            <view class='list_wrap_bg'></view>
+            <view class='list' wx:for="{{templet.goodsTemplet.goodsList}}" wx:key="*this" wx:for-item="goods">
+              <image wx:if="{{goods.goodsBean.skuThumbImgUrl}}" class="image" src="{{goods.goodsBean.skuThumbImgUrl}}"></image>
+              <image wx:else class="image" src="../../images/default1.jpg"></image>
+              <view class='text_content'>
+                <view class='goods_title'>{{goods.goodsBean.skuName}} </view>
+                <view class='price_box'>
+                  内购价：
+                  <text class='price'>¥<text class="large">{{goods.promoWord_sub}}</text>.{{goods.promoWord_after}}</text>
+                </view>
+                <view class='old_price_box'>
+                  原价：
+                  <text class='old_price'>¥{{goods.shortWord}}</text>
+                </view>
+                <view class="btn_yy {{goods.isYy?'':'btn_alreadyOrder'}}" bindtap="goodsOrder" data-isyy="{{goods.isYy}}" data-goodsid="{{goods.goodsId}}"> {{goods.isYy?'预约':'已预约'}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class='rule_wrap'>
+        <view class='rule_flex'>
+          <view class='rule_bg'></view>
+          <view class='rule_title'>活动规则说明</view>
+          <view class='rule_box'>
+            <template is="wxParse" data="{{wxParseData:arrival.nodes}}" />
+          </view>
+        </view>
+      </view>
+  
+  <view class='get_btn_box'>
+      <view class='get_btn_bg'></view>
+      <view class='get_btn' bindtap='getTicket'>立即领取</view>
+  </view>
+</view>
+
+
+<view wx:if="{{showFixed}}" class='fixed_box'>
+  <view class='flex_box'>
+    <view wx:if="{{isOverTime}}" class='fixed_tips_box'>
+        <image class='icon' src='../../images/icon_kulian.png'></image>
+        <view class='tips'>您来晚了，活动已结束!</view>
+    </view>
+    <view wx:if="{{isNotStart}}" class='fixed_countDown_box'>
+        <view class='countDown_title'>距活动开始还有</view>
+        <view class='countDown_time_box'>
+          <view class='time_box'>
+            <view>
+              <text>{{countDownDay}}</text>
+              <text class='time_desc'>天</text>
+            </view>
+            <view class="fh">:</view>
+             <view>
+              <text>{{countDownHour}}</text>
+              <text class='time_desc'>时</text>
+            </view>
+            <view class="fh">:</view>
+             <view>
+              <text>{{countDownMinute}}</text>
+              <text class='time_desc'>分</text>
+            </view>
+            <view class="fh">:</view>
+            <view>
+              <text>{{countDownSecond}}</text>
+              <text class='time_desc'>秒</text>
+            </view>
+           
+          </view>
+        </view>
+    </view>
+  </view>  
+  <view class='fixed_bg'></view>
+</view>
+
+

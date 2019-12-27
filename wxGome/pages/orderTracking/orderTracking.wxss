@@ -1,0 +1,146 @@
+/* pages/orderTracking/orderTracking.wxss */
+.blue{
+    color: #3b79dc;
+}
+.page_top_line{
+    width:100%;
+    border-top:#ddd solid 1rpx;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:5;
+}
+.tracking_msg_box{
+    background:#fff;
+    padding:15rpx 30rpx;
+    font:24rpx/40rpx 'Microsoft Yahei';
+    padding-left: 20rpx;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+    border-bottom:1rpx solid #e6e6e6;
+}
+.product_msg{ 
+    width:154rpx;
+    height:154rpx; 
+    border:#e6e6e8;
+    position: relative;
+    float: left;
+    margin-top:10rpx;
+ }
+ .product_msg image{ 
+    width:154rpx;
+    height:154rpx; 
+ }
+ .product_msg text{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    width:100%;
+    height: 35rpx;
+    line-height: 35rpx;
+    background:#727073;
+    color: #fff;
+    text-align: center;
+ }
+.tracking_msg{
+    width: 495rpx;
+    color: #a5a5a5;
+    line-height: 45rpx;
+    margin-left:13rpx;
+    float: left;
+    font-size: 24rpx;
+}
+.tracking_msg .grey{
+    color: #999;
+}
+.tracking_msg .black{
+    color: #333;
+}
+.tracking_msg .blue{
+    color: #006699;
+}
+.font20{
+    font-size:20rpx;
+}
+.tracking_box{
+    padding-left:20rpx;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    border-top: 1rpx solid #e6e6e6;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+.icon_list{
+    float: left;
+}
+.tracking_list{
+    float: left;
+    width: 700rpx;
+}
+
+.tracking_item{
+    padding: 20rpx 0;
+    position: relative;
+    border-top:#e6e6e6 solid 1rpx;
+    margin-top: -1rpx;
+}
+
+.tracking_list .tracking_item,.address,.time{
+    display: block;
+}
+.address{
+    font-size: 26rpx;
+}
+.time{
+    font-size: 22rpx;
+}
+.tracking_item{
+    margin-left: 50rpx;
+}
+.tracking_item_green{
+    color: #3aa11a;
+}
+.line{
+    width: 1rpx;
+    background: #ddd;
+    position: absolute;
+    top:35rpx;
+    left: 32rpx;
+    bottom:85rpx;
+}
+.icon_track{
+    width: 14rpx;
+    height: 14rpx;
+    background:#ccc;
+    border-radius:50%; 
+    position: absolute;
+    top:38rpx;
+    left: -43rpx;
+}
+.icon_track.active{
+    width: 26rpx;
+    height: 26rpx;
+    top:32rpx;
+    left: -49rpx;
+}
+.icon_track image{
+    width: 26rpx;
+    height: 26rpx;
+    float: left;
+}
+.icon_track .active_tracking{
+    width: 26rpx;
+    height: 26rpx;
+    float: left;
+    display: block;
+    background: #3aa11a;
+    border-radius: 50%;
+}
+.white_line{
+  width:14rpx;
+  height:100%;
+  background:#fff;
+  position:absolute;
+  top:62rpx;
+  left:-40rpx;
+}

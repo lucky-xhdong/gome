@@ -1,0 +1,145 @@
+<scroll-view class="container" auto-y >
+  <!--轮播图-->
+  <view class="banner-box" wx:if="{{bannerList.length>0}}">
+    <swiper class='banner-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="false" circular="true" indicator-active-color="#fff" indicator-color="rgba(255,255,255,.5)">
+      <block  wx:for="{{bannerList}}"  wx:key="*this"   >
+        <swiper-item class="banner-box" data-key="{{item.key}}" data-type="{{item.type}}" data-url="{{item.url}}"   bindtap="getBannerEvent">
+          <image class="banner" src="{{item.image}}" mode="aspectFill" />{{item.image}}
+        </swiper-item>
+      </block>
+    </swiper>
+    <navigator class='search-box' url="../list/list" hover-class="none">
+      <view class="search-btn">
+         <icon type="search" size="14" color='#a5a5a5' /> 搜索国美商品 
+      </view>
+    </navigator>
+    <view class="QR_button" bindtap="codeClick">
+      <image src="/images/QR_CODE.png"></image>
+    </view>
+  </view>
+   <!-- <button class='login-btn'  lang="zh_CN" open-type="getUserInfo"  bindgetuserinfo="getUserInfo">开启微信授权</button> 
+    <button class='login-btn'  lang="zh_CN" open-type="share" >分享</button>  -->
+  <!--首页快捷入口-->
+  <view class='enter-list' wx:if="{{enterList.length>0}}">
+    <view class='enter' wx:for="{{enterList}}" wx:key="*this" wx:for-index="index" wx:if="{{index<2}}">
+      <view class='enter-box'  wx:if="{{item.images.length>4 && idx<5}}" wx:for="{{item.images}}" wx:key="*this" wx:for-item="enterItem" wx:for-index="idx"  >
+        <view class="index-tit"  data-key="{{enterItem.key}}" data-type="{{enterItem.type}}" data-url="{{enterItem.url}}"   data-name="{{enterItem.name}}" bindtap="getEnterEvent">
+          <view>
+            <image src="{{enterItem.image}}"></image>
+          </view>
+          <view class="enter-desc">{{enterItem.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 广告位 -->
+  <view class='activityList' wx:if="{{adList.length>0}}">
+    <view class='activity-box' wx:for="{{adList}}" wx:key="*this">
+      <!-- <view class='activity-tit'>{{item.sort}}</view> -->
+      <view class='activity'>
+        <view class='activity-url' url="{{adItem.url}}" wx:if="{{idx < item.type}}"  wx:for="{{item.images}}" wx:key="*this" wx:for-item="adItem" wx:for-index="idx"  data-key="{{adItem.key}}" data-type="{{adItem.type}}" data-url="{{adItem.url}}"   bindtap="getBannerEvent">
+          <image class='activity-img' src='{{adItem.image}}' mode="widthFix"></image>
+        </view>
+
+      </view>
+    </view>
+  </view>
+   <view class="recommend">
+    <view class="swiper-tab">
+      <view class="title swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">hi抢购</view>
+      <view class="title swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">精品推荐</view>
+    </view>
+    <view class="swiper-box" bindchange="bindChange">
+      <!-- hi抢购 -->
+      <view class="{{currentTab==0 ? 'show' : 'hide'}}">
+        <view class="best-recommend" wx:if="{{bestGoods}}">
+          <view class="hi-time-nav">
+            <view wx:for="{{countDownAry}}" wx:for-item="cutItem" wx:key="timeCode" class="time-nav-view {{timeSwitch==cutItem.timeCode ? 'active' : ''}}" data-num="{{cutItem.timeCode}}" bindtap="timeNav">
+              <view class="bkd-color"></view>
+              <view class="{{cutItem.timeCode == '0'?'pub-des-one':''}} {{cutItem.timeCode == '1'?'pub-des-two':''}} {{cutItem.timeCode == '2'?'pub-des-three':''}} {{cutItem.timeCode == '3'?'pub-des-four':''}} {{cutItem.timeCode == '4'?'pub-des-five':''}} {{timeSwitch==cutItem.timeCode && timeSwitch=='0' ? 'swih-one pub-des':''}} {{timeSwitch==cutItem.timeCode && timeSwitch=='1'? 'swih-two pub-des':''}} {{timeSwitch==cutItem.timeCode && timeSwitch=='2' ? 'swih-three pub-des':''}} {{timeSwitch==cutItem.timeCode && timeSwitch=='3' ? 'swih-four pub-des':''}} {{timeSwitch==cutItem.timeCode && timeSwitch=='4' ? 'swih-five pub-des':''}}">
+                <view class="hi-time">{{cutItem.content}}</view>
+                <view class="hi-desc">{{cutItem.description}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="hi-time-tip">
+            <!--<view class="tip-none {{curtSelected=='已结束' ? 'tip-show hi-desc' : ''}}">本场已结束</view>-->
+            <view class="tip-none {{curtSelected=='抢购中' ? 'tip-show' : ''}}">
+              <view class="hi-desc image-none">距本场结束</view>
+              <view class="hi-time time-sy">
+                <view class="tm-sy">{{h}}</view> :
+                <view class="tm-sy">{{m}}</view> :
+                <view class="tm-sy">{{s}}</view>
+              </view>
+            </view>
+            <view class="tip-none {{curtSelected=='即将开始' ? 'tip-show hi-desc':''}}">本场即将开始</view>
+            <!--<view class="tip-none {{curtSelected=='即将开始' ? 'tip-show' : ''}}">-->
+            <!--<view class="hi-desc image-none">距本场开始</view>-->
+            <!--<view class="hi-time time-sy">-->
+            <!--<view class="tm-sy">{{timehms.h}}</view> : <view class="tm-sy">{{timehms.m}}</view> : <view class="tm-sy">{{timehms.s}}</view>-->
+            <!--</view>-->
+            <!--</view>-->
+          </view>
+          <!--已结束、抢购中、即将开始-->
+          <view class="noDataView" wx:if="{{isNoData}}">
+            <image class="noDataPng" src="/images/noData.png"></image>
+            <view>亲爱的用户：服务繁忙，请您稍后再试</view>
+          </view>
+          <navigator class="bestDetail" wx:for="{{bestGoods}}" wx:for-item="bestGItem" wx:key="itemId" url="{{bestGItem.proUrl}}">
+            <image src="https:{{bestGItem.imgUrl}}_210.jpg"></image>
+            <view class="hi-goods">
+              <p class="hi-goodName">
+                <text class="isGomePrd" wx:if="{{bestGItem.gomePrd == true}}">自营</text>{{bestGItem.name}}</p>
+              <view class="hi-goodPrice">¥{{bestGItem.cheapPrice}}</view>
+              <view wx:if="{{bestGItem.Jstatus != 'soldOut' && bestGItem.Jstatus != 'notStarted'}}" class="progress-view">
+                <progress percent="{{bestGItem.salePercent}}" activeColor="#ff5757" stroke-width="6" active></progress>
+                <view class="title-percent">已售 {{bestGItem.salePercent}}%</view>
+              </view>
+              <view wx:if="{{bestGItem.Jstatus =='soldOut'}}" class="nopross-view">{{bestGItem.saleNum}}件抢光啦</view>
+              <view wx:if="{{bestGItem.Jstatus =='soldOut'}}" class="hi-goodBuy grey-sy">已抢光</view>
+              <view wx:if="{{bestGItem.Jstatus == 'ending'}}" class="hi-goodBuy grey-sy">已结束</view>
+              <view wx:if="{{bestGItem.Jstatus == 'buying'}}" class="hi-goodBuy">立即抢购</view>
+              <view wx:if="{{bestGItem.Jstatus == 'notStarted'}}" class="hi-goodBuy green-sy">即将开售</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <!-- 精品推荐 -->
+      <view class="{{currentTab==1 ? 'show' : 'hide'}}">
+        <view class="best-recommend" wx:if="{{bestGoods.length>0}}">
+          <!--常规商品推荐-->
+          <navigator class="bestDetail" wx:for="{{bestGoods}}" wx:for-item="bestGItem1" wx:key="skuId" url="../prod/prod?productId={{bestGItem1.productId}}&skuId={{bestGItem1.skuId}}">
+            <view class="tab" wx:if="{{bestGItem1.flagMessage}}">{{bestGItem1.flagMessage}}</view>
+            <image src="https:{{bestGItem1.goodsImgUrl}}_210.jpg"></image>
+            <view class="goods">
+              <p class="goodName">{{bestGItem1.goodsName}}</p>
+              <!--<view class="goodPrice">¥{{bestGItem1.originalPrice}}<p>¥{{bestGItem1.minPrice}}</p></view>-->
+              <view class="goodPrice">{{bestGItem1.minPrice}}</view>
+              <view class="goodBuy">立即购买</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</scroll-view>
+<!-- <navigator class='activity' wx:for="{{item.images}}" wx:key="*this" wx:for-item="adItem">
+          <image class='activity-img' src='{{adItem.image}}' mode="aspectFit"></image>
+        </navigator> -->
+<!--启动图-推荐位  -->
+<view class='ad-list' wx:if="{{startList  && startStatus}}" style='height:{{height}}'>
+  <view class='ad-list-bg' style='height:{{height}}' bindtap='delAdEvent'>
+<view class='del' >
+    <icon type="cancel" size="32" color='#fff'></icon>
+  </view>
+  </view>
+  
+  <view class='ad-box'>
+    <view  hover-class='none' data-key="{{startList.key}}" data-type="{{startList.type}}" data-url="{{startList.url}}"   bindtap="getBannerEvent">
+      <image src='{{startList.image}}' mode="widthFix" ></image>
+    </view>
+  </view>
+
+</view>

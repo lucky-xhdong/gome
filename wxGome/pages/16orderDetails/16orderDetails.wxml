@@ -1,0 +1,460 @@
+<scroll-view class='container' style='height:{{height}}' scroll-y wx:if="{{loading}}">
+  <view class='cont' wx:if="{{show}}">
+    <!-- 订单状态 -->
+    <!-- 未拆单按订单状态 -->
+    <view class='item' wx:if="{{order.isSplit==0}}">
+      <view class='state' wx:if="{{order.state=='PENDING_PAYMENT'}}">
+        <view class='tips'>请在国美APP中完成支付或者在门店支付</view>
+        <view class='tit'>
+          <view class='tit-state'>等待付款</view>
+          <image class="no-pay-ico" src='../../images/16-state.png'></image>
+        </view>
+      </view>
+      <view class='state' wx:elif="{{order.state=='PROCESSING' || order.state=='PENDING_MERCHANT_ACTION' || order.stateDesc=='待出库' }}">
+        <view class='tit'>
+          <view class='tit-state'>待收货</view>
+        </view>
+      </view>
+      <view class='state' wx:elif="{{order.state=='REMOVED' ||order.state=='PENDING_REMOVE_AUDIT' || order.state=='REMOVE_AUDIT_APPROVED' ||  order.state=='REJECT' ||  order.state=='REJECT_BACK'}}">
+        <view class='tips'>请在国美APP中查看后续进度</view>
+        <view class='tit'>
+          <view class='tit-state'>{{order.stateDesc}}</view>
+        </view>
+      </view>
+      <view class='state' wx:elif="{{order.state=='DELIVERY' || order.state=='PROCESSING'}}">
+        <view class='tit'>
+          <view class='tit-state-wait'>
+            <view class='tit-state-tit'>待收货</view>
+            <view class='tit-state-desc' wx:if="{{order.empShippingGroups[0].installState!='' && order.empShippingGroups[0].installState!=null}}">待商品配送完成后派工安装</view>
+          </view>
+          <view class='tit-express' wx:if="{{appraiseUsers[orderHistory.deliveryStaffId].courierName}}">
+            <image class="tit-express-ico" src='../../images/16-state.png'></image>
+            <view class='tit-express-name'>快递员：{{appraiseUsers[orderHistory.deliveryStaffId].courierName}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='state' wx:else>
+        <view class='tit'>
+          <view class='tit-state'>{{order.stateDesc}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 拆单后按配送单状态 -->
+    <view class='item' wx:else>
+      <view class='state' wx:if="{{order.empShippingGroups[0].state=='PENDING_PAYMENT'}}">
+        <view class='tips'>请在国美APP中完成支付或者在门店支付</view>
+        <view class='tit'>
+          <view class='tit-state'>等待付款</view>
+          <image class="no-pay-ico" src='../../images/16-state.png'></image>
+        </view>
+      </view>
+      <view class='state' wx:elif="{{order.empShippingGroups[0].state=='PROCESSING' || order.empShippingGroups[0].state=='PENDING_MERCHANT_ACTION' ||  order.empShippingGroups[0].stateDesc=='待出库' || order.empShippingGroups[0].stateDesc=='已出库'}}">
+        <view class='tit' wx:if="{{order.empShippingGroups[0].state=='DELIVERY' || order.empShippingGroups[0].state=='PENDING_SHIPMENT'}}">
+          <view class='tit-state-wait'>
+            <view class='tit-state-tit'>待收货</view>
+            <view class='tit-state-desc' wx:if="{{order.empShippingGroups[0].installState=='0' || order.empShippingGroups[0].installState=='1'  || order.empShippingGroups[0].installState=='2'}}">待商品配送完成后派工安装</view>
+          </view>
+          <view class='tit-express' wx:if="{{appraiseUsers[orderHistory.deliveryStaffId].courierName}}">
+            <image class="tit-express-ico" src='../../images/courier-ico.png'></image>
+            <view class='tit-express-name'>快递员：{{appraiseUsers[orderHistory.deliveryStaffId].courierName}}</view>
+          </view>
+        </view>
+        <view class='tit' wx:else>
+          <view class='tit-state'>待收货</view>
+        </view>
+      </view>
+      <view class='state' wx:elif="{{order.empShippingGroups[0].stateDesc=='待安装' }}">
+        <view class='tit'>
+          <view class='tit-state-wait'>
+            <view class='tit-state-tit'>待安装</view>
+          </view>
+          <view class='tit-express' wx:if="{{installInfo.installStaffName!='' &&installInfo.installStaffName!=null}}">
+            <image class="tit-express-ico" src='../../images/courier-ico.png'></image>
+            <view class='tit-express-name'>安装员：{{installInfo.installStaffName}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='state' wx:elif="{{order.empShippingGroups[0].state=='REMOVED' ||order.empShippingGroups[0].state=='PENDING_REMOVE_AUDIT' || order.empShippingGroups[0].state=='REMOVE_AUDIT_APPROVED' || order.empShippingGroups[0].state=='PENDING_REJECT_REFUND_AUDIT' ||order.empShippingGroups[0].state=='REJECT_REFUND_AUDIT_APPROVED' || order.empShippingGroups[0].state=='REJECT' ||  order.empShippingGroups[0].state=='REJECT_BACK'}}">
+        <view class='tips'>请在国美APP中查看后续进度</view>
+        <view class='tit'>
+          <view class='tit-state'>{{order.empShippingGroups[0].stateDesc}}</view>
+        </view>
+      </view>
+      <view class='state' wx:else>
+        <view class='tit'>
+          <view class='tit-state'>{{order.empShippingGroups[0].stateDesc}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='list'>
+      <!-- 单品赠 -->
+      <view wx:for="{{order.empShippingGroups}}" wx:key="*this" wx:for-index="index">
+        <!-- 国美配送或带货安装 -->
+        <view class='list'>
+          <!-- 未拆单 -->
+          <view wx:if="{{order.isSplit==0}}">
+            <view class='item-address {{index==0 ?  "" :"margin-top"}}' wx:if="{{item.shippingMethod==0 || item.shippingMethod==3}}">
+              <view class='tit-ico'>
+                <image src='../../images/address.png'></image>
+              </view>
+              <view class='address-cont'>
+                <view class='address'>
+                  <view class='address-ico'>配送地址</view>
+                  <view class='address-tips'>{{item.empMemberAdress.consigneeName}}</view>
+                  <view class='address-tips'>{{item.empMemberAdress.consigneePhone}}</view>
+                </view>
+                <view class='address-info'>{{item.empMemberAdress.provinceName}}{{item.empMemberAdress.cityName}}{{item.empMemberAdress.countyName}}{{item.empMemberAdress.townName}}{{item.empMemberAdress.detailAddress}}</view>
+              </view>
+            </view>
+            <view class='item-address {{index==0 ?  "" :"margin-top"}}' wx:if="{{item.shippingMethod==2}}">
+              <view class='tit-ico'>
+                <image src='../../images/address.png'></image>
+              </view>
+              <view class='address-cont'>
+                <view class='address'>
+                  <view class='address-ico'>门店自提</view>
+                </view>
+                <view class='address-info'>{{gomeStore[storeCode].storeName}},{{gomeStore[storeCode].regioneName}}{{gomeStore[storeCode].storeAddress}}，电话：{{gomeStore[storeCode].storePhone}}</view>
+              </view>
+            </view>
+          </view>
+          <!-- 已拆单 -->
+          <view wx:if="{{order.isSplit==1}}">
+            <view class='item'>
+              <navigator class='item-express' url='../16logistics/16logistics?orderId={{orderId}}&sgId={{shippingGroupId}}&shippingGroupId={{shippingGroupId}}&number={{num}}&imgUrl={{order.empShippingGroups[0].empCommerceItems[0].img}}'>
+                <view class='tit-ico'>
+                  <image src='../../images/16-cart.png'></image>
+                </view>
+                <view class='exp-cont'>
+                  <view>
+                    <view class='exp-info'>{{orderHistory.empOrderHistorys[0].content}}
+                    </view>
+                    <view class='exp-time'>{{orderHistory.empOrderHistorys[0].time}}</view>
+                  </view>
+                  <image class="arrow" src="../../images/arrowright.png" mode="aspectFit"></image>
+                </view>
+
+              </navigator>
+            </view>
+            <view class='item'>
+              <!--国美配送-->
+              <view class='item-address' wx:if="{{order.empShippingGroups[0].shippingMethod==0 || order.empShippingGroups[0].shippingMethod==3}}">
+                <view class='tit-ico'>
+                  <image src='../../images/address.png'></image>
+                </view>
+                <view class='address-cont'>
+                  <view class='address'>
+                    <view class='address-ico'>配送地址</view>
+                    <view class='address-tips'>{{order.empShippingGroups[0].empMemberAdress.consigneeName}}</view>
+                    <view class='address-tips'>{{order.empShippingGroups[0].empMemberAdress.consigneePhone}}</view>
+                  </view>
+                  <view class='address-info'>{{order.empShippingGroups[0].empMemberAdress.provinceName}}{{order.empShippingGroups[0].empMemberAdress.cityName}}{{order.empShippingGroups[0].empMemberAdress.countyName}}{{order.empShippingGroups[0].empMemberAdress.townName}}{{order.empShippingGroups[0].empMemberAdress.detailAddress}}</view>
+                </view>
+              </view>
+
+              <view class='item' wx:if="{{order.empShippingGroups[0].shippingMethod==2}}">
+                <view class='delivery-info' wx:if="{{selfPickUpCode!=''}}">
+                  <view class='item-address'>
+                    <view class='tit-ico'>
+                      <image src='../../images/address.png'></image>
+                    </view>
+                    <view class='delivery-cont'>
+                      <view class='address'>
+                        <view class='address-ico'>门店自提</view>
+                      </view>
+                      <view class='address-info'>{{gomeStore[storeCode].storeName}},{{gomeStore[storeCode].regioneName}}{{gomeStore[storeCode].storeAddress}}，电话：{{gomeStore[storeCode].storePhone}}</view>
+                    </view>
+                  </view>
+                  <view class='delivery-time'>
+                    <view class='mode'>
+                      <view class='mode-tit'>自提时间：</view>
+                      <view class='mode-cont'>以收到 短信通知为准</view>
+                    </view>
+                    <view class='mode'>
+                      <view class='mode-tit'>电子签收码：</view>
+                      <view class='mode-cont'>{{selfPickUpCode}}（用于门店取货）</view>
+                    </view>
+                  </view>
+                </view>
+                <view class='item-address' wx:else>
+                  <view class='tit-ico'>
+                    <image src='../../images/address.png'></image>
+                  </view>
+                  <view class='address-cont'>
+                    <view class='address'>
+                      <view class='address-ico'>门店自提</view>
+                    </view>
+                    <view class='address-info'>{{gomeStore[storeCode].storeName}},{{gomeStore[storeCode].regioneName}}{{gomeStore[storeCode].storeAddress}}，电话：{{gomeStore[storeCode].storePhone}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='item margin-top'>
+              <view class='shop'>
+                <view class='tit-ico'>
+                  <image src='../../images/gome-ico.png'></image>
+                </view>
+                <view>{{gomeStore[storeCode].storeName}}</view>
+              </view>
+            </view>
+
+          </view>
+          <view class='list' wx:for="{{item.empMemberAdress.salemanIds}}" wx:for-item="saleitem" wx:key="*thisEmp">
+            <view wx:for="{{item.empCommerceItems}}" wx:for-item="commerce" wx:key="*thisSale">
+              <view wx:if="{{commerce.salesmanId==saleitem}}">
+                <view class='prod'>
+                  <image src='{{protocol}}{{commerce.img}}'></image>
+                  <view class='prod-box'>
+                    <view class='prod-info'>
+                      <view class='prod-desc'>
+                        <view class='gift-ico' wx:if="{{commerce.type=='2'}}">赠品</view>
+                        <view class='gift-ico' wx:if="{{commerce.type=='3'}}">延保</view>{{commerce.name}}</view>
+                      <view class='prod-price'>
+                        <view class='price'>￥{{commerce.salesPrice}}</view>
+                        <view class='num'>×{{commerce.num}}</view>
+                      </view>
+                    </view>
+                    <view class='prod-install' wx:if="{{commerce.deliveryTime !='' && commerce.deliveryTime !=null && order.state=='PENDING_PAYMENT'}}">配送：{{commerce.deliveryTime}}</view>
+                    <view class='prod-install' wx:if="{{commerce.installTime !='' && commerce.installTime !=null}}">安装：{{commerce.installTime}}</view>
+                  </view>
+                  <view class='prod-gift' wx:if="{{commerce.empSalesPromotions.length>0}}" wx:for="{{commerce.empSalesPromotions}}" wx:key="*thisemp" wx:for-item="emp">
+                    <view class='gift-item' wx:if="{{commerce.type==0 && emp.promotionType==2}}">
+                      <view class='gift-tips'>[赠美豆]</view>
+                      <view class='gift-tips'>赠{{emp.promotionAmount}}美豆</view>
+                    </view>
+                  </view>
+                </view>
+                <view class='prod' wx:if="{{commerce.empGiftCommerceItems.length>0}}" wx:for="{{commerce.empGiftCommerceItems}}" wx:key="*thisgift" wx:for-item="gift">
+                  <image src='{{protocol}}{{gift.img}}'></image>
+                  <view class='prod-box'>
+                    <view class='prod-info'>
+                      <view class='prod-desc'>
+                        <view class='gift-ico' wx:if="{{gift.type=='2'}}">赠品</view>
+                        <view class='gift-ico' wx:if="{{gift.type=='3'}}">延保</view>{{gift.name}}</view>
+                      <view class='prod-price'>
+                        <view class='price'>￥{{gift.salesPrice}}</view>
+                        <view class='num'>×{{gift.num}}</view>
+                      </view>
+                    </view>
+                    <view class='prod-install' wx:if="{{item.deliveryTime !='' &&item.deliveryTime !=null && order.state=='PENDING_PAYMENT'}}">配送：{{item.deliveryTime}}</view>
+                    <view class='prod-install' wx:if="{{item.installTime !='' &&item.installTime !=null }}">安装：{{item.installTime}}</view>
+                  </view>
+                </view>
+                <view class='prod' wx:if="{{commerce.empWarrantyCommerceItems.length>0}}" wx:for="{{commerce.empWarrantyCommerceItems}}" wx:key="*thiswar" wx:for-item="warranty">
+                  <image src='{{protocol}}{{warranty.img}}'></image>
+                  <view class='prod-box'>
+                    <view class='prod-info'>
+                      <view class='prod-desc'>
+                        <view class='gift-ico'>延保</view>{{warranty.name}}</view>
+                      <view class='prod-price'>
+                        <view class='price'>￥{{warranty.salesPrice}}</view>
+                        <view class='num'>×{{warranty.num}}</view>
+                      </view>
+                    </view>
+                    <view class='prod-install' wx:if="{{item.deliveryTime !='' &&item.deliveryTime !=null && order.state=='PENDING_PAYMENT'}}">配送：{{item.deliveryTime}}</view>
+                    <view class='prod-install' wx:if="{{item.installTime !='' &&item.installTime !=null  }}">安装：{{item.installTime}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='item'>
+              <view class='saler'>
+                <view class='saler-tit'>
+                  <image src='../../images/salers-ico.png'></image>
+                  <view class='saler-info-name'>
+                    <view class='saler-name' data-phone="{{guiderList[saleitem].cellPhone}}">导购员：{{guiderList[saleitem].employeeName}}</view>
+                    <star id='star' index="0" type="3" score="{{guiderList[saleitem].startLevel}}" star-box="star-box" star-img="star-img">
+                    </star>
+                  </view>
+                </view>
+                <view class='saler-tips' data-phone="{{guiderList[saleitem].cellPhone}}" bindtap='callPhone' wx:if="{{!appriseBtn &&  ( guiderList[saleitem].isAppraise!='DONE' && guiderList[saleitem].isAppraise!='NOTDONE')}}">
+                  <view class='saler-contact' data-phone="{{guiderList[saleitem].cellPhone}}">联系</view>
+                  <image class="arrow" src="../../images/arrowright.png" mode="aspectFit" data-phone="{{guiderList[saleitem].cellPhone}}"></image>
+                </view>
+                <view class='saler-right' wx:else>
+                  <view class='saler-contact' data-phone="{{guiderList[saleitem].cellPhone}}" bindtap='callPhone'>联系</view>
+                  <view class='slaer-tips'>|</view>
+                  <view class='saler-tips'>
+                    <view class='saler-apprise' hover-class='none' data-salerId="{{guiderList[saleitem].employeeId}}" data-isAppraise='{{guiderList[saleitem].isAppraise}}' bindtap='getApprisEmployee' wx:if="{{guiderList[saleitem].isAppraise=='NOTDONE'}}">给予评价</view>
+                    <view class='saler-apprise' hover-class='none' data-salerId="{{guiderList[saleitem].employeeId}}" data-isAppraise='{{guiderList[saleitem].isAppraise}}' bindtap='getApprisEmployee' wx:if="{{guiderList[saleitem].isAppraise=='DONE'}}">查看评价</view>
+                    <image class="arrow" src="../../images/arrowright.png" mode="aspectFit" data-phone="{{guiderList[saleitem].cellPhone}}"></image>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 多品赠 -->
+      <view wx:for="{{order.empMulitItemPromotions}}" wx:key="*this" wx:for-item="items" wx:if="{{order.empMulitItemPromotions.length>0}}">
+        <view class='item' wx:for="{{items.empGiftCommerceItems}}" wx:key="*thisgifts" wx:for-item="gifts" wx:if="{{items.empGiftCommerceItems.length>0}}">
+          <view class='prod'>
+            <image src='{{gifts.img}}'></image>
+            <view class='prod-box'>
+              <view class='prod-info'>
+                <view class='prod-desc'>
+                  <view class='gift-ico' wx:if="{{gifts.type=='2'}}">赠品</view>
+                  <view class='gift-ico' wx:if="{{gifts.type=='3'}}">延保</view>{{gifts.name}}</view>
+                <view class='prod-price'>
+                  <view class='price'>￥{{gifts.salesPrice}}</view>
+                  <view class='num'>×{{gifts.num}}</view>
+                </view>
+              </view>
+              <view class='prod-install' wx:if="{{commerce.deliveryTime !='' && commerce.deliveryTime !=null && order.state=='PENDING_PAYMENT'}}">配送：{{commerce.deliveryTime}}</view>
+              <view class='prod-install' wx:if="{{commerce.installTime !='' && commerce.installTime !=null  }}">安装：{{commerce.installTime}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 支付方式 -->
+    <view class='item margin-top' wx:if="{{order.state !='PENDING_PAYMENT'}}">
+      <view class='mode-list'>
+        <view class='mode' wx:if="{{order.empPayAmount.payMethodDesc}}">
+          <view class='mode-tit'>支付方式：</view>
+          <view class='mode-cont'>{{order.empPayAmount.payMethodDesc}}</view>
+        </view>
+        <view class='mode'>
+          <view class='mode-tit'>配送方式：</view>
+          <view class='mode-cont' wx:if="{{order.empShippingGroups[0].shippingMethod==0}}">国美配送</view>
+          <view class='mode-cont' wx:elif="{{order.empShippingGroups[0].shippingMethod==2}}">门店自提</view>
+          <view class='mode-cont' wx:else>带货安装</view>
+        </view>
+        <view class='mode' wx:if="{{order.empShippingGroups[0].empCommerceItems[0].deliveryTime!='' && order.empShippingGroups[0].empCommerceItems[0].deliveryTime!=null}}">
+          <view class='mode-tit'>配送时间：</view>
+          <view class='mode-cont'>{{order.empShippingGroups[0].empCommerceItems[0].deliveryTime}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 发票 -->
+    <view class='item margin-top' wx:if="{{orderInvoice.invoiceMediaType==2}}">
+      <view class='invoice'>
+        <view class='invoice-list'>
+          <view class='invoice-box'>
+            <view class='mode'>
+              <view class='mode-tit'>发票类型：</view>
+              <view class='mode-cont'>电子发票</view>
+            </view>
+            <view class='invoice-check' wx:if="{{orderInvoice.empInvoiceDetails.length>0}}" bindtap='lookInvoice' data-img="{{orderInvoice.empInvoiceDetails[0].invoiceImageUrl}}">查看发票</view>
+          </view>
+
+          <view class='mode'>
+            <view class='mode-tit'>发票抬头：</view>
+            <view class='mode-cont'>{{orderInvoice.invoiceHeadContent}}</view>
+          </view>
+          <view class='mode'>
+            <view class='mode-tit'>发票内容：</view>
+            <view class='mode-cont'>{{orderInvoice.invoiceContent}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <!-- 支付后返美豆 -->
+    <view class='item margin-top' wx:if="{{order.isShowPoint=='Y' && order.point!=0}}">
+      <view class='meidou'>
+        <view class='meidou-tit'>
+          <view class='meidou-tit-ico'>
+            <image src='../../images/meidou.png'></image>
+            <view>美豆：</view>
+          </view>
+          <view class='meidou-cont'>订单赠
+            <text>{{order.point}}</text>美豆</view>
+        </view>
+        <view class='meidou-desc'>返美豆将在订单或活动完成后发放至您的账户</view>
+      </view>
+    </view>
+    <!-- 返券 -->
+    <view class='item margin-top'>
+      <view class='quan-list' wx:if="{{order.empMulitItemPromotions[0].empSalesPromotions.length>0 }}" wx:for="{{order.empMulitItemPromotions[0].empSalesPromotions}}" wx:key="*thisCoupon">
+        <!-- <view class='quan-item'>
+          <view class='quan-tit'>[返券]</view>
+          <view class='quan-cont'>满1000赠10元券*1</view>
+        </view> -->
+        <view class='quan-item' wx:if="{{item.promotionType==2}}">
+          <view class='quan-tit'>[返美豆]</view>
+          <view class='quan-cont'>赠美豆*{{item.promotionAmount}}</view>
+        </view>
+        <view class='meidou-desc'>返美豆将在订单或活动完成后发放至您的账户</view>
+      </view>
+    </view>
+    <!-- 商品价格 -->
+    <view class='item margin-top'>
+      <view class='pay'>
+        <view class='pay-list'>
+          <view class='pay-item'>
+            <view class='pay-tit'>商品总价</view>
+            <view class='pay-cont'>{{num}}件 ¥ {{order.empPayAmount.orderAmount}}</view>
+          </view>
+          <view class='pay-item'>
+            <view class='pay-tit'>美券</view>
+            <view class='pay-cont'>-¥ {{order.empPayAmount.useGomeCoupon}}</view>
+          </view>
+          <view class='pay-item'>
+            <view class='pay-tit'>美豆</view>
+            <view class='pay-cont'>-¥ {{order.empPayAmount.useGomeBean}}</view>
+          </view>
+          <view class='pay-item'>
+            <view class='pay-tit'>折扣优惠</view>
+            <view class='pay-cont'>-¥ {{order.empPayAmount.discountAmount}}</view>
+          </view>
+          <view class='pay-item'>
+            <view class='pay-tit'>运费</view>
+            <view class='pay-cont'>+¥ {{order.empPayAmount.shippingCost}}</view>
+          </view>
+        </view>
+        <view class='pay-money'>
+          <view class='money-tit'>实付款：</view>
+          <view class='money'>¥ {{order.empPayAmount.paymentAmount}}</view>
+        </view>
+      </view>
+
+    </view>
+    <!-- 订单编号 -->
+    <view class='item margin-top'>
+      <view class='id-list'>
+        <view class='id-item'>
+          <view class="id-box">
+            <text class='id-tit'>订单编号：</text>
+            <text class='id-cont' selectable="true">{{order.orderId}}</text>
+          </view>
+          <view class='copy' bindtap='copyId' data-text="{{order.orderId}}">复制</view>
+        </view>
+        <view class='id-item' wx:if="{{order.isSplit==1 && shippingGroupId!=null && shippingGroupId!=''}}">
+          <view class="id-box">
+            <view class='id-tit'>配送单号：</view>
+            <view class='id-cont'>{{shippingGroupId}}</view>
+          </view>
+          <view class='copy' bindtap='copyId' data-text="{{shippingGroupId}}">复制</view>
+        </view>
+        <view class='id-item item-times'>
+          <view class='id-tit gray'>下单时间：</view>
+          <view class='id-cont gray'>{{order.createDate}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 查看按钮 -->
+    <view class='item margin-top'>
+      <view class='evnet' wx:if="{{order.empButtons.length>0}}">
+        <view wx:for="{{order.empButtons}}" wx:key="*thisBtn">
+          <view class='goto-btn' wx:if="{{item.code=='Delivery_History'}}" bindtap='goToEvetn'>查看物流</view>
+          <view class='goto-btn' wx:if="{{item.code=='Install_History'}}" bindtap='goInstallEvent'>安装查询</view>
+          <view class='confirm-btn' wx:if="{{item.code=='Confirm_Ship'}}" bindtap='confirmEvent'>确认收货</view>
+        </view>
+        <view class='confirm-btn' wx:if="{{appriseBtn}}" bindtap='appriseEvent'>评价得美豆</view>
+      </view>
+
+
+    </view>
+  </view>
+  <view class='cont' wx:else>
+    <view class='no-box'>
+      <image class='tiger' src='../../images/tiger_icon.png'></image>
+      <view class='no-cont'>加载失败，请稍后再试</view>
+    </view>
+
+
+  </view>
+
+</scroll-view>

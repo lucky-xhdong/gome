@@ -1,0 +1,91 @@
+ <!-- 初始化loading -->
+<view class="loadingInt" wx:if="{{ loadingInit }}">
+	<image mode="aspectFit" src="../../images/loading.gif"></image>
+</view>
+
+<scroll-view scroll-y="true">
+<!-- 试验田 begin-->
+<view class="deliveryTimeWrap margin-b-20">
+	<view class="deliverTitle"><text>发票信息</text></view>
+	<view class="checkedWrap">
+		<radio-group bindchange="bindInvoiceIsNeed" >
+		  <label wx:for="{{ invoiceNeed }}">
+		  	<view class="isChecked {{item.isChecked ? 'checked' : ''}}">
+			    <radio value="{{index}}" checked="{{ item.isChecked }}"/>
+				<text>{{ item.name }}</text>
+				<image mode="aspectFit" src="../../images/bg-tick.png"></image>
+			</view>
+		  </label>
+		</radio-group>
+	</view>
+</view>
+<view hidden="{{!isInvoiceNeed}}">  <!-- 需要发票 -->
+	<view class="deliveryTimeWrap margin-b-20">
+		<view class="deliverTitle"><text>发票类型</text></view>
+		<view class="checkedWrap">
+			<radio-group bindchange="bindInvoiceType" >
+				<label wx:for="{{invoicesType}}">
+					<view wx:if="{{item.visible&&item.available}}" class="isChecked {{item.selected ? 'checked' : ''}}" data-value="{{item.code}}">
+						<radio value="{{index}}" checked="{{ item.selected }}"/>
+						<text>{{item.label}}</text>
+						<image mode="aspectFit" src="../../images/bg-tick.png"></image>
+					</view>
+				</label>
+			</radio-group>
+		</view>
+		<view wx:if="{{selectedInvoice.invoiceType.code=='1'}}"  class="statement">
+			{{statementDz}}
+		</view>
+	</view>
+
+	<view class="deliveryTimeWrap margin-b-20 invoiceTt">
+		<view class="deliverTitle"><text>发票抬头</text></view>
+		<view class="checkedWrap">
+			<radio-group bindchange="bindInvoiceTt">
+			<label wx:for="{{headTypes}}">
+				<view hidden="{{ !item.visible}}"  class="statement">
+					<view class="ttIscheck {{item.selected ? 'checked' : ''}} margin-b-20">
+						<radio value="{{index}}" checked="{{ item.selected }}" />
+						<image class="active_tracking" src="../../images/checked.jpg"></image>
+						<image class="active_tracking" src="../../images/unchecked.jpg"></image>
+						<text>{{ item.label }}</text>	
+						<input data-select="{{item.selected}}" data-index="{{index}}" data-code="{{item.code}}" class="input" value="{{item.content}}" bindinput="ttContent" maxlength="30"/>
+						<!-- <input wx:else class="input" data-code="{{item.code}}"  focus value="{{item.content}}"/>  -->
+					</view>
+				</view>
+			</label>
+			</radio-group>
+		</view>
+	</view>
+	<view class="deliveryTimeWrap margin-b-20 invoiceTt" wx:if="{{selectedInvoice.invoiceType.code=='1'}}">
+		<view class="checkedWrap">
+			<view  class="statement">
+				<view class="margin-b-20">
+					<text>收票人手机</text>	
+					<input class="input input1" value="{{selectedInvoice.mobilePhone}}" bindinput="phoneContent" bindfocus="phonefocus"  maxlength="11" focus="{{focus}}"/> 
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="deliveryTimeWrap margin-b-20 invoiceCon" >
+		<view class="deliverTitle" wx:if="{{invoiceContent!=''}}"><text>发票内容</text></view>
+		<view class="checkedWrap" wx:if="{{invoiceContent!=''}}">
+			<radio-group bindchange="bindInvoiceContent" >
+			<label   wx:for="{{invoiceContent}}">
+				<view wx:if="{{item.visible&&item.available}}" class="isChecked {{item.selected ? 'checked' : ''}}">
+					<radio value="{{index}}" checked="{{ item.selected }}"/>
+					<text>{{ item.label }}</text>
+					<image mode="aspectFit" src="../../images/bg-tick.png"></image>
+				</view>
+			</label>
+			</radio-group>
+		</view>
+		<text class="statement">{{pTypeLabels}}</text>
+	</view>
+</view>
+<!-- 试验田 end-->
+</scroll-view>
+
+<view class="confirmBtn" bindtap="bindConfirm">
+	<button>确定</button>
+</view>

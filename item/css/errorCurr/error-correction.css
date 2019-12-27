@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*1.1_纠错页_v1_0427_01*/
+.pdtl-high{ height:38px; }
+.pdtl-tab{ width:988px; }
+.pdtl-tbox{ height:34px; line-height:34px; background:#FFF; border:1px solid #d8d8d8; width:100%; }.pdtl-tbox li{ float:left; font-size:14px; font-weight:bold; height:34px; padding:0 20px; border-right:1px solid #d8d8d8; border-bottom:1px solid #d8d8d8; }.pdtl-tbox .cur{ background:#f6f6f6; border-top:3px solid #960; border-bottom:1px solid #f6f6f6; position:relative; top:-1px; height:28px; _height:29px; z-index:3; overflow:hidden; }
+.pdtl-tbg{ height:3px; border:1px solid #d8d8d8; background:#f6f6f6; width:100%; position:relative; top:-5px; overflow:hidden; }
+/*如果您发现商品信息不准确，欢迎纠错*/
+.reg-tips { display: inline; float: left; margin-right: 10px; margin-left: 15px; width: 11px; height: 15px; background: url(//css.gomein.net.cn/images/register.png) no-repeat -48px -20px; _background: url(//css.gomein.net.cn/images/register.gif) no-repeat -48px -20px; }
+.welerror { color: #0065CB; }
+
+/*1.2_纠错内容页_v1_0427_01*/
+.complete-msg { width: 638px; height: 387px; margin: 70px auto; border: solid 1px #fadec4; background-color: #fff5eb; }
+.glogo { margin-top: 10px; margin-left: 19px; }
+.gtit { display: inline; float: right; margin-top: 14px; margin-right: 19px; font-size: 20px; font-family: "Microsoft YaHei"; }
+.gtip { margin: 20px 35px 0 39px; color: #959595; text-indent: 24px; line-height: 23px; }
+.gmsg { margin-top: 8px; margin-left: 40px; line-height: 25px; }
+.gtext { margin-top: 6px; margin-left: 39px; padding-top: 8px; padding-left: 5px; width: 552px; height: 105px; color: #a5a5a5; line-height: 20px; resize: none; }
+.btn-submit { margin: 15px auto 0 auto; width: 95px; height: 30px; background: url(//css.gomein.net.cn/images/btn-95-30.png) no-repeat left top; color: #fff; font: 16px/30px "Microsoft YaHei"; text-align: center; cursor: pointer; }
+
+.gok { margin-top: 100px; margin-left: 130px; }
+.icon-right { display: inline-block; width: 31px; height: 30px; background: url(//css.gomein.net.cn/images/right.png) no-repeat left top; margin-right: 20px; vertical-align: middle; }
+.okword { color: #ff6600; font-family: "Microsoft YaHei"; font-size: 22px; vertical-align: middle; }
+.gok-tip { margin-top: 5px; margin-left: 180px; color: #959595; }
+.finish-link { margin-top: 22px; margin-left: 182px; }
+.finish-link a { margin-right: 15px; color: #0065CB; }

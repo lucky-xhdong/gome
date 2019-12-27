@@ -1,0 +1,72 @@
+@charset "utf-8";
+body{font:400 12px/24px arial,"新宋体";}
+h1,h3,h4{font:400 14px/24px "microsoft yahei";}
+a{color:#006699;}
+.nRed,.nRed:hover{color:#f00;margin-left: 10px;}
+.fontRed{color:#e3101e;}
+.fontGray{color:#a5a5a5;}
+.mt3{margin-top: 3px;}
+.mb10{margin-bottom:10px;}
+.lh30{line-height: 30px;}
+.hide{display: none;}
+.btn-check{margin-right: 10px;}
+.btn-check .chose_icon{display: none;}
+.btn-checked .chose_icon{display: block;}
+.container{width:990px;margin-left:auto;margin-right:auto;}
+.loading{height:200px;background:url(//app.gomein.net.cn/gmlib/ui/loading/1.0.0/loading.gif) no-repeat center;}
+.jxwrapper{border:1px solid #e6e6e6;color:#333;padding-top:10px;}
+.jxprotocol{margin:40px 0 20px;line-height: 20px;height: 20px;vertical-align: middle;}
+.jxprotocol input{margin-right: 8px;display: inline-block;vertical-align: middle;}
+.jxwrapper ul.info{margin-left:30px;color: #5e5e5e;font-size: 12px;line-height: 22px}
+.jxwrapper ul.info li p{text-indent: 19px;}
+.jxwrapper ul.info-bottom{margin-left: 12px;}
+.jxwrapper ul.info-bottom li{text-indent:25px;}
+.jxForm .col{padding-top:10px;}
+.jxForm .label{float:left;text-align:right;line-height:30px;padding-right:15px;width:108px;}
+.jxForm .value{float:left;text-align:left;width:750px;}
+.jxForm .form-control{width:180px;}
+.jx-order-tip{margin:60px 0 50px 0;}
+.upload-cols{position:relative;}
+.upload-cols .example{float:left;position:relative;width:340px;}
+.upload-cols .example span{display:block;height:16px;line-height:16px;margin-bottom:14px;}
+.upload-cols .example .jx-pic-01{width: 340px;height: 90px;display: inline-block;background-image: url(i/jixin/pic-01.jpg);}
+.upload-cols .example .jx-pic-02{width: 340px;height: 90px;display: inline-block;background-image: url(i/jixin/pic-02.jpg);}
+.upload-cols .example .jx-pic-03{width: 340px;height: 90px;display: inline-block;background-image: url(i/jixin/pic-03.jpg);}
+.upload-cols .upload-col{float:left;margin-right:30px;overflow:hidden;position:relative;}
+.upload-cols .upload-col .upload-btn{display:inline-block;height:120px;position:relative;width:200px;background:url(i/jixin/jx_cart.png) 0 0 no-repeat;cursor:pointer;}
+.upload-cols .upload-col .upload-btn.hover{background-position:-202px 0;}
+.upload-btn .upload-text{position:absolute;bottom:46px;left:8px;width: 184px;height:28px;line-height:28px;color:#5e5e5e;background-color: #fafafa;text-align: center;}
+.upload-btn .upload-text i{margin-right: 3px;vertical-align: middle;}
+.upload-btn .upload-err-msg{width: 180px;position: absolute;left:0;top:30px;padding:0 10px;color: #ff4747;font-size: 12px;text-align: center;}
+.upload-btn .upload-err-msg i{vertical-align: middle;margin-right: 7px;}
+.upload-btn .upload-err-msg.error + .upload-text{bottom: 8px;}
+.btn-check span.c-i{vertical-align: middle;margin-right: 5px;}
+.upload-cols .upload-col input[type=file]{height:120px;opacity:0;filter:alpha(opacity=0);width:200px;}
+.upload-cols .upload-col span.upload-pic{position: relative;display: inline-block;}
+.upload-cols .upload-col .modify-con{padding:10px;text-align:center;}
+.upload-cols .upload-col .modify-con a{display:inline-block;width:75px;height:23px;background:#f6f6f6 none repeat scroll 0 0;border:1px solid #ddd;border-radius:2px;color:#333;line-height:23px;text-align:center;text-decoration:none;}
+.upload-loading{display:none;height:120px;width:200px;position:absolute;top:0;left:0;z-index:10000000;background:url(//app.gomein.net.cn/gmlib/ui/loading/1.0.0/loading.gif) no-repeat scroll center center rgba(0,0,0,.1);}
+input[name=picFile]{width:200px;height:120px;}
+.footer-bar{background-color: #f3f3f3;height: 50px;line-height: 50px;width: 990px;margin: 0 auto;}
+.footer-bar .tr{text-align: right;}
+.footer-bar a.btn-submit:hover{text-decoration: none;}
+.footer-bar a.btn-submit{background-color: #e4393c;display: inline-block;font-size: 16px;color: #fff;font-family: "microsoft yahei";padding: 0 30px;}
+.footer-bar a.disable{background-color: #ccc;cursor:not-allowed;}
+.jx-protocol-box{background-color: #fff;padding: 10px 15px 20px 20px;}
+.jx-protocol-box h2{margin-bottom: 20px;color: #333;font:400 14px/16px "microsoft yahei";text-align: center;}
+.jx-protocol-body{width: 689px;height: 340px;overflow-y: auto;overflow-x: hidden;color: #5e5e5e;font-size: 12px;line-height: 22px;}
+.jx-protocol-body p{text-indent: 30px;}
+.jx-protocol-body p span.s2{margin-left: 49px;text-indent: 0;display: block;}
+.jx-protocol-body span.s1{margin-left: 30px;text-indent: 0;display: block;}
+.h3{margin:2px 0;font-size: 14px;color: #333;font-family: "microsoft yahei"}
+.bold{font-weight: 700;}
+
+/*********极信通头部标题修改为图片**************/
+#head-title{
+    margin-left: 0;
+}
+.head-title-shopping{
+    background: url(i/ddxx.png) no-repeat 0px 32px;
+    width: 170px;
+    text-indent:-999px;
+}

@@ -1,0 +1,14 @@
+
+<view class="paySucess">
+	<image src="../../images/pay-success.png" mode="aspectFit"></image>
+	<text class="paySucessTitle">购买成功</text>
+	<text class="paySucessTip">我们将尽快为您发货</text>
+</view>
+
+<navigator url="../index/index" open-type="switchTab">
+	<button class="stroll" type="default" size="" >继续逛逛</button>
+</navigator>
+
+<view class="skipOrder">
+	订单详情请到<text>我的订单-全部订单</text>中查看
+</view>

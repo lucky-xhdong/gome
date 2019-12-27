@@ -1,0 +1,293 @@
+/* ==== 产品信息 ==== */
+
+.shopname {
+  display: block;
+  border-bottom: 1px solid #e6e6e6;
+  width: 100%;
+  border-top: 1px solid #e6e6e6;
+  position: relative;
+}
+
+.shopnameOn {
+  height: 100rpx;
+  line-height: 50rpx;
+}
+
+.shopnameOff {
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.shopnameBox {
+  padding-left: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+  margin-top: 5rpx;
+  position: absolute;
+}
+
+.shopnameBox image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.shopname .name {
+  padding-left: 70rpx;
+}
+
+.shopname .inforAttr {
+  padding-left: 70rpx;
+}
+
+.inforAttr text {
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.productInfo {
+  width: 100%;
+  height: auto;
+}
+
+.tz {
+  color: #000;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.tzPrice {
+  margin: 20rpx;
+}
+
+.tz .promot {
+  border: 1rpx solid red;
+  padding: 5rpx;
+  border-radius: 8rpx;
+  background: red;
+  color: #fff;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  z-index: 1000;
+}
+
+.tz .tzState {
+  color: #999;
+}
+
+.tzname {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.imgInfo .proimage {
+  width: 160rpx;
+  height: 160rpx;
+  border: 1px solid #e6e6e6;
+}
+
+.imgInfo .detail {
+  display: flex;
+  position: relative;
+  padding: 20rpx;
+  flex-wrap: wrap;
+}
+
+.imgInfo .detailImg {
+  width: 160rpx;
+  height: 160rpx;
+  position: relative;
+  vertical-align: middle;
+  margin: 30rpx;
+}
+
+.imgInfo .detailImg text {
+  position: absolute;
+  width: 100%;
+  height: 38rpx;
+  bottom: -1rpx;
+  text-align: center;
+  line-height: 38rpx;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.imgInfo .detailImg .off {
+  background: #757575;
+}
+
+.imgInfo .detailImg .tension {
+  background: #ff6767;
+}
+
+.detailBox {
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.detailBox.last {
+  border-bottom: none;
+}
+
+.other .col-red1 {
+  color: red;
+}
+
+.productList {
+  position: relative;
+}
+
+.productList .productDetail {
+  width: 480rpx;
+  font: normal 26rpx/40rpx 'Microsoft YaHei';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.productList .productDesign {
+  border: 1rpx solid red;
+  padding: 0rpx;
+  border-radius: 10rpx;
+  color: red;
+}
+
+.other {
+  height: 50rpx;
+  line-height: 50rpx;
+  position: relative;
+}
+
+.other .col-b1 {
+  float: right;
+}
+
+.other .proSprice {
+  margin-left: 10rpx;
+}
+
+.other .priceType {
+  display: inline-block;
+  border: 1px solid #ef3030;
+  border-radius: 5rpx;
+  margin-left: 20rpx;
+  color: #ef3030;
+  padding-left: 26rpx;
+  background: #ef3030;
+  height: 26rpx;
+  line-height: 26px;
+  vertical-align: top;
+  margin-top: 11rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.other .priceType image {
+  width: 18rpx;
+  height: 18rpx;
+  vertical-align: top;
+  position: absolute;
+  left: 5rpx;
+  top: 6rpx;
+}
+
+.other .member image {
+  left: 7rpx;
+}
+
+.other .priceType text {
+  display: inline-block;
+  padding: 0 6rpx;
+  height: 26rpx;
+  line-height: 26rpx;
+  vertical-align: top;
+  background: #fff;
+  font-size: 18rpx;
+  color: #e3101e;
+}
+
+.productList .tuihuo {
+  height: 50rpx;
+  line-height: 50rpx;
+  position: relative;
+}
+
+.productList .tuihuo image {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  margin-top: 11rpx;
+}
+
+.productList .tuihuo text {
+  margin-left: 40rpx;
+}
+
+.zp {
+  margin-left: 250rpx;
+}
+
+.productList .proAttr, .dpzp {
+  color: #ccc;
+}
+
+.gift {
+  display: flex;
+  padding-left: 30rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 690rpx;
+}
+
+.gift-list{
+   width: 600rpx;
+  padding-left: 8rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gift-item {
+   width: 600rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gift-item .gift-item-desc {
+  width: 520rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.productList .meistore {
+  color: #adcef6;
+}
+
+.productList .meistore em {
+  display: inline-block;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  margin-right: 8rpx;
+  background: #ffcbcb;
+  vertical-align: top;
+  margin-top: 20rpx;
+}
+
+.dap {
+  margin-left: -200rpx;
+}
+
+.proAttrAll {
+  width: 480rpx;
+  font: normal 26rpx/40rpx 'Microsoft YaHei';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

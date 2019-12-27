@@ -1,0 +1,63 @@
+<scroll-view class='container' wx:if="{{list.length>0}}" style='height:{{height}}' scroll-y>
+  <view class='list'>
+    <view class='item' wx:for="{{list}}" wx:key="*this">
+      <view class='prod'>
+        <image class='prod-img' src='{{item.skuImg}}'></image>
+        <my-component>
+          <star id='star' index="{{index}}" type="1" score="{{scores[index]}}" star-box="star-box" star-img="star-img" bindtap='selectStarEvent'>
+          </star>
+        </my-component>
+      </view>
+      <view class='text-box'>
+        <textarea class='apprise-text' placeholder="分享您的使用心得，让更多的人看到吧。" placeholder-class="apprise-text-hover" value="{{item.apprise}}" bindinput='getAppriseText' bindblur="getAppriseTextBlur" maxlength='200' data-idx="{{index}}" />
+        <view class='text-num-box'>
+          <view class='text-num'>{{item.appriseNum}}/200</view>
+        </view>
+      </view>
+
+      <view class='apprise-tips' wx:if="{{item.appraiseGomeDosCount==0 && item.showPicGomeDosCount==0}}">没图没真相，给小伙伴晒一晒吧</view>
+      <view class='apprise-tips' wx:else>
+        <text wx:if="{{item.appraiseGomeDosCount!=0}}">评价完成可获得{{item.appraiseGomeDosCount}}美豆，</text>
+        <text wx:if="{{item.showPicGomeDosCount!=0}}">晒图通过后可获得{{item.showPicGomeDosCount}}美豆噢~</text>
+      </view>
+      <view class='upload-imgs'>
+        <view class='img-list' wx:if="{{item.pics.length>0}}">
+          <view class='img-item' wx:for="{{item.pics}}" wx:key="*this" wx:for-item="itempic" wx:for-index="idx">
+            <image class='img-prod' src='{{itempic}}' bindtap='previewImgEvent' data-index="{{index}}" data-url="{{itempic}}"></image>
+            <image class='img-del' src='../../images/del-img.png' data-index="{{index}}" data-idx="{{idx}}" bindtap='delPhotoEvent'></image>
+          </view>
+        </view>
+        <image class="add-img" src='../../images/add-img.png' bindtap='addPhotoEvnet' data-index="{{index}}" wx:if="{{item.show}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class='service-box' wx:if="{{storeStatus || logisticStatis || installStatis}}">
+    <view class='service-list'>
+      <view class='service-item'>
+        <view class='service-name'>服务评价</view>
+      </view>
+      <view class='service-item' wx:if="{{storeStatus}}">
+        <view class='service-name'>门店服务</view>
+        <my-component>
+          <star id='star' index="{{list.length}}" type="2" score="5" star-box="star-box" star-img="star-img" bindtap='selectStarEvent'>
+          </star>
+        </my-component>
+      </view>
+      <view class='service-item' wx:if="{{logisticStatis}}">
+        <view class='service-name'>物流服务</view>
+        <my-component>
+          <star id='star' index="{{list.length+1}}" type="2" score="5" star-box="star-box" star-img="star-img" bindtap='selectStarEvent'>
+          </star>
+        </my-component>
+      </view>
+      <view class='service-item' wx:if="{{installStatis}}">
+        <view class='service-name'>安装服务</view>
+        <my-component>
+          <star id='star' index="{{list.length+2}}" type="2" score="5" star-box="star-box" star-img="star-img" bindtap='selectStarEvent'>
+          </star>
+        </my-component>
+      </view>
+    </view>
+  </view>
+  <view class='confirm-btn' bindtap='confirmEvent'>提交</view>
+</scroll-view>

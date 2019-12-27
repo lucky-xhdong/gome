@@ -1,0 +1,104 @@
+<!--pages/profile/profile.wxml-->
+<view class="container" wx:if="{{hasStatus}}">
+    <view class="user_decription">
+        <view class="username_msg">
+            <image class="userimage" src="{{userSrc}}"></image>
+        </view>
+        <view class="username_box">
+            <view class="userInfo">
+                <view class="username fl">{{userName}}</view>
+                <view class="grade fl" wx:if='{{!isPay}}'>
+                    <view class="grade-level fl"><text>{{grade}}</text></view>
+                    <text class="fl">会员</text>
+                </view>
+                <view class="pay-me fl" wx:if='{{isPay?status=="normal":""}}'>
+                    {{payVersion}}
+                </view>
+                <view class="pay-me fl" wx:if='{{isPay?status=="frozen":""}}'>
+                    {{payVersion}} | 已冻结
+                </view>
+            </view>
+            <view><text>账号：{{userId}}</text></view>
+        </view>
+    </view>
+    <navigator class="order_list" url="/pages/order/order?type=1" hover-class="navigator-hover">
+        <view class="fl">
+            <image class="icon fl" src="../../images/1.png"></image>
+            <text class="fl font32">全部订单</text>
+        </view>
+        <view class="arrowright fr">
+            <!-- <text class="red">1 单</text> -->
+            <image class="more" src="/images/more.png"></image>
+        </view>
+    </navigator>
+    <navigator class="order_list" url="/pages/16order/16order?type=1" hover-class="navigator-hover">
+        <view class="fl">
+            <image class="icon fl" src="../../images/9.png"></image>
+            <text class="fl font32">门店订单</text>
+        </view>
+        <view class="arrowright fr">
+            <!-- <text class="red">1 单</text> -->
+            <image class="more" src="/images/more.png"></image>
+        </view>
+    </navigator>
+    <navigator class="order_list" url="/pages/coupon/coupon?type=1&totalCouponCount={{totalCouponCount}}">
+        <view class="fl">
+            <image class="icon fl" src="../../images/4.png"></image>
+            <text class="fl font32">我的优惠券</text>
+        </view>
+        <view class="arrowright fr">
+            <text class="red" wx:if="{{totalCouponCount>0}}">{{totalCouponCount}} 张</text>
+            <image class="more" src="/images/more.png"></image>
+        </view>
+    </navigator>
+    <navigator class="order_list" url="/pages/myMeidou/myMeidou?meidouNum={{meidouNum}}">
+        <view class="fl">
+            <image class="icon fl" src="../../images/meidou-small.png"></image>
+            <text class="fl font32">我的美豆</text>
+        </view>
+        <view class="arrowright fr">
+            <text class="red">{{meidouNum}} 个</text>
+            <image class="more" src="/images/more.png"></image>
+        </view>
+    </navigator>
+    <navigator class="order_list" url="/pages/collectorTicket/collectorTicket">
+        <view class="fl">
+            <image class="icon fl" src="../../images/10.png"></image>
+            <text class="fl font32">内购会门票</text>
+        </view>
+        <view class="arrowright fr">
+            <!-- <text class="red" wx:if="{{totalCouponCount>0}}">{{totalCouponCount}} 张</text>  -->
+            <image class="more" src="/images/more.png"></image>
+        </view>
+    </navigator>
+    <view class='order_list' bindtap='callPhone'>
+        <view class="fl" wx:if='{{!memberHour}}'>
+            <image class="icon fl" src="../../images/profile-service.png"></image>
+            <text class="fl font32">客服电话：</text>
+            <text class="fl fl-num">4008113333</text>
+            <text class="fl fl-time">（服务时间：9:00-21:00）</text>
+        </view>
+        <view class="fl" wx:else='{{memberHour}}'>
+            <image class="icon fl" src="../../images/profile-service.png"></image>
+            <text class="fl font32">专属客服：</text>
+            <text class="fl fl-num">4008113333</text>
+            <text class="fl fl-time">（服务时间：9:00-24:00）</text>
+        </view>
+        <view class="arrowright fr">
+            <image class="more" src="/images/more.png"></image>
+        </view>
+    </view>
+    <!-- <navigator class="order_list" url="/pages/rebate/rebate?">
+        <view  class="fl">
+            <image class="icon fl" src="../../images/8.png"></image>
+            <text class="fl font32">我的返利</text>
+        </view>
+        <view class="arrowright fr"><image class="more" src="/images/more.png"></image></view>
+    </navigator> -->
+</view>
+<view class='container' wx:else>
+    <view class='cont'>
+        <image class='logo' src='../../images/my-no-login.png'></image>
+        <button class='login-btn' lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo">开启授权</button>
+    </view>
+</view>

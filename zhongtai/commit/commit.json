@@ -1,0 +1,19 @@
+{
+	"commitUrl":{
+			"distSvn":"https://code.ds.gome.com.cn/svn/atg_poc/30_Coding/NewDevMode/branches/gome-gfe-platform/order-platform/order-platform_1.0.3_BR/dist"
+	},
+	"GSCM":{
+		"callback":111,
+		"branchesId":6889,
+		"loginurl":"http://gscm.ds.gome.com.cn/login/login.do?",
+		"calltagurl":"http://gscm.ds.gome.com.cn/asnyc/create/tags.do?",
+		"findtaginfo":"http://gscm.ds.gome.com.cn/module/findTagInfo.do?",
+		"callcodeurl":"http://gscm.ds.gome.com.cn/asnyc/compile/start.do?",
+		"logurl":"http://gscm.ds.gome.com.cn/asnyc/compile/log.do?"
+	},
+	"Jenkinsurl":"http://10.58.22.45:8080/view/gc3-uat-stage/job/uat-order-platform-nginx-html/build?delay=0sec",
+	"userinfo":{
+		"username":"chenhaiyong",
+		"password":"chy.5321"
+	}
+}

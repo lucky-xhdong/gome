@@ -1,0 +1,50 @@
+<view class="container">
+  <image class='img' src='../../images/entrance-top.png'></image>
+  <view class="cont">
+    <view class='cont-tit' wx:if="{{status}}">
+      <image class='tit-img' src='../../images/entrance-tit1.png'></image>
+    </view>
+    <view class='cont-tit' wx:else>
+      <image class='tit-img-num' src='../../images/entrance-tit2.png'></image>
+      <view class='tit-num'>{{cardId}}</view>
+    </view>
+    <view class='cont-box'>
+      <view class='item'>
+        <input type='text' placeholder="姓名" confirm-type="next" value="{{name}}" focus="{{nameFocus}}"  maxlength="5" bindinput="nameInputEvent" bindconfirm="nameConfirmEvent"></input>
+        <view class='desc'>
+          <view class='symbol'>*</view>
+          <view class='warn'>必填</view>
+        </view>
+      </view>
+      <view class='item margin'>
+        <input type='number' placeholder="电话" confirm-type="next" value="{{phone}}" maxlength="11" focus="{{phoneFocus}}" bindinput="phoneInputEvent" bindconfirm="phoneConfirmEvent"></input>
+        <view class='desc'>
+          <view class='symbol'>*</view>
+          <view class='warn'>必填</view>
+        </view>
+      </view>
+      <view class='item margin'>
+        <input type='number' placeholder="推荐人编号" confirm-type="done" value="{{num}}" maxlength="8"  focus="{{numFocus}}" bindinput="numInputEvent"></input>
+        <view class='desc clo-gray'>
+          <view class='symbol'>*</view>
+          <view class='warn'>选填</view>
+        </view>
+      </view>
+    </view>
+    <view class='confirm-btn' bindtap='submitEvent'>
+      <image src='../../images/entrance-btn1.png'></image>
+    </view>
+    <!-- <view class='confirm-btn' bindtap='saveEvent' wx:else>
+      <image src='../../images/entrance-btn2.png'></image>
+    </view> -->
+    <view class='desc-cont'>
+      <view class='desc-tit'>使用规则</view>
+      <view class='desc-text'>3月31日-4月1日，凭此入场券到您身边最近的国美门店可享受</view>
+      <view class='desc-text'>1.国美内购会专场福利</view>
+      <view class='desc-text'>2.全部特价商品优惠活动</view>
+       <view class='desc-text'>3.活动期间全国门店闭店销售，顾客只能凭券入场</view> 
+    </view>
+  </view>
+  <view class='fill' style='height:{{height}}' wx:if='{{canvaShow}}' bindtap='cancelCanvas'></view>
+  <canvas class='canvas'  canvas-id="myCanvas"  wx:if='{{canvaShow}}'  bindtap='saveEvent'></canvas>
+</view>

@@ -1,0 +1,93 @@
+<!--pages/16order/16order.wxml-->
+<scroll-view class="order_scroll_group" scroll-y="true" bindscrolltolower="lower" style='height:{{height}}'>
+  <view class="order_tab">
+    <view class="{{datatype==1?'cur':''}}" data-type="1" bindtap="orderTapEven">全部</view>
+    <view class="{{datatype==2?'cur':''}}" data-type="2" bindtap="orderTapEven">待付款</view>
+    <view class="{{datatype==3?'cur':''}}" data-type="3" bindtap="orderTapEven">待收货 </view>
+  </view>
+
+  <view class="order_tips" wx:if="{{tips}}">
+    <image class="tip" src="../../images/tip.png"></image>
+    <view class="close_view" bindtap="closeEven">
+      <image class="close" src="../../images/close.png"></image>
+    </view>
+    <text>重要提醒:请谨防网络及客服诈骗！国美不会以订单异常、系统维护等情况为由，要求您进行退款操作。</text>
+  </view>
+  <view class="order_list_group">
+    <block wx:if="{{!isInit && (datatype==1&&allOrders.length==0 || datatype==2&&pendingPaymentOrders.length==0 || datatype==3&&ordersToBereceived.length==0)}}">
+      <image src="../../images/tiger_icon.png" class='tiger_icon'></image>
+      <view class="errTips">您还没有相关订单</view>
+    </block>
+
+    <view class="order_list" wx:for="{{currentList}}" wx:key="*this" wx:for-item="curName">
+      <block wx:for="{{curName.shipViewResults}}" wx:key="shipViewResults.shippingGroupId" wx:for-item="shipViewResults">
+        <view class='store_box'>
+          <view class='store_title'>
+            <image src="../../images/icon_gome.png" class='store_icon'></image>
+            <text>{{shipViewResults.itemList[0].storeName}}</text>
+          </view>
+          <view class='status_box'>
+            <text wx:if="{{curName.isSplit=='Y'}}">{{shipViewResults.shipStatus}}</text>
+            <text wx:elif="{{curName.isSplit=='N'}}">{{curName.orderStatus}}</text>
+            <block wx:if="{{shipViewResults.isShowDeleteButton=='Y'}}">
+              <image src="../../images/delete.png" class='delete' data-orderId="{{curName.orderId}}" data-shippingGroupId="{{shipViewResults.shippingGroupId}}" bindtap='deleteOrder'></image>
+            </block>
+          </view>
+        </view>
+        <navigator url="../16orderDetails/16orderDetails?orderId={{shipViewResults.orderId}}&shippingGroupId={{shipViewResults.shippingGroupId}}&num={{shipViewResults.totalQuantity}}" class="goods_list_box" wx:for="{{shipViewResults.itemList}}" wx:key="*this"
+          wx:for-item="goodName">
+          <view class="goods_list">
+            <block wx:if="{{goodName.imageurl!=null}}">
+              <image src="https:{{goodName.imageurl}}"></image>
+            </block>
+            <block wx:else>
+              <image src="../../images/default1.jpg"></image>
+            </block>
+            <view class="goods_box">
+              <view class="goods_name_box">
+                <text class="gift" wx:if="{{goodName.itemType=='2'}}">赠品</text>
+                <text class="goods_name">{{goodName.itemName}}</text>
+              </view>
+              <view class='price_num_box'>
+                <text class="goods_price">￥{{goodName.salePrice}}</text>
+                <text class="goods_num">×{{goodName.quantity}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+        <view class="order_status">
+          <block wx:if="{{curName.isSplit=='Y'}}">
+            <view class='total_box'>
+              共
+              <span class="black">{{shipViewResults.totalQuantity}}</span> 件商品，实付:
+              <span class="black">￥
+                <span class="font32">{{shipViewResults.shipPayAmount_before}}</span>.{{shipViewResults.shipPayAmount_after}}</span>
+            </view>
+          </block>
+          <block wx:elif="{{curName.isSplit=='N'}}">
+            <view class='total_box'>
+              共
+              <span class="black">{{shipViewResults.totalQuantity}}</span> 件商品，实付:
+              <span class="black">￥
+                <span class="font32">{{curName.payAmount_before}}</span>.{{curName.payAmount_after}}</span>
+            </view>
+          </block>
+          <!-- <text class="text_tips">请在国美APP中完成此订单</text> -->
+          <text wx:if="{{curName.isShowPayButton=='Y'}}" class="text_tips">请在国美APP中完成此订单</text>
+          <text wx:if="{{shipViewResults.isShowRefund=='Y'}}" class="text_tips">请在国美APP中查看退款进度</text>
+
+          <view class='button_box'>
+            <!-- <text class='grey_button'>查看物流</text>
+                  <text class='grey_button'>安装查询</text> -->
+            <text wx:if="{{shipViewResults.isConfirmReceipt=='Y'}}" class='grey_button red_button' data-orderId="{{curName.orderId}}" data-shippingGroupId="{{shipViewResults.shippingGroupId}}" bindtap='handleConfirm'>确认收货</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <block wx:if="{{currentList.length>0 && !isMore}}">
+      <view class="nomore">没有更多了</view>
+    </block>
+
+  </view>
+</scroll-view>

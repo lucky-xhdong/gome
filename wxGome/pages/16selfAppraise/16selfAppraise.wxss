@@ -1,0 +1,232 @@
+page{
+  font-family: PingFangSC-Regular,Helvetica Neue,Helvetica,sans-serif;
+  height: 100%;
+}
+.appraise-container {
+  overflow:hidden;
+  height: 100%;
+  background: #fff;
+}
+.star-box {
+  padding-left: 20rpx;
+  width: 264rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.star-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* ==== tab ==== */
+.weui-tab {
+  position:relative;
+  height:100%;
+  overflow: hidden;
+}
+.weui-navbar {
+  position:absolute;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  border-top: 1rpx solid #e6e6e6;
+  border-bottom: 1rpx solid #e6e6e6;
+  display:-webkit-flex;
+  display:flex;
+  height: 84rpx;
+  line-height: 82rpx;
+  box-sizing: border-box;
+  color: #5A6066;
+}
+.weui-navbar__item {
+  display:block;
+  -webkit-flex:1;
+  flex:1;
+  text-align:center;
+  font-size:0;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color:#F20C59;
+}
+.weui-navbar__title {
+  display:inline-block;
+  font-size:30rpx;
+}
+  
+.weui-navbar__slider {
+  position:absolute;
+  content:" ";
+  left:0;
+  bottom:-1rpx;
+  width:160rpx;
+  height:4rpx;
+  background-color:#F20C59;
+  -webkit-transition:left 0.3s;
+  transition:left 0.3s;
+  transition:left 0.3s;
+  transition:left 0.3s,left 0.3s;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* ==== 评价内容 ==== */
+scroll-view {
+  box-sizing: border-box;
+  padding-top: 84rpx;
+  color: #262C32;
+}
+.appraise-content-wrap {
+  background: #F3F5F7;
+}
+.no-appraise {
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 30rpx;
+}
+.appraiseItem-wrap {
+  background: #fff;
+  padding: 20rpx 0 20rpx 30rpx ;
+  margin-bottom: 20rpx;
+}
+.appraise-container .date-wrap {
+  line-height: 24rpx;
+  font-size: 22rpx;
+}
+.appraise-container .date-wrap .add-btn {
+  line-height: 20rpx;
+  height: 24rpx;
+  font-size: 20rpx;
+  box-sizing: border-box;
+  color: #F20C59;
+  border: 1rpx solid #F20C59;
+  vertical-align: middle;
+  border-radius: 6rpx;
+  padding: 0 2rpx;
+  margin-right: 10rpx;
+}
+.appraise-container .date {
+  display: inline-block;
+  vertical-align: middle;
+  color: #B3B8BD;
+}
+.portrait-wrap {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  margin-bottom: 16rpx;
+  padding-right: 30rpx;
+}
+.portrait-wrap .portrait {
+  -webkit-flex: 0 0 100rpx;
+  flex: 0 0 100rpx;
+  height: 100rpx;
+}
+.portrait-wrap .stars-wrap {
+  -webkit-flex: auto;
+  flex: auto;
+}
+.portrait-wrap .add-appraise-btn {
+	-webkit-flex: 0 0 166rpx;
+	flex: 0 0 166rpx;
+  line-height: 54rpx;
+  height: 54rpx;
+  border: 1rpx solid #F20C59;
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  text-align: center;
+  color: #F20C59;
+}
+
+.appraise-content {
+  padding-right: 30rpx;
+}
+.appraise-container .content {
+  display: block;
+  margin-top: 10rpx;
+}
+.appraise-container .has-image-appraise {
+  display:-webkit-flex;
+  display:flex;
+  height: auto;
+  margin-top: 13rpx;
+}
+.appraise-container .has-image-appraise view {
+  display:block;
+  -webkit-flex: auto;
+  flex: auto;
+  box-sizing: border-box;
+  position: relative;
+  margin-right: 20rpx;
+}
+.appraise-container .has-image-appraise view:last-child {
+  margin-right: 0;
+}
+.appraise-container .has-image-appraise view::before{content: "";padding-top: 100%;display: block;}
+.appraise-container .has-image-appraise image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.appraise-container .service-reply-wrap {
+  position: relative;
+  background: #F3F5F7;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #5A6066;
+  letter-spacing: 0;
+  text-align: justify;
+  line-height: 34rpx;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 4rpx;
+}
+.appraise-container .service-reply-wrap:before{
+  content: '';
+  width: 0px;
+  height: 0px;
+  border:0px solid transparent;
+  position: absolute;
+  top: -30rpx;
+  left: 10rpx;
+}
+.appraise-container .service-reply-wrap:before{
+  border-width: 20rpx;
+  border-bottom-color: #F3F5F7;
+}
+
+.additional-review-wrap {
+  padding-top: 16rpx;
+  padding-right: 30rpx;
+}
+.scrollLoad {
+  margin-bottom: 10rpx;
+  text-align: center;
+  margin-top: -10rpx;
+}
+.scrollLoad image{
+  width: 50rpx;
+  height: 50rpx;
+
+}
+.loadMore{ 
+  text-align: center; 
+  font-size: 24rpx; 
+  margin-bottom: 10rpx;
+  margin-top: -10rpx;
+}
+
+
+
+
+
+
+    

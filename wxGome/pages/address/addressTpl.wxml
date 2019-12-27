@@ -1,0 +1,30 @@
+
+<!-- 地址列表 -->
+<template name="shipAddressList">
+    <view class="shipAddressList">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <view class="list" bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" wx:for="{{information.data.cis.consigneeInfos}}" style="margin-left:{{leftRight}}rpx">
+                <view class="list-del">
+                    <view class="delete">删除</view>
+                </view>
+                <label bindtap="radioTap" id="{{index}}">
+                    <radio value="{{ index }}" checked="{{item.selected}}" color="#e33336"/>
+                    <view class="detail">
+                        <view class="detail-per">
+                            <text class="detail-per-name">{{ item.name }}</text><text class="detail-per-number">{{ item.mobileNumber }}</text>
+                        </view>
+                        <view class="detail-addr">
+                            <text>{{ item.address.name }}</text><text>{{ item.address.mobileNumber }}</text>
+                            <text class="adderss"><text class="default {{ item.address.default ? 'view_show':'view_hide' }}">默认</text>{{ item.address.provinceName }}  {{ item.address.cityName }} {{ item.address.countyName }} {{ item.address.townName }} {{ item.address.detailedAddress }}</text>
+                        </view>
+                    </view>
+                    <view class="edit">
+                        <navigator url="../editAddress/editAddress?name={{item.name}}&mobileNumber={{item.mobileNumber}}&provinceCode={{item.address.provinceCode}}&provinceName={{item.address.provinceName}}&cityCode={{item.address.cityCode}}&cityName={{item.address.cityName}}&countyCode={{item.address.countyCode}}&countyName={{item.address.countyName}}&townCode={{item.address.townCode}}&townName={{item.address.townName}}&detailedAddress={{item.address.detailedAddress}}&owerId={{item.owerId}}&isSelected={{item.selected}}&addrLength={{information.data.cis.consigneeInfos.length}}&owerId={{item.owerId}}&isDefault={{item.address.default}}">
+                            <text>编辑</text>
+                        </navigator>
+                    </view>
+                </label>
+            </view>
+        </radio-group>
+    </view>
+</template>

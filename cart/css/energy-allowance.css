@@ -1,0 +1,325 @@
+.container{width:990px;margin: 0px auto;}
+
+.mr10 {
+    margin-right: 10px;
+}
+.mr5 {
+    margin-right: 5px;
+}
+.txt-r {
+    text-align: right;
+}
+.clear, .clr {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.fieldset{
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 1px solid #f5f5f5;
+	color: #333;
+}
+.tips-attention {
+    padding: 20px;
+    line-height: 20px;
+    color: #666;
+}
+.fk-grid{
+	padding-left: 20px;
+}
+.n-cols {
+    overflow: hidden;
+    _zoom: 1;
+    display: block;
+}
+.fk-grid .fk-h {
+    text-align: right;
+    float: left;
+    width: 110px;
+    height: 26px;
+    line-height: 26px;
+}
+.fk-grid .fk-d {
+    text-align: left;
+    margin-left: 110px;
+    /* color: #666; */
+    min-height: 26px;
+    _height: 26px;
+    line-height: 26px;
+}
+
+.selected-box {
+    border: 1px solid #c00;
+    padding: 2px 28px;
+}
+
+.radio-box ins{
+    position: absolute;
+    bottom:0px;
+    right:0px;
+}
+
+.fk-d .nStar{font-family: simsun;}
+
+.fk-grid.fk-g-2 .fk-d, .fk-grid.fk-g-2 .fk-h {
+    margin-bottom: 15px;
+}
+
+.txt-17 {
+    height: 23px;
+    line-height: 23px;
+    border: 1px solid #ddd;
+    width: 128px;
+    padding: 0 5px;
+}
+.txt-25 {
+    height: 23px;
+    line-height: 23px;
+    border: 1px solid #ddd;
+    width: 176px;
+    padding: 0 5px;
+}
+
+.nMyCartName{
+	height: 42px;
+	line-height: 42px;
+}
+.nMyCartName b{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #333;
+}
+
+.l-r-borer{border-left:1px solid #f5f5f5;border-right:1px solid #f5f5f5;}
+
+.rn-cols {
+    line-height: 32px;
+    /* padding: 5px 0 0; */
+}
+.rn-cols .rn-c {
+    width: 650px;
+}
+.rn-cols .rn-c .tips {
+    margin-bottom: 10px;
+    line-height: 28px;
+    color:#888;
+}
+.rn-cols .rn-c .upload-cols{
+    position: relative;
+}
+.dqxq{
+    position: absolute;
+    left: -62px;
+}
+.dqxq2{
+    color: #888888;
+    margin-bottom: 35px;
+}
+.rn-cols .rn-c .upload-cols .upload-au {
+    float: left;
+    margin: 0 160px 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+.rn-cols .rn-c .upload-cols .example-au {
+    float: left;
+    position: relative;
+    width: 286px;
+}
+.rn-cols .rn-c .upload-cols .upload-au .upload_btn {
+    /*background-color: #eee;
+    border: 1px dashed #ddd;*/
+    display: inline-block;
+    height: 120px;
+    position: relative;
+    width: 200px;
+}
+
+.rn-cols .rn-c .upload-cols .upload-au .upload_btn:hover{
+	background-color: #a9a8a8;
+}
+.rn-cols .rn-c .upload-cols .upload-au .upload_btn img {
+    vertical-align: top;
+    height: 120px;
+    width: 200px;
+}
+
+.watermark {
+    /*background: rgba(0, 0, 0, 0) url("/skin/i/watermark.png") no-repeat scroll center center;*/
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.rn-cols .rn-c .upload-cols .upload-au .file {
+    cursor: pointer;
+    direction: rtl;
+    font-size: 118px;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    filter:alpha(opacity=0);
+    position: absolute;
+    top: 0;
+    width: 197px;
+    z-index: 999;
+}
+.rn-cols .rn-c .upload-cols .upload-au .modify-con {
+    padding: 10px;
+    text-align: center;
+}
+
+.rn-cols .rn-c .btn {
+    background: #f6f6f6 none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #333;
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    text-decoration: none;
+    width: 75px;
+}
+
+.msg-attention {
+    display: inline-block;
+    border: 1px solid #f5f5f5;
+    color: #5e5e5e;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+
+.msg-attention h4{
+    heigh:30px;
+    line-height:30px;
+    color:#333;
+}
+
+.msg-attention p{
+    margin-bottom:4px;
+}
+
+.msg-attention.dis-b {
+    display: block;
+    line-height: 20px;
+}
+
+.footer-bar {
+    background-color: #f3f3f3;
+    height: 58px;
+    line-height: 58px;
+    margin-top: 10px;
+}
+
+.footer-bar p{
+    width:990px;
+    margin: 0px auto;
+}
+
+.btn-m-r {
+    background: none repeat scroll 0 0 #e4393c;
+    display: inline-block;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    color: #fff;
+}
+
+.btn-m-r:hover{
+	text-decoration: none;
+    color:#fff;
+}
+.btn-m-r span {
+    padding: 0 30px;
+}
+
+.btn-m-r.disable{
+    background: #ccc none repeat scroll 0 0;
+    cursor: text;
+    border-color:#e6e6e6;
+}
+.btn-m-r.disable:hover{
+    color:#fff;
+}
+
+.btn-m-r .ioc {
+    background: rgba(0, 0, 0, 0) url("/images/ui/loading16.gif") repeat scroll 0 0;
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.upload-load {
+    /*background: #cccccc none repeat scroll 0 0;*/
+    display:none;
+    height: 100px;
+    left: 20px;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    width: 160px;
+    z-index: 999;
+}
+
+.upload-loading {
+    background: rgba(0, 0, 0, 0) url("i/loading.gif") repeat scroll 0 0;
+    height: 48px;
+    left: 55px;
+    position: absolute;
+    top: 24px;
+    width: 48px;
+}
+/*  //12 //123 //12 578//12 4678*/
+input[name="picFile"]{width: 197px;height: 120px;cursor:pointer;}
+#identityCard0up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card01.png');background-size: cover;}
+#identityCard0up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card01_h.png');}
+#identityCard0live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-01.jpg')}
+
+#identityCard1up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card02.png');background-size: cover;}
+#identityCard1up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card02_h.png');}
+#identityCard1live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-02.jpg');}
+
+#armymanCard2up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card03.png');background-size: cover;}
+#armymanCard2up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card03_h.png');}
+#armymanCard2live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-03.jpg')}
+
+#liveCard3up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card04.png');background-size: cover;}
+#liveCard3up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card04_h.png');}
+#liveCard3live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-04.jpg')}
+
+#stayCard4up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card05.png');background-size: cover;}
+#stayCard4up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card05_h.png');}
+#stayCard4live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-05.jpg')}
+
+#clientCard5up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card06.png');background-size: cover;}
+#clientCard5up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card06_h.png');}
+#clientCard5live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-06.jpg')}
+
+#renewCard36up_3 span,#renewCard46up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card07.png');background-size: cover;}
+#renewCard36up_3  input.hover + span,#renewCard46up_3  input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card07_h.png');}
+#renewCard36live .ex-c,#renewCard37live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-07-live.jpg')}
+
+
+#renewCard37up_3 span,#renewCard47up_3 span{display: block;width: 198px;height: 120px;background-image: url('i/rm_card08.png');background-size: cover;}
+#renewCard37up_3 input.hover + span,#renewCard47up_3 input.hover + span{width: 198px;height: 120px;background-image: url('i/rm_card08_h.png');}
+#renewCard46live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-07.jpg')}
+#renewCard47live .ex-c{width: 360px;height: 120px;background-image: url('i/pic-08.jpg')}
+
+.addr-btn .nBtn, .mfbBtn .nBtn{
+   border: 1px solid #F1E9E9;
+}
+.addr-btn .nBtn:hover, .mfbBtn .nBtn:hover{
+   border: 1px solid #ccc;
+}
+.error-box .warning{
+    font-family: "新宋体",Arial;
+}

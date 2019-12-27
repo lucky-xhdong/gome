@@ -1,0 +1,10 @@
+<template name="cartsEmpty">
+  <view class="cart-empty">
+    <div class="cart-pic-box">
+        <image src="/images/cart-empty.png"/>
+    </div>
+    <div class="cart-tip">购物车空空~买点啥</div>
+
+    <navigator  class="goshopping-btn" url="../index/index" open-type="switchTab" >去逛逛</navigator>
+  </view>
+</template>

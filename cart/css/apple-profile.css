@@ -1,0 +1,508 @@
+
+.apple-profile {
+    width: 990px;
+    margin: 0 auto;
+    font-family: 'Microsoft Yahei';
+}
+.apple-profile .ap-main {
+    border: 1px solid #f5f5f5;
+}
+.apple-profile .ap-main:before {
+    content: attr(data-before);
+    display: block;
+    text-align: center;
+    color: #333;
+    font: 30px/50px 'Microsoft YaHei';
+    margin-top: 10px;
+    padding-left: 100px;
+}
+.apple-profile .ap-main .tips-attention {
+    font: 13px/30px 'Microsoft YaHei';
+    color: #999;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    padding-left: 100px;
+}
+.apple-profile .ap-main .form-group {
+    width: 480px;
+    margin: 0 auto;
+    padding: 10px 100px 20px;
+}
+.apple-profile .ap-main .form-group .input-group,
+.apple-profile .ap-main .form-group .select-group,
+.apple-profile .ap-main .form-group .file-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+.apple-profile .ap-main .form-group .input-group:after,
+.apple-profile .ap-main .form-group .select-group:after,
+.apple-profile .ap-main .form-group .file-group:after {
+    content: '';
+    display: table;
+    clear: both;
+    height: 0;
+}
+.apple-profile .ap-main .form-group .input-group .label-control,
+.apple-profile .ap-main .form-group .select-group .label-control,
+.apple-profile .ap-main .form-group .file-group .label-control {
+    float: left;
+    width: 90px;
+    text-align: right;
+    font: 13px/30px 'Microsoft YaHei';
+    padding-right: 10px;
+    color: #333;
+}
+.apple-profile .ap-main .form-group .input-group .label-control:before,
+.apple-profile .ap-main .form-group .select-group .label-control:before,
+.apple-profile .ap-main .form-group .file-group .label-control:before {
+    content: attr(data-before);
+    display: inline-block;
+    vertical-align: middle;
+    color: #e3101e;
+    margin-right: 4px;
+}
+.apple-profile .ap-main .form-group .input-group .form-control,
+.apple-profile .ap-main .form-group .select-group .form-control {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: 13px/30px 'Microsoft YaHei';
+}
+.apple-profile .ap-main .form-group .input-group .form-control:focus,
+.apple-profile .ap-main .form-group .select-group .form-control:focus {
+    outline: none;
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset {
+    padding-left: 112px;
+    padding-top: 12px;
+    clear: both;
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .label-school,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .label-school,
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .txt-school,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .txt-school,
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .btn-select,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .btn-select {
+    display: inline-block;
+    vertical-align: middle;
+    font: 13px/30px 'Microsoft YaHei';
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .label-school,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .label-school,
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .txt-school,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .txt-school {
+    width: 210px;
+    padding-right: 15px;
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .label-school,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .label-school {
+    color: #a5a5a5;
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .txt-school,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .txt-school {
+    display: none;
+    color: #333;
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset .btn-select,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset .btn-select {
+    color: #fff;
+    background-color: #e3101e;
+    padding: 0 23px;
+    text-decoration: none;
+}
+.apple-profile .ap-main .form-group .input-group.select-schools .btn-group__inset.disabled .btn-select,
+.apple-profile .ap-main .form-group .select-group.select-schools .btn-group__inset.disabled .btn-select {
+    cursor: default;
+    background-color: #ccc;
+}
+.apple-profile .ap-main .form-group .input-group .error-tip,
+.apple-profile .ap-main .form-group .select-group .error-tip {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    margin: 0;
+    padding-left: 110px;
+    color: #e3101e;
+    font: 12px/20px 'Microsoft YaHei';
+}
+.apple-profile .ap-main .form-group .input-group .form-control {
+    padding: 0 10px;
+    width: 358px;
+}
+.apple-profile .ap-main .form-group .select-group .form-control {
+    padding: 0 5px;
+    width: 380px;
+}
+.apple-profile .ap-main .form-group .file-group {
+    margin-top: -4px;
+}
+
+.apple-profile .ap-main .form-group .file-group .file-control {
+    float: left;
+    max-width: 680px;
+    padding: 4px 0;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__tips {
+    width: 380px;
+    margin-bottom: 14px;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__tips .txt {
+    font: 12px/20px 'Microsoft YaHei';
+    margin: 0;
+    color: #999;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 {
+    float: left;
+    position: relative;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .upload-group,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .upload-group {
+    position: relative;
+    width: 180px;
+    height: 121px;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .upload-group .btn-upload,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .upload-group .btn-upload,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .upload-group input[type=file],
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .upload-group input[type=file] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .upload-group .btn-upload,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .upload-group .btn-upload {
+    background: url("i/apple-profile/upload.png?__sprite") no-repeat;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .upload-group input[type=file],
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .upload-group input[type=file] {
+    opacity: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    z-index: 1;
+    cursor: pointer;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .upload-group input[type=file].hover + .btn-upload,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .upload-group input[type=file].hover + .btn-upload {
+    background: url("i/apple-profile/upload-hover.png?__sprite") no-repeat;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .img-group,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .img-group {
+    width: 180px;
+    height: 121px;
+    border: 1px dotted #ccc;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .img-group .img,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .img-group .img {
+    max-width: 100%;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .btn-group__inset .btn-modify,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .btn-group__inset .btn-modify {
+    display: block;
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #333;
+    text-align: center;
+    height: 16px;
+    line-height: 16px;
+    text-decoration: none;
+    width: 44px;
+    padding: 6px 12px;
+    margin: 10px auto;
+    z-index: 11;
+    cursor: pointer;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .btn-group__inset .btn-modify.hover,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .btn-group__inset .btn-modify.hover {
+    background-color: #f7f7f7;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .error-tip,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .error-tip {
+    display: none;
+    color: #e3101e;
+    font: 12px/20px 'Microsoft YaHei';
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .img-group,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .img-group,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal1 .btn-group__inset,
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 .btn-group__inset {
+    display: none;
+}
+.apple-profile .ap-main .form-group .file-group .file-control .file-control__normal2 {
+    margin-left: 10px;
+}
+.apple-profile .ap-main .form-group .checkbox-group {
+    padding: 0 100px;
+    width: 380px;
+    text-align: center;
+}
+.apple-profile .ap-main .form-group .checkbox-group .checkbox-control .txt-agreements {
+    font: 14px/30px 'Microsoft YaHei';
+    color: #333;
+    text-decoration: none;
+}
+.apple-profile .ap-main .form-group .btn-group {
+    padding-left: 100px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+.apple-profile .ap-main .form-group .btn-group .btn-confirm {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    font: 16px/40px 'Microsoft YaHei';
+    text-decoration: none;
+    text-align: center;
+    background-color: #e3101e;
+    color: #fff;
+    font-weight: bold;
+}
+.apple-profile .ap-main .form-group .btn-group .btn-confirm:hover {
+    background-color: #e4393c;
+}
+.apple-profile .ap-main .form-group .btn-group .btn-confirm.disabled {
+    background-color: #e3101e;
+    color: #fff;
+}
+.apple-profile .ap-main .rules-group {
+    margin: 20px auto;
+    border-top: 1px solid #ccc;
+    padding: 18px 12px;
+    width: 450px;
+}
+.apple-profile .ap-main .rules-group:before {
+    content: attr(data-before);
+    display: block;
+    margin-bottom: 4px;
+    font: 14px 'Microsoft YaHei';
+    color: #999;
+}
+.apple-profile .ap-main .rules-group .txt {
+    font: 12px 'Microsoft YaHei';
+    color: #999;
+    margin: 4px 0;
+}
+.popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 11111;
+}
+.mask-apple {
+    position: fixed;
+    z-index: 1111;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    opacity: .4;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+}
+.popup.popup-agreements {
+    width: 415px;
+    height: 245px;
+    margin-left: -207px;
+    margin-top: -122px;
+}
+.popup.popup-agreements .popup-inner {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    z-index: 111;
+}
+.popup.popup-agreements .popup-inner .pop-header {
+    padding-top: 22px;
+}
+.popup.popup-agreements .popup-inner .pop-header .txt-title {
+    font: 16px/30px 'Microsoft YaHei';
+    text-align: center;
+    color: #5e5e5e;
+    font-weight: bold;
+    margin: 0;
+}
+.popup.popup-agreements .popup-inner .pop-body {
+    padding: 2px 40px;
+}
+.popup.popup-agreements .popup-inner .pop-body .txt,
+.popup.popup-agreements .popup-inner .pop-body .txt-item {
+    font: 12px/24px 'Microsoft YaHei';
+    color: #5e5e5e;
+    margin: 0;
+    position: relative;
+}
+.popup.popup-agreements .popup-inner .pop-body .txt-item {
+    padding: 0 15px;
+}
+.popup.popup-agreements .popup-inner .pop-body .txt-item:before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #5e5e5e;
+    left: 0;
+    top: 10px;
+}
+.popup.popup-agreements .popup-inner .pop-footer {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.popup.popup-agreements .popup-inner .pop-footer .btn-cancel,
+.popup.popup-agreements .popup-inner .pop-footer .btn-confirm {
+    display: inline-block;
+    vertical-align: middle;
+    font: 12px/30px 'Microsoft YaHei';
+    text-align: center;
+    text-decoration: none;
+    margin: 0 8px;
+    padding: 0 22px;
+    border-radius: 2px;
+}
+.popup.popup-agreements .popup-inner .pop-footer .btn-cancel {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #5e5e5e;
+}
+.popup.popup-agreements .popup-inner .pop-footer .btn-confirm {
+    background-color: #e3101e;
+    border: 1px solid #e3101e;
+    color: #fff;
+}
+.popup.popup-schools {
+    display: none;
+    width: 430px;
+    height: 410px;
+    margin-left: -215px;
+    margin-top: -205px;
+}
+.popup.popup-schools .popup-inner {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    z-index: 111;
+}
+.popup.popup-schools .popup-inner .btn-close {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 10px;
+    top: 10px;
+    font-size: 0;
+    background: url("i/apple-profile/close.png?__sprite") no-repeat;
+}
+.popup.popup-schools .popup-inner .btn-close:hover {
+    background: url("i/apple-profile/close-hover.png?__sprite") no-repeat;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group {
+    position: relative;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 8px;
+    top: 50%;
+    margin-top: -8px;
+    background: url("i/apple-profile/search.png?__sprite") no-repeat;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group .form-control {
+    width: 306px;
+    height: 30px;
+    padding-left: 31px;
+    padding-right: 30px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group .form-control:focus {
+    outline: none;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group .btn-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 34px;
+    padding: 0;
+    border: none;
+    background: none;
+    width: 25px;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group .btn-search:focus {
+    outline: none;
+}
+.popup.popup-schools .popup-inner .pop-header .input-group .btn-search .icon-search {
+    width: 15px;
+    height: 15px;
+    font-size: 0;
+    background: url("i/apple-profile/search.png?__sprite") no-repeat;
+    display: block;
+}
+.popup.popup-schools .popup-inner .pop-body {
+    padding-top: 5px;
+    height: 210px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.popup.popup-schools .popup-inner .pop-body .school-list ul {
+    margin: 0;
+    padding: 0;
+}
+.popup.popup-schools .popup-inner .pop-body .school-list ul li {
+    list-style: none;
+}
+.popup.popup-schools .popup-inner .pop-body .school-list ul li .txt {
+    display: block;
+    font: 13px/27px 'Microsoft YaHei';
+    color: #333;
+    border: 1px solid #fff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+.popup.popup-schools .popup-inner .pop-body .school-list ul li:hover .txt {
+    border-color: #f3f3f3;
+    background-color: #f3f3f3;
+}
+.popup.popup-schools .popup-inner .pop-body .school-list ul li.active .txt {
+    border-color: #e3101e;
+    background-color: #ffedec;
+    color: #e3101e;
+}
+.popup.popup-schools .popup-inner .pop-body .error-tip {
+    font: 13px/27px 'Microsoft YaHei';
+    color: #333;
+    text-align: center;
+    margin-top: 80px;
+}
+.popup.popup-schools .popup-inner .pop-footer {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+}
+.popup.popup-schools .popup-inner .pop-footer .btn-confirm {
+    display: inline-block;
+    vertical-align: middle;
+    font: 12px/30px 'Microsoft YaHei';
+    text-align: center;
+    text-decoration: none;
+    margin: 0 8px;
+    padding: 0 22px;
+    border-radius: 2px;
+    background-color: #e3101e;
+    border: 1px solid #e3101e;
+    color: #fff;
+}

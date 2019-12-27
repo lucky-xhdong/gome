@@ -1,0 +1,49 @@
+<scroll-view scroll-y="true" class="container" style="height:{{height}}" scroll-top="{{scrollTop}}" bindscroll="scrollTopFun" bindscrolltolower="loadMore">
+  <view class="appraise-type">
+    <view class="type-box">
+      <view class="type  {{currentTab==0 ? 'on' : ''}}" hover="true" hover-class="typeHover" bindtap="allTap" data-current="0">全部</view>
+      <view class="type  {{currentTab==1 ? 'on' : ''}}" hover="true" hover-class="typeHover" bindtap="goodTap" data-current="1">好评({{praiseGood}})</view>
+      <view class="type  {{currentTab==2 ? 'on' : ''}}" hover="true" hover-class="typeHover" bindtap="midTap" data-current="2">中评({{praiseMide}})</view>
+      <view class="type  {{currentTab==3 ? 'on' : ''}}" hover="true" hover-class="typeHover" bindtap="badTap" data-current="3">差评({{praiseBad}})</view>
+
+      <!--<view class="type  {{currentTab==4 ? 'on' : ''}}" hover="true" hover-class="typeHover" bindtap="noDefault" data-current="4">不看默认评价</view>-->
+    </view>
+    <view class="good-box">
+      <view class="good-text">好评度</view>
+      <view class="good-percentage">
+        <text class="good-num">{{appr.apprPrd.prdPraise}}</text>
+        <text class="good-icon">%</text>
+      </view>
+    </view>
+  </view>
+  <view class="appraise-box" wx:if="{{apprList.length>0}}">
+    <view class="appraise-info" wx:for="{{apprList}}" wx:key="list">
+      <view class="user-info">
+        <text class="user-name">{{item.uesrNick}}</text>
+        <text class="user-grade">G{{item.userLevel}}</text>
+        <view class="user-start">
+          <view class="user-start-yellow" style="width:{{item.prdStar}}%"></view>
+        </view>
+      </view>
+      <view class="appraise-text">{{item.prdContent}}</view>
+      <view class="appraise-parameter">
+        <view wx:if="{{item.skuInfo != null}}">{{item.skuInfo}}</view>
+        <view>{{item.dateFeed}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="appraise-box" wx:else>
+    <view class="appraise-info">
+      暂无评论
+    </view>
+  </view>
+  <view class="tips" wx:if="{{hasMore}}">
+    <text>正在加载中...</text>
+  </view>
+  <view class="tips" wx:if="{{hasOver}}">
+    <text>没有更多了</text>
+  </view>
+</scroll-view>
+<view class="top-btn" catchtap="toTop" wx:if="{{scroll}}">
+  返回顶部
+</view>

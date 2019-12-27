@@ -1,0 +1,197 @@
+
+/* ==== 公共样式 ==== */
+page {
+	background: #f2f2f2;
+	position: relative;
+	height: 100%;
+	font-family: 'Microsoft YaHei';
+}
+view {line-height: 0;}
+text {font: 24rpx/24rpx 'Microsoft YaHei';}
+.margin-b-20 {margin-bottom: 20rpx;}
+.deliverTitle {
+	height: 58rpx;
+}
+.deliverTitle text {
+	line-height: 58rpx;
+	color: #999;
+	font-weight: bold;
+}
+scroll-view {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 96rpx;
+}
+
+
+/* ==== 配送时间 ==== */
+.deliveryTimeWrap {
+	border-top: 1px solid #e3e3e3;
+	padding: 20rpx;
+	background-color: #fff;
+}
+
+
+.delivery {
+	padding: 20rpx 0;
+}
+.delivery text {
+	line-height: 36rpx;
+	color: #333;
+}
+.delivery text.num {
+	color: #197fe7;
+}
+.limitTime {
+	padding: 10rpx 0;
+	display: flex;
+}
+.limitTime .active_tracking {
+	width: 38rpx;
+	height: 38rpx;
+}
+.limitTime .time {
+	flex: 1;
+	padding: 0 30rpx;
+	box-sizing: border-box;
+	line-height: 38rpx;
+	color: #333;
+}
+.limitTime .calendar_icon {
+	width: 38rpx;
+	height: 38rpx;
+}
+
+/* ==== 送货前电话确认 ==== */
+.deliveryPhome {
+	
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+	background-color: #fff;
+
+	display: flex;
+	height: 100rpx;
+	line-height: 100rpx;
+}
+.deliveryPhome text {
+	flex: 1;
+	color: #333;
+	line-height: 100rpx;
+}
+.deliveryPhome image {
+	margin-top: 27rpx;
+	width: 46rpx;
+	height: 46rpx;
+}
+.deliveryTimeWrap .checkedWrap {
+	margin-top: 20rpx;
+}
+
+.invoiceTtWrap {
+	margin-top: 20rpx;
+}
+
+/* ==== 配送方式 ==== */
+.deliveryWayWrap {
+	padding: 20rpx 20rpx 0;
+	background-color: #fff;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.deliveryWayWrap .productImg {
+	width: 100rpx;
+	height: 100rpx;
+}
+.deliveryWayWrap .productImg image {
+	width: 100%;
+	height: 100%;
+}
+.deliveryWayWrap .checkedWrap {
+	margin-top: 30rpx;
+}
+.deliveryWayWrap .tip {
+	padding-bottom: 20rpx;
+}
+.deliveryWayWrap .tip text{
+	line-height: 30rpx;
+	font-size: 20rpx;
+	color: #999;
+}
+
+/* ==== 备注 ==== */
+.remark {
+	background-color: #fff;
+	padding: 20rpx;
+}
+.remark text {
+	line-height: 36rpx;
+	color: #333;
+}
+.remark input {
+	margin-top: 20rpx;
+	display: block;
+	border: 1px solid #d2d2d2;
+	box-sizing: border-box;
+	padding: 0 10rpx;
+	height: 58rpx;
+	font: 22rpx/58rpx 'Microsoft YaHei';
+	border-radius: 2rpx;
+}
+
+
+/* ==== 确定按钮 ==== */
+
+
+
+.confirmBtn {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border: 1rpx solid #e6e6e6;
+  background: #fff;
+  padding: 15rpx 0;
+}
+
+
+.confirmBtn button {
+  width: 708rpx;
+  height: 80rpx;
+  background-color: #ff5757;
+  /* border: 1rpx solid #ff5757; */
+  border:none;
+  color: #fff;
+  text-align: center;
+  font: 500 32rpx/80rpx "Microsoft YaHei";
+  border-radius: 10rpx;
+  margin: 0 auto;
+  z-index: 99;
+}
+
+.invoiceTt image.active_tracking {
+	width: 38rpx;
+	height: 38rpx;
+	vertical-align: middle;
+	display: inline-block;
+}
+.invoiceTt .input{border:1px solid #d2d2d2;border-radius:2rpx;padding:0 10rpx;overflow:hidden;margin-left:20rpx;width:548rpx;
+display: inline-block;vertical-align: middle;}
+.invoiceTt .input1{width: 536rpx;}
+.invoiceTt .ttIscheck text{margin-left: 20rpx;}
+.invoiceNr label,.invoiceNr text{display: block;}
+.fd-row{flex-direction:row;}
+.fd-column{flex-direction: column;}
+.invoiceTt radio{display: none;}
+
+.invoiceTt .active_tracking:nth-child(2){display: none;}
+.invoiceTt .checked .active_tracking:nth-child(2){display: inline-block;}
+.invoiceTt .checked .active_tracking:nth-child(3){display: none;}
+.invoiceTt .phone{margin:20rpx 0;}
+.invoiceTt input{font:24rpx/24rpx 'Microsoft YaHei'}
+
+.disblock{display: block;}
+/*.invoiceTt .isChecked.selected image:nth-child(2){display: none;}*/
+.invoiceCon text{margin:15rpx 0;}
+.statement{font: 22rpx/32rpx 'Microsoft YaHei';color: #999;margin-top: 10rpx;display: block;}
