@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>详情页</title>
+    <link rel="stylesheet" href="css/css.gomein.net.cn.css">
+    <link rel="stylesheet" href="css/c2m_middle_content.css">
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/gpage.js"></script>
+    <script src="js/product_comments.js"></script>
+</head>
+<body>
+
+<!--详情页中间主体部分 start-->
+<div class="pseudo c2m-main">
+    <div class="left-main">
+        <!--左边详情/评价 start-->
+        <div class="left-main-tab">
+            <!--标签切换 start-->
+            <div class="left-main-nav">
+                <ul class="pseudo">
+                    <li class="pseudo"><a href="javascript:;">详情</a></li>
+                    <li><a class="pseudo" href="javascript:;">评价 <em class="comment-all-em">&nbsp;（0）</em></a></li>
+                </ul>
+            </div>
+            <!--标签切换 end-->
+            <div class="left-main-con">
+                <!--详情部分 start-->
+                <div class="product-detail">
+                    <!--基本信息 start-->
+                    <div class="product-info">
+                        <ul class="pseudo">
+                            <li><span class="pseudo" data-before="材质">优质白衫木&nbsp;原木制造</span></li>
+                            <li><span class="pseudo" data-before="表面处理">木器上的生漆</span></li>
+                            <li><span class="pseudo" data-before="颜色">原木无修色</span></li>
+                            <li><span class="pseudo" data-before="工艺">手工制作</span></li>
+                            <li><span class="pseudo" data-before="尺寸">13cm*8cm</span></li>
+                        </ul>
+                    </div>
+                    <!--基本信息 end-->
+                    <!--图片展示 start-->
+                    <div class="product-imgs">
+                        <span><img src="images/title.png" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-01.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-02.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-03.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-04.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-05.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-06.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                        <span><img src="images/img-07.jpg" alt="原木水杯&nbsp;原木制造"></span>
+                    </div>
+                    <!--图片展示 end-->
+                </div>
+                <!--详情部分 end-->
+                <!--评价部分 start-->
+                <div class="product-comment">
+                    <div class="product-comment-label">
+                        <label class="active" data-type="all">
+                            <input type="radio" name="comments" value="all" checked>&emsp;全部<em class="comment-all-em">(0)</em>
+                        </label>
+                        <label data-type="images">
+                            <input type="radio" name="comments" value="images">&emsp;有图<em class="comment-images-em">(0)</em>
+                        </label>
+                    </div>
+                    <div class="product-comment-lists">
+                        <ul class="comment-images-wrapper" id="comment-images-wrapper">
+                        </ul>
+                        <ul class="comment-lists-wrapper" id="comment-lists-wrapper">
+                        </ul>
+                    </div>
+                    <div id="c2m-page" class="pseudo c2m-product-pagenation">
+                    </div>
+                </div>
+                <!--评价部分 end-->
+            </div>
+        </div>
+    </div>
+    <!--左边详情/评价 end-->
+    <!--右侧专题推荐 start-->
+    <div class="pseudo right-aside" data-before="专题推荐">
+        <ul>
+            <li><a href="javascript:;" class="pseudo" data-before="璀璨星河里你的味道"><img src="images/zhuangti-01.jpg" alt="璀璨星河里你的味道"></a>
+            </li>
+            <li><a href="javascript:;" class="pseudo" data-before="璀璨星河里你的味道"><img src="images/zhuangti-02.jpg" alt="璀璨星河里你的味道"></a>
+            </li>
+            <li><a href="javascript:;" class="pseudo" data-before="璀璨星河里你的味道"><img src="images/zhuangti-03.jpg" alt="璀璨星河里你的味道"></a>
+            </li>
+        </ul>
+    </div>
+    <!--右侧专题推荐 end-->
+</div>
+<!--详情页中间主体部分 end-->
+<!--模板部分 start-->
+
+<!--评论有图单条列表 start-->
+<script id="comment-singleimages-tmpl" type="text/html">
+    <li>
+        <div class="user-avatar">
+            <img src="{{ordershow[0].avatar}}" alt="{{ordershow[0].zhouxoingfei}}">
+            <span>{{ordershow.author}}</span>
+        </div>
+        <div class="comment-text">
+            <p>{{ordershow[0].subject}}</p>
+            <!--评论晒单图片列表 start-->
+            <div class="comment-img-lists">
+                <ol>
+                    {{each ordershow[0].pic as picture}}
+                    <li>
+                        <a href="{{ordershow[0].href}}" target="_blank">
+                            <img src="{{picture}}" alt="">
+                        </a>
+                    </li>
+                    {{/each}}
+                </ol>
+                <a href="javascript:;" class="show-all-images">查看全部晒单&nbsp;></a>
+            </div>
+            <!--评论晒单图片列表 end-->
+            <span class="comment-time">{{ordershow[0].dateline | dateFormat:'yyyy-MM-dd hh:mm'}}</span>
+        </div>
+    </li>
+</script>
+<!--评论有图单条列表 end-->
+
+<!--评论有图列表 start-->
+<script id="comment-images-tmpl" type="text/html">
+    {{each ordershow as order}}
+    <li>
+        <div class="user-avatar">
+            <img src="{{order.avatar}}" alt="{{order.zhouxoingfei}}">
+            <span>{{order.author}}</span>
+        </div>
+        <div class="comment-text">
+            <p>{{order.subject}}</p>
+            <!--评论晒单图片列表 start-->
+            <div class="comment-img-lists">
+                <ol>
+                    {{each order.pic as picture}}
+                    <li>
+                        <a href="{{order.href}}" target="_blank">
+                            <img src="{{picture}}" alt="">
+                        </a>
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
+            <!--评论晒单图片列表 end-->
+            <span class="comment-time">{{order.dateline | dateFormat:'yyyy-MM-dd hh:mm'}}</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!--评论有图列表 end-->
+<!--评论全部列表 start-->
+<script id="comment-lists-tmpl" type="text/html">
+    {{each Evalist as comments index}}
+    <li>
+        <div class="user-avatar">
+            <img src="{{comments.imagePath}}" alt="{{comments.loginname}}">
+            <span>{{comments.loginname}}</span>
+        </div>
+        <div class="comment-text">
+            <p><span>使用心得：</span>{{comments.appraiseElSum}}</p>
+            <!--评论晒单图片列表 end-->
+            <span class="comment-time">{{comments.post_time | dateFormat:'yyyy-MM-dd hh:mm'}}</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!--评论全部列表 end-->
+<!--模板部分 end-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="css/ie7.css">
+<script type="text/javascript" src="js/jquery.pseudo.js"></script>
+<![endif]-->
+</body>
+</html>

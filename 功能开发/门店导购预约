@@ -1,0 +1,127 @@
+//主要有关于读取cookie的操作
+var localStorage = window.localStorage;
+var showStoreStorage = {
+    set: function (key, value, days) {
+        // 如果localStorage没有值，清除这条记录
+        if (!value) {
+            localStorage.removeItem(key);
+        } else {
+            var Days = days || 1; // 默认保留1天
+            var exp = new Date();
+            localStorage[key] = JSON.stringify({ value: value, expires: exp.getTime() + Days * 24 * 60 * 60 * 1000})
+        }
+    },
+    get: function (name) {
+        try {
+            var o = JSON.parse(localStorage[name]);
+            if (!o || o.expires < Date.now()) {
+                return null;
+            } else {
+                return o.value;
+            }
+        } catch (e) {
+            return localStorage[name];
+        } finally {
+        }
+    },
+    del: function (key) {
+        if(localStorage[key]) localStorage.removeItem(key);
+    }
+};
+EventManager.on('otherStore', function (data) {
+    if($.cookie('showStore')) $.cookie('showStore', null);
+    $('#showStore').gLoad(function(){
+        var thirdCategoryName = $(".breadcrumbs-container .left ul li").eq(3).find('a').html();
+        var _html = '', showStore = '', objStorage = {};
+        var Storetpl=' \
+            <div class="showStoretit showStoretitfir">\
+                <p class="showStorefirst"><i></i>附近门店</p>\
+                <p>去门店体验，预约专业导购</p>\
+            </div>\
+            <div class="showStoretit showStoreCenter">\
+            <% for(var i=0,len=this.length; i<len; i++){ %>\
+                <% if(this[i].guideName) { %>\
+                    <div class="showStoretit StoreName">\
+                        <div class="showStorelogo"><img src="<%= this[i].guidePhoto %> "></div>\
+                        <div class="Storeinfo"  title="<%= this[i].name %> " >\
+                            <h4><%= this[i].name %> </h4>\
+                            <p class="p1">\
+                                <span class="store-user"><%= this[i].guideName %> </span>\
+                                <a href="//www<%= cookieDomain %> /vbuyshop/index.html?storeId=<%= this[i].gomeStoreId %> &storeCode=<%= this[i].storeCode %> &staffCode=<%= this[i].staffCode %> &thirdCategoryName='+encodeURI(thirdCategoryName)+' " class="store-link" target="_blank">去门店去找TA</a>\
+                             </p>\
+                            <p class="p2">\
+                                <span class="store-service">已服务<em><%= this[i].guideServiceCount %> </em>人</span>\
+                                <span class="store-stars"><i style="width: <%= this[i].guideStarLevel*20 %>"%">星星</i></span>\
+                            </p>\
+                        </div>\
+                    </div>\
+                <% }  %> \
+            <% }  %> \
+            </div>\
+            <div class="showStoretit showmorestore">\
+                <a href="//www<%= cookieDomain %>/vbuycity/index.html?thirdCategoryName='+encodeURI(thirdCategoryName)+'" target="_blank"> 查看更多门店</a>\
+            </div>';
+        if(prdInfo.hasGoods=='Y' && (prdInfo.masLocType=='G' || prdInfo.masLocType=='C' || prdInfo.masLocType=='G3PP_L' || prdInfo.masLocType=='G3PP_SPU' || prdInfo.masLocType=='G3PP_D' || prdInfo.masLocType=='H' )){
+            if(!localStorage){
+                //这个是为了给低版本浏览器使用
+                $.ajax({
+                    type: 'get',
+                    url: '//ss'+cookieDomain+'/item/v1/d/extends/regionable/'+g.cityCode(3)+'/2/flag/item/showStore',
+                    //url: 'http://10.58.57.78:8080/mockjsdata/41/item/v1/d/extends/regionable/11010300/2/flag/item/showStore',
+                    dataType: 'jsonp',
+                    jsonpName: 'showStore',
+                    success:function(data){
+                        if(data.success && data.result && data.result.length>0){
+                            for(var i = 0; i < data.result.length; i++) {
+                                if(data.result[i].guideName && data.result[i].guideName != undefined) {
+                                    $('#showStore').removeClass('dn');
+                                }
+                            }
+                            var _html = TemplateEngine(Storetpl,data.result);
+                            $('#showStore').html(_html);
+                        }else{
+                            $('#showStore').addClass('dn');
+                        }
+                    }
+                });
+            }else{
+                if(!showStoreStorage.get("showStore")) {
+                    $.ajax({
+                        type: 'get',
+                        url: '//ss'+cookieDomain+'/item/v1/d/extends/regionable/'+g.cityCode(3)+'/2/flag/item/showStore',
+                        //url: 'http://10.58.57.78:8080/mockjsdata/41/item/v1/d/extends/regionable/11010300/2/flag/item/showStore',
+                        dataType: 'jsonp',
+                        jsonpName: 'showStore',
+                        success:function(data){
+                            if(data.success && data.result && data.result.length>0){
+                                for(var i = 0; i < data.result.length; i++) {
+                                    if(data.result[i].guideName && data.result[i].guideName != undefined) {
+                                        $('#showStore').removeClass('dn');
+                                    }
+                                }
+                                _html = TemplateEngine(Storetpl,data.result);
+                                showStoreStorage.set("showStore", data.result, 1);
+                                $('#showStore').html(_html);
+                            }else{
+                                $('#showStore').addClass('dn');
+                            }
+                        }
+                    });
+                }else {
+                    objStorage = showStoreStorage.get("showStore");
+                    if(objStorage) {
+                        for(var i = 0; i < objStorage.length; i++) {
+                            if(objStorage[i].guideName && objStorage[i].guideName != undefined) {
+                                $('#showStore').removeClass('dn');
+                            }else {
+                                $('#showStore').addClass('dn');
+                            }
+                        }
+                        _html = TemplateEngine(Storetpl,objStorage);
+                        $('#showStore').html(_html);
+                    }
+                }
+            }
+        }
+    })
+});

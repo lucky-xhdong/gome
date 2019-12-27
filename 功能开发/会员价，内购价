@@ -1,0 +1,57 @@
+//会员价
+if (!$.cookie('SSO_USER_ID')) {//未登录
+    $.ajax({
+        type: 'get',
+        url: "//ss" + cookieDomain + '/item/v1/d/m/memberInfo/' + prdInfo.prdId + '/' + prdInfo.sku + '/flag/item/getMemberPriceState',
+        dataType: 'jsonp',
+        jsonpName: "getMemberPriceState"
+    }).done(function (data) {
+        var html="";
+        var loginDataResult = data.result;
+
+        /*loginDataResult.memberPrice={
+            state:true
+        }*/
+        if (loginDataResult && loginDataResult.memberPrice && loginDataResult.memberPrice.state && loginDataResult.memberPrice.state == true) {
+            html='<div class="prd-promotions-red dn"><label>会员价</label><span class="hl_red" id="isPreferential"><a href="javascript:;" class="loginToShowVipPrice">请登录</a>&nbsp;确认是否能享受优惠</span></div>';
+            $('.promotions-collapse').append(html);
+
+        };
+        showcuxiao(prdInfo.cnumber);
+    })
+    $("body").on('click','#isPreferential',function () {
+        g.login(function () {
+            window.location.reload();
+            return;
+        });
+    })
+} else {//已登录
+    $.ajax({
+        type: 'get',
+        url: "//ss" + cookieDomain + '/item/v1/d/m/memberInfo/' + prdInfo.prdId + '/' + prdInfo.sku + '/' + $.cookie('SSO_USER_ID') + '/' + price + '/flag/item/memberPrice',
+        dataType: 'jsonp',
+        jsonpName: "memberPrice"
+    }).done(function (data) {
+        var memberPriceResult = data.result;
+     /* memberPriceResult.memberPrice={
+            price:'12',
+            grade:'2'
+        }*/
+       /* memberPriceResult.internalPrice={
+            price:'12'
+        }*/
+        if (data.success && memberPriceResult && memberPriceResult.memberPrice && memberPriceResult.memberPrice.price && !(preHeatSlogan && preHeatSlogan.status==1 && memberPriceResult.memberPrice.price*1>prdInfo.price)) {//会员价如果比团抢价高就不展示 同理如下
+            var html='<div class="prd-promotions-red dn"><label>会员价</label><span id="showVipPrice"><span id="huiYuanDJ">您享受' + memberPriceResult.memberPrice.grade + '会员价</span>&ensp;' +
+                '<em class="huiYuanTeJia_text">¥' + memberPriceResult.memberPrice.price + '&emsp;</em>' +
+                '<a href="//club'+cookieDomain+'/">更多&nbsp;<i class="s-arrow">></i></a></span></div>';
+             $('.promotions-collapse').append(html);
+
+        }
+        if (data.success && memberPriceResult && memberPriceResult.internalPrice && memberPriceResult.internalPrice.price && !(preHeatSlogan && preHeatSlogan.status==1 && memberPriceResult.internalPrice.price*1>prdInfo.price)) {
+            var html='<div class="prd-promotions-red dn"><label>内购价</label><span>¥' + memberPriceResult.internalPrice.price + '</span></div>';
+            $('.promotions-collapse').append(html);
+
+        }
+        showcuxiao(prdInfo.cnumber);
+    })
+}

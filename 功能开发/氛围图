@@ -1,0 +1,121 @@
+//输入毫秒 输出
+window.dateInfo=function(milliseconds) {
+    var days = 0,
+        hours = 0,
+        minutes = 0,
+        second = 0,
+        millisecond = 0;
+
+    if (milliseconds > 0) {
+        days = parseInt(milliseconds / (1000 * 60 * 60 * 24))
+        hours = parseInt(milliseconds / (1000 * 60 * 60) % 24)
+        minutes = parseInt(milliseconds / (1000 * 60) % 60)
+        second = parseInt(milliseconds / 1000 % 60);
+        millisecond = milliseconds % 1000;
+    }
+    return {
+        days: days < 10 ? "0" + days : days,
+        hours: hours < 10 ? "0" + hours: hours,
+        minutes: minutes < 10 ? "0" + minutes: minutes,
+        second: second < 10 ? "0" + second: second,
+        millisecond: millisecond < 10 ? "0" + millisecond: millisecond
+    }
+}
+
+window.Timer = function(params) {
+    this._init(params);
+    this._runningflag;
+    this.timer=null;
+}
+Timer.prototype = {
+    _init: function (params) {
+        this.params = params;
+    },
+    run: function () {
+        var _this = this;
+        _this.params.immediately && _this.params.callback(_this.params.milliseconds)
+        _this.timer = setInterval(function () {
+            _this.params.milliseconds -= _this.params.interval;
+
+            if (_this.params.milliseconds < 0) {
+                clearInterval(_this.timer);
+                _this.params.callback(0);
+                _this.end();
+                return;
+            }
+            _this.params.callback(_this.params.milliseconds);
+
+        }, this.params.interval)
+    },
+    end: function () {
+        this.params.fnEnd && this.params.fnEnd();
+    },
+    stop :function(){
+        window.clearInterval(this.timer);
+    }
+}
+
+EventManager.on('SHOW_ATMOSPHERE', function (data) {
+    if(!prdInfo.shopNo || prdInfo.shopNo == '') {
+        var figure = '';//图片html
+        if (data.userStores && data.userStores.atmosphereResult) {
+            var atmosphereResult = data.userStores.atmosphereResult;
+            var preHeatSlogan=data.preHeatSlogan;
+            if(preHeatSlogan && (preHeatSlogan.status==0 || preHeatSlogan.status==1)){
+                return false;
+            }
+            //后台允许不配置链接，如果配置链接添加a标签，不配置链接直接展示图片
+            if(atmosphereResult.imgHref && atmosphereResult.imgHref != '') {
+                figure = '<a href="' + atmosphereResult.imgHref + '" target="_blank"><img gome-src="' + atmosphereResult.imgUrl + '"></a>';
+            }else {
+                figure = '<img gome-src="' + atmosphereResult.imgUrl + '">';
+            };
+            var t1 = new Timer({
+                milliseconds: atmosphereResult.endTime - atmosphereResult.currentTime,
+                interval: 500,
+                immediately: true,
+                callback: function (milliseconds) {
+                    if (atmosphereResult.startTime && atmosphereResult.startTime != '') {
+                        if (milliseconds > 0) {
+                            if(atmosphereResult.imgUrl && atmosphereResult.imgUrl != '') {
+                                //预约和抢购的商品屏蔽氛围图
+                                if(data.userStores.phase && (data.userStores.phase === '1' || data.userStores.phase === '2')) {
+                                    $(".prd-atmosphere-wrapper").hide();
+                                }else {
+                                    $(".prd-atmosphere-wrapper").show();
+                                    $(".pa-figure").html(figure).loadsrc('gome-src');
+                                }
+                            }
+                            var time = dateInfo(milliseconds);
+                            //如果天数小于10，天数前面添加0
+                            time.days = time.days < 10 ? time.days.replace(0, '') : time.days;
+                            var html = '';//倒计时html
+                            //小于2天展示倒计时
+                            if (time.days < 2) {
+                                //还剩1天时间显示距离结束还有1天
+                                if(time.days == 1) {
+                                    $(".endtime-tip").html('距离结束还有' + "&nbsp;<b>" + time.days + "</b>&nbsp;" + '天');
+                                }
+                                //剩于0天展示距离活动结束
+                                else if (time.days == 0) {
+                                    $(".endtime-tip").html('距离活动结束');
+                                }
+                                time.hours ? html += '<span class="cd-hours">' + time.hours + '</span><em>:</em>' : ""
+                                time.minutes ? html += '<span class="cd-minutes">' + time.minutes + '</span><em>:</em>' : ""
+                                time.second ? html += '<span class="cd-second">' + time.second + '</span>' : ""
+                                $(".count-down").html(html);
+                            }
+                        }
+                    } else {
+                        $(".prd-atmosphere-wrapper").hide();
+                        return false;
+                    }
+                },
+                fnEnd: function () {
+                    window.location.href = window.location.href;
+                }
+            });
+            t1.run();
+        }
+    }
+});

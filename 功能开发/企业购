@@ -1,0 +1,139 @@
+1.本地开发，入口文件模板product.ftl和data文件夹下的json文件夹保持一致便能访问到
+2.引用的公共头尾样式部分需要部署组支持ssi配置才能在uat访问到静态资源(js/css)
+/**
+ * prdInfo.codeInc==0标识是否是企业购详情页,如果prdInfo.codeInc不为0或者codeInc这个字段不存在，那就表示这个详情页为普通商品详情页
+ * prdInfo.departmentStoreSkuType == "GCJ"标识是否是工程机商品
+ * 1.工程机商品
+ *  1).未登录--不展示价格，并提示：请登陆企业账号并申请工程机购买权限。
+ *  2).已登录
+ *    a).普通会员账户--不展示价格，提示：只有企业账户并且申请工程机购买权限才可购买，加入购物车按钮置灰。
+ *    b).企业账户--无资格--展示企业价，没有购买权限，提示：只有企业账户并且申请工程机购买权限才可购买，联系电话4008159955；加入购物车按钮置灰。
+ *    c).企业账户--展示企业价，有购买权限，直接可点击加入购物车购买。
+ * 2.非工程机商品
+ *  1).未登录--不展示价格、并提示：登录后查看是否享受企业价格。
+ *  2).已登录
+ *    a).企业用户--展示企业价、并提示：不是给公司买东西？返回国美，链接到该商品对应的普通商品详情页。
+ *    b).普通会员账户--不展示价格，加入购物车按钮置灰，提示：普通用户前往主站购买，返回国美。
+ */
+EventManager.on('SHOW_PRICE', function (data) {
+    var userType = '', html = '';
+    if (data && data.stock && data.stock.userType) {
+        userType = data.stock.userType;
+    }
+    $.cookie('SSO_USER_ID', '100040003728');
+    if (prdInfo.codeInc && prdInfo.codeInc == "0") {
+        if(prdInfo.departmentStoreSkuType && prdInfo.departmentStoreSkuType == "GCJ") {
+            if (!$.cookie('SSO_USER_ID')) {
+                html = '<label>企业采购价</label><div class="prd-price-txt"><span class="span-txt">请&nbsp;<a href="javascript:;" class="a-link machine-login">登录</a>&nbsp;企业账号并申请工程机购买权限</span></div>'
+                $(".prd-price-wrapper .prd-price-left").html(html);
+                $(".machine-login").on('click', function () {
+                    if (loginData.loginStatus != 3) {
+                        g.login(function () {
+                        });
+                        return false;
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: 'get',
+                    // url: '//ss'+cookieDomain+'/item/v1/d/extends/regionable/'+g.cityCode(3)+'/2/flag/item/businessPrice',
+                    // url: 'http://10.126.60.159:3651/mockjs/8/d/business/buy/' + prdInfo.sku + '/' + g.cityCode(3) + '/' + $.cookie('SSO_USER_ID') + '/flag/businessPrice',
+                    url: 'http://10.115.0.161:3121/item/v1/d/business/buy/info/1000078126/11010200/flag/item/test?userId=100040003728',
+                    dataType: 'jsonp',
+                    jsonpName: 'test',
+                    success: function (data) {
+                        if (!data) return;
+                        var objData = data && data.result;
+                        if (objData.price) {
+                            prdInfo.price = objData.price;
+                        } else {
+                            prdInfo.price = '暂无售价';
+                        }
+                        if (userType == 2) {
+                            if (objData && objData.machineFlag && objData.machineFlag == 'true') {
+                                html = '<label>企&nbsp;&nbsp;业&nbsp;&nbsp;价</label><div class="prd-price-txt"><span id="prdPrice" class="span-price"><em>¥</em>' + prdInfo.price + '</span></div>';
+                            } else if (objData && objData.machineFlag && objData.machineFlag == 'false') {
+                                html = '<label>企&nbsp;&nbsp;业&nbsp;&nbsp;价</label><div class="prd-price-txt"><span id="prdPrice" class="span-price"><em>¥</em>' + prdInfo.price + '</span><span class="span-txt">请申请工程机购买权限，联系 <a href="javascript:;" class="a-link">4008159955</a></span></div>';
+                                $("#addCart").addClass('disabled');
+                            }
+                        } else {
+                            html = '<div class="prd-price-txt"><span class="span-txt">仅支持企业用户且有购买资格才可购买</span></div>';
+                            $("#addCart").addClass('disabled');
+                        }
+                        $(".prd-price-wrapper .prd-price-left").html(html);
+                    }
+                });
+            }
+        }
+        else {
+            if (!$.cookie('SSO_USER_ID')) {
+                html = '<label>企业采购价</label><div class="prd-price-txt"><span class="span-txt"><a href="javascript:;" class="a-link business-login">登录</a>&nbsp;后查看是否享受企业价格</span></div>'
+                $(".prd-price-wrapper .prd-price-left").html(html);
+                $(".business-login").on('click', function () {
+                    if (loginData.loginStatus != 3) {
+                        g.login(function () {
+                        });
+                        return false;
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: 'get',
+                    // url: '//ss'+cookieDomain+'/item/v1/d/extends/regionable/'+g.cityCode(3)+'/2/flag/item/businessPrice',
+                    // url: 'http://10.126.60.159:3651/mockjs/8/d/business/buy/' + prdInfo.sku + '/' + g.cityCode(3) + '/' + $.cookie('SSO_USER_ID') + '/flag/businessPrice',
+                    // url: 'http://10.126.60.159:3651/mockjs/8/d/business/buy/100/100/100/flag/rap',
+                    url: 'http://10.115.0.161:3121/item/v1/d/business/buy/info/1000078126/11010200/flag/item/test?userId=100040003728',
+                    dataType: 'jsonp',
+                    jsonpName: 'test',
+                    success: function (data) {
+                        if (!data) return;
+                        if (data.result.price) {
+                            prdInfo.price = data.result.price;
+                        } else {
+                            prdInfo.price = '暂无售价';
+                        }
+                        if (userType == 2) {
+                            html = '<label>企&nbsp;&nbsp;业&nbsp;&nbsp;价</label><div class="prd-price-txt"><span id="prdPrice" class="span-price"><em>¥</em>' + prdInfo.price + '</span><span class="span-txt">不是给公司买东西？<a href=' + data.result.href + ' class="a-link" target="_blank">返回国美</a></span></div>'
+                        }
+                        else {
+                            html = '<div class="prd-price-txt"><span class="span-txt">普通用户前往主站购买，<a href=' + data.result.href + ' class="a-link" target="_blank">返回国美</a></span></div>';
+                            $("#addCart").addClass('disabled');
+                        }
+                        $(".prd-price-wrapper .prd-price-left").html(html);
+                    }
+                });
+            }
+        }
+    }
+});
+
+
+//企业专属特权
+$(".prd-business-aside").gLoad(function () {
+    var privilegeItems = prdInfo.privilegeItems.privilege, privilegeTmpl = '';
+    if (privilegeItems && privilegeItems != '') {
+        privilegeTmpl = '<h1>企业专属特权</h1><div class="privilege-wrapper"><ul>'
+            for(var i = 0; i < privilegeItems.length; i++){
+                privilegeTmpl += '<li>' +
+                    '<a href="'+privilegeItems[i].href+'" target="_blank">' +
+                        '<img src="'+privilegeItems[i].src+'" alt="'+privilegeItems[i].title+'">' +
+                    '</a>' +
+                    '<span>'+privilegeItems[i].title+'</span>' +
+                '</li>'
+            }
+        privilegeTmpl += '</ul></div>';
+    }
+    $(this).append(privilegeTmpl);
+})
+
+
+G:\gome\pre\storefront\j2ee-apps\Storefront\storedocroot.war\gmlib\unit\live800\3.0.0\live800.js 企业购也需要支持客服，已合pre
+G:\gome-gfe\item-web\item-test\js\store_p.js
+支持企业采购，已提主干
+
+item-web:1.0.0.10.570880
+qyg-web:1.0.0.2.570883
+image
+https://code.ds.gome.com.cn/svn/atg_poc/30_Coding/pangu/pre/storefront/j2ee-apps/Storefront/storedocroot.war/gmlib/unit/live800/3.0.0/live800.js
+
+uat/生产发版的后端版本号是1.0.0.2

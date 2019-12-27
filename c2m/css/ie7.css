@@ -1,0 +1,135 @@
+.c2m-main .left-main .left-main-tab .left-main-nav {
+    +height: 42px;
+    _height: 42px;
+    *height: 42px;
+}
+
+.c2m-main.pseudo span.after {
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+.c2m-main .left-main .left-main-tab .left-main-nav ul.pseudo span.after {
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+.c2m-main .left-main .left-main-tab .left-main-nav ul li.pseudo span.before,
+.c2m-main .left-main .left-main-tab .left-main-nav ul li.pseudo span.after {
+    position: absolute;
+    height: 3px;
+}
+
+.c2m-main .left-main .left-main-tab .left-main-nav ul li.pseudo span.before {
+    width: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    *display: inline;
+}
+.c2m-main .left-main .left-main-tab .left-main-nav ul li a span.pseudo {
+    *display: inline;
+}
+.c2m-main .left-main .left-main-tab .left-main-nav ul li a.pseudo span.after {
+    color: #e3101e;
+}
+.c2m-main .left-main .left-main-tab .left-main-nav ul li.pseudo span.after {
+    background-color: #fff;
+    bottom: -1px;
+    left: 1px;
+    right: 1px;
+}
+
+.c2m-main .left-main .left-main-tab .left-main-con .product-detail .product-info ul.pseudo span.after {
+    display: table;
+    width: 100%;
+    clear: both;
+    *background: none;
+}
+
+.c2m-main .left-main .left-main-tab .left-main-con .product-detail .product-info ul li span.pseudo span.before {
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 134px;
+    font-weight: bold;
+    padding-right: 15px;
+    *background: none;
+}
+.c2m-main .left-main .left-main-tab .left-main-con .product-comment {
+    +height: 800px;
+    _height: 800px;
+    *height: 800px;
+}
+.c2m-main .left-main .left-main-tab .left-main-con .product-comment .product-comment-label label {
+    _width: 120px;
+    *white-space: nowrap;
+}
+.c2m-main .left-main .left-main-tab .left-main-con .product-comment .product-comment-lists ul li:after {
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+.c2m-main .left-main .left-main-tab .left-main-con .product-comment .product-comment-lists ul li .comment-text .comment-img-lists ol li {
+    +float: left;
+    _float: left;
+    display: inline-block;
+}
+.c2m-main .left-main .left-main-tab .left-main-con .product-comment .product-comment-lists ul li .comment-text p span.before {
+    font-size: 14px;
+    color: #343434;
+    font-weight: bold;
+}
+.c2m-main .left-main .left-main-tab .left-main-con .product-comment .product-pagenation ul li {
+    +float: left;
+    _float: left;
+    display: inline-block;
+}
+.c2m-main .right-aside span.before {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    padding: 9px 0;
+    background-color: #eee;
+}
+.c2m-main .right-aside ul li a.pseudo {
+    *width: 260px;
+    *height:140px;
+}
+.c2m-main .right-aside ul li a.pseudo span.before {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    *width: 260px;
+    +height: 24px;
+    _height: 24px;
+    *height: 22px;
+    *padding: 3px 0;
+    *font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .7);
+    *background-color: #000;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+}
+.c2m-main .right-aside ul li a.pseudo span.after {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    font-size: 13px;
+    font-weight: bold;
+    *width: 260px;
+    +line-height: 30px;
+    _line-height: 30px;
+    *line-height: 30px;
+    padding:0 10px;
+    text-align: center;
+    color: #fff;
+}

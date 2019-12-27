@@ -1,0 +1,105 @@
+//美易分
+EventManager.on('MEIYIFEN', function (data){
+    var url,//get请求url
+        userId = loginData.loginId ? loginData.loginId : 'N',//用户ID{没有时传N}
+        zy_shopNo = prdInfo.shopNo_zy ? prdInfo.shopNo_zy : 'N',//店铺编码{没有店铺编码时传递N}
+        price = prdInfo.price;
+    //以下情况不支持美易分：1.价格小于等于100 2.联营商品不支持美易分 3.商品无货或者下架 4.预约/抢购商品
+    if (parseInt(price) * 1 <= 100 || prdInfo.shopNo != '' || prdInfo.hasGoods=='N' || prdInfo.prdType == 2 || (data.userStores && (data.userStores.phase === '1' || data.userStores.phase === '2'))) {
+        return false;
+    }
+    var list_html = {}, productData = {}, loanInfoArr = [];
+    productData.myfArr = [];
+    list_html = {
+        lists: '\
+			{{if myfArr[0] && myfArr[0].length > 0}}\
+			<label class="prdLeft">美&ensp;易&ensp;分</label>\
+			<div class="prdRight">\
+				{{each myfArr[0] as list index}}\
+                    {{if list.loanTerm == 1}}\
+						<div class="prdmyf prdmyfLists prdmyfHover"><a class="mod-link" href="javascript:void(0);">不分期</a><div class="drop-down"><span class="dd-detail">含手续费：费率{{list.loanSumRate}}%，¥ {{list.loanSumFee}} x {{list.loanTerm}}期</span></div></div>\
+					{{ else }}\
+						<div class="prdmyf prdmyfLists prdmyfHover"><a class="mod-link" href="javascript:void(0);">¥ {{list.repaymentSingleAmount}} x {{list.loanTerm}}期</a><div class="drop-down"><span class="dd-detail">含手续费：费率{{list.loanSumRate}}%，¥ {{list.loanSumFee}} x {{list.loanTerm}}期</span></div></div>\
+					{{/if}}\
+				{{/each}}\
+				<div class="promotion dn"><a href="javascript:void(0);">促销</a><div class="tips"><div class="sanjiao"></div><div class="tip-body"><p></p></div></div></div>\
+				<div class="more"><a href="javascript:void(0);">产品说明</a><div class="tips"><div class="sanjiao"></div><div class="tip-body"><p>美易分是国美为您提供的“先购物、后付款”的信用付款产品。您使用美易分时，可选择延期付款或分期付款。</p></div></div></div>\
+			</div>\
+			{{/if}}\
+			'
+    };
+    /* 传入参数
+     * @param productId
+     * @param skuId
+     * @param userId
+     * @param price:商品售价
+     * @param categoryId:三级分类
+     * @param brandId:品牌ID
+     * @param shopType:联营/自营
+     * @param shopCode:店铺编码
+     * */
+    url = '//ss'+cookieDomain+'/item/v1/bt/info/getBtInfo/' + prdInfo.prdId + '/' + prdInfo.sku + '/' + userId + '/' + price + '/' + prdInfo.catId + '/' + prdInfo.brandID + '/N/' + zy_shopNo + '/flag/item/getBtInfo';
+    //用户登录之后才请求美易分信息
+    if ($.cookie('SSO_USER_ID')) {
+        $.ajax({
+            type: 'get',
+            url: url,
+            dataType: 'jsonp',
+            jsonpName: 'getBtInfo',
+            success: function (data) {
+                if (!data) return false;
+                var loanData = data.body;
+                if (loanData) {
+                    //该商品是否支持美易分
+                    //1.支持-isDisplayBt
+                    //2.不支持：显示普通商品信息，走普通加入购物车流程
+                    if (loanData.isDisplayBt && loanData.isDisplayBt == 'Y') {
+                        //如果商品支持美易分，不显示分期购按钮-美易分替换分期购
+                        $("#pay_fenQi").css({'display': 'none'});
+                        if(typeof loanData.loanInfoList != "undefined" && loanData.loanInfoList !="" && loanData.loanInfoList.length > 0) {
+                            loanInfoArr = loanData.loanInfoList;
+                            for(var i = 0; i < loanInfoArr.length; i++) {
+                                loanInfoArr[i].loanSumRate = loanInfoArr[i].loanSumRate.replace('%', '');
+                            }
+                            productData.myfArr.push(loanInfoArr);
+                            $('.meiyifen').removeClass('dn').html(templateSimple.compile(list_html.lists)(productData));
+                            $(".pop-meiyifen img").loadsrc('_src');//美易分二维码
+                            //列表选项选中/取消
+                            $(".meiyifen .prdmyfLists").on('click', function () {
+                                $(this).toggleClass('select').siblings().removeClass('select');
+                            }).hover(function () {
+                                var dropdown = $(this).find('.drop-down'), meiyifen = $(".meiyifen");
+                                if(dropdown && dropdown.length > 0) {
+                                    //如果下拉框的宽度超出网站主体宽度，让下拉框居右对齐
+                                    if((dropdown.offset().left + dropdown.outerWidth()) > (meiyifen.offset().left + meiyifen.outerWidth())) {
+                                        dropdown.css({
+                                            right: 0,
+                                            left: 'auto'
+                                        })
+                                    }else {
+                                        dropdown.css({
+                                            right: 'auto',
+                                            left: 0
+                                        })
+                                    }
+                                }
+                            });
+                            //促销信息默认隐藏，如果有促销信息则显示，没有不展示
+                            if(loanData.marketInfo && loanData.marketInfo != '') {
+                                $(".meiyifen .promotion").removeClass('dn').find('p').html(loanData.marketInfo);
+                            }
+                            //美易分-点击美易分按钮弹出扫码浮层
+                            $(".btn-meiyifen").removeClass('dn').on('click', function () {
+                                $('.pop-meiyifen, .mask-meiyifen').removeClass('dn');
+                            });
+                            //关闭弹窗和二维码
+                            $(".pop-meiyifen .close").on('click', function () {
+                                $('.pop-meiyifen, .mask-meiyifen').addClass('dn');
+                            });
+                        }
+                    }
+                }
+            }
+        });
+    }
+});

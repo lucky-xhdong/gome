@@ -1,0 +1,292 @@
+//评论模块
+var defaultPage = 1;//首次打开页面
+var totalTextcount = 0;//全部评论总数
+var totalImageCount = 0;//有图评论总数
+
+Date.prototype.Format = function(fmt)
+{
+    var o = {
+        "M+" : this.getMonth()+1,                 //月份
+        "d+" : this.getDate(),                    //日
+        "h+" : this.getHours(),                   //小时
+        "m+" : this.getMinutes(),                 //分
+        "s+" : this.getSeconds(),                 //秒
+        "q+" : Math.floor((this.getMonth()+3)/3), //季度
+        "S"  : this.getMilliseconds()             //毫秒
+    };
+    if(/(y+)/.test(fmt))
+        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    for(var k in o)
+        if(new RegExp("("+ k +")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+    return fmt;
+};
+
+var html = {
+    allList: '\
+    {{each Evalist as comments index}}\
+    <li>\
+        <div class="user-avatar">\
+            <img src="{{comments.imagePath}}" alt="{{comments.loginname}}">\
+            <span>{{comments.loginname}}</span>\
+        </div>\
+        <div class="comment-text">\
+            <p><span>使用心得：</span>{{comments.appraiseElSum}}</p>\
+            {{if comments.pic}}\
+            <div class="comment-img-lists">\
+                <ol>\
+                    {{each comments.pic as picture}}\
+                    <li>\
+                        <a href="{{picture}}" data-lightbox="images">\
+                            <img src="{{picture}}" alt="image">\
+                        </a>\
+                    </li>\
+                    {{/each}}\
+                </ol>\
+            </div>\
+            {{/if}}\
+            <span class="comment-time">{{comments.post_time}}</span>\
+        </div>\
+    </li>\
+    {{/each}}',
+    imagesList: '\
+    {{each orderdisplayshow as order}}\
+    <li>\
+        <div class="user-avatar">\
+            <img src="{{order.avatar}}" alt="{{order.zhouxoingfei}}">\
+            <span>{{order.author}}</span>\
+        </div>\
+        <div class="comment-text">\
+            <p>{{order.message}}</p>\
+            <div class="comment-img-lists">\
+                <ol>\
+                    {{each order.pic as picture}}\
+                    <li>\
+                        <a href="{{order.href}}" target="_blank">\
+                            <img src="{{picture}}" alt="">\
+                        </a>\
+                    </li>\
+                    {{/each}}\
+                </ol>\
+                <a href="javascript:;" class="show-all-images">查看全部晒单&nbsp;></a>\
+            </div>\
+            <span class="comment-time">{{order.dateline}}</span>\
+        </div>\
+    </li>\
+    {{/each}}'
+}
+
+/*获取所有大图 start*/
+   function getAllBigImages() {
+         $.ajax({
+             type:"GET",
+             url:prdInfo.htmlHref,
+             cache: false,
+             dataType:"jsonp",
+             jsonpCallback:"jianjie",
+             success: function(data){
+                 $(".product-imgs").html(data);
+
+                 $('.product-imgs img').each(function(){
+                     $(this).gLoad(function(){
+                          $(this).loadsrc('gome-src');
+                     })
+                 })
+             }
+         });
+     }
+     getAllBigImages()
+/*获取所有大图 end*/
+
+/*填充全部评论数据 start*/
+function all(data) {
+    if (data && data.totalCount) {
+        totalTextcount = data.totalCount;
+        $(".comment-all-em").html('(' + parseFloat(totalTextcount + totalImageCount) + ')');
+    }
+    if (totalImageCount == 0) {
+        $("#comment-images-wrapper").hide();
+    }
+    if (!data || data.evaList.Evalist.length == 0) {
+        $("#comment-lists-wrapper").html('<li><p>暂无商品评论！</p></li>');
+        $(".c2m-product-pagenation").hide();
+    } else {
+		$("#comment-lists-wrapper").html(templateSimple.compile(html.allList)(data.evaList));
+		$(".c2m-product-pagenation").show();
+    }
+}
+/*填充全部评论数据 end*/
+
+/*填充有图评论数据 start*/
+function orderShowData(data) {
+    if (data && data.count) {
+        totalImageCount = data.count;
+        $(".comment-images-em").html('(' + parseFloat(totalImageCount) + ')');
+        $(".comment-all-em").html('(' + parseFloat(totalTextcount + totalImageCount) + ')');
+    }
+    if (defaultPage == 1) {
+        if (data.ordershow && data.ordershow.length > 0) {
+            var display = {};
+            display.orderdisplayshow = new Array();
+            display.orderdisplayshow.push(data.ordershow[0]);
+            $("#comment-images-wrapper").html(templateSimple.compile(html.imagesList)(display)).show();
+        }
+        $(".show-all-images").show();
+    } else {
+        if (!data.ordershow || data.ordershow.length == 0) {
+            $("#comment-images-wrapper").html('<li><p>暂无晒单评论！</p></li>');
+            $(".c2m-product-pagenation").hide();
+        } else {
+			if (data.ordershow && data.ordershow.length > 0) {
+				var display = {};
+				display.orderdisplayshow = new Array();
+				display.orderdisplayshow = data.ordershow;
+				$("#comment-images-wrapper").html(templateSimple.compile(html.imagesList)(display));
+			}
+        }
+        $(".show-all-images").remove();
+    }
+    defaultPage++;
+}
+/*填充有图评论数据 end*/
+
+$(document).ready(function () {
+    var productId = '', pagenumberall = 1, pagenumberimage = 1;
+    if (window.prdInfo) {
+        productId = window.prdInfo.prdId;
+    } else if (window.productId) {
+        productId = window.productId;
+    }
+    var tabtype = 'all';
+    /*详情/评价标签切换 start*/
+    $(".left-main-nav li").click(function () {
+        $(this).addClass("pseudo").siblings().removeClass("pseudo");
+        var index = $(".left-main-nav li").index(this);
+        $(".left-main-con > div").eq(index).show().siblings().hide();
+        /*查看全部晒单 start*/
+        $(".comment-images-wrapper").undelegate('.show-all-images', 'click').delegate('.show-all-images', 'click', function () {
+            $(".product-comment-label li").eq(1).click();
+        })
+        /*查看全部晒单 end*/
+    })
+    /*详情/评价标签切换 end*/
+
+    /*全部评价/有图晒单标签切换 start*/
+    $(".product-comment-label li").unbind('click').bind('click', function (event) {
+        event.preventDefault();
+        $(this).addClass("active").siblings().removeClass("active");
+        tabtype = $(this).data('type');
+		pagenumberall = pagenumberimage = 1;
+        if (tabtype == "all") {
+            $(".comment-images-wrapper, .comment-lists-wrapper").show();
+            defaultPage = 1;
+            if (defaultPage == 1) {
+                getImagesComments('images', productId, pagenumberall);
+            }
+            getListsComments(tabtype, productId, pagenumberall);
+        } else {
+            $(".comment-images-wrapper").show();
+            $(".comment-lists-wrapper").hide();
+            getImagesComments(tabtype, productId, pagenumberimage);
+        }
+    })
+    /*全部评价/有图晒单标签切换 end*/
+
+    //获取全部评论
+    function getListsComments(type, productId, page) {
+		if(page == 1) {
+			 pagenumberall = 1;
+		}
+        $.ajax({
+            type: 'get',
+            url: 'http://ss'+cookieDomain+'/item/v1/prdevajsonp/appraiseModuleAjax/'+productId+'/' + page + '/'+type+'/flag/appraise/'+type,
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "all"
+        })
+        .done(function (data) {
+            if (tabtype == 'all') {
+                $(".c2m-product-pagenation").gPage({
+                    ap: data.totalpage,
+                    cp: pagenumberall,
+                    np: 10,
+                    tg: "javascript:;",
+                    e: function () {
+                        pagenumberall = this.cp;
+                        getListsComments('all', productId, pagenumberall);
+                    }
+                });
+            }
+        })
+    }
+
+    //获取有图评论
+    function getImagesComments(type, productId, page) {
+		if(page == 1) {
+			 pagenumberimage = 1;
+		}
+        $.ajax({
+            type: 'get',
+            url:'http://bbs.gome.com.cn/api/api_getbaskorder.php?productId='+prdInfo.prdId+'&skuId='+prdInfo.sku+'&type='+type+'&page='+page,
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "orderShowData"
+        })
+        .done(function (data) {
+            if (tabtype == 'images') {
+                $(".c2m-product-pagenation").gPage({
+                    ap: data.pages,
+                    cp: pagenumberimage,
+                    np: 10,
+                    tg: "javascript:;",
+                    e: function () {
+                        pagenumberimage = this.cp;
+                        getImagesComments("images", productId, pagenumberimage);
+                    }
+                });
+            }
+        })
+    }
+
+    if (defaultPage == 1) {
+        getImagesComments('images', productId, 1);
+    }
+    getListsComments('all', productId, 1);
+
+	$(".right-aside").loadsrc('_src');//右侧专题推荐图
+
+    function createPseudoForIE7() {
+        var appversion = navigator.appVersion;
+        var version = appversion.split(";");
+        if (version.length > 1) {
+            var trim_Version = parseInt(version[1].replace(/[ ]/g, "").replace(/MSIE/g, ""));
+            if (trim_Version < 8) {
+                $.ajax(stageJsServer + "/gmpro/1.0.0/item/1.0.0/c2mItem/1.0.0/js/jquery.pseudo.min.js",{
+                    dataType: "script",
+                    cache: true
+                }).done(function(){})
+                return false;
+            }
+        }
+        return true;
+    }
+	createPseudoForIE7()
+    /* 浏览记录操作：读取和写入cookie   pid商品ID broBox浏览记录模型选择器 */
+        function browsedCookie(){
+            var _prs = $.cookie("proid120517atg");
+            var _p_ = []; try { eval('var _p_=' + _prs); } catch (e) { }; if (!_p_) _p_ = [];
+            //使用包含prdInfo.sku的链接，如果拥有prdInfo.sku
+            _p_.unshift(prdInfo.sku ? prdInfo.prdId+"-"+prdInfo.sku : prdInfo.prdId );
+            //_p_.unshift(prdInfo.prdId );
+            var _z_ = {}; for (var i = 0; i < _p_.length; i++) { _z_[_p_[i]] = _p_[i]; }; _p_ = []; for (var v in _z_) { _p_.push(_z_[v]); };
+            var showCount=$('body').hasClass('w990') ? 8 : 10;
+            if (_p_.length >= showCount) _p_ = _p_.slice(0, showCount);
+
+            var $domain=cookieDomain;
+            if(location.host.indexOf("hk")!=-1){
+                $domain=location.host.replace("item","");
+            }
+            $.cookie('proid120517atg', '["' + _p_.join('","') + '"]', { expires: 7, path: '/', domain: $domain });
+        }
+        browsedCookie();
+});

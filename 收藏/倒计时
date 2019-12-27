@@ -1,0 +1,27 @@
+<script>
+var startTime = "2017-04-04";
+var calculationTime = function(startTime) {
+    var s1 = new Date(startTime.replace(/-/g, "/")),
+    s2 = new Date(),
+    runTime = parseInt((s2.getTime() - s1.getTime()) / 1000);
+    var year = Math.floor(runTime / 86400 / 365);
+    runTime = runTime % (86400 * 365);
+    var month = Math.floor(runTime / 86400 / 30);
+    runTime = runTime % (86400 * 30);
+    var day = Math.floor(runTime / 86400);
+    runTime = runTime % 86400;
+    var hour = Math.floor(runTime / 3600);
+    runTime = runTime % 3600;
+    var minute = Math.floor(runTime / 60);
+    runTime = runTime % 60;
+    var second = runTime;
+    document.querySelector(".SiteRunningTime > .year").innerText = year;
+    document.querySelector(".SiteRunningTime > .month").innerText = month;
+    document.querySelector(".SiteRunningTime > .day").innerText = day;
+    document.querySelector(".SiteRunningTime > .hour").innerText = hour;
+    document.querySelector(".SiteRunningTime > .minute").innerText = minute;
+    document.querySelector(".SiteRunningTime > .second").innerText = second
+};
+setInterval("calculationTime(startTime)", 1000);
+</script>
+<span class="SiteRunningTime">该站点运行了<label class="year">0</label>年<label class="month">0</label>月<label class="day">0</label>日<label class="hour">0</label>时<label class="minute">0</label>分<label class="second">0</label>秒</span>

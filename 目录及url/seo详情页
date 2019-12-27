@@ -1,0 +1,60 @@
+归档详情页
+项目svn路径
+https://repo.ds.gome.com.cn:8443/svn/atg_poc/30_Coding/NewDevMode/trunk/gome-gfe/itemseo-web
+项目应用名
+itemseo-web
+
+注意：
+1、关于发版更新项目svn  tag。
+由于seo抓取获取的是同步数据，因此SEO详情页项目中的js使用的都是普通详情页item-web中的js和css，因此，在我们在准备发版itemseo-web的时候，最好让它跟item-web项目的js、css线上版本保持一致。因此我们在需要打开config.json,修改     "projectPath": "gmpro/2.0.0/item/1.1.10",  使它和item-web线上版本保持一致。
+然后在此目录下， 按shift+鼠标右键，在此处打开命令窗口，更新此项目的gfe svn 。
+使用命令： gfe svn tag 版本号。
+2、查看项目发版打包的项目
+http://bin.ds.gome.com.cn/atg_poc/gome-gfe/itemseo-web/
+3、关于itemseo-web项目开发测试中使用到的host和端口
+动态访问地址格式
+
+SEO详情页
+host:端口/detail/productId-skuId
+SEO详情页大图页
+host:端口/detail/ bigimage /productId-skuId
+
+动态访问各环境host和port
+uat环境
+host ： 10.58.57.96
+port ： 3071
+
+示例：
+10.58.57.96:3071/detail/9010000022-1000014728
+4344环境
+host ： 10.58.22.35
+port ： 3071
+生产环境
+host  有以下几个
+10.58.50.166
+10.58.50.167
+10.58.50.168
+10.58.50.169
+10.58.50.170
+10.58.50.174
+port ： 3079
+
+示例：
+http://10.58.50.166:3079/detail/9134561539-1123502310
+http://s.tool.chinaz.com/tools/pagecode.aspx  查看方式
+有热门链接   热词的商品
+http://item.gome.com.cn/9140000280-1130000827.html
+http://item.gome.com.cn/A0005264092-pop8005873979.html
+
+同步数据
+uat：
+http://10.58.57.96:3071/jsondata/bigImage/prod20960100-sku20890014
+http://10.58.57.96:3071/jsondata/detail/prod20960100-sku20890014
+
+prd：
+http://10.58.50.166:3079/jsondata/bigImage/9140000229-1123520080
+http://10.58.50.166:3079/jsondata/detail/9140000229-1123520080
+
+大图页
+4344：http://10.58.22.35:3071/detail/bigimage/9134280069-1123201466
+生产：http://10.58.50.174:3079/detail/bigimage/9134280069-1123201466

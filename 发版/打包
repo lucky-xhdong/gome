@@ -1,0 +1,11 @@
+生产新发版地址：
+http://deploy.ds.gome.com.cn/index#
+gui打包
+http://gui.ds.gome.com.cn:8080/#/task/taskList
+item-web
+uat后端版本号：1.0.0.11
+生产后端版本号：1.0.0.10
+
+qyg-web
+uat后端版本号：1.0.0.2
+生产后端版本号：1.0.0.2
